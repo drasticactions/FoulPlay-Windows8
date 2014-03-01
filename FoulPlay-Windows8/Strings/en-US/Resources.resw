@@ -117,137 +117,388 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DescriptionHeader.Text" xml:space="preserve">
-    <value>Description text:</value>
+  <data name="AboutMe" xml:space="preserve">
+    <value>About Me:</value>
   </data>
-  <data name="Group1Subtitle" xml:space="preserve">
-    <value>Group Subtitle: 1</value>
+  <data name="AboutMeCategory" xml:space="preserve">
+    <value>Introduction</value>
   </data>
-  <data name="Group1Title" xml:space="preserve">
-    <value>Group Title: 1</value>
+  <data name="Accept" xml:space="preserve">
+    <value>Accept</value>
   </data>
-  <data name="Group2Subtitle" xml:space="preserve">
-    <value>Group Subtitle: 2</value>
+  <data name="AddAsFriend" xml:space="preserve">
+    <value>Add As Friend</value>
   </data>
-  <data name="Group2Title" xml:space="preserve">
-    <value>Group Title: 2</value>
+  <data name="AppBarButtonText" xml:space="preserve">
+    <value>add</value>
   </data>
-  <data name="Group3Subtitle" xml:space="preserve">
-    <value>Group Subtitle: 3</value>
+  <data name="AppBarMenuItemText" xml:space="preserve">
+    <value>Menu Item</value>
   </data>
-  <data name="Group3Title" xml:space="preserve">
-    <value>Group Title: 3</value>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>PS</value>
   </data>
-  <data name="Group4Subtitle" xml:space="preserve">
-    <value>Group Subtitle: 4</value>
+  <data name="BatchFriendInvite" xml:space="preserve">
+    <value>Batch Friend Invite</value>
   </data>
-  <data name="Group4Title" xml:space="preserve">
-    <value>Group Title: 4</value>
+  <data name="CancelFriendRequest" xml:space="preserve">
+    <value>Cancel Friend Request</value>
   </data>
-  <data name="Group5Subtitle" xml:space="preserve">
-    <value>Group Subtitle: 5</value>
+  <data name="CancelNameRequest" xml:space="preserve">
+    <value>Cancel Name Request</value>
   </data>
-  <data name="Group5Title" xml:space="preserve">
-    <value>Group Title: 5</value>
+  <data name="CancelNameRequestError" xml:space="preserve">
+    <value>Cannot cancel the name request.</value>
   </data>
-  <data name="Group6Subtitle" xml:space="preserve">
-    <value>Group Subtitle: 6</value>
+  <data name="Conversation" xml:space="preserve">
+    <value>Conversation</value>
   </data>
-  <data name="Group6Title" xml:space="preserve">
-    <value>Group Title: 6</value>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="GroupDescription" xml:space="preserve">
-    <value>Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante</value>
+  <data name="DeleteFriendRequest" xml:space="preserve">
+    <value>Delete Friend Request</value>
   </data>
-  <data name="Item1Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 1</value>
+  <data name="DeleteNameRequest" xml:space="preserve">
+    <value>Delete Name Request</value>
   </data>
-  <data name="Item1Title" xml:space="preserve">
-    <value>Item Title: 1</value>
+  <data name="DislikeButton" xml:space="preserve">
+    <value>Dislike</value>
   </data>
-  <data name="Item2Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 2</value>
+  <data name="ElapsedTime" xml:space="preserve">
+    <value>Elapsed Time</value>
   </data>
-  <data name="Item2Title" xml:space="preserve">
-    <value>Item Title: 2</value>
+  <data name="FriendRequest" xml:space="preserve">
+    <value>Send Friend Request</value>
   </data>
-  <data name="Item3Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 3</value>
+  <data name="FriendRequestAlert" xml:space="preserve">
+    <value>Do you want to add this player as a Friend?</value>
   </data>
-  <data name="Item3Title" xml:space="preserve">
-    <value>Item Title: 3</value>
+  <data name="FriendRequestConfirm" xml:space="preserve">
+    <value>A Friend request will be sent to this player.</value>
   </data>
-  <data name="Item4Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 4</value>
+  <data name="FriendRequestReceived.Content" xml:space="preserve">
+    <value>Friend Requests (Received)</value>
   </data>
-  <data name="Item4Title" xml:space="preserve">
-    <value>Item Title: 4</value>
+  <data name="FriendRequestSent.Content" xml:space="preserve">
+    <value>Friend Requests (Sent)</value>
   </data>
-  <data name="Item5Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 5</value>
+  <data name="FriendSendError" xml:space="preserve">
+    <value>Cannot send the Friend Request.</value>
   </data>
-  <data name="Item5Title" xml:space="preserve">
-    <value>Item Title: 5</value>
+  <data name="FriendsFilterAll.Content" xml:space="preserve">
+    <value>All</value>
   </data>
-  <data name="Item6Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 6</value>
+  <data name="FriendsFilterBlockedPlayer.Content" xml:space="preserve">
+    <value>Blocked Players</value>
   </data>
-  <data name="Item6Title" xml:space="preserve">
-    <value>Item Title: 6</value>
+  <data name="FriendsFilterNameRequestReceived.Content" xml:space="preserve">
+    <value>Name Requests (Received)</value>
   </data>
-  <data name="Item7Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 7</value>
+  <data name="FriendsFilterNameRequestSent.Content" xml:space="preserve">
+    <value>Name Requests (Sent)</value>
   </data>
-  <data name="Item7Title" xml:space="preserve">
-    <value>Item Title: 7</value>
+  <data name="FriendsFilterOnline.Content" xml:space="preserve">
+    <value>Online</value>
   </data>
-  <data name="Item8Subtitle" xml:space="preserve">
-    <value>Item Subtitle: 8</value>
+  <data name="FriendsFilterPlayersMet.Content" xml:space="preserve">
+    <value>Players Met</value>
   </data>
-  <data name="Item8Title" xml:space="preserve">
-    <value>Item Title: 8</value>
+  <data name="FriendsFilterRequestReceived.Content" xml:space="preserve">
+    <value>Friend Requests (Received)</value>
   </data>
-  <data name="ItemContent" xml:space="preserve">
-    <value>Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse quisque donec dis praesent accumsan bibendum pellentesque condimentum adipiscing etiam consequat vivamus dictumst aliquam duis convallis scelerisque est parturient ullamcorper aliquet fusce suspendisse nunc hac eleifend amet blandit facilisi condimentum commodo scelerisque faucibus aenean ullamcorper ante mauris dignissim consectetuer nullam lorem vestibulum habitant conubia elementum pellentesque morbi facilisis arcu sollicitudin diam cubilia aptent vestibulum auctor eget dapibus pellentesque inceptos leo egestas interdum nulla consectetuer suspendisse adipiscing pellentesque proin lobortis sollicitudin augue elit mus congue fermentum parturient fringilla euismod feugiat</value>
+  <data name="FriendsFilterRequestSent.Content" xml:space="preserve">
+    <value>Friend Requests (Sent)</value>
   </data>
-  <data name="ItemContentFormat" xml:space="preserve">
-    <value>Item Content: {0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}</value>
+  <data name="FriendsPivot" xml:space="preserve">
+    <value>Friends</value>
   </data>
-  <data name="ItemDescription" xml:space="preserve">
-    <value>Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.</value>
+  <data name="FriendTotal" xml:space="preserve">
+    <value>{0} Friends</value>
+    <comment>{0} represents total number of friends.</comment>
   </data>
-  <data name="ItemSubTitle.Text" xml:space="preserve">
-    <value>Item Sub Title</value>
+  <data name="FromUser" xml:space="preserve">
+    <value>From</value>
   </data>
-  <data name="ItemTitle.Text" xml:space="preserve">
-    <value>Item Title</value>
+  <data name="GenericError" xml:space="preserve">
+    <value>(o_0)An Error Has Occured(O_o)</value>
   </data>
-  <data name="LongText.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper.</value>
-    <comment>"Section1DescriptionText" duplicated three times.</comment>
+  <data name="HiddenTrophy" xml:space="preserve">
+    <value>Hidden Trophy</value>
   </data>
-  <data name="Section1DescriptionText.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper.</value>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
   </data>
-  <data name="Section1Header.Header" xml:space="preserve">
-    <value>Section 1</value>
+  <data name="Invitations" xml:space="preserve">
+    <value>Invitations</value>
   </data>
-  <data name="Section1Subtitle.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit nonumy sed consectetuer ising elit, sed diam</value>
+  <data name="Invitation_singular" xml:space="preserve">
+    <value>Invitation</value>
   </data>
-  <data name="Section2Header.Header" xml:space="preserve">
-    <value>Section 2</value>
+  <data name="JoinInvitationExpired" xml:space="preserve">
+    <value>This invitation has expired.</value>
   </data>
-  <data name="Section3Header.Header" xml:space="preserve">
-    <value>Section 3</value>
+  <data name="LangChineseSimplified" xml:space="preserve">
+    <value>Chinese (Simplified)</value>
   </data>
-  <data name="Section3Subtitle.Text" xml:space="preserve">
-    <value>Section subtitle</value>
+  <data name="LangChineseTraditional" xml:space="preserve">
+    <value>Chinese (Traditional)</value>
   </data>
-  <data name="Section4Header.Header" xml:space="preserve">
-    <value>Section 4</value>
+  <data name="LangDanish" xml:space="preserve">
+    <value>Danish</value>
   </data>
-  <data name="Section2UnderTitle.Text" xml:space="preserve">
-    <value>Quisque in porta lorem dolor amet sed consectetuer ising elit, sed diam non my nibh uis mod wisi quip.</value>
+  <data name="LangDutch" xml:space="preserve">
+    <value>Dutch</value>
+  </data>
+  <data name="LangEnglishUK" xml:space="preserve">
+    <value>English (United Kingdom)</value>
+  </data>
+  <data name="LangEnglishUS" xml:space="preserve">
+    <value>English (United States)</value>
+  </data>
+  <data name="LangFinnish" xml:space="preserve">
+    <value>Finnish</value>
+  </data>
+  <data name="LangFrench" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="LangGerman" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="LangItalian" xml:space="preserve">
+    <value>Italian</value>
+  </data>
+  <data name="LangJapanese" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="LangKorean" xml:space="preserve">
+    <value>Korean</value>
+  </data>
+  <data name="LangNorwegian" xml:space="preserve">
+    <value>Norwegian</value>
+  </data>
+  <data name="LangPolish" xml:space="preserve">
+    <value>Polish</value>
+  </data>
+  <data name="LangPortugueseBrazil" xml:space="preserve">
+    <value>Portuguese (Brazil)</value>
+  </data>
+  <data name="LangPortuguesePortugal" xml:space="preserve">
+    <value>Portuguese (Portugal)</value>
+  </data>
+  <data name="LangRussian" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="LangSpanishLA" xml:space="preserve">
+    <value>Spanish (Latin America)</value>
+  </data>
+  <data name="LangSpanishSpain" xml:space="preserve">
+    <value>Spanish (Spain)</value>
+  </data>
+  <data name="LangSwedish" xml:space="preserve">
+    <value>Swedish</value>
+  </data>
+  <data name="LangTurkish" xml:space="preserve">
+    <value>Turkish</value>
+  </data>
+  <data name="LikeButton" xml:space="preserve">
+    <value>Like</value>
+  </data>
+  <data name="LiveFromPlaystation" xml:space="preserve">
+    <value>Live From Playstation</value>
+  </data>
+  <data name="LiveTileSupport" xml:space="preserve">
+    <value>Live Tile Support</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MessagesPivot" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="MyLanguages" xml:space="preserve">
+    <value>My Languages:</value>
+  </data>
+  <data name="NameRequestAlert" xml:space="preserve">
+    <value>Do you want to reveal your name to this Friend?</value>
+  </data>
+  <data name="NameRequestReceived" xml:space="preserve">
+    <value>Name Request (Received)</value>
+  </data>
+  <data name="NameRequestSendError" xml:space="preserve">
+    <value>Cannot send the name request.</value>
+  </data>
+  <data name="NameRequestSent" xml:space="preserve">
+    <value>Name Request (Sent)</value>
+  </data>
+  <data name="NoActivities" xml:space="preserve">
+    <value>There are no activities.</value>
+  </data>
+  <data name="NoFriends" xml:space="preserve">
+    <value>No Friends Found.</value>
+  </data>
+  <data name="NoGameAlert" xml:space="preserve">
+    <value>There are no new game alerts.</value>
+  </data>
+  <data name="NoInvites" xml:space="preserve">
+    <value>There are no invitations.</value>
+  </data>
+  <data name="NoMessages" xml:space="preserve">
+    <value>There are no new messages.</value>
+  </data>
+  <data name="NoNotifications" xml:space="preserve">
+    <value>There are no new notifications.</value>
+  </data>
+  <data name="NoPlayers" xml:space="preserve">
+    <value>No players found.</value>
+  </data>
+  <data name="NotificationsHeader" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="NotificationSupport" xml:space="preserve">
+    <value>Notification Support</value>
+  </data>
+  <data name="Notification_invited" xml:space="preserve">
+    <value>You received an invitation.</value>
+  </data>
+  <data name="NoTrophyInfo" xml:space="preserve">
+    <value>There are no trophies.
+You can earn trophies by playing games that support them.</value>
+  </data>
+  <data name="NowPlaying" xml:space="preserve">
+    <value>Now Playing</value>
+  </data>
+  <data name="NumberOfPlayers" xml:space="preserve">
+    <value>Number Of Players</value>
+  </data>
+  <data name="PlayersJoinedParty" xml:space="preserve">
+    <value>Players Joining the Party</value>
+  </data>
+  <data name="PlayersJoinedSession" xml:space="preserve">
+    <value>Players Joining the Session</value>
+  </data>
+  <data name="ProfileHeader" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="RealNameRequest" xml:space="preserve">
+    <value>Send Name Request</value>
+  </data>
+  <data name="RecentActivity" xml:space="preserve">
+    <value>Recent Activity</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RemoveFromFriends" xml:space="preserve">
+    <value>Remove From Friends</value>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>en-US</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="RevealName" xml:space="preserve">
+    <value>Reveal Name</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SendButton" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SendMessage" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ToMessageHeader" xml:space="preserve">
+    <value>To {0}</value>
+    <comment>{0} represents the person who is being sent the message</comment>
+  </data>
+  <data name="TotalFriends" xml:space="preserve">
+    <value>{0} Friends</value>
+    <comment>{0} represents the total amount of friends.</comment>
+  </data>
+  <data name="TrophyBronze" xml:space="preserve">
+    <value>Bronze</value>
+  </data>
+  <data name="TrophyCommon" xml:space="preserve">
+    <value>Common</value>
+  </data>
+  <data name="TrophyDetail" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="TrophyEarned" xml:space="preserve">
+    <value>Earned</value>
+  </data>
+  <data name="TrophyEarnedDate" xml:space="preserve">
+    <value>Earned Date</value>
+  </data>
+  <data name="TrophyGold" xml:space="preserve">
+    <value>Gold</value>
+  </data>
+  <data name="TrophyGrade" xml:space="preserve">
+    <value>Grade</value>
+  </data>
+  <data name="TrophyHeader" xml:space="preserve">
+    <value>Trophies</value>
+  </data>
+  <data name="TrophyHidden" xml:space="preserve">
+    <value>Hidden</value>
+  </data>
+  <data name="TrophyNotEarned" xml:space="preserve">
+    <value>Not Earned</value>
+  </data>
+  <data name="TrophyPlatinum" xml:space="preserve">
+    <value>Platinum</value>
+  </data>
+  <data name="TrophyRare" xml:space="preserve">
+    <value>Rare</value>
+  </data>
+  <data name="TrophyRarity" xml:space="preserve">
+    <value>Rarity</value>
+  </data>
+  <data name="TrophySilver" xml:space="preserve">
+    <value>Silver</value>
+  </data>
+  <data name="TrophyStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TrophyTotal" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="TrophyUltraRare" xml:space="preserve">
+    <value>Ultra Rare</value>
+  </data>
+  <data name="TrophyVeryRare" xml:space="preserve">
+    <value>Very Rare</value>
+  </data>
+  <data name="UserSearch" xml:space="preserve">
+    <value>User Search</value>
+  </data>
+  <data name="ViewFriendRequest" xml:space="preserve">
+    <value>View Friend Request</value>
+  </data>
+  <data name="ViewInformation" xml:space="preserve">
+    <value>View Information</value>
+  </data>
+  <data name="ViewNameRequest" xml:space="preserve">
+    <value>View Name Request</value>
+  </data>
+  <data name="VoiceMessage" xml:space="preserve">
+    <value>Voice Message</value>
   </data>
 </root>

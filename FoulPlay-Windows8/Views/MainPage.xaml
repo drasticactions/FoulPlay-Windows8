@@ -35,15 +35,15 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="pageTitle" Margin="15,0,0,0" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1"
+            <TextBlock x:Name="pageTitle" Margin="15,0,0,0" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="0"
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
         </Grid>
         
-        <ScrollViewer VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Enabled" HorizontalAlignment="Left" Grid.Row="1">
+        <ScrollViewer ZoomMode="Disabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Enabled" HorizontalAlignment="Left" Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="600"/>
-                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="600"/>
                     <ColumnDefinition Width="700"/>
                     <ColumnDefinition Width="600"/>
                 </Grid.ColumnDefinitions>
@@ -76,15 +76,24 @@
                     </Border>
                 </Grid>
             </Grid>
-                <Grid Margin="15" Grid.Column="1" Width="400">
+                <Grid Margin="15" Grid.Column="1" Width="500">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Margin="15" Text="Friends" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
-                    <ProgressBar x:Name="FriendsProgressBar" Grid.Row="1" IsIndeterminate="True"/>
-                    <ListView x:Name="FriendsListView" Grid.Row="2" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendList}">
+                    <ComboBox HorizontalAlignment="Stretch" x:Name="FilterComboBox"  SelectedIndex="0" SelectionChanged="FilterComboBox_OnSelectionChanged" Grid.Row="1">
+                        <ComboBoxItem x:Uid="FriendsFilterOnline"/>
+                        <ComboBoxItem x:Uid="FriendsFilterAll"/>
+                        <ComboBoxItem x:Uid="FriendRequestReceived"/>
+                        <ComboBoxItem x:Uid="FriendRequestSent"/>
+                        <ComboBoxItem x:Uid="FriendsFilterNameRequestReceived"/>
+                        <ComboBoxItem x:Uid="FriendsFilterNameRequestSent"/>
+                    </ComboBox>
+                    <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar" Grid.Row="2" IsIndeterminate="True"/>
+                    <ListView x:Name="FriendsListView" Grid.Row="3" IsSwipeEnabled="False" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendList}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -181,7 +190,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="15" Text="What's New" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    <TextBlock Margin="15" Text="Messages" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
                     <Border Margin="15" BorderBrush="White" BorderThickness="2" Grid.Row="1">
                         <Grid>
 

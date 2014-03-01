@@ -194,6 +194,12 @@
       <Name>Foulplay-Windows8.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="MultilingualResources\FoulPlay-Windows8_en.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MultilingualResources\FoulPlay-Windows8_ja-JP.xlf" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Dynamic;
 using System.Threading.Tasks;
 using FoulPlay_Windows8.Common;
 using System;
@@ -74,10 +75,10 @@ namespace FoulPlay_Windows8.Views
         /// session. The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            await
-                GetFriendsList(true, false, false,
-                    false, true, false,
-                    false);
+            if (FriendCollection == null)
+            {
+                 await GetFriendsList(true, false, false, false, true, false, false);
+            }
         }
 
         /// <summary>
@@ -150,6 +151,38 @@ namespace FoulPlay_Windows8.Views
             FriendsListView.DataContext = FriendCollection;
             FriendsProgressBar.Visibility = Visibility.Collapsed;
             return true;
+        }
+
+        private async void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (FilterComboBox == null) return;
+            switch (FilterComboBox.SelectedIndex)
+            {
+                case 0:
+                    // Friends - Online
+                    await GetFriendsList(true, false, false, false, true, false, false);
+                    break;
+                case 1:
+                    // All
+                    await GetFriendsList(false, false, false, false, true, false, false);
+                    break;
+                case 2:
+                    // Friend Request Received
+                    await GetFriendsList(false, false, false, false, true, false, true);
+                    break;
+                case 3:
+                    // Friend Requests Sent
+                    await GetFriendsList(false, false, false, false, true, true, false);
+                    break;
+                case 4:
+                    // Name Requests Received
+                    await GetFriendsList(true, false, false, true, true, false, false);
+                    break;
+                case 5:
+                    // Name Requests Sent
+                    await GetFriendsList(false, false, false, true, true, true, false);
+                    break;
+            }
         }
     }
 }
