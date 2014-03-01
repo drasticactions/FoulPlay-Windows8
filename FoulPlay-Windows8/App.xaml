@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="FoulPlay_Windows8.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FoulPlay_Windows8"
+    xmlns:localData="using:FoulPlay_Windows8.Data"
+    xmlns:tools="using:FoulPlay_Windows8.Tools">
+
+    <Application.Resources>
+        <!-- Application-specific resources -->
+
+        <x:String x:Key="AppName">FoulPlay</x:String>
+        <tools:OnlineConverter x:Key="OnlineConverter" />
+        <tools:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    </Application.Resources>
+</Application>

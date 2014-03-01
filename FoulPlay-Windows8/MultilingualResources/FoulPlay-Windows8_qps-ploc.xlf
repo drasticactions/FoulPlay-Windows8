@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="qps-ploc" original="FoulPlay-Windows8_Multilingual.prilog.xml" tool-id="MultilingualAppToolkit" product-name="FoulPlay-Windows8" product-version="1.0.0.0" build-num="0">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="2.1.1100.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="Resources">
+        <trans-unit translate="yes" id="Resources\Section2UnderTitle\Text" xml:space="preserve">
+          <source>Quisque in porta lorem dolor amet sed consectetuer ising elit, sed diam non my nibh uis mod wisi quip.</source>
+          <target state="new">Quisque in porta lorem dolor amet sed consectetuer ising elit, sed diam non my nibh uis mod wisi quip.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Section4Header\Header" xml:space="preserve">
+          <source>Section 4</source>
+          <target state="new">Section 4</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Section3Subtitle\Text" xml:space="preserve">
+          <source>Section subtitle</source>
+          <target state="new">Section subtitle</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Section3Header\Header" xml:space="preserve">
+          <source>Section 3</source>
+          <target state="new">Section 3</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Section2Header\Header" xml:space="preserve">
+          <source>Section 2</source>
+          <target state="new">Section 2</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Section1Subtitle\Text" xml:space="preserve">
+          <source>Lorem ipsum dolor sit nonumy sed consectetuer ising elit, sed diam</source>
+          <target state="new">Lorem ipsum dolor sit nonumy sed consectetuer ising elit, sed diam</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Section1Header\Header" xml:space="preserve">
+          <source>Section 1</source>
+          <target state="new">Section 1</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Section1DescriptionText\Text" xml:space="preserve">
+          <source>Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper.</source>
+          <target state="new">Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LongText\Text" xml:space="preserve">
+          <source>Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper.</source>
+          <target state="new">Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper. Lorem ipsum dolor sit amet, consectetuer ising elit, sed diam nonummy nibh uismod tincidunt ut laoreet suscipit lobortis ni ut wisi quipexerci quis consequat minim veniam, quis nostrud exerci tation ullam corper.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">"Section1DescriptionText" duplicated three times.</note>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ItemTitle\Text" xml:space="preserve">
+          <source>Item Title</source>
+          <target state="new">Item Title</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ItemSubTitle\Text" xml:space="preserve">
+          <source>Item Sub Title</source>
+          <target state="new">Item Sub Title</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ItemDescription" xml:space="preserve">
+          <source>Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.</source>
+          <target state="new">Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ItemContentFormat" xml:space="preserve">
+          <source>Item Content: {0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}</source>
+          <target state="new">Item Content: {0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}\n\n{0}</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ItemContent" xml:space="preserve">
+          <source>Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse quisque donec dis praesent accumsan bibendum pellentesque condimentum adipiscing etiam consequat vivamus dictumst aliquam duis convallis scelerisque est parturient ullamcorper aliquet fusce suspendisse nunc hac eleifend amet blandit facilisi condimentum commodo scelerisque faucibus aenean ullamcorper ante mauris dignissim consectetuer nullam lorem vestibulum habitant conubia elementum pellentesque morbi facilisis arcu sollicitudin diam cubilia aptent vestibulum auctor eget dapibus pellentesque inceptos leo egestas interdum nulla consectetuer suspendisse adipiscing pellentesque proin lobortis sollicitudin augue elit mus congue fermentum parturient fringilla euismod feugiat</source>
+          <target state="new">Curabitur class aliquam vestibulum nam curae maecenas sed integer cras phasellus suspendisse quisque donec dis praesent accumsan bibendum pellentesque condimentum adipiscing etiam consequat vivamus dictumst aliquam duis convallis scelerisque est parturient ullamcorper aliquet fusce suspendisse nunc hac eleifend amet blandit facilisi condimentum commodo scelerisque faucibus aenean ullamcorper ante mauris dignissim consectetuer nullam lorem vestibulum habitant conubia elementum pellentesque morbi facilisis arcu sollicitudin diam cubilia aptent vestibulum auctor eget dapibus pellentesque inceptos leo egestas interdum nulla consectetuer suspendisse adipiscing pellentesque proin lobortis sollicitudin augue elit mus congue fermentum parturient fringilla euismod feugiat</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item8Title" xml:space="preserve">
+          <source>Item Title: 8</source>
+          <target state="new">Item Title: 8</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item8Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 8</source>
+          <target state="new">Item Subtitle: 8</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item7Title" xml:space="preserve">
+          <source>Item Title: 7</source>
+          <target state="new">Item Title: 7</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item7Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 7</source>
+          <target state="new">Item Subtitle: 7</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item6Title" xml:space="preserve">
+          <source>Item Title: 6</source>
+          <target state="new">Item Title: 6</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item6Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 6</source>
+          <target state="new">Item Subtitle: 6</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item5Title" xml:space="preserve">
+          <source>Item Title: 5</source>
+          <target state="new">Item Title: 5</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item5Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 5</source>
+          <target state="new">Item Subtitle: 5</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item4Title" xml:space="preserve">
+          <source>Item Title: 4</source>
+          <target state="new">Item Title: 4</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item4Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 4</source>
+          <target state="new">Item Subtitle: 4</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item3Title" xml:space="preserve">
+          <source>Item Title: 3</source>
+          <target state="new">Item Title: 3</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item3Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 3</source>
+          <target state="new">Item Subtitle: 3</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item2Title" xml:space="preserve">
+          <source>Item Title: 2</source>
+          <target state="new">Item Title: 2</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item2Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 2</source>
+          <target state="new">Item Subtitle: 2</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item1Title" xml:space="preserve">
+          <source>Item Title: 1</source>
+          <target state="new">Item Title: 1</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Item1Subtitle" xml:space="preserve">
+          <source>Item Subtitle: 1</source>
+          <target state="new">Item Subtitle: 1</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\GroupDescription" xml:space="preserve">
+          <source>Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante</source>
+          <target state="new">Group Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tempor scelerisque lorem in vehicula. Aliquam tincidunt, lacus ut sagittis tristique, turpis massa volutpat augue, eu rutrum ligula ante a ante</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group6Title" xml:space="preserve">
+          <source>Group Title: 6</source>
+          <target state="new">Group Title: 6</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group6Subtitle" xml:space="preserve">
+          <source>Group Subtitle: 6</source>
+          <target state="new">Group Subtitle: 6</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group5Title" xml:space="preserve">
+          <source>Group Title: 5</source>
+          <target state="new">Group Title: 5</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group5Subtitle" xml:space="preserve">
+          <source>Group Subtitle: 5</source>
+          <target state="new">Group Subtitle: 5</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group4Title" xml:space="preserve">
+          <source>Group Title: 4</source>
+          <target state="new">Group Title: 4</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group4Subtitle" xml:space="preserve">
+          <source>Group Subtitle: 4</source>
+          <target state="new">Group Subtitle: 4</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group3Title" xml:space="preserve">
+          <source>Group Title: 3</source>
+          <target state="new">Group Title: 3</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group3Subtitle" xml:space="preserve">
+          <source>Group Subtitle: 3</source>
+          <target state="new">Group Subtitle: 3</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group2Title" xml:space="preserve">
+          <source>Group Title: 2</source>
+          <target state="new">Group Title: 2</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group2Subtitle" xml:space="preserve">
+          <source>Group Subtitle: 2</source>
+          <target state="new">Group Subtitle: 2</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group1Title" xml:space="preserve">
+          <source>Group Title: 1</source>
+          <target state="new">Group Title: 1</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Group1Subtitle" xml:space="preserve">
+          <source>Group Subtitle: 1</source>
+          <target state="new">Group Subtitle: 1</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DescriptionHeader\Text" xml:space="preserve">
+          <source>Description text:</source>
+          <target state="new">Description text:</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
