@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 using FoulPlay_Windows8.Common;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace FoulPlay_Windows8.Views
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private static UserAccountEntity.User _user;
         public static InfiniteScrollingCollection FriendCollection { get; set; }
-
+        private static RecentActivityManager _recentActivityManager = new RecentActivityManager();
         /// <summary>
         /// This can be changed to a strongly typed view model.
         /// </summary>
@@ -79,6 +80,28 @@ namespace FoulPlay_Windows8.Views
             {
                  await GetFriendsList(true, false, false, false, true, false, false);
             }
+            //await BuildActivityFields();
+        }
+
+        private async Task<bool> BuildActivityFields()
+        {
+            var recentActivityEntity = await _recentActivityManager.GetActivityFeed(_user.OnlineId, 0, false, true,
+                App.UserAccountEntity);
+            RecentActivityEntity.Feed feedItem;
+            return true;
+        }
+
+        private string GetImageUrl(RecentActivityEntity.Feed item)
+        {
+            switch (item.StoryType)
+            {
+                case "FRIENDED":
+                    var target = item.Targets.FirstOrDefault(o => o.Type.Equals("ONLINE_ID"));
+                    return target != null ? target.ImageUrl : null;
+                default:
+                    return item.SmallImageUrl;
+            }
+
         }
 
         /// <summary>

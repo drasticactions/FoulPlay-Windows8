@@ -128,6 +128,7 @@
     <Compile Include="Common\NavigationHelper.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Tools\ActivityTemplateSelector.cs" />
     <Compile Include="Tools\BooleanToVisibilityConverter.cs" />
     <Compile Include="Tools\InfiniteScrollingCollection.cs" />
     <Compile Include="Tools\OnlineConverter.cs" />

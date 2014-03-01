@@ -102,10 +102,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\FriendsEntity.cs" />
+    <Compile Include="Entities\RecentActivityEntity.cs" />
     <Compile Include="Entities\UserAccountEntity.cs" />
     <Compile Include="Entities\UserAuthenticationEntity.cs" />
     <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\FriendManager.cs" />
+    <Compile Include="Managers\RecentActivityManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\UrlConstants.cs" />
   </ItemGroup>
