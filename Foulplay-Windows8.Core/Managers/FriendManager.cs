@@ -37,7 +37,9 @@ namespace Foulplay_Windows8.Core.Managers
                 if (blockedPlayer) url = string.Format("https://{0}-prof.np.community.playstation.net/userProfile/v1/users/{1}/blockList?fields=@default,@profile&offset={2}", user.Region, username, offset);
                 // TODO: Fix this cheap hack to get around caching issue. For some reason, no-cache is not working...
                 url += "&r=" + Guid.NewGuid();
+                string language = user.Language;
                 var theAuthClient = new HttpClient();
+                theAuthClient.DefaultRequestHeaders.Add("Accept-Language", language);
                 var request = new HttpRequestMessage(HttpMethod.Get, url);
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccountEntity.GetAccessToken());
                 request.Headers.CacheControl = new CacheControlHeaderValue { NoCache = true, MustRevalidate = true };

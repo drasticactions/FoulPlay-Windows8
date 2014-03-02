@@ -69,5 +69,8 @@
                 </Grid>
             </Border>
         </DataTemplate>
+        <tools:ConversationUsersConverter x:Key="ConversationUsersConverter" />
+        <tools:HasSeenConverter x:Key="HasSeenConverter" />
+        <tools:DateConverter x:Key="DateConverter" />
     </Application.Resources>
 </Application>

@@ -32,7 +32,9 @@ namespace Foulplay_Windows8.Core.Managers
                 // "sce_title_preset" represents the "Interactive" filter.
                 url += string.Format("sce_title_preset={0}&", titlePreset);
                 url += string.Format("query={0}&", query);
+                string language = userAccountEntity.GetUserEntity().Language;
                 var theAuthClient = new HttpClient();
+                theAuthClient.DefaultRequestHeaders.Add("Accept-Language", language);
 
                 // TODO: Fix this cheap hack to get around caching issue. For some reason, no-cache is not working...
                 url += "&r=" + Guid.NewGuid();

@@ -104,6 +104,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="MultilingualResources\FoulPlay-Windows8_qps-ploc.xlf" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -130,7 +131,10 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Tools\ActivityTemplateSelector.cs" />
     <Compile Include="Tools\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Tools\InfiniteScrollingCollection.cs" />
+    <Compile Include="Tools\ConversationUsersConverter.cs" />
+    <Compile Include="Tools\DateConverter.cs" />
+    <Compile Include="Tools\HasSeenConverter.cs" />
+    <Compile Include="Tools\FriendScrollingCollection.cs" />
     <Compile Include="Tools\OnlineConverter.cs" />
     <Compile Include="Views\FriendsView.xaml.cs">
       <DependentUpon>FriendsView.xaml</DependentUpon>
@@ -209,6 +213,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MultilingualResources\FoulPlay-Windows8_ja-JP.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

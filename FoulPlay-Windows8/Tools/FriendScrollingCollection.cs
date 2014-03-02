@@ -6,15 +6,37 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation;
+using Windows.UI.Xaml.Data;
 using FoulPlay_Windows8.Annotations;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class InfiniteScrollingCollection : INotifyPropertyChanged
+    public class FriendScrollingCollection : ObservableCollection<FriendsEntity.Friend>, ISupportIncrementalLoading
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public new event PropertyChangedEventHandler PropertyChanged;
+        public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
+        {
+            return LoadDataAsync(count).AsAsyncOperation();
+        }
+        public FriendScrollingCollection()
+        {
+            HasMoreItems = true;
+            IsLoading = false;
+            UserAccountEntity = App.UserAccountEntity;
+        }
+        private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
+        {
+            if (!IsLoading)
+            {
+                await LoadFriends(this.Username);
+            }
+            var ret = new LoadMoreItemsResult { Count = count };
+            return ret;
+        }
+
         public bool HasMoreItems { get; protected set; }
         public string Username { get; set; }
 
@@ -33,10 +55,6 @@ namespace FoulPlay_Windows8.Tools
         public bool RecentlyPlayed;
 
         public bool BlockedPlayer;
-
-        public bool IsNews;
-
-        public bool StorePromo;
 
         public UserAccountEntity UserAccountEntity;
 
@@ -66,11 +84,6 @@ namespace FoulPlay_Windows8.Tools
             }
         }
 
-        public ObservableCollection<FriendsEntity.Friend> FriendList
-        {
-            get;
-            set;
-        }
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -78,19 +91,18 @@ namespace FoulPlay_Windows8.Tools
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public async void LoadFriends(string username)
+        public async Task<bool> LoadFriends(string username)
         {
             IsLoading = true;
             var friendManager = new FriendManager();
             var friendEntity = await friendManager.GetFriendsList(username, Offset, BlockedPlayer, RecentlyPlayed, PersonalDetailSharing, FriendStatus, Requesting, Requested, OnlineFilter, UserAccountEntity);
             if (friendEntity == null)
             {
-                //HasMoreItems = false;
-                return;
+                return false;
             }
             foreach (var friend in friendEntity.FriendList)
             {
-                FriendList.Add(friend);
+                Add(friend);
             }
             if (friendEntity.FriendList.Any())
             {
@@ -102,6 +114,7 @@ namespace FoulPlay_Windows8.Tools
                 HasMoreItems = false;
             }
             IsLoading = false;
+            return true;
         }
     }
 }
