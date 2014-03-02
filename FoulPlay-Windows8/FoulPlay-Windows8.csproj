@@ -132,6 +132,9 @@
     <Compile Include="Tools\BooleanToVisibilityConverter.cs" />
     <Compile Include="Tools\InfiniteScrollingCollection.cs" />
     <Compile Include="Tools\OnlineConverter.cs" />
+    <Compile Include="Views\FriendsView.xaml.cs">
+      <DependentUpon>FriendsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,7 @@
     </PRIResource>
     <Content Include="Assets\Background.jpg" />
     <Content Include="Assets\No-Trophy-Icon.png" />
+    <Content Include="Assets\phone_trophy_icon_compareTrophies.png" />
     <Content Include="Assets\PSPlus.png" />
     <Content Include="Assets\Trophy-icon-bronze.png" />
     <Content Include="Assets\Trophy-icon-Gold.png" />
@@ -184,6 +188,10 @@
     <Page Include="ItemPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FriendsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>

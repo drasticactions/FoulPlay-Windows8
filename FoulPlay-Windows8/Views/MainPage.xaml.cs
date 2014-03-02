@@ -58,6 +58,7 @@ namespace FoulPlay_Windows8.Views
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
+            CreateMenu();
             _user = App.UserAccountEntity.GetUserEntity();
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
@@ -78,9 +79,34 @@ namespace FoulPlay_Windows8.Views
         {
             if (FriendCollection == null)
             {
-                 await GetFriendsList(true, false, false, false, true, false, false);
+                 //await GetFriendsList(true, false, false, false, true, false, false);
             }
             await BuildActivityFields();
+        }
+
+        private void CreateMenu()
+        {
+            List<MenuItem> menuItems = new List<MenuItem>();
+            menuItems.Add(new MenuItem("test", "Friends"));
+            menuItems.Add(new MenuItem("test", "Recent Activities"));
+            menuItems.Add(new MenuItem("test", "Trophies"));
+            menuItems.Add(new MenuItem("test", "Live From Playstation"));
+            menuItems.Add(new MenuItem("test", "Profile"));
+            menuItems.Add(new MenuItem("test", "Messages"));
+            MenuGridView.ItemsSource = menuItems;
+        }
+
+        private class MenuItem
+        {
+            public string Text { get; private set; }
+
+            public string Icon { get; private set; }
+
+            public MenuItem(string icon, string text)
+            {
+                Text = text;
+                Icon = icon;
+            }
         }
 
         private async Task<bool> BuildActivityFields()
@@ -140,73 +166,73 @@ namespace FoulPlay_Windows8.Views
 
         #endregion
 
-        public async Task<bool> GetFriendsList(bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,
-            bool personalDetailSharing, bool friendStatus, bool requesting, bool requested)
-        {
-            var friendManager = new FriendManager();
-            FriendCollection = new InfiniteScrollingCollection
-            {
-                FriendList = new ObservableCollection<FriendsEntity.Friend>(),
-                UserAccountEntity = App.UserAccountEntity,
-                Offset = 32,
-                OnlineFilter = onlineFilter,
-                Requested = requested,
-                Requesting = requesting,
-                PersonalDetailSharing = personalDetailSharing,
-                FriendStatus = friendStatus
-            };
-            var items =
-                await
-                    friendManager.GetFriendsList(_user.OnlineId, 0, blockedPlayer, recentlyPlayed, personalDetailSharing,
-                        friendStatus, requesting, requested, onlineFilter, App.UserAccountEntity);
-            if (items == null)
-            {
-                //FriendsMessageTextBlock.Visibility = Visibility.Visible;
-                //FriendsLongListSelector.DataContext = FriendCollection;
-                return false;
-            }
-            //FriendsMessageTextBlock.Visibility = Visibility.Collapsed;
-            //FriendsMessageTextBlock.Visibility = !items.FriendList.Any() ? Visibility.Visible : Visibility.Collapsed;
-            foreach (var item in items.FriendList)
-            {
-                FriendCollection.FriendList.Add(item);
-            }
-            //FriendsLongListSelector.ItemRealized += friendList_ItemRealized;
-            FriendsListView.DataContext = FriendCollection;
-            FriendsProgressBar.Visibility = Visibility.Collapsed;
-            return true;
-        }
+        //public async Task<bool> GetFriendsList(bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,
+        //    bool personalDetailSharing, bool friendStatus, bool requesting, bool requested)
+        //{
+        //    var friendManager = new FriendManager();
+        //    FriendCollection = new InfiniteScrollingCollection
+        //    {
+        //        FriendList = new ObservableCollection<FriendsEntity.Friend>(),
+        //        UserAccountEntity = App.UserAccountEntity,
+        //        Offset = 32,
+        //        OnlineFilter = onlineFilter,
+        //        Requested = requested,
+        //        Requesting = requesting,
+        //        PersonalDetailSharing = personalDetailSharing,
+        //        FriendStatus = friendStatus
+        //    };
+        //    var items =
+        //        await
+        //            friendManager.GetFriendsList(_user.OnlineId, 0, blockedPlayer, recentlyPlayed, personalDetailSharing,
+        //                friendStatus, requesting, requested, onlineFilter, App.UserAccountEntity);
+        //    if (items == null)
+        //    {
+        //        //FriendsMessageTextBlock.Visibility = Visibility.Visible;
+        //        //FriendsLongListSelector.DataContext = FriendCollection;
+        //        return false;
+        //    }
+        //    //FriendsMessageTextBlock.Visibility = Visibility.Collapsed;
+        //    //FriendsMessageTextBlock.Visibility = !items.FriendList.Any() ? Visibility.Visible : Visibility.Collapsed;
+        //    foreach (var item in items.FriendList)
+        //    {
+        //        FriendCollection.FriendList.Add(item);
+        //    }
+        //    //FriendsLongListSelector.ItemRealized += friendList_ItemRealized;
+        //    FriendsListView.DataContext = FriendCollection;
+        //    FriendsProgressBar.Visibility = Visibility.Collapsed;
+        //    return true;
+        //}
 
-        private async void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (FilterComboBox == null) return;
-            switch (FilterComboBox.SelectedIndex)
-            {
-                case 0:
-                    // Friends - Online
-                    await GetFriendsList(true, false, false, false, true, false, false);
-                    break;
-                case 1:
-                    // All
-                    await GetFriendsList(false, false, false, false, true, false, false);
-                    break;
-                case 2:
-                    // Friend Request Received
-                    await GetFriendsList(false, false, false, false, true, false, true);
-                    break;
-                case 3:
-                    // Friend Requests Sent
-                    await GetFriendsList(false, false, false, false, true, true, false);
-                    break;
-                case 4:
-                    // Name Requests Received
-                    await GetFriendsList(true, false, false, true, true, false, false);
-                    break;
-                case 5:
-                    // Name Requests Sent
-                    await GetFriendsList(false, false, false, true, true, true, false);
-                    break;
-            }
-        }
+        //private async void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (FilterComboBox == null) return;
+        //    switch (FilterComboBox.SelectedIndex)
+        //    {
+        //        case 0:
+        //            // Friends - Online
+        //            await GetFriendsList(true, false, false, false, true, false, false);
+        //            break;
+        //        case 1:
+        //            // All
+        //            await GetFriendsList(false, false, false, false, true, false, false);
+        //            break;
+        //        case 2:
+        //            // Friend Request Received
+        //            await GetFriendsList(false, false, false, false, true, false, true);
+        //            break;
+        //        case 3:
+        //            // Friend Requests Sent
+        //            await GetFriendsList(false, false, false, false, true, true, false);
+        //            break;
+        //        case 4:
+        //            // Name Requests Received
+        //            await GetFriendsList(true, false, false, true, true, false, false);
+        //            break;
+        //        case 5:
+        //            // Name Requests Sent
+        //            await GetFriendsList(false, false, false, true, true, true, false);
+        //            break;
+        //    }
+        //}
     }
 }

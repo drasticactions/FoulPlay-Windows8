@@ -54,5 +54,20 @@
                 <TextBlock Grid.Row="1" Margin="5" Foreground="#3F454F" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Caption}"/>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="MenuTemplate">
+            <Border Margin="15" BorderBrush="White" Width="120" Height="120" BorderThickness="1">
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="#DBDEE7" Opacity="0.15" />
+                    </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image Width="30" VerticalAlignment="Bottom" Source="/Assets/phone_trophy_icon_compareTrophies.png"/>
+                    <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" TextWrapping="Wrap" Text="{Binding Text}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
     </Application.Resources>
 </Application>
