@@ -8,47 +8,11 @@
     xmlns:common="using:FoulPlay_Windows8.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tools="using:FoulPlay_Windows8.Tools"
     mc:Ignorable="d">
 
     <Page.Resources>
-    <DataTemplate x:Name="FirstActivityDataTemplate">
-            <Grid Width="300" Height="200">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <TextBlock Margin="15" FontSize="40" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Grid.Row="0" Text="{Binding Caption}" />
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Border VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Width="25" Height="25">
-                        <Image Stretch="UniformToFill" />
-                    </Border>
-                    <TextBlock Text="" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" />
-                </Grid>
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Name="ActivityDataTemplate">
-            <Grid Width="300" Height="200">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="50"/>
-                </Grid.RowDefinitions>
-                <TextBlock Margin="15" FontSize="40" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Grid.Row="0" Text="{Binding Caption}" />
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Border VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="0" Width="25" Height="25">
-                        <Image Stretch="UniformToFill" />
-                    </Border>
-                    <TextBlock Text="" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="20" />
-                </Grid>
-            </Grid>
-        </DataTemplate>
+        <tools:ActivityTemplateSelector x:Name="ActivityTemplateSelector" StoreActivityDataTemplate="{StaticResource StoreActivityDataTemplate}" ActivityDataTemplate="{StaticResource ActivityDataTemplate}" />
     </Page.Resources>
 
     <!--
@@ -56,7 +20,10 @@
         * Row 0 contains the back button and page title
         * Row 1 contains the rest of the page layout
     -->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Background.jpg"/>
+        </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
                 <EntranceThemeTransition/>
@@ -72,7 +39,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="pageTitle" Margin="15,0,0,0" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="0"
+            <TextBlock x:Name="pageTitle" Margin="50,0,0,0" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="0"
                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
         </Grid>
         
@@ -80,27 +47,18 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="600"/>
-                    <ColumnDefinition Width="600"/>
+                    <ColumnDefinition Width="800"/>
                     <ColumnDefinition Width="700"/>
                     <ColumnDefinition Width="600"/>
                 </Grid.ColumnDefinitions>
                 <Grid Margin="15" Grid.Column="0" Width="500">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="70"/>
-                    <RowDefinition Height="*"/>
-                    
-                    </Grid.RowDefinitions>
-                <TextBlock Margin="15" Text="What's New" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
-                
-            </Grid>
-                <Grid Margin="15" Grid.Column="1" Width="500">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="15" Text="Friends" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    <TextBlock Margin="0,15,0,0" Text="Friends" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
                     <ComboBox HorizontalAlignment="Stretch" x:Name="FilterComboBox"  SelectedIndex="0" SelectionChanged="FilterComboBox_OnSelectionChanged" Grid.Row="1">
                         <ComboBoxItem x:Uid="FriendsFilterOnline"/>
                         <ComboBoxItem x:Uid="FriendsFilterAll"/>
@@ -118,19 +76,22 @@
                         </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Grid Margin="6">
+                                <Grid>
+                                    <Grid.Background>
+                                        <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />
+                                    </Grid.Background>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="25" />
                                         <ColumnDefinition Width="75" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left"
+                                    <Rectangle Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left"
                                                    Grid.Column="0" Width="15" Height="15"
                                                    Fill="{Binding Presence.PrimaryInfo.OnlineStatus, Converter={StaticResource OnlineConverter}}" />
-                                    <Border VerticalAlignment="Top" Grid.Column="1" Width="70" Height="70">
+                                    <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
                                         <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
                                     </Border>
-                                    <Grid VerticalAlignment="Top" Grid.Column="2">
+                                    <Grid VerticalAlignment="Center" Grid.Column="2">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="Auto" />
@@ -138,12 +99,12 @@
                                         <Grid Grid.Row="0">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="25" />
+                                                <ColumnDefinition Width="35" />
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" Text="{Binding OnlineId}" Width="300"
+                                            <TextBlock Foreground="Black" Grid.Column="0" Text="{Binding OnlineId}" Width="300"
                                                            FontSize="25" TextWrapping="NoWrap"
                                                            TextTrimming="WordEllipsis" />
-                                            <Image Visibility="{Binding Plus, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Column="1" HorizontalAlignment="Right" Width="25"
+                                            <Image Visibility="{Binding Plus, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Column="1" HorizontalAlignment="Right" Margin="5" Width="25"
                                                        Height="25" Source="/Assets/PSPlus.png" />
                                         </Grid>
                                         <Grid Grid.Row="1">
@@ -152,17 +113,17 @@
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Grid.Column="0" Width="300">
-                                                <TextBlock
+                                                <TextBlock Foreground="Black"
                                                         Text="{Binding Presence.PrimaryInfo.GameTitleInfo.TitleName}"
                                                         FontSize="15" TextWrapping="Wrap" />
                                                 <TextBlock Text="{Binding  Presence.PrimaryInfo.GameStatus}"
-                                                               FontSize="15" TextWrapping="Wrap" />
+                                                               FontSize="15" Foreground="Black" TextWrapping="Wrap" />
                                             </StackPanel>
-                                            <StackPanel Grid.Column="1" HorizontalAlignment="Right"
+                                            <StackPanel Grid.Column="1" Margin="5" HorizontalAlignment="Right"
                                                             Orientation="Vertical">
                                                 <Image Width="25" Height="25"
                                                            Source="/Assets/Trophy-icon-Silver.png" />
-                                                <TextBlock FontSize="15" HorizontalAlignment="Center"
+                                                <TextBlock FontSize="15" Foreground="Black" HorizontalAlignment="Center"
                                                                Text="{Binding TrophySummary.Level}" />
                                             </StackPanel>
                                         </Grid>
@@ -171,6 +132,32 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
+                </Grid>
+                <Grid Margin="15" HorizontalAlignment="Left" Grid.Column="1" Width="700">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="0,15,0,0" Text="What's New" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    <GridView Grid.Row="1"
+                              SelectionMode="None"
+                            x:Name="ActivityFeedGridView"
+                            ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VariableSizedWrapGrid Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <VariableSizedWrapGrid Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </GridView.GroupStyle>
+                    </GridView>
                 </Grid>
                 <Grid Margin="15" Grid.Column="2" Width="600">
                     <Grid.RowDefinitions>

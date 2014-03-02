@@ -12,6 +12,47 @@
         <x:String x:Key="AppName">FoulPlay</x:String>
         <tools:OnlineConverter x:Key="OnlineConverter" />
         <tools:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-
+        <DataTemplate x:Key="StoreActivityDataTemplate">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="350" Height="320">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid Background="#0D1924" Grid.Row="0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border Width="40" Height="40">
+                        <Image Source="{Binding ServiceProviderImageUrl}" Stretch="UniformToFill" />
+                    </Border>
+                    <TextBlock Margin="15,0,0,0" Grid.Column="1" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" Text="{Binding ServiceProviderName}"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Image Source="{Binding LargeImageUrl}" Stretch="Fill" />
+                </Grid>
+                <Grid Grid.Row="2" Background="#DBDEE7">
+                    <TextBlock  Foreground="#3F454F" FontSize="25" Padding="5,5,0,0" FontWeight="Bold" TextTrimming="CharacterEllipsis"  Text="{Binding Caption}"/>
+                </Grid>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ActivityDataTemplate">
+            <Grid HorizontalAlignment="Left" Width="350" Height="150" Background="#DBDEE7">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="95"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <Border Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Width="80" Height="80">
+                        <Image Source="{Binding Source.ImageUrl}" Stretch="UniformToFill" />
+                    </Border>
+                    <Border Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"  Width="80" Height="80">
+                        <Image Source="{Binding ThumbnailImageUrl}" Stretch="UniformToFill" />
+                    </Border>
+                </StackPanel>
+                <TextBlock Grid.Row="1" Margin="5" Foreground="#3F454F" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Caption}"/>
+            </Grid>
+        </DataTemplate>
     </Application.Resources>
 </Application>

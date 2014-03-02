@@ -22,12 +22,14 @@ namespace Foulplay_Windows8.Core.Managers
                 {
                     await authenticationManager.RefreshAccessToken(userAccountEntity);
                 }
-                string url = string.Format("https://activity.api.np.km.playstation.net/activity/api/v1/users/{0}/{1}/{2}?filters=PLAYED_GAME&filters=TROPHY&filters=BROADCASTING&filters=PROFILE_PIC&filters=FRIENDED", userName, feedNews, pageNumber);
+                string url = string.Format("https://activity.api.np.km.playstation.net/activity/api/v1/users/{0}/{1}/{2}?filters=PURCHASED&filters=RATED&filters=VIDEO_UPLOAD&filters=SCREENSHOT_UPLOAD&filters=PLAYED_GAME&filters=WATCHED_VIDEO&filters=TROPHY&filters=BROADCASTING&filters=LIKED&filters=PROFILE_PIC&filters=FRIENDED&filters=CONTENT_SHARE", userName, feedNews, pageNumber);
                 // TODO: Fix this cheap hack to get around caching issue. For some reason, no-cache is not working...
                 if (storePromo)
-                    url += "&filters=PROMO";
+                    url += "&filters=STORE_PROMO";
                 url += "&r=" + Guid.NewGuid();
+                string language = userAccountEntity.GetUserEntity().Language;
                 var theAuthClient = new HttpClient();
+                theAuthClient.DefaultRequestHeaders.Add("Accept-Language", language);
                 var request = new HttpRequestMessage(HttpMethod.Get, url);
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccountEntity.GetAccessToken());
                 request.Headers.CacheControl = new CacheControlHeaderValue { NoCache = true };

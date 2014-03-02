@@ -80,13 +80,14 @@ namespace FoulPlay_Windows8.Views
             {
                  await GetFriendsList(true, false, false, false, true, false, false);
             }
-            //await BuildActivityFields();
+            await BuildActivityFields();
         }
 
         private async Task<bool> BuildActivityFields()
         {
-            var recentActivityEntity = await _recentActivityManager.GetActivityFeed(_user.OnlineId, 0, false, true,
+            var recentActivityEntity = await _recentActivityManager.GetActivityFeed(_user.OnlineId, 0, true, true,
                 App.UserAccountEntity);
+            ActivityFeedGridView.ItemsSource = recentActivityEntity.feed;
             RecentActivityEntity.Feed feedItem;
             return true;
         }

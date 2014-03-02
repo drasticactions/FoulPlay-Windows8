@@ -145,6 +145,7 @@
     <PRIResource Include="Strings\en-US\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
+    <Content Include="Assets\Background.jpg" />
     <Content Include="Assets\No-Trophy-Icon.png" />
     <Content Include="Assets\PSPlus.png" />
     <Content Include="Assets\Trophy-icon-bronze.png" />
