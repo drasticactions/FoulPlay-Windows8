@@ -75,6 +75,16 @@ namespace FoulPlay_Windows8.Views
         {
             var jsonObjectString = (string)e.NavigationParameter;
             _user = JsonConvert.DeserializeObject<UserEntity>(jsonObjectString);
+            var isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(_user.OnlineId);
+            if (isCurrentUser)
+            {
+                MessagesGrid.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                RefreshGroupMessages();
+            }
+
             var languageList = _user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
             MyLanguagesBlock.Text = string.Join("," + Environment.NewLine, languageList);
             UserInformationGrid.DataContext = _user;
@@ -94,6 +104,29 @@ namespace FoulPlay_Windows8.Views
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
+        }
+
+        private MessageEntity _messageEntity;
+
+        private async void RefreshGroupMessages()
+        {
+            MessageProgressBar.Visibility = Visibility.Visible;
+            var messagerManager = new MessageManager();
+            _messageEntity = await messagerManager.GetGroupConversation(string.Format("~{0},{1}", _user.OnlineId, App.UserAccountEntity.GetUserEntity().OnlineId), App.UserAccountEntity);
+            if (_messageEntity == null)
+            {
+                return;
+            }
+
+            if (_messageEntity.messages == null)
+            {
+                return;
+            }
+
+            MessagesListView.DataContext = _messageEntity;
+            await messagerManager.ClearMessages(_messageEntity, App.UserAccountEntity);
+            MessageProgressBar.Visibility = Visibility.Collapsed;
+            MessageSend.IsEnabled = true;
         }
 
         private async void LoadRecentActivityList()

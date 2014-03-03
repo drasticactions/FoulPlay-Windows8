@@ -85,5 +85,68 @@
         <tools:TrophyHiddenIconConverter x:Key="TrophyHiddenIconConverter" />
         <tools:PersonalIconConverter x:Key="PersonalIconConverter" />
         <tools:PersonalNameConverter x:Key="PersonalNameConverter" />
+        <DataTemplate x:Key="MessageDataTemplate">
+                <Grid Margin="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Rectangle Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Grid.Column="0" Width="15" Height="15"
+                                                   Fill="{Binding LatestMessage.SeenFlag, Converter={StaticResource HasSeenConverter}}" />
+                    <Border VerticalAlignment="Center" Grid.Column="1" Width="75" Height="75">
+                        <Image Source="{Binding LatestMessage.User.AvatarUrl}" Stretch="UniformToFill" />
+                    </Border>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock TextWrapping="NoWrap" Text="{Binding Converter={StaticResource ConversationUsersConverter}}" />
+                        <StackPanel>
+                            <StackPanel.Background>
+                                <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />
+                            </StackPanel.Background>
+                            <TextBlock TextWrapping="Wrap" Foreground="#3F454F" Margin="5" FontWeight="Bold" Text="{Binding LatestMessage.Body}" />
+                        </StackPanel>
+                        <TextBlock FontSize="15"  HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding LatestMessage.ReceivedDate, Converter={StaticResource DateConverter}}" />
+                    </StackPanel>
+                </Grid>
+        </DataTemplate>
+        <tools:ContentKeysImageConverter x:Key="ContentKeysImageConverter" />
+        <DataTemplate x:Key="MessageUserDataTemplate">
+            <Grid Margin="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Border VerticalAlignment="Top" Grid.Column="0" Width="100" Height="100">
+                    <Image Source="{Binding user.AvatarUrl}" Stretch="UniformToFill" />
+                </Border>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Text="{Binding senderOnlineId}" />
+                    <Grid Grid.Row="1">
+                        <Grid.Background>
+                            <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />
+                        </Grid.Background>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="{Binding body}" />
+                        <Grid Grid.Column="1">
+                            <Image Width="50" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                                       Source="/Assets/appbar.image.png"
+                                                       Visibility="{Binding contentKeys, Converter={StaticResource ContentKeysImageConverter}}" />
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <TextBlock HorizontalAlignment="Right" FontSize="15" TextWrapping="NoWrap" Text="{Binding receivedDate, Converter={StaticResource DateConverter}}" />
+                    </Grid>
+                </Grid>
+            </Grid>
+        </DataTemplate>
     </Application.Resources>
 </Application>

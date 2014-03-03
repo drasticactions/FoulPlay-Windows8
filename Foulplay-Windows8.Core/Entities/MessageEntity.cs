@@ -43,6 +43,7 @@ namespace Foulplay_Windows8.Core.Entities
             public string receivedDate { get; set; }
             public List<string> contentKeys { get; set; }
             public string body { get; set; }
+            public UserEntity user { get; set; }
         }
 
         public MessageGroup messageGroup { get; set; }

@@ -130,6 +130,10 @@ namespace Foulplay_Windows8.Core.Managers
                     return null;
                 }
                 var messageGroup = JsonConvert.DeserializeObject<MessageEntity>(responseContent);
+                 foreach (var message in messageGroup.messages)
+                    {
+                        message.user = await UserManager.GetUserAvatar(message.senderOnlineId, userAccountEntity);
+                    }
                 return messageGroup;
             }
             catch (Exception)

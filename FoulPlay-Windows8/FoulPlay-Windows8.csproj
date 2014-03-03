@@ -131,6 +131,7 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Tools\ActivityTemplateSelector.cs" />
     <Compile Include="Tools\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Tools\ContentKeysImageConverter.cs" />
     <Compile Include="Tools\ConversationUsersConverter.cs" />
     <Compile Include="Tools\DateConverter.cs" />
     <Compile Include="Tools\HasSeenConverter.cs" />
@@ -167,6 +168,8 @@
     <PRIResource Include="Strings\en-US\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
+    <Content Include="Assets\appbar.image.png" />
+    <Content Include="Assets\appbar.speakerphone.png" />
     <Content Include="Assets\Background.jpg" />
     <Content Include="Assets\No-Trophy-Icon.png" />
     <Content Include="Assets\phone_trophy_icon_compareTrophies.png" />

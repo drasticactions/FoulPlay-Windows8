@@ -245,11 +245,11 @@ You can earn trophies by playing games that support them.</source>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendRequestReceived\Content" xml:space="preserve">
           <source>Friend Requests (Received)</source>
-          <target state="new">Friend Requests (Received)</target>
+          <target state="new">フレンド依頼(受信済み)</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendRequestSent\Content" xml:space="preserve">
           <source>Friend Requests (Sent)</source>
-          <target state="new">Friend Requests (Sent)</target>
+          <target state="new">フレンド依頼(送信済み)</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\DeleteNameRequest\Text" xml:space="preserve">
           <source>Delete Name Request</source>
@@ -486,7 +486,7 @@ You can earn trophies by playing games that support them.</source>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendsFilterNameRequestReceived\Content" xml:space="preserve">
           <source>Name Requests (Received)</source>
-          <target state="translated">名前リクエスト(送信済み)</target>
+          <target state="translated">名前リクエスト(受信済み)</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendsFilterNameRequestSent\Content" xml:space="preserve">
           <source>Name Requests (Sent)</source>
