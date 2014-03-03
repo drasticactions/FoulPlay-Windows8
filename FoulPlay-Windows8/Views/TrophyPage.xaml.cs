@@ -120,8 +120,8 @@ namespace FoulPlay_Windows8.Views
             var item = (TrophyDetailEntity.Trophy) e.ClickedItem;
             if (TrophyDetailPopup.IsOpen) return;
             TrophyDetailPopup.DataContext = item;
-            //TrophyDetailPopup.HorizontalOffset = (Window.Current.Bounds.Width - BorderPopup.ActualWidth) / 2;
-            //TrophyDetailPopup.VerticalOffset = (Window.Current.Bounds.Height - BorderPopup.ActualHeight) / 2;
+            TrophyDetailPopup.HorizontalOffset = (Window.Current.Bounds.Width - 400) / 2;
+            TrophyDetailPopup.VerticalOffset = (Window.Current.Bounds.Height - 500) / 2;
             TrophyDetailPopup.IsOpen = true;
         }
     }
