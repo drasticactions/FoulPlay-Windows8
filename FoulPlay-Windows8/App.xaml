@@ -69,7 +69,7 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Image Width="30" VerticalAlignment="Bottom" Source="/Assets/phone_trophy_icon_compareTrophies.png"/>
+                    <Image Width="30" VerticalAlignment="Bottom" Source="{Binding Icon}"/>
                     <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" TextWrapping="Wrap" Text="{Binding Text}"/>
                 </Grid>
             </Border>
@@ -79,5 +79,9 @@
         <tools:DateConverter x:Key="DateConverter" />
         <tools:HasTrophiesConverter x:Key="HasTrophiesConverter" />
         <tools:ValuePercentConverter x:Key="ValuePercentConverter" />
+        <tools:TrophyTypeConverter x:Key="TrophyTypeConverter" />
+        <tools:TrophyRareConverter x:Key="TrophyRareConverter" />
+        <tools:TrophyHiddenConverter x:Key="TrophyHiddenConverter" />
+        <tools:TrophyHiddenIconConverter x:Key="TrophyHiddenIconConverter" />
     </Application.Resources>
 </Application>

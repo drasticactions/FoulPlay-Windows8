@@ -139,16 +139,20 @@
     <Compile Include="Tools\OnlineConverter.cs" />
     <Compile Include="Tools\RecentActivityImageConverter.cs" />
     <Compile Include="Tools\RecentActivityScrollingCollection.cs" />
+    <Compile Include="Tools\TrophyHiddenConverter.cs" />
+    <Compile Include="Tools\TrophyHiddenIconConverter.cs" />
+    <Compile Include="Tools\TrophyRareConverter.cs" />
     <Compile Include="Tools\TrophyScrollingCollection.cs" />
+    <Compile Include="Tools\TrophyTypeConverter.cs" />
     <Compile Include="Tools\ValuePercentConverter.cs" />
-    <Compile Include="Views\FriendHubPage.xaml.cs">
-      <DependentUpon>FriendHubPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\FriendPage.xaml.cs">
       <DependentUpon>FriendPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrophyPage.xaml.cs">
+      <DependentUpon>TrophyPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +167,10 @@
     <Content Include="Assets\Background.jpg" />
     <Content Include="Assets\No-Trophy-Icon.png" />
     <Content Include="Assets\phone_trophy_icon_compareTrophies.png" />
+    <Content Include="Assets\phone_trophy_rareness_common.png" />
+    <Content Include="Assets\phone_trophy_rareness_rare.png" />
+    <Content Include="Assets\phone_trophy_rareness_ultraRare.png" />
+    <Content Include="Assets\phone_trophy_rareness_uncommon.png" />
     <Content Include="Assets\PSPlus.png" />
     <Content Include="Assets\Trophy-icon-bronze.png" />
     <Content Include="Assets\Trophy-icon-Gold.png" />
@@ -201,15 +209,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\FriendHubPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\FriendPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrophyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

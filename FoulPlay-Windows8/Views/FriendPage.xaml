@@ -250,7 +250,7 @@
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <ListView x:Name="TrophyListView" ItemsSource="{Binding TrophyList}">
+                            <ListView x:Name="TrophyListView" IsSwipeEnabled="False" IsItemClickEnabled="True" SelectionMode="None" ItemClick="TrophyListView_OnItemClick" ItemsSource="{Binding TrophyList}">
                                 <ListView.ItemContainerStyle>
                                     <Style TargetType="ListViewItem">
                                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />

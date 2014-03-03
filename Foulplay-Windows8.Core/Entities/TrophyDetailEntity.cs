@@ -35,5 +35,7 @@ namespace Foulplay_Windows8.Core.Entities
             public FromUser FromUser { get; set; }
             public ComparedUser ComparedUser { get; set; }
         }
+
+        public List<Trophy> Trophies { get; set; }
     }
 }

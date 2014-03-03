@@ -86,10 +86,10 @@ namespace FoulPlay_Windows8.Views
         private void CreateMenu()
         {
             List<MenuItem> menuItems = new List<MenuItem>();
-            menuItems.Add(new MenuItem("test", "Recent Activities"));
-            menuItems.Add(new MenuItem("test", "Trophies"));
-            menuItems.Add(new MenuItem("test", "Live From Playstation"));
-            menuItems.Add(new MenuItem("test", "Profile"));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Recent Activities"));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Trophies"));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Live From Playstation"));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Profile"));
             MenuGridView.ItemsSource = menuItems;
         }
 

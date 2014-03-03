@@ -17,7 +17,6 @@ using Windows.UI.Xaml.Navigation;
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
-using FoulPlay_Windows8.Tools;
 using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
@@ -25,12 +24,12 @@ namespace FoulPlay_Windows8.Views
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class FriendPage : Page
+    public sealed partial class TrophyPage : Page
     {
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private UserEntity _user;
+
         /// <summary>
         /// This can be changed to a strongly typed view model.
         /// </summary>
@@ -49,7 +48,7 @@ namespace FoulPlay_Windows8.Views
         }
 
 
-        public FriendPage()
+        public TrophyPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
@@ -68,14 +67,17 @@ namespace FoulPlay_Windows8.Views
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session. The state will be null the first time a page is visited.</param>
-        private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             var jsonObjectString = (string)e.NavigationParameter;
-            _user = JsonConvert.DeserializeObject<UserEntity>(jsonObjectString);
-            UserInformationGrid.DataContext = _user;
-            UserInformationHeaderGrid.DataContext = _user;
-            LoadRecentActivityList();
-            GetTrophyList();
+            var trophyTitle = JsonConvert.DeserializeObject<TrophyEntity.TrophyTitle>(jsonObjectString);
+            var trophyDetailManager = new TrophyDetailManager();
+            TrophyDetailEntity trophys =
+                await
+                    trophyDetailManager.GetTrophyDetailList(trophyTitle.NpCommunicationId,
+                        trophyTitle.ComparedUser.OnlineId, true,
+                        App.UserAccountEntity);
+            TrophyListView.ItemsSource = trophys.Trophies;
         }
 
         /// <summary>
@@ -88,66 +90,6 @@ namespace FoulPlay_Windows8.Views
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
-        }
-
-        private async void LoadRecentActivityList()
-        {
-            //LoadingProgressBar.Visibility = Visibility.Visible;
-            var recentActivityCollection = new RecentActivityScrollingCollection
-            {
-                IsNews = false,
-                StorePromo = false,
-                UserAccountEntity = App.UserAccountEntity,
-                Username = _user.OnlineId,
-                PageCount = 1
-            };
-            var recentActivityManager = new RecentActivityManager();
-            var recentActivityEntity =
-                await recentActivityManager.GetActivityFeed(_user.OnlineId, 0, false, false, App.UserAccountEntity);
-            if (recentActivityEntity == null)
-            {
-                //recentActivityCollection = null;
-                //ActivityFeedListView.DataContext = recentActivityCollection;
-                //NoActivitiesTextBlock.Visibility = Visibility.Visible;
-                //LoadingProgressBar.Visibility = Visibility.Collapsed;
-                return;
-            }
-            if (recentActivityEntity.feed != null)
-            {
-                //NoActivitiesTextBlock.Visibility = Visibility.Collapsed;
-                foreach (var item in recentActivityEntity.feed)
-                {
-                    recentActivityCollection.Add(item);
-                }
-            }
-            DefaultViewModel["RecentActivityList"] = recentActivityCollection;
-            //RecentActivityHubSection.DataContext = recentActivityCollection;
-            //LoadingProgressBar.Visibility = Visibility.Collapsed;
-        }
-
-        private async void GetTrophyList()
-        {
-            var trophyManager = new TrophyManager();
-            var trophyCollection = new TrophyScrollingCollection()
-            {
-                UserAccountEntity = App.UserAccountEntity,
-                Username = _user.OnlineId,
-                Offset = 64
-            };
-            var items = await trophyManager.GetTrophyList(_user.OnlineId, 0, App.UserAccountEntity);
-            if (items == null) return;
-            foreach (TrophyEntity.TrophyTitle item in items.TrophyTitles)
-            {
-                trophyCollection.Add(item);
-            }
-            if (!items.TrophyTitles.Any())
-            {
-                //NoTrophyTextBlock.Visibility = Visibility.Visible;
-                //TrophyHeaderGrid.Visibility = Visibility.Collapsed;
-            }
-            DefaultViewModel["TrophyList"] = trophyCollection;
-            ComparedUserNameBlock.Text = _user.OnlineId;
-            FromUserNameBlock.Text = App.UserAccountEntity.GetUserEntity().OnlineId;
         }
 
         #region NavigationHelper registration
@@ -173,12 +115,14 @@ namespace FoulPlay_Windows8.Views
 
         #endregion
 
-        private void TrophyListView_OnItemClick(object sender, ItemClickEventArgs e)
+        private async void TrophyListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = e.ClickedItem as TrophyEntity.TrophyTitle;
-            if (item == null) return;
-            string jsonObjectString = JsonConvert.SerializeObject(item);
-            Frame.Navigate(typeof(TrophyPage), jsonObjectString);
+            var item = (TrophyDetailEntity.Trophy) e.ClickedItem;
+            if (TrophyDetailPopup.IsOpen) return;
+            TrophyDetailPopup.DataContext = item;
+            //TrophyDetailPopup.HorizontalOffset = (Window.Current.Bounds.Width - BorderPopup.ActualWidth) / 2;
+            //TrophyDetailPopup.VerticalOffset = (Window.Current.Bounds.Height - BorderPopup.ActualHeight) / 2;
+            TrophyDetailPopup.IsOpen = true;
         }
     }
 }
