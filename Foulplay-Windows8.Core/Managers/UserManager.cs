@@ -12,7 +12,7 @@ namespace Foulplay_Windows8.Core.Managers
 {
     public class UserManager
     {
-        public async Task<UserEntity> GetUser(string userName, UserAccountEntity userAccountEntity)
+        public static async Task<UserEntity> GetUser(string userName, UserAccountEntity userAccountEntity)
         {
             try
             {

@@ -77,8 +77,9 @@
                         <ComboBoxItem x:Uid="FriendsFilterNameRequestReceived"/>
                         <ComboBoxItem x:Uid="FriendsFilterNameRequestSent"/>
                     </ComboBox>
-                    <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar" Grid.Row="1" IsIndeterminate="True"/>
-                    <ListView x:Name="FriendsListView" Grid.Row="3" SelectionMode="None" IsSwipeEnabled="False" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendList}">
+                    <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar" Grid.Row="1" IsIndeterminate="True"
+                                 x:FieldModifier="public" />
+                    <ListView x:Name="FriendsListView" Grid.Row="3" SelectionMode="None" IsItemClickEnabled="True" ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendList}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -195,6 +196,7 @@
                     <GridView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"
+                              ItemsSource="{Binding RecentActivityList}"
                             x:Name="ActivityFeedGridView"
                             ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
                         <GridView.ItemsPanel>

@@ -135,9 +135,17 @@
     <Compile Include="Tools\DateConverter.cs" />
     <Compile Include="Tools\HasSeenConverter.cs" />
     <Compile Include="Tools\FriendScrollingCollection.cs" />
+    <Compile Include="Tools\HasTrophiesConverter.cs" />
     <Compile Include="Tools\OnlineConverter.cs" />
-    <Compile Include="Views\FriendsView.xaml.cs">
-      <DependentUpon>FriendsView.xaml</DependentUpon>
+    <Compile Include="Tools\RecentActivityImageConverter.cs" />
+    <Compile Include="Tools\RecentActivityScrollingCollection.cs" />
+    <Compile Include="Tools\TrophyScrollingCollection.cs" />
+    <Compile Include="Tools\ValuePercentConverter.cs" />
+    <Compile Include="Views\FriendHubPage.xaml.cs">
+      <DependentUpon>FriendHubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FriendPage.xaml.cs">
+      <DependentUpon>FriendPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -193,7 +201,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\FriendsView.xaml">
+    <Page Include="Views\FriendHubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FriendPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

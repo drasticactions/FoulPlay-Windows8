@@ -7,10 +7,14 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
+using Windows.UI.Core;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using FoulPlay_Windows8.Annotations;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
+using FoulPlay_Windows8.Views;
 
 namespace FoulPlay_Windows8.Tools
 {
@@ -29,10 +33,25 @@ namespace FoulPlay_Windows8.Tools
         }
         private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
         {
+            ProgressBar progressBar = ((Window.Current.Content as Frame).Content as MainPage).FriendsProgressBar;
+
+            CoreDispatcher coreDispatcher = Window.Current.Dispatcher;
             if (!IsLoading)
             {
+                await coreDispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                    () =>
+                    {
+                        progressBar.IsIndeterminate = true;
+                        progressBar.Visibility = Visibility.Visible;
+                    });
                 await LoadFriends(this.Username);
-            }
+                await coreDispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                  () =>
+                    {
+        progressBar.IsIndeterminate = true;
+        progressBar.Visibility = Visibility.Collapsed;
+                });
+                  }
             var ret = new LoadMoreItemsResult { Count = count };
             return ret;
         }

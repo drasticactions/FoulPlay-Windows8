@@ -22,6 +22,7 @@ using Windows.UI.Xaml.Navigation;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.Tools;
+using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
 {
@@ -77,12 +78,9 @@ namespace FoulPlay_Windows8.Views
         /// session. The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            if (FriendCollection == null)
-            {
-                await GetFriendsList(true, false, false, false, true, false, false);
-            }
+            await GetFriendsList(true, false, false, false, true, false, false);
+            LoadRecentActivityList();
             LoadMessages();
-            BuildActivityFields();
         }
 
         private void CreateMenu()
@@ -108,26 +106,39 @@ namespace FoulPlay_Windows8.Views
             }
         }
 
-        private async Task<bool> BuildActivityFields()
+        private async void LoadRecentActivityList()
         {
-            var recentActivityEntity = await _recentActivityManager.GetActivityFeed(_user.OnlineId, 0, true, true,
-                App.UserAccountEntity);
-            ActivityFeedGridView.ItemsSource = recentActivityEntity.feed;
-            RecentActivityEntity.Feed feedItem;
-            return true;
-        }
-
-        private string GetImageUrl(RecentActivityEntity.Feed item)
-        {
-            switch (item.StoryType)
+            //LoadingProgressBar.Visibility = Visibility.Visible;
+            var recentActivityCollection = new RecentActivityScrollingCollection
             {
-                case "FRIENDED":
-                    var target = item.Targets.FirstOrDefault(o => o.Type.Equals("ONLINE_ID"));
-                    return target != null ? target.ImageUrl : null;
-                default:
-                    return item.SmallImageUrl;
+                IsNews = true,
+                StorePromo = true,
+                UserAccountEntity = App.UserAccountEntity,
+                Username = _user.OnlineId,
+                PageCount = 1
+            };
+            var recentActivityManager = new RecentActivityManager();
+            var recentActivityEntity =
+                await recentActivityManager.GetActivityFeed(_user.OnlineId, 0, true, true, App.UserAccountEntity);
+            if (recentActivityEntity == null)
+            {
+                //recentActivityCollection = null;
+                //ActivityFeedListView.DataContext = recentActivityCollection;
+                //NoActivitiesTextBlock.Visibility = Visibility.Visible;
+                //LoadingProgressBar.Visibility = Visibility.Collapsed;
+                return;
             }
-
+            if (recentActivityEntity.feed != null)
+            {
+                //NoActivitiesTextBlock.Visibility = Visibility.Collapsed;
+                foreach (var item in recentActivityEntity.feed)
+                {
+                    recentActivityCollection.Add(item);
+                }
+            }
+            DefaultViewModel["RecentActivityList"] = recentActivityCollection;
+            //RecentActivityHubSection.DataContext = recentActivityCollection;
+            //LoadingProgressBar.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -202,7 +213,7 @@ namespace FoulPlay_Windows8.Views
             return true;
         }
 
-        private async Task<bool> LoadMessages()
+        private async void LoadMessages()
         {
             MessageProgressBar.Visibility = Visibility.Visible;
             var messageManager = new MessageManager();
@@ -212,7 +223,6 @@ namespace FoulPlay_Windows8.Views
             //    : Visibility.Collapsed;
             MessagesListView.DataContext = message;
             MessageProgressBar.Visibility = Visibility.Collapsed;
-            return true;
         }
 
         private async void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -248,7 +258,16 @@ namespace FoulPlay_Windows8.Views
         }
         private void MenuGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            Frame.Navigate(typeof (FriendsView));
+            //Frame.Navigate(typeof (FriendsView));
+        }
+
+        private async void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as FriendsEntity.Friend;
+            if (item == null) return;
+            var user = await UserManager.GetUser(item.OnlineId, App.UserAccountEntity);
+            string jsonObjectString = JsonConvert.SerializeObject(user);
+            Frame.Navigate(typeof(FriendPage), jsonObjectString);
         }
     }
 }
