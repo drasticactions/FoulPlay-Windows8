@@ -1,4 +1,6 @@
-﻿using FoulPlay_Windows8.Common;
+﻿using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
+using FoulPlay_Windows8.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,6 +32,7 @@ namespace FoulPlay_Windows8.Views
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+
         private UserEntity _user;
         /// <summary>
         /// This can be changed to a strongly typed view model.
@@ -72,10 +75,13 @@ namespace FoulPlay_Windows8.Views
         {
             var jsonObjectString = (string)e.NavigationParameter;
             _user = JsonConvert.DeserializeObject<UserEntity>(jsonObjectString);
+            var languageList = _user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
+            MyLanguagesBlock.Text = string.Join("," + Environment.NewLine, languageList);
             UserInformationGrid.DataContext = _user;
             UserInformationHeaderGrid.DataContext = _user;
             LoadRecentActivityList();
             GetTrophyList();
+            GetFriendsList(false, false, false, false, true, false, false);
         }
 
         /// <summary>
@@ -146,7 +152,7 @@ namespace FoulPlay_Windows8.Views
                 //TrophyHeaderGrid.Visibility = Visibility.Collapsed;
             }
             DefaultViewModel["TrophyList"] = trophyCollection;
-            ComparedUserNameBlock.Text = _user.OnlineId;
+            ComparedUserNameBlock.Text = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(_user.OnlineId) ? string.Empty : _user.OnlineId;
             FromUserNameBlock.Text = App.UserAccountEntity.GetUserEntity().OnlineId;
         }
 
@@ -179,6 +185,110 @@ namespace FoulPlay_Windows8.Views
             if (item == null) return;
             string jsonObjectString = JsonConvert.SerializeObject(item);
             Frame.Navigate(typeof(TrophyPage), jsonObjectString);
+        }
+
+        private static string ParseLanguageVariable(string language)
+        {
+            var resourceLoader = ResourceLoader.GetForCurrentView(); 
+            switch (language)
+            {
+                case "ja":
+                    return resourceLoader.GetString("LangJapanese/Text").Trim();
+                case "dk":
+                    return resourceLoader.GetString("LangDanish/Text").Trim();
+                case "de":
+                    return resourceLoader.GetString("LangGerman/Text").Trim();
+                case "en":
+                    return resourceLoader.GetString("LangEnglishUS/Text").Trim();
+                case "en-GB":
+                    return resourceLoader.GetString("LangEnglishUK/Text").Trim();
+                case "fi":
+                    return resourceLoader.GetString("LangFinnish/Text").Trim();
+                case "fr":
+                    return resourceLoader.GetString("LangFrench/Text").Trim();
+                case "es":
+                    return resourceLoader.GetString("LangSpanishSpain/Text").Trim();
+                case "es-MX":
+                    return resourceLoader.GetString("LangSpanishLA/Text").Trim();
+                case "it":
+                    return resourceLoader.GetString("LangItalian/Text").Trim();
+                case "nl":
+                    return resourceLoader.GetString("LangDutch/Text").Trim();
+                case "pt":
+                    return resourceLoader.GetString("LangPortuguesePortugal/Text").Trim();
+                case "pt-BR":
+                    return resourceLoader.GetString("LangPortugueseBrazil/Text").Trim();
+                case "ru":
+                    return resourceLoader.GetString("LangRussian/Text").Trim();
+                case "pl":
+                    return resourceLoader.GetString("LangPolish/Text").Trim();
+                case "no":
+                    return resourceLoader.GetString("LangNorwegian/Text").Trim();
+                case "sv":
+                    return resourceLoader.GetString("LangSwedish/Text").Trim();
+                case "tr":
+                    return resourceLoader.GetString("LangTurkish/Text").Trim();
+                case "ko":
+                    return resourceLoader.GetString("LangKorean/Text").Trim();
+                case "zh-CN":
+                    return resourceLoader.GetString("LangChineseSimplified/Text").Trim();
+                case "zh-TW":
+                    return resourceLoader.GetString("LangChineseTraditional/Text").Trim();
+                default:
+                    return null;
+            }
+        }
+
+        public async void GetFriendsList(bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,
+            bool personalDetailSharing, bool friendStatus, bool requesting, bool requested)
+        {
+            var friendManager = new FriendManager();
+            var friendCollection = new FriendScrollingCollection
+            {
+                UserAccountEntity = App.UserAccountEntity,
+                Offset = 32,
+                OnlineFilter = onlineFilter,
+                Requested = requested,
+                Requesting = requesting,
+                PersonalDetailSharing = personalDetailSharing,
+                FriendStatus = friendStatus,
+                Username = _user.OnlineId
+            };
+            var items =
+                await
+                    friendManager.GetFriendsList(_user.OnlineId, 0, blockedPlayer, recentlyPlayed, personalDetailSharing,
+                        friendStatus, requesting, requested, onlineFilter, App.UserAccountEntity);
+            if (items == null)
+            {
+                FriendsProgressBar.Visibility = Visibility.Collapsed;
+                //FriendsMessageTextBlock.Visibility = Visibility.Visible;
+                //FriendsLongListSelector.DataContext = FriendCollection;
+                return;
+            }
+
+            if (items.FriendList == null)
+            {
+                FriendsProgressBar.Visibility = Visibility.Collapsed;
+                return;
+            }
+            //FriendsMessageTextBlock.Visibility = Visibility.Collapsed;
+            //FriendsMessageTextBlock.Visibility = !items.FriendList.Any() ? Visibility.Visible : Visibility.Collapsed;
+            foreach (var item in items.FriendList)
+            {
+                friendCollection.Add(item);
+            }
+            //FriendsLongListSelector.ItemRealized += friendList_ItemRealized;
+            DefaultViewModel["FriendList"] = friendCollection;
+            FriendsProgressBar.Visibility = Visibility.Collapsed;
+        }
+
+        private async void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as FriendsEntity.Friend;
+            if (item == null) return;
+            var user = await UserManager.GetUser(item.OnlineId, App.UserAccountEntity);
+            string jsonObjectString = JsonConvert.SerializeObject(user);
+            Frame.Navigate(typeof(FriendPage), jsonObjectString);
         }
     }
 }

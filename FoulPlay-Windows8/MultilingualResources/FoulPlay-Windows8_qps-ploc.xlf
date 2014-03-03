@@ -6,97 +6,480 @@
     </header>
     <body>
       <group id="Resources">
-        <trans-unit translate="yes" id="Resources\VoiceMessage" xml:space="preserve">
+        <trans-unit translate="yes" id="Resources\WhatsNew\Text" xml:space="preserve">
+          <source>What's New</source>
+          <target state="new">What's New</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\VoiceMessage\Text" xml:space="preserve">
           <source>Voice Message</source>
           <target state="new">Voice Message</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\AboutMe" xml:space="preserve">
+        <trans-unit translate="yes" id="Resources\FriendsPivot\Text" xml:space="preserve">
+          <source>Friends</source>
+          <target state="new">Friends</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\FriendTotal\Text" xml:space="preserve">
+          <source>{0} Friends</source>
+          <target state="new">{0} Friends</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">{0} represents total number of friends.</note>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\FromUser\Text" xml:space="preserve">
+          <source>From</source>
+          <target state="new">From</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\GenericError\Text" xml:space="preserve">
+          <source>(o_0)An Error Has Occured(O_o)</source>
+          <target state="new">(o_0)An Error Has Occured(O_o)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\HiddenTrophy\Text" xml:space="preserve">
+          <source>Hidden Trophy</source>
+          <target state="new">Hidden Trophy</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Image\Text" xml:space="preserve">
+          <source>Image</source>
+          <target state="new">Image</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Invitations\Text" xml:space="preserve">
+          <source>Invitations</source>
+          <target state="new">Invitations</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Invitation_singular\Text" xml:space="preserve">
+          <source>Invitation</source>
+          <target state="new">Invitation</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\JoinInvitationExpired\Text" xml:space="preserve">
+          <source>This invitation has expired.</source>
+          <target state="new">This invitation has expired.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangChineseSimplified\Text" xml:space="preserve">
+          <source>Chinese (Simplified)</source>
+          <target state="new">Chinese (Simplified)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangChineseTraditional\Text" xml:space="preserve">
+          <source>Chinese (Traditional)</source>
+          <target state="new">Chinese (Traditional)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangDanish\Text" xml:space="preserve">
+          <source>Danish</source>
+          <target state="new">Danish</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangDutch\Text" xml:space="preserve">
+          <source>Dutch</source>
+          <target state="new">Dutch</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangEnglishUK\Text" xml:space="preserve">
+          <source>English (United Kingdom)</source>
+          <target state="new">English (United Kingdom)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangEnglishUS\Text" xml:space="preserve">
+          <source>English (United States)</source>
+          <target state="new">English (United States)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangFinnish\Text" xml:space="preserve">
+          <source>Finnish</source>
+          <target state="new">Finnish</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangFrench\Text" xml:space="preserve">
+          <source>French</source>
+          <target state="new">French</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangGerman\Text" xml:space="preserve">
+          <source>German</source>
+          <target state="new">German</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangItalian\Text" xml:space="preserve">
+          <source>Italian</source>
+          <target state="new">Italian</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangJapanese\Text" xml:space="preserve">
+          <source>Japanese</source>
+          <target state="new">Japanese</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangKorean\Text" xml:space="preserve">
+          <source>Korean</source>
+          <target state="new">Korean</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangNorwegian\Text" xml:space="preserve">
+          <source>Norwegian</source>
+          <target state="new">Norwegian</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangPolish\Text" xml:space="preserve">
+          <source>Polish</source>
+          <target state="new">Polish</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangPortugueseBrazil\Text" xml:space="preserve">
+          <source>Portuguese (Brazil)</source>
+          <target state="new">Portuguese (Brazil)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangPortuguesePortugal\Text" xml:space="preserve">
+          <source>Portuguese (Portugal)</source>
+          <target state="new">Portuguese (Portugal)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangRussian\Text" xml:space="preserve">
+          <source>Russian</source>
+          <target state="new">Russian</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangSpanishLA\Text" xml:space="preserve">
+          <source>Spanish (Latin America)</source>
+          <target state="new">Spanish (Latin America)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangSpanishSpain\Text" xml:space="preserve">
+          <source>Spanish (Spain)</source>
+          <target state="new">Spanish (Spain)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangSwedish\Text" xml:space="preserve">
+          <source>Swedish</source>
+          <target state="new">Swedish</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LangTurkish\Text" xml:space="preserve">
+          <source>Turkish</source>
+          <target state="new">Turkish</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LikeButton\Text" xml:space="preserve">
+          <source>Like</source>
+          <target state="new">Like</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LiveFromPlaystation\Text" xml:space="preserve">
+          <source>Live From Playstation</source>
+          <target state="new">Live From Playstation</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\LiveTileSupport\Text" xml:space="preserve">
+          <source>Live Tile Support</source>
+          <target state="new">Live Tile Support</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Login\Text" xml:space="preserve">
+          <source>Login</source>
+          <target state="new">Login</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Logout\Text" xml:space="preserve">
+          <source>Logout</source>
+          <target state="new">Logout</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\MessagesPivot\Text" xml:space="preserve">
+          <source>Messages</source>
+          <target state="new">Messages</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\MyLanguages\Text" xml:space="preserve">
+          <source>My Languages:</source>
+          <target state="new">My Languages:</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NameRequestAlert\Text" xml:space="preserve">
+          <source>Do you want to reveal your name to this Friend?</source>
+          <target state="new">Do you want to reveal your name to this Friend?</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NameRequestReceived\Text" xml:space="preserve">
+          <source>Name Request (Received)</source>
+          <target state="new">Name Request (Received)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NameRequestSendError\Text" xml:space="preserve">
+          <source>Cannot send the name request.</source>
+          <target state="new">Cannot send the name request.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NameRequestSent\Text" xml:space="preserve">
+          <source>Name Request (Sent)</source>
+          <target state="new">Name Request (Sent)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoActivities\Text" xml:space="preserve">
+          <source>There are no activities.</source>
+          <target state="new">There are no activities.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoFriends\Text" xml:space="preserve">
+          <source>No Friends Found.</source>
+          <target state="new">No Friends Found.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoGameAlert\Text" xml:space="preserve">
+          <source>There are no new game alerts.</source>
+          <target state="new">There are no new game alerts.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoInvites\Text" xml:space="preserve">
+          <source>There are no invitations.</source>
+          <target state="new">There are no invitations.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoMessages\Text" xml:space="preserve">
+          <source>There are no new messages.</source>
+          <target state="new">There are no new messages.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoNotifications\Text" xml:space="preserve">
+          <source>There are no new notifications.</source>
+          <target state="new">There are no new notifications.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoPlayers\Text" xml:space="preserve">
+          <source>No players found.</source>
+          <target state="new">No players found.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NotificationsHeader\Text" xml:space="preserve">
+          <source>Notifications</source>
+          <target state="new">Notifications</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NotificationSupport\Text" xml:space="preserve">
+          <source>Notification Support</source>
+          <target state="new">Notification Support</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Notification_invited\Text" xml:space="preserve">
+          <source>You received an invitation.</source>
+          <target state="new">You received an invitation.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NoTrophyInfo\Text" xml:space="preserve">
+          <source>There are no trophies.
+You can earn trophies by playing games that support them.</source>
+          <target state="new">There are no trophies.
+You can earn trophies by playing games that support them.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NowPlaying\Text" xml:space="preserve">
+          <source>Now Playing</source>
+          <target state="new">Now Playing</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\NumberOfPlayers\Text" xml:space="preserve">
+          <source>Number Of Players</source>
+          <target state="new">Number Of Players</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\PlayersJoinedParty\Text" xml:space="preserve">
+          <source>Players Joining the Party</source>
+          <target state="new">Players Joining the Party</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\PlayersJoinedSession\Text" xml:space="preserve">
+          <source>Players Joining the Session</source>
+          <target state="new">Players Joining the Session</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ProfileHeader\Text" xml:space="preserve">
+          <source>Profile</source>
+          <target state="new">Profile</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\RealNameRequest\Text" xml:space="preserve">
+          <source>Send Name Request</source>
+          <target state="new">Send Name Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\RecentActivity\Text" xml:space="preserve">
+          <source>Recent Activity</source>
+          <target state="new">Recent Activity</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Refresh\Text" xml:space="preserve">
+          <source>Refresh</source>
+          <target state="new">Refresh</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\RemoveFromFriends\Text" xml:space="preserve">
+          <source>Remove From Friends</source>
+          <target state="new">Remove From Friends</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ResourceFlowDirection\Text" xml:space="preserve">
+          <source>LeftToRight</source>
+          <target state="new">LeftToRight</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</note>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ResourceLanguage\Text" xml:space="preserve">
+          <source>en-US</source>
+          <target state="new">en-US</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</note>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\RevealName\Text" xml:space="preserve">
+          <source>Reveal Name</source>
+          <target state="new">Reveal Name</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Search\Text" xml:space="preserve">
+          <source>Search</source>
+          <target state="new">Search</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\SearchButton\Text" xml:space="preserve">
+          <source>Search</source>
+          <target state="new">Search</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\SendButton\Text" xml:space="preserve">
+          <source>Send</source>
+          <target state="new">Send</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\SendMessage\Text" xml:space="preserve">
+          <source>Send Message</source>
+          <target state="new">Send Message</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Settings\Text" xml:space="preserve">
+          <source>Settings</source>
+          <target state="new">Settings</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Status\Text" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ToMessageHeader\Text" xml:space="preserve">
+          <source>To {0}</source>
+          <target state="new">To {0}</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">{0} represents the person who is being sent the message</note>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TotalFriends\Text" xml:space="preserve">
+          <source>{0} Friends</source>
+          <target state="new">{0} Friends</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">{0} represents the total amount of friends.</note>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyBronze\Text" xml:space="preserve">
+          <source>Bronze</source>
+          <target state="new">Bronze</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyCommon\Text" xml:space="preserve">
+          <source>Common</source>
+          <target state="new">Common</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyDetail\Text" xml:space="preserve">
+          <source>Details</source>
+          <target state="new">Details</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyEarned\Text" xml:space="preserve">
+          <source>Earned</source>
+          <target state="new">Earned</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyEarnedDate\Text" xml:space="preserve">
+          <source>Earned Date</source>
+          <target state="new">Earned Date</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyGold\Text" xml:space="preserve">
+          <source>Gold</source>
+          <target state="new">Gold</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyGrade\Text" xml:space="preserve">
+          <source>Grade</source>
+          <target state="new">Grade</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyHeader\Text" xml:space="preserve">
+          <source>Trophies</source>
+          <target state="new">Trophies</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyHidden\Text" xml:space="preserve">
+          <source>Hidden</source>
+          <target state="new">Hidden</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyNotEarned\Text" xml:space="preserve">
+          <source>Not Earned</source>
+          <target state="new">Not Earned</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyPlatinum\Text" xml:space="preserve">
+          <source>Platinum</source>
+          <target state="new">Platinum</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyRare\Text" xml:space="preserve">
+          <source>Rare</source>
+          <target state="new">Rare</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyRarity\Text" xml:space="preserve">
+          <source>Rarity</source>
+          <target state="new">Rarity</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophySilver\Text" xml:space="preserve">
+          <source>Silver</source>
+          <target state="new">Silver</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyStatus\Text" xml:space="preserve">
+          <source>Status</source>
+          <target state="new">Status</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyTotal\Text" xml:space="preserve">
+          <source>Total:</source>
+          <target state="new">Total:</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyUltraRare\Text" xml:space="preserve">
+          <source>Ultra Rare</source>
+          <target state="new">Ultra Rare</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\TrophyVeryRare\Text" xml:space="preserve">
+          <source>Very Rare</source>
+          <target state="new">Very Rare</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\UserSearch\Text" xml:space="preserve">
+          <source>User Search</source>
+          <target state="new">User Search</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ViewFriendRequest\Text" xml:space="preserve">
+          <source>View Friend Request</source>
+          <target state="new">View Friend Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ViewInformation\Text" xml:space="preserve">
+          <source>View Information</source>
+          <target state="new">View Information</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ViewNameRequest\Text" xml:space="preserve">
+          <source>View Name Request</source>
+          <target state="new">View Name Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\AboutMe\Text" xml:space="preserve">
           <source>About Me:</source>
           <target state="new">About Me:</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\AboutMeCategory" xml:space="preserve">
-          <source>Introduction</source>
-          <target state="new">Introduction</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Accept" xml:space="preserve">
-          <source>Accept</source>
-          <target state="new">Accept</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\AddAsFriend" xml:space="preserve">
-          <source>Add As Friend</source>
-          <target state="new">Add As Friend</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\AppBarButtonText" xml:space="preserve">
-          <source>add</source>
-          <target state="new">add</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\AppBarMenuItemText" xml:space="preserve">
-          <source>Menu Item</source>
-          <target state="new">Menu Item</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ApplicationTitle" xml:space="preserve">
-          <source>PS</source>
-          <target state="new">PS</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\BatchFriendInvite" xml:space="preserve">
-          <source>Batch Friend Invite</source>
-          <target state="new">Batch Friend Invite</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\CancelFriendRequest" xml:space="preserve">
-          <source>Cancel Friend Request</source>
-          <target state="new">Cancel Friend Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\CancelNameRequest" xml:space="preserve">
-          <source>Cancel Name Request</source>
-          <target state="new">Cancel Name Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\CancelNameRequestError" xml:space="preserve">
-          <source>Cannot cancel the name request.</source>
-          <target state="new">Cannot cancel the name request.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Conversation" xml:space="preserve">
-          <source>Conversation</source>
-          <target state="new">Conversation</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Delete" xml:space="preserve">
-          <source>Delete</source>
-          <target state="new">Delete</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\DeleteFriendRequest" xml:space="preserve">
-          <source>Delete Friend Request</source>
-          <target state="new">Delete Friend Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\DeleteNameRequest" xml:space="preserve">
-          <source>Delete Name Request</source>
-          <target state="new">Delete Name Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\DislikeButton" xml:space="preserve">
-          <source>Dislike</source>
-          <target state="new">Dislike</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ElapsedTime" xml:space="preserve">
-          <source>Elapsed Time</source>
-          <target state="new">Elapsed Time</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendRequest" xml:space="preserve">
-          <source>Send Friend Request</source>
-          <target state="new">Send Friend Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendRequestAlert" xml:space="preserve">
-          <source>Do you want to add this player as a Friend?</source>
-          <target state="new">Do you want to add this player as a Friend?</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendRequestConfirm" xml:space="preserve">
-          <source>A Friend request will be sent to this player.</source>
-          <target state="new">A Friend request will be sent to this player.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendSendError" xml:space="preserve">
-          <source>Cannot send the Friend Request.</source>
-          <target state="new">Cannot send the Friend Request.</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendRequestReceived\Content" xml:space="preserve">
           <source>Friend Requests (Received)</source>
           <target state="new">Friend Requests (Received)</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\AboutMeCategory\Text" xml:space="preserve">
+          <source>Introduction</source>
+          <target state="new">Introduction</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Accept\Text" xml:space="preserve">
+          <source>Accept</source>
+          <target state="new">Accept</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\AddAsFriend\Text" xml:space="preserve">
+          <source>Add As Friend</source>
+          <target state="new">Add As Friend</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\AppBarButtonText\Text" xml:space="preserve">
+          <source>add</source>
+          <target state="new">add</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\AppBarMenuItemText\Text" xml:space="preserve">
+          <source>Menu Item</source>
+          <target state="new">Menu Item</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ApplicationTitle\Text" xml:space="preserve">
+          <source>PS</source>
+          <target state="new">PS</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\BatchFriendInvite\Text" xml:space="preserve">
+          <source>Batch Friend Invite</source>
+          <target state="new">Batch Friend Invite</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\CancelFriendRequest\Text" xml:space="preserve">
+          <source>Cancel Friend Request</source>
+          <target state="new">Cancel Friend Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\CancelNameRequest\Text" xml:space="preserve">
+          <source>Cancel Name Request</source>
+          <target state="new">Cancel Name Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\CancelNameRequestError\Text" xml:space="preserve">
+          <source>Cannot cancel the name request.</source>
+          <target state="new">Cannot cancel the name request.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Conversation\Text" xml:space="preserve">
+          <source>Conversation</source>
+          <target state="new">Conversation</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\Delete\Text" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DeleteFriendRequest\Text" xml:space="preserve">
+          <source>Delete Friend Request</source>
+          <target state="new">Delete Friend Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DeleteNameRequest\Text" xml:space="preserve">
+          <source>Delete Name Request</source>
+          <target state="new">Delete Name Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DislikeButton\Text" xml:space="preserve">
+          <source>Dislike</source>
+          <target state="new">Dislike</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\ElapsedTime\Text" xml:space="preserve">
+          <source>Elapsed Time</source>
+          <target state="new">Elapsed Time</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\FriendRequest\Text" xml:space="preserve">
+          <source>Send Friend Request</source>
+          <target state="new">Send Friend Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\FriendRequestAlert\Text" xml:space="preserve">
+          <source>Do you want to add this player as a Friend?</source>
+          <target state="new">Do you want to add this player as a Friend?</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\FriendRequestConfirm\Text" xml:space="preserve">
+          <source>A Friend request will be sent to this player.</source>
+          <target state="new">A Friend request will be sent to this player.</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendRequestSent\Content" xml:space="preserve">
           <source>Friend Requests (Sent)</source>
@@ -110,6 +493,10 @@
           <source>All</source>
           <target state="new">All</target>
         </trans-unit>
+        <trans-unit translate="yes" id="Resources\FriendSendError\Text" xml:space="preserve">
+          <source>Cannot send the Friend Request.</source>
+          <target state="new">Cannot send the Friend Request.</target>
+        </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendsFilterBlockedPlayer\Content" xml:space="preserve">
           <source>Blocked Players</source>
           <target state="new">Blocked Players</target>
@@ -122,10 +509,6 @@
           <source>Name Requests (Sent)</source>
           <target state="new">Name Requests (Sent)</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendsPivot" xml:space="preserve">
-          <source>Friends</source>
-          <target state="new">Friends</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendsFilterPlayersMet\Content" xml:space="preserve">
           <source>Players Met</source>
           <target state="new">Players Met</target>
@@ -137,385 +520,6 @@
         <trans-unit translate="yes" id="Resources\FriendsFilterRequestSent\Content" xml:space="preserve">
           <source>Friend Requests (Sent)</source>
           <target state="new">Friend Requests (Sent)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendTotal" xml:space="preserve">
-          <source>{0} Friends</source>
-          <target state="new">{0} Friends</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">{0} represents total number of friends.</note>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\FromUser" xml:space="preserve">
-          <source>From</source>
-          <target state="new">From</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\GenericError" xml:space="preserve">
-          <source>(o_0)An Error Has Occured(O_o)</source>
-          <target state="new">(o_0)An Error Has Occured(O_o)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\HiddenTrophy" xml:space="preserve">
-          <source>Hidden Trophy</source>
-          <target state="new">Hidden Trophy</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Image" xml:space="preserve">
-          <source>Image</source>
-          <target state="new">Image</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Invitations" xml:space="preserve">
-          <source>Invitations</source>
-          <target state="new">Invitations</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Invitation_singular" xml:space="preserve">
-          <source>Invitation</source>
-          <target state="new">Invitation</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\JoinInvitationExpired" xml:space="preserve">
-          <source>This invitation has expired.</source>
-          <target state="new">This invitation has expired.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangChineseSimplified" xml:space="preserve">
-          <source>Chinese (Simplified)</source>
-          <target state="new">Chinese (Simplified)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangChineseTraditional" xml:space="preserve">
-          <source>Chinese (Traditional)</source>
-          <target state="new">Chinese (Traditional)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangDanish" xml:space="preserve">
-          <source>Danish</source>
-          <target state="new">Danish</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangDutch" xml:space="preserve">
-          <source>Dutch</source>
-          <target state="new">Dutch</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangEnglishUK" xml:space="preserve">
-          <source>English (United Kingdom)</source>
-          <target state="new">English (United Kingdom)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangEnglishUS" xml:space="preserve">
-          <source>English (United States)</source>
-          <target state="new">English (United States)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangFinnish" xml:space="preserve">
-          <source>Finnish</source>
-          <target state="new">Finnish</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangFrench" xml:space="preserve">
-          <source>French</source>
-          <target state="new">French</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangGerman" xml:space="preserve">
-          <source>German</source>
-          <target state="new">German</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangItalian" xml:space="preserve">
-          <source>Italian</source>
-          <target state="new">Italian</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangJapanese" xml:space="preserve">
-          <source>Japanese</source>
-          <target state="new">Japanese</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangKorean" xml:space="preserve">
-          <source>Korean</source>
-          <target state="new">Korean</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangNorwegian" xml:space="preserve">
-          <source>Norwegian</source>
-          <target state="new">Norwegian</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangPolish" xml:space="preserve">
-          <source>Polish</source>
-          <target state="new">Polish</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangPortugueseBrazil" xml:space="preserve">
-          <source>Portuguese (Brazil)</source>
-          <target state="new">Portuguese (Brazil)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangPortuguesePortugal" xml:space="preserve">
-          <source>Portuguese (Portugal)</source>
-          <target state="new">Portuguese (Portugal)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangRussian" xml:space="preserve">
-          <source>Russian</source>
-          <target state="new">Russian</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangSpanishLA" xml:space="preserve">
-          <source>Spanish (Latin America)</source>
-          <target state="new">Spanish (Latin America)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangSpanishSpain" xml:space="preserve">
-          <source>Spanish (Spain)</source>
-          <target state="new">Spanish (Spain)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangSwedish" xml:space="preserve">
-          <source>Swedish</source>
-          <target state="new">Swedish</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LangTurkish" xml:space="preserve">
-          <source>Turkish</source>
-          <target state="new">Turkish</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LikeButton" xml:space="preserve">
-          <source>Like</source>
-          <target state="new">Like</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LiveFromPlaystation" xml:space="preserve">
-          <source>Live From Playstation</source>
-          <target state="new">Live From Playstation</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\LiveTileSupport" xml:space="preserve">
-          <source>Live Tile Support</source>
-          <target state="new">Live Tile Support</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Login" xml:space="preserve">
-          <source>Login</source>
-          <target state="new">Login</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Logout" xml:space="preserve">
-          <source>Logout</source>
-          <target state="new">Logout</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\MessagesPivot" xml:space="preserve">
-          <source>Messages</source>
-          <target state="new">Messages</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\MyLanguages" xml:space="preserve">
-          <source>My Languages:</source>
-          <target state="new">My Languages:</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NameRequestAlert" xml:space="preserve">
-          <source>Do you want to reveal your name to this Friend?</source>
-          <target state="new">Do you want to reveal your name to this Friend?</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NameRequestReceived" xml:space="preserve">
-          <source>Name Request (Received)</source>
-          <target state="new">Name Request (Received)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NameRequestSendError" xml:space="preserve">
-          <source>Cannot send the name request.</source>
-          <target state="new">Cannot send the name request.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NameRequestSent" xml:space="preserve">
-          <source>Name Request (Sent)</source>
-          <target state="new">Name Request (Sent)</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoActivities" xml:space="preserve">
-          <source>There are no activities.</source>
-          <target state="new">There are no activities.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoFriends" xml:space="preserve">
-          <source>No Friends Found.</source>
-          <target state="new">No Friends Found.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoGameAlert" xml:space="preserve">
-          <source>There are no new game alerts.</source>
-          <target state="new">There are no new game alerts.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoInvites" xml:space="preserve">
-          <source>There are no invitations.</source>
-          <target state="new">There are no invitations.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoMessages" xml:space="preserve">
-          <source>There are no new messages.</source>
-          <target state="new">There are no new messages.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoNotifications" xml:space="preserve">
-          <source>There are no new notifications.</source>
-          <target state="new">There are no new notifications.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoPlayers" xml:space="preserve">
-          <source>No players found.</source>
-          <target state="new">No players found.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NotificationsHeader" xml:space="preserve">
-          <source>Notifications</source>
-          <target state="new">Notifications</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NotificationSupport" xml:space="preserve">
-          <source>Notification Support</source>
-          <target state="new">Notification Support</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Notification_invited" xml:space="preserve">
-          <source>You received an invitation.</source>
-          <target state="new">You received an invitation.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NoTrophyInfo" xml:space="preserve">
-          <source>There are no trophies.
-You can earn trophies by playing games that support them.</source>
-          <target state="new">There are no trophies.
-You can earn trophies by playing games that support them.</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NowPlaying" xml:space="preserve">
-          <source>Now Playing</source>
-          <target state="new">Now Playing</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\NumberOfPlayers" xml:space="preserve">
-          <source>Number Of Players</source>
-          <target state="new">Number Of Players</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\PlayersJoinedParty" xml:space="preserve">
-          <source>Players Joining the Party</source>
-          <target state="new">Players Joining the Party</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\PlayersJoinedSession" xml:space="preserve">
-          <source>Players Joining the Session</source>
-          <target state="new">Players Joining the Session</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ProfileHeader" xml:space="preserve">
-          <source>Profile</source>
-          <target state="new">Profile</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\RealNameRequest" xml:space="preserve">
-          <source>Send Name Request</source>
-          <target state="new">Send Name Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\RecentActivity" xml:space="preserve">
-          <source>Recent Activity</source>
-          <target state="new">Recent Activity</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Refresh" xml:space="preserve">
-          <source>Refresh</source>
-          <target state="new">Refresh</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\RemoveFromFriends" xml:space="preserve">
-          <source>Remove From Friends</source>
-          <target state="new">Remove From Friends</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ResourceFlowDirection" xml:space="preserve">
-          <source>LeftToRight</source>
-          <target state="new">LeftToRight</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</note>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ResourceLanguage" xml:space="preserve">
-          <source>en-US</source>
-          <target state="new">en-US</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</note>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\RevealName" xml:space="preserve">
-          <source>Reveal Name</source>
-          <target state="new">Reveal Name</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Search" xml:space="preserve">
-          <source>Search</source>
-          <target state="new">Search</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\SearchButton" xml:space="preserve">
-          <source>Search</source>
-          <target state="new">Search</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\SendButton" xml:space="preserve">
-          <source>Send</source>
-          <target state="new">Send</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\SendMessage" xml:space="preserve">
-          <source>Send Message</source>
-          <target state="new">Send Message</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Settings" xml:space="preserve">
-          <source>Settings</source>
-          <target state="new">Settings</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\Status" xml:space="preserve">
-          <source>Status</source>
-          <target state="new">Status</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ToMessageHeader" xml:space="preserve">
-          <source>To {0}</source>
-          <target state="new">To {0}</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">{0} represents the person who is being sent the message</note>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TotalFriends" xml:space="preserve">
-          <source>{0} Friends</source>
-          <target state="new">{0} Friends</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">{0} represents the total amount of friends.</note>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyBronze" xml:space="preserve">
-          <source>Bronze</source>
-          <target state="new">Bronze</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyCommon" xml:space="preserve">
-          <source>Common</source>
-          <target state="new">Common</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyDetail" xml:space="preserve">
-          <source>Details</source>
-          <target state="new">Details</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyEarned" xml:space="preserve">
-          <source>Earned</source>
-          <target state="new">Earned</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyEarnedDate" xml:space="preserve">
-          <source>Earned Date</source>
-          <target state="new">Earned Date</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyGold" xml:space="preserve">
-          <source>Gold</source>
-          <target state="new">Gold</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyGrade" xml:space="preserve">
-          <source>Grade</source>
-          <target state="new">Grade</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyHeader" xml:space="preserve">
-          <source>Trophies</source>
-          <target state="new">Trophies</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyHidden" xml:space="preserve">
-          <source>Hidden</source>
-          <target state="new">Hidden</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyNotEarned" xml:space="preserve">
-          <source>Not Earned</source>
-          <target state="new">Not Earned</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyPlatinum" xml:space="preserve">
-          <source>Platinum</source>
-          <target state="new">Platinum</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyRare" xml:space="preserve">
-          <source>Rare</source>
-          <target state="new">Rare</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyRarity" xml:space="preserve">
-          <source>Rarity</source>
-          <target state="new">Rarity</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophySilver" xml:space="preserve">
-          <source>Silver</source>
-          <target state="new">Silver</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyStatus" xml:space="preserve">
-          <source>Status</source>
-          <target state="new">Status</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyTotal" xml:space="preserve">
-          <source>Total:</source>
-          <target state="new">Total:</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyUltraRare" xml:space="preserve">
-          <source>Ultra Rare</source>
-          <target state="new">Ultra Rare</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\TrophyVeryRare" xml:space="preserve">
-          <source>Very Rare</source>
-          <target state="new">Very Rare</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\UserSearch" xml:space="preserve">
-          <source>User Search</source>
-          <target state="new">User Search</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ViewFriendRequest" xml:space="preserve">
-          <source>View Friend Request</source>
-          <target state="new">View Friend Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ViewInformation" xml:space="preserve">
-          <source>View Information</source>
-          <target state="new">View Information</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\ViewNameRequest" xml:space="preserve">
-          <source>View Name Request</source>
-          <target state="new">View Name Request</target>
         </trans-unit>
       </group>
     </body>

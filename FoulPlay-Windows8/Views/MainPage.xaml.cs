@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Media.Imaging;
 using FoulPlay_Windows8.Common;
 using System;
@@ -78,18 +79,19 @@ namespace FoulPlay_Windows8.Views
         /// session. The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            await GetFriendsList(true, false, false, false, true, false, false);
+            GetFriendsList(true, false, false, false, true, false, false);
             LoadRecentActivityList();
             LoadMessages();
         }
 
         private void CreateMenu()
         {
+            var resourceLoader = ResourceLoader.GetForCurrentView(); 
             List<MenuItem> menuItems = new List<MenuItem>();
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Recent Activities"));
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Trophies"));
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Live From Playstation"));
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", "Profile"));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("RecentActivity/Text"), string.Empty));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("TrophyHeader/Text"), string.Empty));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("LiveFromPlaystation/Text"), string.Empty));
+            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("ProfileHeader/Text"), "profile"));
             MenuGridView.ItemsSource = menuItems;
         }
 
@@ -97,12 +99,17 @@ namespace FoulPlay_Windows8.Views
         {
             public string Text { get; private set; }
 
+            public string Location { get; private set; }
+
             public string Icon { get; private set; }
 
-            public MenuItem(string icon, string text)
+            
+
+            public MenuItem(string icon, string text, string location)
             {
                 Text = text;
                 Icon = icon;
+                Location = location;
             }
         }
 
@@ -176,7 +183,7 @@ namespace FoulPlay_Windows8.Views
 
         #endregion
 
-        public async Task<bool> GetFriendsList(bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,
+        public async void GetFriendsList(bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,
             bool personalDetailSharing, bool friendStatus, bool requesting, bool requested)
         {
             var friendManager = new FriendManager();
@@ -199,7 +206,12 @@ namespace FoulPlay_Windows8.Views
             {
                 //FriendsMessageTextBlock.Visibility = Visibility.Visible;
                 //FriendsLongListSelector.DataContext = FriendCollection;
-                return false;
+                return;
+            }
+            if (items.FriendList == null)
+            {
+                FriendsProgressBar.Visibility = Visibility.Collapsed;
+                return;
             }
             //FriendsMessageTextBlock.Visibility = Visibility.Collapsed;
             //FriendsMessageTextBlock.Visibility = !items.FriendList.Any() ? Visibility.Visible : Visibility.Collapsed;
@@ -210,7 +222,7 @@ namespace FoulPlay_Windows8.Views
             //FriendsLongListSelector.ItemRealized += friendList_ItemRealized;
             DefaultViewModel["FriendList"] = FriendCollection;
             FriendsProgressBar.Visibility = Visibility.Collapsed;
-            return true;
+            return;
         }
 
         private async void LoadMessages()
@@ -232,33 +244,42 @@ namespace FoulPlay_Windows8.Views
             {
                 case 0:
                     // Friends - Online
-                    await GetFriendsList(true, false, false, false, true, false, false);
+                    GetFriendsList(true, false, false, false, true, false, false);
                     break;
                 case 1:
                     // All
-                    await GetFriendsList(false, false, false, false, true, false, false);
+                    GetFriendsList(false, false, false, false, true, false, false);
                     break;
                 case 2:
                     // Friend Request Received
-                    await GetFriendsList(false, false, false, false, true, false, true);
+                    GetFriendsList(false, false, false, false, true, false, true);
                     break;
                 case 3:
                     // Friend Requests Sent
-                    await GetFriendsList(false, false, false, false, true, true, false);
+                    GetFriendsList(false, false, false, false, true, true, false);
                     break;
                 case 4:
                     // Name Requests Received
-                    await GetFriendsList(true, false, false, true, true, false, false);
+                   GetFriendsList(true, false, false, true, true, false, false);
                     break;
                 case 5:
                     // Name Requests Sent
-                    await GetFriendsList(false, false, false, true, true, true, false);
+                    GetFriendsList(false, false, false, true, true, true, false);
                     break;
             }
         }
-        private void MenuGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        private async void MenuGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            //Frame.Navigate(typeof (FriendsView));
+            var item = e.ClickedItem as MenuItem;
+            if (item == null) return;
+            switch (item.Location)
+            {
+                case "profile":
+                    var user = await UserManager.GetUser(_user.OnlineId, App.UserAccountEntity);
+                    string jsonObjectString = JsonConvert.SerializeObject(user);
+                    Frame.Navigate(typeof(FriendPage), jsonObjectString);
+                    break;
+            }
         }
 
         private async void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)

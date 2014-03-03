@@ -83,5 +83,7 @@
         <tools:TrophyRareConverter x:Key="TrophyRareConverter" />
         <tools:TrophyHiddenConverter x:Key="TrophyHiddenConverter" />
         <tools:TrophyHiddenIconConverter x:Key="TrophyHiddenIconConverter" />
+        <tools:PersonalIconConverter x:Key="PersonalIconConverter" />
+        <tools:PersonalNameConverter x:Key="PersonalNameConverter" />
     </Application.Resources>
 </Application>

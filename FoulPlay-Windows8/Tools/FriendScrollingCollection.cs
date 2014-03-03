@@ -33,25 +33,11 @@ namespace FoulPlay_Windows8.Tools
         }
         private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
         {
-            ProgressBar progressBar = ((Window.Current.Content as Frame).Content as MainPage).FriendsProgressBar;
 
-            CoreDispatcher coreDispatcher = Window.Current.Dispatcher;
-            if (!IsLoading)
-            {
-                await coreDispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                    () =>
+                    if (!IsLoading)
                     {
-                        progressBar.IsIndeterminate = true;
-                        progressBar.Visibility = Visibility.Visible;
-                    });
-                await LoadFriends(this.Username);
-                await coreDispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                  () =>
-                    {
-        progressBar.IsIndeterminate = true;
-        progressBar.Visibility = Visibility.Collapsed;
-                });
-                  }
+                        await LoadFriends(this.Username);
+                    }
             var ret = new LoadMoreItemsResult { Count = count };
             return ret;
         }

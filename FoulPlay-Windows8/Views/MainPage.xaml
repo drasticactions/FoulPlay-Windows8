@@ -68,7 +68,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="0,15,0,0" Text="Friends" Grid.Row="1" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    <TextBlock Margin="0,15,0,0" Text="Friends" x:Uid="FriendsPivot" Grid.Row="1" Style="{StaticResource HeaderTextBlockStyle}"/>
                     <ComboBox HorizontalAlignment="Stretch" x:Name="FilterComboBox"  SelectedIndex="0" SelectionChanged="FilterComboBox_OnSelectionChanged" Grid.Row="2">
                         <ComboBoxItem x:Uid="FriendsFilterOnline"/>
                         <ComboBoxItem x:Uid="FriendsFilterAll"/>
@@ -152,7 +152,7 @@
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="0,15,0,0" Text="Messages" Grid.Row="1" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    <TextBlock Margin="0,15,0,0" x:Uid="MessagesPivot" Text="Messages" Grid.Row="1" Style="{StaticResource HeaderTextBlockStyle}"/>
                     <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" IsIndeterminate="True"/>
                     <ListView x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroups}" HorizontalAlignment="Stretch">
                         <ListView.ItemContainerStyle>
@@ -194,7 +194,7 @@
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="0,15,0,0" Text="What's New" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
+                    <TextBlock x:Uid="WhatsNew" Margin="0,25,0,0" Text="What's New" Grid.Row="0" Style="{StaticResource HeaderTextBlockStyle}"/>
                     <GridView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"

@@ -117,64 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutMe" xml:space="preserve">
+  <data name="AboutMe.Text" xml:space="preserve">
     <value>About Me:</value>
   </data>
-  <data name="AboutMeCategory" xml:space="preserve">
+  <data name="AboutMeCategory.Text" xml:space="preserve">
     <value>Introduction</value>
   </data>
-  <data name="Accept" xml:space="preserve">
+  <data name="Accept.Text" xml:space="preserve">
     <value>Accept</value>
   </data>
-  <data name="AddAsFriend" xml:space="preserve">
+  <data name="AddAsFriend.Text" xml:space="preserve">
     <value>Add As Friend</value>
   </data>
-  <data name="AppBarButtonText" xml:space="preserve">
+  <data name="AppBarButtonText.Text" xml:space="preserve">
     <value>add</value>
   </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
+  <data name="AppBarMenuItemText.Text" xml:space="preserve">
     <value>Menu Item</value>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
+  <data name="ApplicationTitle.Text" xml:space="preserve">
     <value>PS</value>
   </data>
-  <data name="BatchFriendInvite" xml:space="preserve">
+  <data name="BatchFriendInvite.Text" xml:space="preserve">
     <value>Batch Friend Invite</value>
   </data>
-  <data name="CancelFriendRequest" xml:space="preserve">
+  <data name="CancelFriendRequest.Text" xml:space="preserve">
     <value>Cancel Friend Request</value>
   </data>
-  <data name="CancelNameRequest" xml:space="preserve">
+  <data name="CancelNameRequest.Text" xml:space="preserve">
     <value>Cancel Name Request</value>
   </data>
-  <data name="CancelNameRequestError" xml:space="preserve">
+  <data name="CancelNameRequestError.Text" xml:space="preserve">
     <value>Cannot cancel the name request.</value>
   </data>
-  <data name="Conversation" xml:space="preserve">
+  <data name="Conversation.Text" xml:space="preserve">
     <value>Conversation</value>
   </data>
-  <data name="Delete" xml:space="preserve">
+  <data name="Delete.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="DeleteFriendRequest" xml:space="preserve">
+  <data name="DeleteFriendRequest.Text" xml:space="preserve">
     <value>Delete Friend Request</value>
   </data>
-  <data name="DeleteNameRequest" xml:space="preserve">
+  <data name="DeleteNameRequest.Text" xml:space="preserve">
     <value>Delete Name Request</value>
   </data>
-  <data name="DislikeButton" xml:space="preserve">
+  <data name="DislikeButton.Text" xml:space="preserve">
     <value>Dislike</value>
   </data>
-  <data name="ElapsedTime" xml:space="preserve">
+  <data name="ElapsedTime.Text" xml:space="preserve">
     <value>Elapsed Time</value>
   </data>
-  <data name="FriendRequest" xml:space="preserve">
+  <data name="FriendRequest.Text" xml:space="preserve">
     <value>Send Friend Request</value>
   </data>
-  <data name="FriendRequestAlert" xml:space="preserve">
+  <data name="FriendRequestAlert.Text" xml:space="preserve">
     <value>Do you want to add this player as a Friend?</value>
   </data>
-  <data name="FriendRequestConfirm" xml:space="preserve">
+  <data name="FriendRequestConfirm.Text" xml:space="preserve">
     <value>A Friend request will be sent to this player.</value>
   </data>
   <data name="FriendRequestReceived.Content" xml:space="preserve">
@@ -183,7 +183,7 @@
   <data name="FriendRequestSent.Content" xml:space="preserve">
     <value>Friend Requests (Sent)</value>
   </data>
-  <data name="FriendSendError" xml:space="preserve">
+  <data name="FriendSendError.Text" xml:space="preserve">
     <value>Cannot send the Friend Request.</value>
   </data>
   <data name="FriendsFilterAll.Content" xml:space="preserve">
@@ -210,295 +210,298 @@
   <data name="FriendsFilterRequestSent.Content" xml:space="preserve">
     <value>Friend Requests (Sent)</value>
   </data>
-  <data name="FriendsPivot" xml:space="preserve">
+  <data name="FriendsPivot.Text" xml:space="preserve">
     <value>Friends</value>
   </data>
-  <data name="FriendTotal" xml:space="preserve">
+  <data name="FriendTotal.Text" xml:space="preserve">
     <value>{0} Friends</value>
     <comment>{0} represents total number of friends.</comment>
   </data>
-  <data name="FromUser" xml:space="preserve">
+  <data name="FromUser.Text" xml:space="preserve">
     <value>From</value>
   </data>
-  <data name="GenericError" xml:space="preserve">
+  <data name="GenericError.Text" xml:space="preserve">
     <value>(o_0)An Error Has Occured(O_o)</value>
   </data>
-  <data name="HiddenTrophy" xml:space="preserve">
+  <data name="HiddenTrophy.Text" xml:space="preserve">
     <value>Hidden Trophy</value>
   </data>
-  <data name="Image" xml:space="preserve">
+  <data name="Image.Text" xml:space="preserve">
     <value>Image</value>
   </data>
-  <data name="Invitations" xml:space="preserve">
+  <data name="Invitations.Text" xml:space="preserve">
     <value>Invitations</value>
   </data>
-  <data name="Invitation_singular" xml:space="preserve">
+  <data name="Invitation_singular.Text" xml:space="preserve">
     <value>Invitation</value>
   </data>
-  <data name="JoinInvitationExpired" xml:space="preserve">
+  <data name="JoinInvitationExpired.Text" xml:space="preserve">
     <value>This invitation has expired.</value>
   </data>
-  <data name="LangChineseSimplified" xml:space="preserve">
+  <data name="LangChineseSimplified.Text" xml:space="preserve">
     <value>Chinese (Simplified)</value>
   </data>
-  <data name="LangChineseTraditional" xml:space="preserve">
+  <data name="LangChineseTraditional.Text" xml:space="preserve">
     <value>Chinese (Traditional)</value>
   </data>
-  <data name="LangDanish" xml:space="preserve">
+  <data name="LangDanish.Text" xml:space="preserve">
     <value>Danish</value>
   </data>
-  <data name="LangDutch" xml:space="preserve">
+  <data name="LangDutch.Text" xml:space="preserve">
     <value>Dutch</value>
   </data>
-  <data name="LangEnglishUK" xml:space="preserve">
+  <data name="LangEnglishUK.Text" xml:space="preserve">
     <value>English (United Kingdom)</value>
   </data>
-  <data name="LangEnglishUS" xml:space="preserve">
+  <data name="LangEnglishUS.Text" xml:space="preserve">
     <value>English (United States)</value>
   </data>
-  <data name="LangFinnish" xml:space="preserve">
+  <data name="LangFinnish.Text" xml:space="preserve">
     <value>Finnish</value>
   </data>
-  <data name="LangFrench" xml:space="preserve">
+  <data name="LangFrench.Text" xml:space="preserve">
     <value>French</value>
   </data>
-  <data name="LangGerman" xml:space="preserve">
+  <data name="LangGerman.Text" xml:space="preserve">
     <value>German</value>
   </data>
-  <data name="LangItalian" xml:space="preserve">
+  <data name="LangItalian.Text" xml:space="preserve">
     <value>Italian</value>
   </data>
-  <data name="LangJapanese" xml:space="preserve">
+  <data name="LangJapanese.Text" xml:space="preserve">
     <value>Japanese</value>
   </data>
-  <data name="LangKorean" xml:space="preserve">
+  <data name="LangKorean.Text" xml:space="preserve">
     <value>Korean</value>
   </data>
-  <data name="LangNorwegian" xml:space="preserve">
+  <data name="LangNorwegian.Text" xml:space="preserve">
     <value>Norwegian</value>
   </data>
-  <data name="LangPolish" xml:space="preserve">
+  <data name="LangPolish.Text" xml:space="preserve">
     <value>Polish</value>
   </data>
-  <data name="LangPortugueseBrazil" xml:space="preserve">
+  <data name="LangPortugueseBrazil.Text" xml:space="preserve">
     <value>Portuguese (Brazil)</value>
   </data>
-  <data name="LangPortuguesePortugal" xml:space="preserve">
+  <data name="LangPortuguesePortugal.Text" xml:space="preserve">
     <value>Portuguese (Portugal)</value>
   </data>
-  <data name="LangRussian" xml:space="preserve">
+  <data name="LangRussian.Text" xml:space="preserve">
     <value>Russian</value>
   </data>
-  <data name="LangSpanishLA" xml:space="preserve">
+  <data name="LangSpanishLA.Text" xml:space="preserve">
     <value>Spanish (Latin America)</value>
   </data>
-  <data name="LangSpanishSpain" xml:space="preserve">
+  <data name="LangSpanishSpain.Text" xml:space="preserve">
     <value>Spanish (Spain)</value>
   </data>
-  <data name="LangSwedish" xml:space="preserve">
+  <data name="LangSwedish.Text" xml:space="preserve">
     <value>Swedish</value>
   </data>
-  <data name="LangTurkish" xml:space="preserve">
+  <data name="LangTurkish.Text" xml:space="preserve">
     <value>Turkish</value>
   </data>
-  <data name="LikeButton" xml:space="preserve">
+  <data name="LikeButton.Text" xml:space="preserve">
     <value>Like</value>
   </data>
-  <data name="LiveFromPlaystation" xml:space="preserve">
+  <data name="LiveFromPlaystation.Text" xml:space="preserve">
     <value>Live From Playstation</value>
   </data>
-  <data name="LiveTileSupport" xml:space="preserve">
+  <data name="LiveTileSupport.Text" xml:space="preserve">
     <value>Live Tile Support</value>
   </data>
-  <data name="Login" xml:space="preserve">
+  <data name="Login.Text" xml:space="preserve">
     <value>Login</value>
   </data>
-  <data name="Logout" xml:space="preserve">
+  <data name="Logout.Text" xml:space="preserve">
     <value>Logout</value>
   </data>
-  <data name="MessagesPivot" xml:space="preserve">
+  <data name="MessagesPivot.Text" xml:space="preserve">
     <value>Messages</value>
   </data>
-  <data name="MyLanguages" xml:space="preserve">
+  <data name="MyLanguages.Text" xml:space="preserve">
     <value>My Languages:</value>
   </data>
-  <data name="NameRequestAlert" xml:space="preserve">
+  <data name="NameRequestAlert.Text" xml:space="preserve">
     <value>Do you want to reveal your name to this Friend?</value>
   </data>
-  <data name="NameRequestReceived" xml:space="preserve">
+  <data name="NameRequestReceived.Text" xml:space="preserve">
     <value>Name Request (Received)</value>
   </data>
-  <data name="NameRequestSendError" xml:space="preserve">
+  <data name="NameRequestSendError.Text" xml:space="preserve">
     <value>Cannot send the name request.</value>
   </data>
-  <data name="NameRequestSent" xml:space="preserve">
+  <data name="NameRequestSent.Text" xml:space="preserve">
     <value>Name Request (Sent)</value>
   </data>
-  <data name="NoActivities" xml:space="preserve">
+  <data name="NoActivities.Text" xml:space="preserve">
     <value>There are no activities.</value>
   </data>
-  <data name="NoFriends" xml:space="preserve">
+  <data name="NoFriends.Text" xml:space="preserve">
     <value>No Friends Found.</value>
   </data>
-  <data name="NoGameAlert" xml:space="preserve">
+  <data name="NoGameAlert.Text" xml:space="preserve">
     <value>There are no new game alerts.</value>
   </data>
-  <data name="NoInvites" xml:space="preserve">
+  <data name="NoInvites.Text" xml:space="preserve">
     <value>There are no invitations.</value>
   </data>
-  <data name="NoMessages" xml:space="preserve">
+  <data name="NoMessages.Text" xml:space="preserve">
     <value>There are no new messages.</value>
   </data>
-  <data name="NoNotifications" xml:space="preserve">
+  <data name="NoNotifications.Text" xml:space="preserve">
     <value>There are no new notifications.</value>
   </data>
-  <data name="NoPlayers" xml:space="preserve">
+  <data name="NoPlayers.Text" xml:space="preserve">
     <value>No players found.</value>
   </data>
-  <data name="NotificationsHeader" xml:space="preserve">
+  <data name="NotificationsHeader.Text" xml:space="preserve">
     <value>Notifications</value>
   </data>
-  <data name="NotificationSupport" xml:space="preserve">
+  <data name="NotificationSupport.Text" xml:space="preserve">
     <value>Notification Support</value>
   </data>
-  <data name="Notification_invited" xml:space="preserve">
+  <data name="Notification_invited.Text" xml:space="preserve">
     <value>You received an invitation.</value>
   </data>
-  <data name="NoTrophyInfo" xml:space="preserve">
+  <data name="NoTrophyInfo.Text" xml:space="preserve">
     <value>There are no trophies.
 You can earn trophies by playing games that support them.</value>
   </data>
-  <data name="NowPlaying" xml:space="preserve">
+  <data name="NowPlaying.Text" xml:space="preserve">
     <value>Now Playing</value>
   </data>
-  <data name="NumberOfPlayers" xml:space="preserve">
+  <data name="NumberOfPlayers.Text" xml:space="preserve">
     <value>Number Of Players</value>
   </data>
-  <data name="PlayersJoinedParty" xml:space="preserve">
+  <data name="PlayersJoinedParty.Text" xml:space="preserve">
     <value>Players Joining the Party</value>
   </data>
-  <data name="PlayersJoinedSession" xml:space="preserve">
+  <data name="PlayersJoinedSession.Text" xml:space="preserve">
     <value>Players Joining the Session</value>
   </data>
-  <data name="ProfileHeader" xml:space="preserve">
+  <data name="ProfileHeader.Text" xml:space="preserve">
     <value>Profile</value>
   </data>
-  <data name="RealNameRequest" xml:space="preserve">
+  <data name="RealNameRequest.Text" xml:space="preserve">
     <value>Send Name Request</value>
   </data>
-  <data name="RecentActivity" xml:space="preserve">
+  <data name="RecentActivity.Text" xml:space="preserve">
     <value>Recent Activity</value>
   </data>
-  <data name="Refresh" xml:space="preserve">
+  <data name="Refresh.Text" xml:space="preserve">
     <value>Refresh</value>
   </data>
-  <data name="RemoveFromFriends" xml:space="preserve">
+  <data name="RemoveFromFriends.Text" xml:space="preserve">
     <value>Remove From Friends</value>
   </data>
-  <data name="ResourceFlowDirection" xml:space="preserve">
+  <data name="ResourceFlowDirection.Text" xml:space="preserve">
     <value>LeftToRight</value>
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
   </data>
-  <data name="ResourceLanguage" xml:space="preserve">
+  <data name="ResourceLanguage.Text" xml:space="preserve">
     <value>en-US</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
-  <data name="RevealName" xml:space="preserve">
+  <data name="RevealName.Text" xml:space="preserve">
     <value>Reveal Name</value>
   </data>
-  <data name="Search" xml:space="preserve">
+  <data name="Search.Text" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="SearchButton" xml:space="preserve">
+  <data name="SearchButton.Text" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="SendButton" xml:space="preserve">
+  <data name="SendButton.Text" xml:space="preserve">
     <value>Send</value>
   </data>
-  <data name="SendMessage" xml:space="preserve">
+  <data name="SendMessage.Text" xml:space="preserve">
     <value>Send Message</value>
   </data>
-  <data name="Settings" xml:space="preserve">
+  <data name="Settings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="Status" xml:space="preserve">
+  <data name="Status.Text" xml:space="preserve">
     <value>Status</value>
   </data>
-  <data name="ToMessageHeader" xml:space="preserve">
+  <data name="ToMessageHeader.Text" xml:space="preserve">
     <value>To {0}</value>
     <comment>{0} represents the person who is being sent the message</comment>
   </data>
-  <data name="TotalFriends" xml:space="preserve">
+  <data name="TotalFriends.Text" xml:space="preserve">
     <value>{0} Friends</value>
     <comment>{0} represents the total amount of friends.</comment>
   </data>
-  <data name="TrophyBronze" xml:space="preserve">
+  <data name="TrophyBronze.Text" xml:space="preserve">
     <value>Bronze</value>
   </data>
-  <data name="TrophyCommon" xml:space="preserve">
+  <data name="TrophyCommon.Text" xml:space="preserve">
     <value>Common</value>
   </data>
-  <data name="TrophyDetail" xml:space="preserve">
+  <data name="TrophyDetail.Text" xml:space="preserve">
     <value>Details</value>
   </data>
-  <data name="TrophyEarned" xml:space="preserve">
+  <data name="TrophyEarned.Text" xml:space="preserve">
     <value>Earned</value>
   </data>
-  <data name="TrophyEarnedDate" xml:space="preserve">
+  <data name="TrophyEarnedDate.Text" xml:space="preserve">
     <value>Earned Date</value>
   </data>
-  <data name="TrophyGold" xml:space="preserve">
+  <data name="TrophyGold.Text" xml:space="preserve">
     <value>Gold</value>
   </data>
-  <data name="TrophyGrade" xml:space="preserve">
+  <data name="TrophyGrade.Text" xml:space="preserve">
     <value>Grade</value>
   </data>
-  <data name="TrophyHeader" xml:space="preserve">
+  <data name="TrophyHeader.Text" xml:space="preserve">
     <value>Trophies</value>
   </data>
-  <data name="TrophyHidden" xml:space="preserve">
+  <data name="TrophyHidden.Text" xml:space="preserve">
     <value>Hidden</value>
   </data>
-  <data name="TrophyNotEarned" xml:space="preserve">
+  <data name="TrophyNotEarned.Text" xml:space="preserve">
     <value>Not Earned</value>
   </data>
-  <data name="TrophyPlatinum" xml:space="preserve">
+  <data name="TrophyPlatinum.Text" xml:space="preserve">
     <value>Platinum</value>
   </data>
-  <data name="TrophyRare" xml:space="preserve">
+  <data name="TrophyRare.Text" xml:space="preserve">
     <value>Rare</value>
   </data>
-  <data name="TrophyRarity" xml:space="preserve">
+  <data name="TrophyRarity.Text" xml:space="preserve">
     <value>Rarity</value>
   </data>
-  <data name="TrophySilver" xml:space="preserve">
+  <data name="TrophySilver.Text" xml:space="preserve">
     <value>Silver</value>
   </data>
-  <data name="TrophyStatus" xml:space="preserve">
+  <data name="TrophyStatus.Text" xml:space="preserve">
     <value>Status</value>
   </data>
-  <data name="TrophyTotal" xml:space="preserve">
+  <data name="TrophyTotal.Text" xml:space="preserve">
     <value>Total:</value>
   </data>
-  <data name="TrophyUltraRare" xml:space="preserve">
+  <data name="TrophyUltraRare.Text" xml:space="preserve">
     <value>Ultra Rare</value>
   </data>
-  <data name="TrophyVeryRare" xml:space="preserve">
+  <data name="TrophyVeryRare.Text" xml:space="preserve">
     <value>Very Rare</value>
   </data>
-  <data name="UserSearch" xml:space="preserve">
+  <data name="UserSearch.Text" xml:space="preserve">
     <value>User Search</value>
   </data>
-  <data name="ViewFriendRequest" xml:space="preserve">
+  <data name="ViewFriendRequest.Text" xml:space="preserve">
     <value>View Friend Request</value>
   </data>
-  <data name="ViewInformation" xml:space="preserve">
+  <data name="ViewInformation.Text" xml:space="preserve">
     <value>View Information</value>
   </data>
-  <data name="ViewNameRequest" xml:space="preserve">
+  <data name="ViewNameRequest.Text" xml:space="preserve">
     <value>View Name Request</value>
   </data>
-  <data name="VoiceMessage" xml:space="preserve">
+  <data name="VoiceMessage.Text" xml:space="preserve">
     <value>Voice Message</value>
+  </data>
+  <data name="WhatsNew.Text" xml:space="preserve">
+    <value>What's New</value>
   </data>
 </root>
