@@ -145,10 +145,13 @@
     <Compile Include="Tools\RecentActivityScrollingCollection.cs" />
     <Compile Include="Tools\TrophyDateConverter.cs" />
     <Compile Include="Tools\TrophyEarnedVisibilityConverter.cs" />
+    <Compile Include="Tools\TrophyGradeConverter.cs" />
     <Compile Include="Tools\TrophyHiddenConverter.cs" />
     <Compile Include="Tools\TrophyHiddenIconConverter.cs" />
     <Compile Include="Tools\TrophyRareConverter.cs" />
+    <Compile Include="Tools\TrophyRareTextConverter.cs" />
     <Compile Include="Tools\TrophyScrollingCollection.cs" />
+    <Compile Include="Tools\TrophyStatusConverter.cs" />
     <Compile Include="Tools\TrophyTypeConverter.cs" />
     <Compile Include="Tools\ValuePercentConverter.cs" />
     <Compile Include="Views\FriendPage.xaml.cs">

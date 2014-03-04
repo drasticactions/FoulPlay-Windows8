@@ -150,5 +150,8 @@
         </DataTemplate>
         <tools:TrophyEarnedVisibilityConverter x:Key="TrophyEarnedVisibilityConverter" />
         <tools:TrophyDateConverter x:Key="TrophyDateConverter" />
+        <tools:TrophyGradeConverter x:Key="TrophyGradeConverter" />
+        <tools:TrophyRareTextConverter x:Key="TrophyRareTextConverter" />
+        <tools:TrophyStatusConverter x:Key="TrophyStatusConverter" />
     </Application.Resources>
 </Application>

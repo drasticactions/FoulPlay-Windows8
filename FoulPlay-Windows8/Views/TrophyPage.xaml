@@ -70,6 +70,7 @@
 
                             <TextBlock FontSize="40"
                                        Foreground="#3F454F"
+                                       x:Uid="TrophyGrade"
                                    Text="Grade" />
                             <StackPanel Orientation="Horizontal">
                                 <Image Margin="15,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="50"
@@ -77,41 +78,38 @@
                                    Source="{Binding TrophyType, Converter={StaticResource TrophyTypeConverter}}" />
                                 <TextBlock FontSize="30"
                                            Foreground="#3F454F"
-                                       Text="Text" />
+                                       Text="{Binding TrophyType, Converter={StaticResource TrophyGradeConverter}}" />
                             </StackPanel>
                         </StackPanel>
                         <StackPanel>
                             <TextBlock FontSize="40"
                                        Foreground="#3F454F"
+                                       x:Uid="TrophyRarity"
                                    Text="Rarity" />
                             <StackPanel Orientation="Horizontal">
                                 <Image Margin="15,0,0,0" HorizontalAlignment="Left" Height="50" Width="50"
                                    Source="{Binding TrophyRare, Converter={StaticResource TrophyRareConverter}}" />
                                 <TextBlock VerticalAlignment="Center" FontSize="30"
                                            Foreground="#3F454F"
-                                       Text="Text" />
+                                       Text="{Binding TrophyRare, Converter={StaticResource TrophyRareTextConverter}}"  />
                             </StackPanel>
                         </StackPanel>
                         <StackPanel>
                             <TextBlock FontSize="40"
                                        Foreground="#3F454F"
+                                       x:Uid="TrophyStatus"
                                    Text="Status" />
                             <TextBlock Margin="15,0,0,0" VerticalAlignment="Center" FontSize="30"
                                        Foreground="#3F454F"
-                                   Text="Text" />
+                                   Text="{Binding Converter={StaticResource TrophyStatusConverter}}" />
                         </StackPanel>
                         <StackPanel
                         Visibility="{Binding Converter={StaticResource TrophyEarnedVisibilityConverter}}">
                             <TextBlock FontSize="40"
                                        Foreground="#3F454F"
+                                       x:Uid="TrophyEarnedDate"
                                    Text="Earned Date" />
-                            <TextBlock Margin="15,0,0,0" Foreground="#3F454F" Text="{Binding ComparedUser.EarnedDate, Converter={StaticResource DateConverter}}" FontSize="30" />
-                        </StackPanel>
-                        <StackPanel>
-                            <TextBlock FontSize="40"
-                                       Foreground="#3F454F"
-                                   Text="Details" />
-                            <TextBlock Margin="15,0,0,0" Foreground="#3F454F" FontSize="30" TextWrapping="Wrap" Text="{Binding TrophyDetail}" />
+                            <TextBlock Margin="15,0,0,0" Foreground="#3F454F" Text="{Binding Converter={StaticResource TrophyDateConverter}}" FontSize="30" />
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
