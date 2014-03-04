@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Media.Imaging;
 using FoulPlay_Windows8.Common;
@@ -61,7 +62,6 @@ namespace FoulPlay_Windows8.Views
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             CreateMenu();
-            _user = App.UserAccountEntity.GetUserEntity();
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
         }
@@ -77,8 +77,17 @@ namespace FoulPlay_Windows8.Views
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session. The state will be null the first time a page is visited.</param>
-        private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            {
+                var jsonObjectString = e.PageState["userAccountEntity"].ToString();
+                App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(jsonObjectString);
+                jsonObjectString = e.PageState["userEntity"].ToString();
+                var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(jsonObjectString);
+                App.UserAccountEntity.SetUserEntity(user);
+            }
+            _user = App.UserAccountEntity.GetUserEntity();
             GetFriendsList(true, false, false, false, true, false, false);
             LoadRecentActivityList();
             LoadMessages();
@@ -158,6 +167,10 @@ namespace FoulPlay_Windows8.Views
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
+            string jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity);
+            e.PageState["userAccountEntity"] = jsonObjectString;
+            jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity.GetUserEntity());
+            e.PageState["userEntity"] = jsonObjectString;
         }
 
         #region NavigationHelper registration

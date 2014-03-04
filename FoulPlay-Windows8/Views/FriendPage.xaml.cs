@@ -73,6 +73,14 @@ namespace FoulPlay_Windows8.Views
         /// session. The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            {
+                var savedStateJson = e.PageState["userAccountEntity"].ToString();
+                App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(savedStateJson);
+                savedStateJson = e.PageState["userEntity"].ToString();
+                var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
+                App.UserAccountEntity.SetUserEntity(user);
+            }
             var jsonObjectString = (string)e.NavigationParameter;
             _user = JsonConvert.DeserializeObject<UserEntity>(jsonObjectString);
             var isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(_user.OnlineId);
@@ -104,6 +112,10 @@ namespace FoulPlay_Windows8.Views
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
+            string jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity);
+            e.PageState["userAccountEntity"] = jsonObjectString;
+            jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity.GetUserEntity());
+            e.PageState["userEntity"] = jsonObjectString;
         }
 
         private MessageEntity _messageEntity;
@@ -115,11 +127,13 @@ namespace FoulPlay_Windows8.Views
             _messageEntity = await messagerManager.GetGroupConversation(string.Format("~{0},{1}", _user.OnlineId, App.UserAccountEntity.GetUserEntity().OnlineId), App.UserAccountEntity);
             if (_messageEntity == null)
             {
+                MessageProgressBar.Visibility = Visibility.Collapsed;
                 return;
             }
 
             if (_messageEntity.messages == null)
             {
+                MessageProgressBar.Visibility = Visibility.Collapsed;
                 return;
             }
 

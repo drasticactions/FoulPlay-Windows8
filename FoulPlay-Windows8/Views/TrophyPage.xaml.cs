@@ -69,6 +69,15 @@ namespace FoulPlay_Windows8.Views
         /// session. The state will be null the first time a page is visited.</param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            {
+                var savedStateJson = e.PageState["userAccountEntity"].ToString();
+                App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(savedStateJson);
+                savedStateJson = e.PageState["userEntity"].ToString();
+                var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
+                App.UserAccountEntity.SetUserEntity(user);
+            }
+
             var jsonObjectString = (string)e.NavigationParameter;
             var trophyTitle = JsonConvert.DeserializeObject<TrophyEntity.TrophyTitle>(jsonObjectString);
             var trophyDetailManager = new TrophyDetailManager();
@@ -90,6 +99,10 @@ namespace FoulPlay_Windows8.Views
         /// serializable state.</param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
+            string jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity);
+            e.PageState["userAccountEntity"] = jsonObjectString;
+            jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity.GetUserEntity());
+            e.PageState["userEntity"] = jsonObjectString;
         }
 
         #region NavigationHelper registration
