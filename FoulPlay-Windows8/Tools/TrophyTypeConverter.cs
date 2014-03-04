@@ -12,20 +12,20 @@ namespace FoulPlay_Windows8.Tools
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (value == null) return new BitmapImage(new Uri("ms-appx:///Assets/Trophy-icon-Hidden.png"));
+            if (value == null) return new BitmapImage(new Uri("ms-appx:///Assets/phone_trophy_medium_hidden.png"));
             var trophyType = (string)value;
             switch (trophyType)
             {
                 case "platinum":
-                    return new BitmapImage(new Uri("ms-appx:///Assets/Trophy-icon-plat.png"));
+                    return new BitmapImage(new Uri("ms-appx:///Assets/phone_trophy_medium_platinum.png"));
                 case "gold":
-                    return new BitmapImage(new Uri("ms-appx:///Assets/Trophy-icon-Gold.png"));
+                    return new BitmapImage(new Uri("ms-appx:///Assets/phone_trophy_medium_gold.png"));
                 case "silver":
-                    return new BitmapImage(new Uri("ms-appx:///Assets/Trophy-icon-Silver.png"));
+                    return new BitmapImage(new Uri("ms-appx:///Assets/phone_trophy_medium_silver.png"));
                 case "bronze":
-                    return new BitmapImage(new Uri("ms-appx:///Assets/Trophy-icon-Bronze.png"));
+                    return new BitmapImage(new Uri("ms-appx:///Assets/phone_trophy_medium_bronze.png"));
                 default:
-                    return new BitmapImage(new Uri("ms-appx:///Assets/Trophy-icon-Hidden.png"));
+                    return new BitmapImage(new Uri("ms-appx:///Assets/phone_trophy_medium_hidden.png"));
             }
         }
 

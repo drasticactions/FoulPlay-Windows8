@@ -107,7 +107,7 @@
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <Image Width="25" Height="25"
-                                                   Source="/Assets/Trophy-icon-plat.png" />
+                                                   Source="/Assets/phone_trophy_medium_platinum.png" />
                                         <TextBlock 
                                             Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
@@ -121,7 +121,7 @@
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <Image Width="25" Height="25"
-                                                   Source="/Assets/Trophy-icon-Gold.png" />
+                                                   Source="/Assets/phone_trophy_medium_gold.png" />
                                         <TextBlock 
                                                                                         Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
@@ -142,7 +142,7 @@
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <Image Width="25"  Height="25"
-                                                   Source="/Assets/Trophy-icon-Silver.png" />
+                                                   Source="/Assets/phone_trophy_medium_silver.png" />
                                         <TextBlock
                                                                                         Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
@@ -156,7 +156,7 @@
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <Image Width="25" Height="25"
-                                                   Source="/Assets/Trophy-icon-Bronze.png" />
+                                                   Source="/Assets/phone_trophy_medium_bronze.png" />
                                         <TextBlock
                                                                                         Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
@@ -312,7 +312,7 @@
                                                         <ColumnDefinition Width="*" />
                                                     </Grid.ColumnDefinitions>
                                                     <StackPanel>
-                                                        <TextBlock Foreground="#3F454F" FontWeight="Bold" TextWrapping="NoWrap" TextTrimming="WordEllipsis"
+                                                        <TextBlock Foreground="#3F454F" FontWeight="Bold" TextWrapping="Wrap" TextTrimming="WordEllipsis"
                                                        Text="{Binding TrophyTitleName}" />
                                                         <TextBlock Foreground="#3F454F" TextWrapping="Wrap" Text="{Binding TrophyTitlePlatfrom}" />
                                                     </StackPanel>
@@ -420,7 +420,7 @@
                                                 <StackPanel Grid.Column="1" Margin="5" HorizontalAlignment="Right"
                                                             Orientation="Vertical">
                                                     <Image Width="25" Height="25"
-                                                           Source="/Assets/Trophy-icon-Silver.png" />
+                                                           Source="/Assets/phone_trophy_medium_silver.png" />
                                                     <TextBlock FontSize="15" Foreground="#3F454F" HorizontalAlignment="Center"
                                                                Text="{Binding TrophySummary.Level}" />
                                                 </StackPanel>

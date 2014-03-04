@@ -40,7 +40,7 @@
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
                         AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="Trophy List" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+            <TextBlock x:Name="pageTitle" Text="Trophy List" x:Uid="TrophyHeader" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
             <Popup Grid.Row="0" x:Name="TrophyDetailPopup" IsOpen="False" IsLightDismissEnabled="True">
@@ -101,7 +101,7 @@
                                    Text="Text" />
                         </StackPanel>
                         <StackPanel
-                        Visibility="{Binding ComparedUser.Earned, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        Visibility="{Binding Converter={StaticResource TrophyEarnedVisibilityConverter}}">
                             <TextBlock FontSize="40"
                                        Foreground="#3F454F"
                                    Text="Earned Date" />
@@ -132,45 +132,47 @@
                         </Grid.Background>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="100" />
-                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
                         <Border Margin="5,0,0,0" VerticalAlignment="Center" Grid.Column="0" Width="100" Height="100">
                                 <Image Source="{Binding TrophyIconUrl, Converter={StaticResource TrophyHiddenIconConverter}}" Stretch="UniformToFill" />
                         </Border>
                         <Grid Grid.Column="1">
-                            <StackPanel>
-                                <Image Width="50"
-                                                   Source="{Binding TrophyType, Converter={StaticResource TrophyTypeConverter}}" />
-                                <Border Background="Transparent">
-                                    <Image Width="50"
-                                                   Source="{Binding TrophyRare, Converter={StaticResource TrophyRareConverter}}" />
-                                </Border>
-                                <TextBlock HorizontalAlignment="Center" Text="{Binding TrophyEarnedRate, Converter={StaticResource ValuePercentConverter}}" />
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width="25" Source="{Binding TrophyType, Converter={StaticResource TrophyTypeConverter}}" />
                             </StackPanel>
                         </Grid>
-                        <Grid VerticalAlignment="Top" Grid.Column="2">
-                            <StackPanel VerticalAlignment="Top">
-                                <TextBlock TextWrapping="NoWrap" TextTrimming="WordEllipsis" FontSize="20"
+                        <Grid VerticalAlignment="Center" Grid.Column="2">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="20"
                                                        Text="{Binding TrophyName, Converter={StaticResource TrophyHiddenConverter}}" />
-                                <TextBlock TextWrapping="NoWrap"
-                                                       Visibility="{Binding TrophyHidden, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                    <TextBlock  TextWrapping="Wrap"
                                                        TextTrimming="WordEllipsis" FontSize="15"
                                                        Text="{Binding TrophyDetail}" />
-                                <Grid
-                                                Visibility="{Binding ComparedUser.Earned, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="25" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Image Grid.Column="0" HorizontalAlignment="Left" Width="15"
-                                                       Source="{Binding TrophyType, Converter={StaticResource TrophyTypeConverter}}" />
-                                    <TextBlock Grid.Column="1" HorizontalAlignment="Left"
-                                                           TextWrapping="Wrap" FontSize="15"
-                                                           Text="{Binding ComparedUser.EarnedDate, Converter={StaticResource DateConverter}}" />
-                                </Grid>
-                            </StackPanel>
+                                </StackPanel>
                         </Grid>
+                        <Grid Grid.Column="3">
+                            <StackPanel>
+                                    <Border VerticalAlignment="Center" Background="Transparent">
+                                        <Image Width="50"
+                                                   Source="{Binding TrophyRare, Converter={StaticResource TrophyRareConverter}}" />
+                                    </Border>
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding TrophyEarnedRate, Converter={StaticResource ValuePercentConverter}}" />
+                                </StackPanel>
+                        </Grid>
+                            <Grid Grid.Column="4"
+                                                Visibility="{Binding Converter={StaticResource TrophyEarnedVisibilityConverter}}">
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Width="50"
+                                                       Source="{Binding TrophyType, Converter={StaticResource TrophyTypeConverter}}" />
+                                    <TextBlock 
+                                                           TextWrapping="Wrap" FontSize="15"
+                                                           Text="{Binding Converter={StaticResource TrophyDateConverter}}" />
+                                </StackPanel>
+                            </Grid>
                         </Grid>
                     </Border>
                 </DataTemplate>

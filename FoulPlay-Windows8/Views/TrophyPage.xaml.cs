@@ -80,11 +80,14 @@ namespace FoulPlay_Windows8.Views
 
             var jsonObjectString = (string)e.NavigationParameter;
             var trophyTitle = JsonConvert.DeserializeObject<TrophyEntity.TrophyTitle>(jsonObjectString);
+            string userName = trophyTitle.ComparedUser != null
+                ? trophyTitle.ComparedUser.OnlineId
+                : trophyTitle.FromUser.OnlineId;
             var trophyDetailManager = new TrophyDetailManager();
             TrophyDetailEntity trophys =
                 await
                     trophyDetailManager.GetTrophyDetailList(trophyTitle.NpCommunicationId,
-                        trophyTitle.ComparedUser.OnlineId, true,
+                       userName, true,
                         App.UserAccountEntity);
             TrophyListView.ItemsSource = trophys.Trophies;
         }

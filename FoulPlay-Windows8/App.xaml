@@ -69,7 +69,7 @@
                         <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Image Width="30" VerticalAlignment="Bottom" Source="{Binding Icon}"/>
+                    <Image Width="30" Height="30" VerticalAlignment="Bottom" Source="{Binding Icon}"/>
                     <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" TextWrapping="Wrap" Text="{Binding Text}"/>
                 </Grid>
             </Border>
@@ -148,5 +148,7 @@
                 </Grid>
             </Grid>
         </DataTemplate>
+        <tools:TrophyEarnedVisibilityConverter x:Key="TrophyEarnedVisibilityConverter" />
+        <tools:TrophyDateConverter x:Key="TrophyDateConverter" />
     </Application.Resources>
 </Application>

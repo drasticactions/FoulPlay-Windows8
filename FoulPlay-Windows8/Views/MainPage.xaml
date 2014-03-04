@@ -33,19 +33,26 @@
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="140"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="pageTitle" Margin="15,0,0,0" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="0"
-                       IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Center" />
+            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                        Style="{StaticResource NavigationBackButtonNormalStyle}"
+                        VerticalAlignment="Top"
+                        AutomationProperties.Name="Back"
+                        AutomationProperties.AutomationId="BackButton"
+                        AutomationProperties.ItemType="Navigation Button"/>
+            <TextBlock x:Name="pageTitle" Text="FoulPlay" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
-        
+
         <ScrollViewer ZoomMode="Disabled" VerticalScrollMode="Disabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" HorizontalScrollMode="Enabled" HorizontalAlignment="Left" Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -134,7 +141,7 @@
                                                 <StackPanel Grid.Column="1" Margin="5" HorizontalAlignment="Right"
                                                             Orientation="Vertical">
                                                     <Image Width="25" Height="25"
-                                                           Source="/Assets/Trophy-icon-Silver.png" />
+                                                           Source="/Assets/phone_trophy_medium_silver.png" />
                                                     <TextBlock FontSize="15" Foreground="#3F454F" HorizontalAlignment="Center"
                                                                Text="{Binding TrophySummary.Level}" />
                                                 </StackPanel>

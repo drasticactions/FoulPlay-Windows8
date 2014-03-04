@@ -97,9 +97,8 @@ namespace FoulPlay_Windows8.Views
         {
             var resourceLoader = ResourceLoader.GetForCurrentView(); 
             List<MenuItem> menuItems = new List<MenuItem>();
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("RecentActivity/Text"), string.Empty));
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("TrophyHeader/Text"), string.Empty));
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("LiveFromPlaystation/Text"), string.Empty));
+            menuItems.Add(new MenuItem("/Assets/phone_home_footerIcon_region.png", resourceLoader.GetString("RecentActivity/Text"), string.Empty));
+            menuItems.Add(new MenuItem("/Assets/phone_common_defaultThumbnail_video.png", resourceLoader.GetString("LiveFromPlaystation/Text"), string.Empty));
             menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("ProfileHeader/Text"), "profile"));
             MenuGridView.ItemsSource = menuItems;
         }
