@@ -30,9 +30,9 @@ namespace Foulplay_Windows8.Core.Entities
 
         public string Language { get; set; }
 
-        public string Viewers { get; set; }
+        public int Viewers { get; set; }
 
-        public string SocialStream { get; set; }
+        public int SocialStream { get; set; }
 
         public string PreviewThumbnail { get; set; }
 
@@ -53,7 +53,7 @@ namespace Foulplay_Windows8.Core.Entities
                 Language = twitchStream.sce_title_language;
                 GameMetadata = twitchStream.sce_title_metadata;
                 PreviewThumbnail = twitchStream.preview;
-                Viewers = twitchStream.viewers.ToString();
+                Viewers = twitchStream.viewers;
                 Service = "Twitch";
             }
             catch (Exception)
@@ -71,8 +71,8 @@ namespace Foulplay_Windows8.Core.Entities
                 PreviewThumbnail = ustreamEntity.media.thumbnail.live;
                 Description = ustreamEntity.media.description;
                 GameTitle = ustreamEntity.media.description;
-                Viewers = ustreamEntity.media.stats.viewer.ToString();
-                SocialStream = ustreamEntity.media.stats.socialstream.ToString();
+                Viewers = ustreamEntity.media.stats.viewer;
+                SocialStream = ustreamEntity.media.stats.socialstream;
                 var testDate = new DateTime().AddSeconds(ustreamEntity.media.stream_started_at);
                 OnlineTime = testDate.ToLocalTime().ToString();
             }

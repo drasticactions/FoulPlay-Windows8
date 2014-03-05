@@ -30,7 +30,6 @@ namespace FoulPlay_Windows8.Views
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private ObservableCollection<LiveBroadcastEntity> _liveBroadcastEntities = new ObservableCollection<LiveBroadcastEntity>(); 
 
         /// <summary>
         /// This can be changed to a strongly typed view model.
@@ -96,6 +95,7 @@ namespace FoulPlay_Windows8.Views
             var filterList = new Dictionary<string, string> { { "platform", "PS4" }, { "type", "live" }, { "interactive", "true" } };
             var ustreamList = await liveStreamManager.GetUstreamFeed(0, 80, "compact", filterList, "views", string.Empty, App.UserAccountEntity);
             var twitchList = await liveStreamManager.GetTwitchFeed(0, 80, "PS4", "true", string.Empty, App.UserAccountEntity);
+            List<LiveBroadcastEntity> liveBroadcastEntities = new List<LiveBroadcastEntity>();
             if (twitchList != null)
             {
                 
@@ -104,7 +104,7 @@ namespace FoulPlay_Windows8.Views
             {
                 var entity = new LiveBroadcastEntity();
                 entity.ParseFromTwitch(twitch);
-                _liveBroadcastEntities.Add(entity);
+                liveBroadcastEntities.Add(entity);
             }
             }
             if (ustreamList != null)
@@ -113,11 +113,11 @@ namespace FoulPlay_Windows8.Views
                 {
                     var entity = new LiveBroadcastEntity();
                     entity.ParseFromUstream(ustream);
-                    _liveBroadcastEntities.Add(entity);
+                    liveBroadcastEntities.Add(entity);
                 }                
             }
 
-            var result = _liveBroadcastEntities.OrderByDescending(node => node.Viewers);
+            var result = liveBroadcastEntities.OrderByDescending(node => node.Viewers);
             LiveBroadcastGridView.ItemsSource = result;
             LoadingProgressRing.IsActive = false;
         }
