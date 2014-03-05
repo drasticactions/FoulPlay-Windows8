@@ -14,7 +14,7 @@ namespace Foulplay_Windows8.Core.Entities
             public string sce_user_online_id { get; set; }
             public string sce_user_np_id { get; set; }
             public string sce_user_country { get; set; }
-            public int sce_title_age_rating { get; set; }
+            public int? sce_title_age_rating { get; set; }
             public string sce_title_language { get; set; }
             public string sce_title_id { get; set; }
             public string sce_title_product_id { get; set; }
@@ -25,7 +25,7 @@ namespace Foulplay_Windows8.Core.Entities
             public string sce_title_metadata { get; set; }
             public string sce_title_session_id { get; set; }
             public object sce_title_attribute { get; set; }
-            public bool sce_title_preset { get; set; }
+            public bool? sce_title_preset { get; set; }
             public string sce_title_preset_text_1 { get; set; }
             public string sce_title_preset_text_2 { get; set; }
             public string sce_title_preset_text_3 { get; set; }

@@ -28,9 +28,9 @@ namespace Foulplay_Windows8.Core.Managers
                 // This app could, in theory, allow for more polling of data, so these options are left open to new values and limits.
                 url += string.Format("offset={0}&", offset);
                 url += string.Format("limit={0}&", limit);
-                url += string.Format("sce_platform={0}&", platform);
+                //url += string.Format("sce_platform={0}&", platform);
                 // "sce_title_preset" represents the "Interactive" filter.
-                url += string.Format("sce_title_preset={0}&", titlePreset);
+                //url += string.Format("sce_title_preset={0}&", titlePreset);
                 url += string.Format("query={0}&", query);
                 string language = userAccountEntity.GetUserEntity().Language;
                 var theAuthClient = new HttpClient();
