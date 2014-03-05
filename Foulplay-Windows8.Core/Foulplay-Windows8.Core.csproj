@@ -102,6 +102,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\FriendsEntity.cs" />
+    <Compile Include="Entities\LiveBroadcastEntity.cs" />
     <Compile Include="Entities\MessageEntity.cs" />
     <Compile Include="Entities\MessageGroupEntity.cs" />
     <Compile Include="Entities\RecentActivityEntity.cs" />
