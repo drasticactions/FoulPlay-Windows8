@@ -76,6 +76,10 @@ namespace FoulPlay_Windows8.Tools
                 HasMoreItems = false;
                 return false;
             }
+            if (feedEntity.feed == null)
+            {
+                return false;
+            }
             foreach (var feed in feedEntity.feed)
             {
                 Add(feed);

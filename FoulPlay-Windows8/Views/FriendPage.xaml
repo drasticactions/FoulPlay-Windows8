@@ -221,12 +221,12 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <Border Grid.Row="0" HorizontalAlignment="Stretch" BorderBrush="White" BorderThickness="1">
-                            <TextBox x:Name="MessageTextBox" IsSpellCheckEnabled="True" IsTextPredictionEnabled="True" AcceptsReturn="True" Grid.Row="0"/>
+                            <TextBox Canvas.ZIndex="1" x:Name="MessageTextBox" IsSpellCheckEnabled="True" IsTextPredictionEnabled="True" AcceptsReturn="True" Grid.Row="0"/>
                         </Border>
+                        <Image Grid.Row="0"  x:Name="ImageSource" Height="100" Canvas.ZIndex="5" Opacity="0.15" Margin="0,0" Stretch="UniformToFill"/>
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
-                            <Button x:Name="MessageSend" Content="Send"/>
-                            <Button x:Name="ImageSend" Content="Image"/>
-                            <Image x:Name="ImageSource" Width="50" Height="50" HorizontalAlignment="Right"/>
+                            <Button x:Name="MessageSend" Click="MessageSend_OnClick" Content="Send"/>
+                            <Button x:Name="ImageSend" Click="ImageSend_OnClick" Content="Image"/>
                         </StackPanel>
                     </Grid>
                 </Grid>

@@ -1,5 +1,11 @@
 ﻿using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
+using Windows.Graphics.Imaging;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
+using Windows.UI.Popups;
+using Windows.UI.Xaml.Media.Imaging;
 using FoulPlay_Windows8.Common;
 using System;
 using System.Collections.Generic;
@@ -20,6 +26,7 @@ using Windows.UI.Xaml.Navigation;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.Tools;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
@@ -32,6 +39,7 @@ namespace FoulPlay_Windows8.Views
 
         private NavigationHelper navigationHelper;
         private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        public StorageFile File { get; private set; }
 
         private UserEntity _user;
         /// <summary>
@@ -336,6 +344,72 @@ namespace FoulPlay_Windows8.Views
             var user = await UserManager.GetUser(item.OnlineId, App.UserAccountEntity);
             string jsonObjectString = JsonConvert.SerializeObject(user);
             Frame.Navigate(typeof(FriendPage), jsonObjectString);
+        }
+
+        private async void MessageSend_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageProgressBar.Visibility = Visibility.Visible;
+            string messageId = string.Format("~{0},{1}", _user.OnlineId, App.UserAccountEntity.GetUserEntity().OnlineId);
+            var messageManager = new MessageManager();
+            MessageSend.IsEnabled = false;
+            ImageSend.IsEnabled = false;
+            //CameraAccess.IsEnabled = false;
+            bool result;
+            if (ImageSource.Source != null)
+            {
+                using (IRandomAccessStream stream = await File.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                   
+                    // TODO: Add JPEG Compression
+                    //result = await
+                    //messageManager.CreatePostWithMedia(messageId, MessageTextBox.Text, "", pixels,
+                    //    App.UserAccountEntity);
+                }
+                
+            }
+            else
+            {
+                result = await messageManager.CreatePost(messageId, MessageTextBox.Text, App.UserAccountEntity);
+            }
+            MessageProgressBar.Visibility = Visibility.Collapsed;
+            MessageSend.IsEnabled = true;
+            ImageSend.IsEnabled = true;
+            if (result)
+            {
+                ImageSource.Source = null;
+                MessageTextBox.Text = string.Empty;
+                RefreshGroupMessages();
+                return;
+            }
+            const string messageText = "An error has occured. The message has not been sent.";
+                var msgDlg = new MessageDialog(messageText);
+                await msgDlg.ShowAsync();
+        }
+
+        private async void ImageSend_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageSend.IsEnabled = false;
+            ImageSend.IsEnabled = false;
+
+            var openPicker = new FileOpenPicker
+            {
+                ViewMode = PickerViewMode.Thumbnail,
+                SuggestedStartLocation = PickerLocationId.PicturesLibrary
+            };
+            openPicker.FileTypeFilter.Add(".jpg");
+            openPicker.FileTypeFilter.Add(".jpeg");
+            openPicker.FileTypeFilter.Add(".png");
+            openPicker.FileTypeFilter.Add(".gif");
+            var bitmapimage = new BitmapImage();
+            File = await openPicker.PickSingleFileAsync();
+            if (File != null)
+            {
+                IRandomAccessStream stream = await File.OpenAsync(FileAccessMode.Read);
+                await bitmapimage.SetSourceAsync(stream);
+                ImageSource.Source = bitmapimage;
+            }
+            MessageSend.IsEnabled = true;
+            ImageSend.IsEnabled = true;
         }
     }
 }
