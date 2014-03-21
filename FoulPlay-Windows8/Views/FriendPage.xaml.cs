@@ -354,7 +354,7 @@ namespace FoulPlay_Windows8.Views
             MessageSend.IsEnabled = false;
             ImageSend.IsEnabled = false;
             //CameraAccess.IsEnabled = false;
-            bool result;
+            bool result = false;
             if (ImageSource.Source != null)
             {
                 using (IRandomAccessStream stream = await File.OpenAsync(FileAccessMode.ReadWrite))
