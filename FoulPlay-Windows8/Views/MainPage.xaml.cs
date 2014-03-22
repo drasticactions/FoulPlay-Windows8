@@ -308,5 +308,13 @@ namespace FoulPlay_Windows8.Views
             string jsonObjectString = JsonConvert.SerializeObject(user);
             Frame.Navigate(typeof(FriendPage), jsonObjectString);
         }
+
+        private void MessagesListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as MessageGroupEntity.MessageGroup;
+            if (item == null) return;
+            string jsonObjectString = JsonConvert.SerializeObject(item);
+            Frame.Navigate(typeof(MessagePage), jsonObjectString);
+        }
     }
 }

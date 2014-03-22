@@ -77,7 +77,7 @@ namespace FoulPlay_Windows8.Views
                 var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
                 App.UserAccountEntity.SetUserEntity(user);
             }
-
+            
             var jsonObjectString = (string)e.NavigationParameter;
             var trophyTitle = JsonConvert.DeserializeObject<TrophyEntity.TrophyTitle>(jsonObjectString);
             string userName = trophyTitle.ComparedUser != null
@@ -89,6 +89,8 @@ namespace FoulPlay_Windows8.Views
                     trophyDetailManager.GetTrophyDetailList(trophyTitle.NpCommunicationId,
                        userName, true,
                         App.UserAccountEntity);
+            LoadingProgressRing.Visibility = Visibility.Collapsed;
+            TrophyListView.Visibility = Visibility.Visible;
             TrophyListView.ItemsSource = trophys.Trophies;
         }
 

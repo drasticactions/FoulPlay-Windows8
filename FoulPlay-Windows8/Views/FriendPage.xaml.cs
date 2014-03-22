@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
@@ -132,21 +133,33 @@ namespace FoulPlay_Windows8.Views
         {
             MessageProgressBar.Visibility = Visibility.Visible;
             var messagerManager = new MessageManager();
-            _messageEntity = await messagerManager.GetGroupConversation(string.Format("~{0},{1}", _user.OnlineId, App.UserAccountEntity.GetUserEntity().OnlineId), App.UserAccountEntity);
+            try
+            {
+                _messageEntity = await messagerManager.GetGroupConversation(string.Format("~{0},{1}", _user.OnlineId, App.UserAccountEntity.GetUserEntity().OnlineId), App.UserAccountEntity);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("An error occured getting the group messages.");
+            }
             if (_messageEntity == null)
             {
                 MessageProgressBar.Visibility = Visibility.Collapsed;
                 return;
             }
-
             if (_messageEntity.messages == null)
             {
                 MessageProgressBar.Visibility = Visibility.Collapsed;
                 return;
             }
-
             MessagesListView.DataContext = _messageEntity;
-            await messagerManager.ClearMessages(_messageEntity, App.UserAccountEntity);
+            try
+            {
+                await messagerManager.ClearMessages(_messageEntity, App.UserAccountEntity);
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine("An error occured clearing the group messages.");
+            }
             MessageProgressBar.Visibility = Visibility.Collapsed;
             MessageSend.IsEnabled = true;
         }

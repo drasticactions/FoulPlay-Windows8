@@ -163,6 +163,9 @@
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MessagePage.xaml.cs">
+      <DependentUpon>MessagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RecentActivityPage.xaml.cs">
       <DependentUpon>RecentActivityPage.xaml</DependentUpon>
     </Compile>
@@ -263,6 +266,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MessagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RecentActivityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -288,6 +295,12 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WinRTXamlToolkit">
+      <HintPath>..\packages\WinRTXamlToolkit.1.5.4.3\lib\netcore451\WinRTXamlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="WriteableBitmapEx.WinRT">
+      <HintPath>..\packages\WriteableBitmapEx.1.0.12.0\lib\NetCore45\WriteableBitmapEx.WinRT.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">

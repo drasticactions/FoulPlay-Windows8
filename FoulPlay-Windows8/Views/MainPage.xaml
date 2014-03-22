@@ -161,7 +161,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock Margin="0,15,0,0" x:Uid="MessagesPivot" Text="Messages" Grid.Row="1" Style="{StaticResource HeaderTextBlockStyle}"/>
                     <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" IsIndeterminate="True"/>
-                    <ListView x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroups}" HorizontalAlignment="Stretch">
+                    <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True"  ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroups}" HorizontalAlignment="Stretch">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />

@@ -115,7 +115,8 @@
                 </ScrollViewer>
             </Border>
         </Popup>
-        <ListView Grid.Row="1" IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False" ItemClick="TrophyListView_OnItemClick" x:Name="TrophyListView">
+        <ProgressRing x:Name="LoadingProgressRing" Grid.Row="1" Width="200" Height="200" IsActive="True"/>
+        <ListView Grid.Row="1" Visibility="Collapsed" IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False" ItemClick="TrophyListView_OnItemClick" x:Name="TrophyListView">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
