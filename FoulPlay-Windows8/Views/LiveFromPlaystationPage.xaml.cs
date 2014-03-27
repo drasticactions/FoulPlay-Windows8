@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using Windows.System;
 using FoulPlay_Windows8.Common;
 using System;
 using System.Collections.Generic;
@@ -160,5 +161,13 @@ namespace FoulPlay_Windows8.Views
         }
 
         #endregion
+
+        private void LiveBroadcastGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var liveEntity = e.ClickedItem as LiveBroadcastEntity;
+            if (liveEntity == null) return;
+            var startUri = new Uri(liveEntity.Url);
+            Launcher.LaunchUriAsync(startUri);
+        }
     }
 }

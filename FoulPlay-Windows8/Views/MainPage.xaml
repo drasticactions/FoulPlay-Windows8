@@ -162,8 +162,8 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Margin="0,15,0,0" x:Uid="MessagesPivot" Text="Messages" Grid.Row="1" Style="{StaticResource HeaderTextBlockStyle}"/>
-                    <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" IsIndeterminate="True"/>
-                    <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True"  ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroupEntity}" HorizontalAlignment="Stretch">
+                    <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Visibility="Collapsed" Grid.Row="0" IsIndeterminate="True"/>
+                    <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True"  ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroupCollection}" HorizontalAlignment="Stretch">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />

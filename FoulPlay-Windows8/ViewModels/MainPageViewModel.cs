@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using FoulPlay_Windows8.Common;
@@ -16,12 +18,33 @@ namespace FoulPlay_Windows8.ViewModels
         private RecentActivityScrollingCollection _recentActivityScrollingCollection;
         private MessageGroupEntity _messageGroupEntity;
 
-        public MessageGroupEntity MessageGroupEntity
+        /// <summary>
+        /// TODO: Seperate to new class, use ISupportIncrementalLoading
+        /// </summary>
+        public class MessageGroupItem : NotifierBase
         {
-            get { return _messageGroupEntity; }
+            private string _avatarUrl;
+            public string AvatarUrl
+            {
+                get { return _avatarUrl; }
+                set
+                {
+                    SetProperty(ref _avatarUrl, value);
+                    OnPropertyChanged();
+                }
+            }
+            public MessageGroupEntity.MessageGroup MessageGroup { get; set; }
+        }
+
+
+        private ObservableCollection<MessageGroupItem> _messageGroupCollection = new ObservableCollection<MessageGroupItem>();
+
+        public ObservableCollection<MessageGroupItem> MessageGroupCollection
+        {
+            get { return _messageGroupCollection; }
             set
             {
-                SetProperty(ref _messageGroupEntity, value);
+                SetProperty(ref _messageGroupCollection, value);
                 OnPropertyChanged();
             }
         }
@@ -70,14 +93,29 @@ namespace FoulPlay_Windows8.ViewModels
                 StorePromo = true,
                 UserAccountEntity = App.UserAccountEntity,
                 Username = userName,
-                PageCount = 1
+                PageCount = 0
             };
+            RecentActivityScrollingCollection.LoadFeedList(userName);
         }
 
         public async void SetMessages(string userName, UserAccountEntity userAccountEntity)
         {
             var messageManager = new MessageManager();
-            MessageGroupEntity = await messageManager.GetMessageGroup(userName, userAccountEntity);
+            _messageGroupEntity = await messageManager.GetMessageGroup(userName, userAccountEntity);
+
+            foreach (var message in _messageGroupEntity.MessageGroups)
+            {
+                var newMessage = new MessageGroupItem {MessageGroup = message};
+                GetAvatar(newMessage, userAccountEntity);
+                MessageGroupCollection.Add(newMessage);
+            }
+        }
+
+        private async void GetAvatar(MessageGroupItem message, UserAccountEntity userAccountEntity)
+        {
+            var user =  await UserManager.GetUserAvatar(message.MessageGroup.LatestMessage.SenderOnlineId, userAccountEntity);
+            message.AvatarUrl = user.AvatarUrl;
+            OnPropertyChanged("MessageGroupCollection");
         }
     }
 }

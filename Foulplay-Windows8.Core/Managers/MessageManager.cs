@@ -39,7 +39,7 @@ namespace Foulplay_Windows8.Core.Managers
                 var messageGroup = JsonConvert.DeserializeObject<MessageGroupEntity>(responseContent);
                 foreach (var message in messageGroup.MessageGroups)
                 {
-                   message.LatestMessage.User = await UserManager.GetUserAvatar(message.LatestMessage.SenderOnlineId, userAccountEntity);
+                   //message.LatestMessage.User = await UserManager.GetUserAvatar(message.LatestMessage.SenderOnlineId, userAccountEntity);
                 }
                 return messageGroup;
             }

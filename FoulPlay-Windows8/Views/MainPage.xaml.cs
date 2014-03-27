@@ -82,11 +82,8 @@ namespace FoulPlay_Windows8.Views
             }
             _user = App.UserAccountEntity.GetUserEntity();
             _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
-            //_vm.SetRecentActivityFeed(_user.OnlineId);
-            //_vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
-            //GetFriendsList(true, false, false, false, true, false, false);
-            //LoadRecentActivityList();
-            //LoadMessages();
+            _vm.SetRecentActivityFeed(_user.OnlineId);
+            _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
         }
 
         private void CreateMenu()
@@ -94,7 +91,7 @@ namespace FoulPlay_Windows8.Views
             var resourceLoader = ResourceLoader.GetForCurrentView(); 
             List<MenuItem> menuItems = new List<MenuItem>();
             menuItems.Add(new MenuItem("/Assets/phone_home_footerIcon_region.png", resourceLoader.GetString("RecentActivity/Text"), "recent"));
-            menuItems.Add(new MenuItem("/Assets/phone_common_defaultThumbnail_video.png", resourceLoader.GetString("LiveFromPlaystation/Text"), "live"));
+            menuItems.Add(new MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"), "live"));
             menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png", resourceLoader.GetString("ProfileHeader/Text"), "profile"));
             MenuGridView.ItemsSource = menuItems;
         }

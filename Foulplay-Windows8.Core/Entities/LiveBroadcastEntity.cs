@@ -38,6 +38,8 @@ namespace Foulplay_Windows8.Core.Entities
 
         public string Service { get; set; }
 
+        public string Url { get; set; }
+
         public void ParseFromTwitch(TwitchEntity.Stream twitchStream)
         {
             try
@@ -54,6 +56,7 @@ namespace Foulplay_Windows8.Core.Entities
                 GameMetadata = twitchStream.sce_title_metadata;
                 PreviewThumbnail = twitchStream.preview;
                 Viewers = twitchStream.viewers;
+                Url = string.Format("http://www.twitch.tv/{0}", UserName);
                 Service = "Twitch";
             }
             catch (Exception)
@@ -75,6 +78,7 @@ namespace Foulplay_Windows8.Core.Entities
                 SocialStream = ustreamEntity.media.stats.socialstream;
                 var testDate = new DateTime().AddSeconds(ustreamEntity.media.stream_started_at);
                 OnlineTime = testDate.ToLocalTime().ToString();
+                Url = string.Format("http://www.ustream.tv/channel/id/{0}", ustreamEntity.media.id);
             }
             catch (Exception)
             {

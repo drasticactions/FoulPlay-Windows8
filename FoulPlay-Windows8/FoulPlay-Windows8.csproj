@@ -185,6 +185,7 @@
     <PRIResource Include="Strings\en-US\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
+    <Content Include="Assets\appbar.film.png" />
     <Content Include="Assets\appbar.image.png" />
     <Content Include="Assets\appbar.speakerphone.png" />
     <Content Include="Assets\Background.jpg" />

@@ -11,8 +11,6 @@ namespace Foulplay_Windows8.Core.Entities
         public class Member
         {
             public string OnlineId { get; set; }
-
-            public string AvatarUrl { get; set; }
         }
 
         public class MessageGroupDetail
@@ -32,7 +30,6 @@ namespace Foulplay_Windows8.Core.Entities
             public string SenderOnlineId { get; set; }
             public string ReceivedDate { get; set; }
             public string Body { get; set; }
-            public UserEntity User { get; set; }
         }
 
         public class MessageGroup

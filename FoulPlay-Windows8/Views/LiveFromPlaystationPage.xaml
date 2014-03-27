@@ -56,7 +56,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <ScrollViewer Grid.Row="1" ZoomMode="Disabled">
-                <GridView Grid.Row="1" IsSwipeEnabled="False" x:Name="LiveBroadcastGridView">
+                <GridView ItemClick="LiveBroadcastGridView_OnItemClick" IsItemClickEnabled="True" SelectionMode="None" Grid.Row="1" IsSwipeEnabled="False" x:Name="LiveBroadcastGridView">
                     <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapGrid Orientation="Horizontal"/>

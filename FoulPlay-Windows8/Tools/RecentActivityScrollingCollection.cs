@@ -26,7 +26,7 @@ namespace FoulPlay_Windows8.Tools
 
             if (!IsLoading)
             {
-                await LoadFeedList(this.Username);
+                LoadFeedList(this.Username);
             }
             var ret = new LoadMoreItemsResult { Count = count };
             return ret;
@@ -64,7 +64,7 @@ namespace FoulPlay_Windows8.Tools
             }
         }
 
-        public async Task<bool> LoadFeedList(string username)
+        public async void LoadFeedList(string username)
         {
 
             IsLoading = true;
@@ -74,11 +74,11 @@ namespace FoulPlay_Windows8.Tools
             if (feedEntity == null)
             {
                 HasMoreItems = false;
-                return false;
+                return;
             }
             if (feedEntity.feed == null)
             {
-                return false;
+                return;
             }
             foreach (var feed in feedEntity.feed)
             {
@@ -94,7 +94,6 @@ namespace FoulPlay_Windows8.Tools
                 HasMoreItems = false;
             }
             IsLoading = false;
-            return true;
         }
 
         private void NotifyPropertyChanged(String propertyName)
