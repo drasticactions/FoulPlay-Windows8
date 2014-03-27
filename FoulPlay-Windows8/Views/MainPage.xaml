@@ -1,7 +1,6 @@
 ﻿<Page
     x:Name="pageRoot"
     x:Class="FoulPlay_Windows8.Views.MainPage"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FoulPlay_Windows8.Views"
@@ -9,8 +8,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tools="using:FoulPlay_Windows8.Tools"
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModels:MainPageViewModel />
+    </Page.DataContext>
     <Page.Resources>
         <CollectionViewSource
             x:Name="itemsViewSource"
@@ -84,9 +86,9 @@
                         <ComboBoxItem x:Uid="FriendsFilterNameRequestReceived"/>
                         <ComboBoxItem x:Uid="FriendsFilterNameRequestSent"/>
                     </ComboBox>
-                    <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar" Grid.Row="0" IsIndeterminate="True"
+                    <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar" Grid.Row="0" Visibility="{Binding FriendScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" IsIndeterminate="True"
                                  x:FieldModifier="public" />
-                    <ListView x:Name="FriendsListView" Grid.Row="3" SelectionMode="None" IsItemClickEnabled="True" ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendList}">
+                    <ListView x:Name="FriendsListView" Grid.Row="3" SelectionMode="None" IsItemClickEnabled="True" ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -161,7 +163,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock Margin="0,15,0,0" x:Uid="MessagesPivot" Text="Messages" Grid.Row="1" Style="{StaticResource HeaderTextBlockStyle}"/>
                     <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" IsIndeterminate="True"/>
-                    <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True"  ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroups}" HorizontalAlignment="Stretch">
+                    <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True"  ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroupEntity}" HorizontalAlignment="Stretch">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -178,7 +180,7 @@
                     <GridView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"
-                              ItemsSource="{Binding RecentActivityList}"
+                              ItemsSource="{Binding RecentActivityScrollingCollection}"
                             x:Name="ActivityFeedGridView"
                             ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
                         <GridView.ItemsPanel>

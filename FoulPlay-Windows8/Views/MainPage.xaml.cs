@@ -24,6 +24,7 @@ using Windows.UI.Xaml.Navigation;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.Tools;
+using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
@@ -31,21 +32,13 @@ namespace FoulPlay_Windows8.Views
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, IDisposable
     {
-
+        private MainPageViewModel _vm;
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private static UserAccountEntity.User _user;
         public static FriendScrollingCollection FriendCollection { get; set; }
         private static RecentActivityManager _recentActivityManager = new RecentActivityManager();
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
 
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
@@ -88,9 +81,12 @@ namespace FoulPlay_Windows8.Views
                 App.UserAccountEntity.SetUserEntity(user);
             }
             _user = App.UserAccountEntity.GetUserEntity();
-            GetFriendsList(true, false, false, false, true, false, false);
-            LoadRecentActivityList();
-            LoadMessages();
+            _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
+            //_vm.SetRecentActivityFeed(_user.OnlineId);
+            //_vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
+            //GetFriendsList(true, false, false, false, true, false, false);
+            //LoadRecentActivityList();
+            //LoadMessages();
         }
 
         private void CreateMenu()
@@ -119,41 +115,6 @@ namespace FoulPlay_Windows8.Views
                 Icon = icon;
                 Location = location;
             }
-        }
-
-        private async void LoadRecentActivityList()
-        {
-            //LoadingProgressBar.Visibility = Visibility.Visible;
-            var recentActivityCollection = new RecentActivityScrollingCollection
-            {
-                IsNews = true,
-                StorePromo = true,
-                UserAccountEntity = App.UserAccountEntity,
-                Username = _user.OnlineId,
-                PageCount = 1
-            };
-            var recentActivityManager = new RecentActivityManager();
-            var recentActivityEntity =
-                await recentActivityManager.GetActivityFeed(_user.OnlineId, 0, true, true, App.UserAccountEntity);
-            if (recentActivityEntity == null)
-            {
-                //recentActivityCollection = null;
-                //ActivityFeedListView.DataContext = recentActivityCollection;
-                //NoActivitiesTextBlock.Visibility = Visibility.Visible;
-                //LoadingProgressBar.Visibility = Visibility.Collapsed;
-                return;
-            }
-            if (recentActivityEntity.feed != null)
-            {
-                //NoActivitiesTextBlock.Visibility = Visibility.Collapsed;
-                foreach (var item in recentActivityEntity.feed)
-                {
-                    recentActivityCollection.Add(item);
-                }
-            }
-            DefaultViewModel["RecentActivityList"] = recentActivityCollection;
-            //RecentActivityHubSection.DataContext = recentActivityCollection;
-            //LoadingProgressBar.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -185,6 +146,7 @@ namespace FoulPlay_Windows8.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            _vm = (MainPageViewModel)DataContext;
             navigationHelper.OnNavigatedTo(e);
         }
 
@@ -195,60 +157,6 @@ namespace FoulPlay_Windows8.Views
 
         #endregion
 
-        public async void GetFriendsList(bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,
-            bool personalDetailSharing, bool friendStatus, bool requesting, bool requested)
-        {
-            var friendManager = new FriendManager();
-            FriendCollection = new FriendScrollingCollection
-            {
-                UserAccountEntity = App.UserAccountEntity,
-                Offset = 32,
-                OnlineFilter = onlineFilter,
-                Requested = requested,
-                Requesting = requesting,
-                PersonalDetailSharing = personalDetailSharing,
-                FriendStatus = friendStatus,
-                Username = _user.OnlineId
-            };
-            var items =
-                await
-                    friendManager.GetFriendsList(_user.OnlineId, 0, blockedPlayer, recentlyPlayed, personalDetailSharing,
-                        friendStatus, requesting, requested, onlineFilter, App.UserAccountEntity);
-            if (items == null)
-            {
-                //FriendsMessageTextBlock.Visibility = Visibility.Visible;
-                //FriendsLongListSelector.DataContext = FriendCollection;
-                return;
-            }
-            if (items.FriendList == null)
-            {
-                FriendsProgressBar.Visibility = Visibility.Collapsed;
-                return;
-            }
-            //FriendsMessageTextBlock.Visibility = Visibility.Collapsed;
-            //FriendsMessageTextBlock.Visibility = !items.FriendList.Any() ? Visibility.Visible : Visibility.Collapsed;
-            foreach (var item in items.FriendList)
-            {
-                FriendCollection.Add(item);
-            }
-            //FriendsLongListSelector.ItemRealized += friendList_ItemRealized;
-            DefaultViewModel["FriendList"] = FriendCollection;
-            FriendsProgressBar.Visibility = Visibility.Collapsed;
-            return;
-        }
-
-        private async void LoadMessages()
-        {
-            MessageProgressBar.Visibility = Visibility.Visible;
-            var messageManager = new MessageManager();
-            MessageGroupEntity message = await messageManager.GetMessageGroup(_user.OnlineId, App.UserAccountEntity);
-            //MessagesMessageTextBlock.Visibility = message != null && (message.MessageGroups != null && (!message.MessageGroups.Any()))
-            //    ? Visibility.Visible
-            //    : Visibility.Collapsed;
-            MessagesListView.DataContext = message;
-            MessageProgressBar.Visibility = Visibility.Collapsed;
-        }
-
         private async void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (FilterComboBox == null) return;
@@ -256,27 +164,27 @@ namespace FoulPlay_Windows8.Views
             {
                 case 0:
                     // Friends - Online
-                    GetFriendsList(true, false, false, false, true, false, false);
+                    _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
                     break;
                 case 1:
                     // All
-                    GetFriendsList(false, false, false, false, true, false, false);
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, false, true, false, false);
                     break;
                 case 2:
                     // Friend Request Received
-                    GetFriendsList(false, false, false, false, true, false, true);
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, false, true, false, true);
                     break;
                 case 3:
                     // Friend Requests Sent
-                    GetFriendsList(false, false, false, false, true, true, false);
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, false, true, true, false);
                     break;
                 case 4:
                     // Name Requests Received
-                   GetFriendsList(true, false, false, true, true, false, false);
+                    _vm.SetFriendsList(_user.OnlineId, true, false, false, true, true, false, false);
                     break;
                 case 5:
                     // Name Requests Sent
-                    GetFriendsList(false, false, false, true, true, true, false);
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, true, true, true, false);
                     break;
             }
         }
@@ -315,6 +223,10 @@ namespace FoulPlay_Windows8.Views
             if (item == null) return;
             string jsonObjectString = JsonConvert.SerializeObject(item);
             Frame.Navigate(typeof(MessagePage), jsonObjectString);
+        }
+
+        public void Dispose()
+        {
         }
     }
 }
