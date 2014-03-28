@@ -192,9 +192,7 @@ namespace FoulPlay_Windows8.Views
             switch (item.Location)
             {
                 case "profile":
-                    var user = await UserManager.GetUser(_user.OnlineId, App.UserAccountEntity);
-                    string jsonObjectString = JsonConvert.SerializeObject(user);
-                    Frame.Navigate(typeof(FriendPage), jsonObjectString);
+                    Frame.Navigate(typeof(FriendPage), _user.OnlineId);
                     break;
                 case "live":
                     Frame.Navigate(typeof(LiveFromPlaystationPage));
@@ -205,20 +203,18 @@ namespace FoulPlay_Windows8.Views
             }
         }
 
-        private async void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
+        private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
             var item = e.ClickedItem as FriendsEntity.Friend;
             if (item == null) return;
-            var user = await UserManager.GetUser(item.OnlineId, App.UserAccountEntity);
-            string jsonObjectString = JsonConvert.SerializeObject(user);
-            Frame.Navigate(typeof(FriendPage), jsonObjectString);
+            Frame.Navigate(typeof(FriendPage), item.OnlineId);
         }
 
         private void MessagesListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = e.ClickedItem as MessageGroupEntity.MessageGroup;
+            var item = e.ClickedItem as MainPageViewModel.MessageGroupItem;
             if (item == null) return;
-            string jsonObjectString = JsonConvert.SerializeObject(item);
+            string jsonObjectString = JsonConvert.SerializeObject(item.MessageGroup);
             Frame.Navigate(typeof(MessagePage), jsonObjectString);
         }
 

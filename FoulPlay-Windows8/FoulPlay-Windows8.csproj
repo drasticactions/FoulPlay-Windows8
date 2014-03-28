@@ -135,6 +135,7 @@
     <Compile Include="Tools\BooleanToVisibilityConverter.cs" />
     <Compile Include="Tools\ContentKeysImageConverter.cs" />
     <Compile Include="Tools\ConversationUsersConverter.cs" />
+    <Compile Include="Tools\CountToVisibilityConverter.cs" />
     <Compile Include="Tools\DateConverter.cs" />
     <Compile Include="Tools\HasSeenConverter.cs" />
     <Compile Include="Tools\FriendScrollingCollection.cs" />
@@ -156,6 +157,7 @@
     <Compile Include="Tools\TrophyStatusConverter.cs" />
     <Compile Include="Tools\TrophyTypeConverter.cs" />
     <Compile Include="Tools\ValuePercentConverter.cs" />
+    <Compile Include="ViewModels\FriendPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\FriendPage.xaml.cs">
       <DependentUpon>FriendPage.xaml</DependentUpon>

@@ -12,6 +12,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using FoulPlay_Windows8.Annotations;
+using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.Views;
@@ -36,7 +37,7 @@ namespace FoulPlay_Windows8.Tools
 
                     if (!IsLoading)
                     {
-                        await LoadFriends(this.Username);
+                       LoadFriends(this.Username);
                     }
             var ret = new LoadMoreItemsResult { Count = count };
             return ret;
@@ -70,24 +71,15 @@ namespace FoulPlay_Windows8.Tools
             get
             {
                 return _isLoading;
-
             }
 
             private set
             {
                 _isLoading = value;
-                NotifyPropertyChanged("IsLoading");
+                OnPropertyChanged();
             }
         }
 
-        private void NotifyPropertyChanged(String propertyName)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (null != handler)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -96,14 +88,19 @@ namespace FoulPlay_Windows8.Tools
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public async Task<bool> LoadFriends(string username)
+        public async void LoadFriends(string username)
         {
             IsLoading = true;
             var friendManager = new FriendManager();
             var friendEntity = await friendManager.GetFriendsList(username, Offset, BlockedPlayer, RecentlyPlayed, PersonalDetailSharing, FriendStatus, Requesting, Requested, OnlineFilter, UserAccountEntity);
             if (friendEntity == null)
             {
-                return false;
+                return;
+            }
+            if (friendEntity.FriendList == null)
+            {
+                HasMoreItems = false;
+                return;
             }
             foreach (var friend in friendEntity.FriendList)
             {
@@ -119,7 +116,6 @@ namespace FoulPlay_Windows8.Tools
                 HasMoreItems = false;
             }
             IsLoading = false;
-            return true;
         }
     }
 }

@@ -27,6 +27,7 @@ using Windows.UI.Xaml.Navigation;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.Tools;
+using FoulPlay_Windows8.ViewModels;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
@@ -37,19 +38,11 @@ namespace FoulPlay_Windows8.Views
     /// </summary>
     public sealed partial class FriendPage : Page
     {
-
-        private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private FriendPageViewModel _vm;
+        private readonly NavigationHelper navigationHelper;
+        private string _userName;
         public StorageFile File { get; private set; }
 
-        private UserEntity _user;
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
 
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
@@ -90,25 +83,30 @@ namespace FoulPlay_Windows8.Views
                 var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
                 App.UserAccountEntity.SetUserEntity(user);
             }
-            var jsonObjectString = (string)e.NavigationParameter;
-            _user = JsonConvert.DeserializeObject<UserEntity>(jsonObjectString);
-            var isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(_user.OnlineId);
-            if (isCurrentUser)
-            {
-                MessagesGrid.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                RefreshGroupMessages();
-            }
+            _userName = (string)e.NavigationParameter;
+            _vm.SetUser(_userName);
+            _vm.SetRecentActivityFeed(_userName);
+            _vm.SetFriendsList(_userName, false, false, false, false, true, false, false);
+            _vm.SetTrophyList(_userName);
+            _vm.SetMessages(_userName, App.UserAccountEntity);
+            //_user = JsonConvert.DeserializeObject<UserEntity>(jsonObjectString);
+            //var isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(_user.OnlineId);
+            //if (isCurrentUser)
+            //{
+            //    MessagesGrid.Visibility = Visibility.Collapsed;
+            //}
+            //else
+            //{
+            //    RefreshGroupMessages();
+            //}
 
-            var languageList = _user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
-            MyLanguagesBlock.Text = string.Join("," + Environment.NewLine, languageList);
-            UserInformationGrid.DataContext = _user;
-            UserInformationHeaderGrid.DataContext = _user;
-            LoadRecentActivityList();
-            GetTrophyList();
-            GetFriendsList(false, false, false, false, true, false, false);
+            //var languageList = _user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
+            //MyLanguagesBlock.Text = string.Join("," + Environment.NewLine, languageList);
+            //UserInformationGrid.DataContext = _user;
+            //UserInformationHeaderGrid.DataContext = _user;
+            //LoadRecentActivityList();
+            //GetTrophyList();
+            //GetFriendsList(false, false, false, false, true, false, false);
         }
 
         /// <summary>
@@ -127,103 +125,6 @@ namespace FoulPlay_Windows8.Views
             e.PageState["userEntity"] = jsonObjectString;
         }
 
-        private MessageEntity _messageEntity;
-
-        private async void RefreshGroupMessages()
-        {
-            MessageProgressBar.Visibility = Visibility.Visible;
-            var messagerManager = new MessageManager();
-            try
-            {
-                _messageEntity = await messagerManager.GetGroupConversation(string.Format("~{0},{1}", _user.OnlineId, App.UserAccountEntity.GetUserEntity().OnlineId), App.UserAccountEntity);
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("An error occured getting the group messages.");
-            }
-            if (_messageEntity == null)
-            {
-                MessageProgressBar.Visibility = Visibility.Collapsed;
-                return;
-            }
-            if (_messageEntity.messages == null)
-            {
-                MessageProgressBar.Visibility = Visibility.Collapsed;
-                return;
-            }
-            MessagesListView.DataContext = _messageEntity;
-            try
-            {
-                await messagerManager.ClearMessages(_messageEntity, App.UserAccountEntity);
-            }
-            catch (Exception)
-            {
-                Debug.WriteLine("An error occured clearing the group messages.");
-            }
-            MessageProgressBar.Visibility = Visibility.Collapsed;
-            MessageSend.IsEnabled = true;
-        }
-
-        private async void LoadRecentActivityList()
-        {
-            //LoadingProgressBar.Visibility = Visibility.Visible;
-            var recentActivityCollection = new RecentActivityScrollingCollection
-            {
-                IsNews = false,
-                StorePromo = false,
-                UserAccountEntity = App.UserAccountEntity,
-                Username = _user.OnlineId,
-                PageCount = 1
-            };
-            var recentActivityManager = new RecentActivityManager();
-            var recentActivityEntity =
-                await recentActivityManager.GetActivityFeed(_user.OnlineId, 0, false, false, App.UserAccountEntity);
-            if (recentActivityEntity == null)
-            {
-                //recentActivityCollection = null;
-                //ActivityFeedListView.DataContext = recentActivityCollection;
-                //NoActivitiesTextBlock.Visibility = Visibility.Visible;
-                //LoadingProgressBar.Visibility = Visibility.Collapsed;
-                return;
-            }
-            if (recentActivityEntity.feed != null)
-            {
-                //NoActivitiesTextBlock.Visibility = Visibility.Collapsed;
-                foreach (var item in recentActivityEntity.feed)
-                {
-                    recentActivityCollection.Add(item);
-                }
-            }
-            DefaultViewModel["RecentActivityList"] = recentActivityCollection;
-            //RecentActivityHubSection.DataContext = recentActivityCollection;
-            //LoadingProgressBar.Visibility = Visibility.Collapsed;
-        }
-
-        private async void GetTrophyList()
-        {
-            var trophyManager = new TrophyManager();
-            var trophyCollection = new TrophyScrollingCollection()
-            {
-                UserAccountEntity = App.UserAccountEntity,
-                Username = _user.OnlineId,
-                Offset = 64
-            };
-            var items = await trophyManager.GetTrophyList(_user.OnlineId, 0, App.UserAccountEntity);
-            if (items == null) return;
-            foreach (TrophyEntity.TrophyTitle item in items.TrophyTitles)
-            {
-                trophyCollection.Add(item);
-            }
-            if (!items.TrophyTitles.Any())
-            {
-                //NoTrophyTextBlock.Visibility = Visibility.Visible;
-                //TrophyHeaderGrid.Visibility = Visibility.Collapsed;
-            }
-            DefaultViewModel["TrophyList"] = trophyCollection;
-            ComparedUserNameBlock.Text = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(_user.OnlineId) ? string.Empty : _user.OnlineId;
-            FromUserNameBlock.Text = App.UserAccountEntity.GetUserEntity().OnlineId;
-        }
-
         #region NavigationHelper registration
 
         /// The methods provided in this section are simply used to allow
@@ -237,6 +138,7 @@ namespace FoulPlay_Windows8.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            _vm = (FriendPageViewModel)DataContext;
             navigationHelper.OnNavigatedTo(e);
         }
 
@@ -255,114 +157,17 @@ namespace FoulPlay_Windows8.Views
             Frame.Navigate(typeof(TrophyPage), jsonObjectString);
         }
 
-        private static string ParseLanguageVariable(string language)
-        {
-            var resourceLoader = ResourceLoader.GetForCurrentView(); 
-            switch (language)
-            {
-                case "ja":
-                    return resourceLoader.GetString("LangJapanese/Text").Trim();
-                case "dk":
-                    return resourceLoader.GetString("LangDanish/Text").Trim();
-                case "de":
-                    return resourceLoader.GetString("LangGerman/Text").Trim();
-                case "en":
-                    return resourceLoader.GetString("LangEnglishUS/Text").Trim();
-                case "en-GB":
-                    return resourceLoader.GetString("LangEnglishUK/Text").Trim();
-                case "fi":
-                    return resourceLoader.GetString("LangFinnish/Text").Trim();
-                case "fr":
-                    return resourceLoader.GetString("LangFrench/Text").Trim();
-                case "es":
-                    return resourceLoader.GetString("LangSpanishSpain/Text").Trim();
-                case "es-MX":
-                    return resourceLoader.GetString("LangSpanishLA/Text").Trim();
-                case "it":
-                    return resourceLoader.GetString("LangItalian/Text").Trim();
-                case "nl":
-                    return resourceLoader.GetString("LangDutch/Text").Trim();
-                case "pt":
-                    return resourceLoader.GetString("LangPortuguesePortugal/Text").Trim();
-                case "pt-BR":
-                    return resourceLoader.GetString("LangPortugueseBrazil/Text").Trim();
-                case "ru":
-                    return resourceLoader.GetString("LangRussian/Text").Trim();
-                case "pl":
-                    return resourceLoader.GetString("LangPolish/Text").Trim();
-                case "no":
-                    return resourceLoader.GetString("LangNorwegian/Text").Trim();
-                case "sv":
-                    return resourceLoader.GetString("LangSwedish/Text").Trim();
-                case "tr":
-                    return resourceLoader.GetString("LangTurkish/Text").Trim();
-                case "ko":
-                    return resourceLoader.GetString("LangKorean/Text").Trim();
-                case "zh-CN":
-                    return resourceLoader.GetString("LangChineseSimplified/Text").Trim();
-                case "zh-TW":
-                    return resourceLoader.GetString("LangChineseTraditional/Text").Trim();
-                default:
-                    return null;
-            }
-        }
-
-        public async void GetFriendsList(bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,
-            bool personalDetailSharing, bool friendStatus, bool requesting, bool requested)
-        {
-            var friendManager = new FriendManager();
-            var friendCollection = new FriendScrollingCollection
-            {
-                UserAccountEntity = App.UserAccountEntity,
-                Offset = 32,
-                OnlineFilter = onlineFilter,
-                Requested = requested,
-                Requesting = requesting,
-                PersonalDetailSharing = personalDetailSharing,
-                FriendStatus = friendStatus,
-                Username = _user.OnlineId
-            };
-            var items =
-                await
-                    friendManager.GetFriendsList(_user.OnlineId, 0, blockedPlayer, recentlyPlayed, personalDetailSharing,
-                        friendStatus, requesting, requested, onlineFilter, App.UserAccountEntity);
-            if (items == null)
-            {
-                FriendsProgressBar.Visibility = Visibility.Collapsed;
-                //FriendsMessageTextBlock.Visibility = Visibility.Visible;
-                //FriendsLongListSelector.DataContext = FriendCollection;
-                return;
-            }
-
-            if (items.FriendList == null)
-            {
-                FriendsProgressBar.Visibility = Visibility.Collapsed;
-                return;
-            }
-            //FriendsMessageTextBlock.Visibility = Visibility.Collapsed;
-            //FriendsMessageTextBlock.Visibility = !items.FriendList.Any() ? Visibility.Visible : Visibility.Collapsed;
-            foreach (var item in items.FriendList)
-            {
-                friendCollection.Add(item);
-            }
-            //FriendsLongListSelector.ItemRealized += friendList_ItemRealized;
-            DefaultViewModel["FriendList"] = friendCollection;
-            FriendsProgressBar.Visibility = Visibility.Collapsed;
-        }
-
         private async void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
             var item = e.ClickedItem as FriendsEntity.Friend;
             if (item == null) return;
-            var user = await UserManager.GetUser(item.OnlineId, App.UserAccountEntity);
-            string jsonObjectString = JsonConvert.SerializeObject(user);
-            Frame.Navigate(typeof(FriendPage), jsonObjectString);
+            Frame.Navigate(typeof(FriendPage), item.OnlineId);
         }
 
         private async void MessageSend_OnClick(object sender, RoutedEventArgs e)
         {
             MessageProgressBar.Visibility = Visibility.Visible;
-            string messageId = string.Format("~{0},{1}", _user.OnlineId, App.UserAccountEntity.GetUserEntity().OnlineId);
+            string messageId = string.Format("~{0},{1}", _userName, App.UserAccountEntity.GetUserEntity().OnlineId);
             var messageManager = new MessageManager();
             MessageSend.IsEnabled = false;
             ImageSend.IsEnabled = false;
@@ -391,7 +196,7 @@ namespace FoulPlay_Windows8.Views
             {
                 ImageSource.Source = null;
                 MessageTextBox.Text = string.Empty;
-                RefreshGroupMessages();
+                //RefreshGroupMessages();
                 return;
             }
             const string messageText = "An error has occured. The message has not been sent.";

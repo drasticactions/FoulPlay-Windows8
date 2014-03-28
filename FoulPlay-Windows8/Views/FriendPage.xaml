@@ -1,15 +1,17 @@
 ﻿<Page
     x:Name="pageRoot"
     x:Class="FoulPlay_Windows8.Views.FriendPage"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FoulPlay_Windows8.Views"
     xmlns:common="using:FoulPlay_Windows8.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModels:FriendPageViewModel />
+    </Page.DataContext>
     <Page.Resources>
         <CollectionViewSource
             x:Name="itemsViewSource"
@@ -51,7 +53,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock x:Name="pageTitle" Text="{Binding Converter={StaticResource PersonalNameConverter} }" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                <TextBlock x:Name="pageTitle" Text="{Binding UserModel.User, Converter={StaticResource PersonalNameConverter} }" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
             </Grid>
         </Grid>
@@ -60,15 +62,15 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="500"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="400"/>
-                    <ColumnDefinition Width="460"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid Margin="15" x:Name="UserInformationGrid" HorizontalAlignment="Stretch" Column="0">
                     <Grid Margin="15">
                         <StackPanel>
                             <Border Margin="8,15,0,15" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="0" Width="160" Height="160">
-                                <Image  x:Name="UserImage" Source="{Binding Converter={StaticResource PersonalIconConverter} }" Stretch="UniformToFill" />
+                                <Image  x:Name="UserImage" Source="{Binding UserModel.User , Converter={StaticResource PersonalIconConverter} }" Stretch="UniformToFill" />
                             </Border>
                             <Grid x:Name="UserTrophyGrid" Margin="5,0,0,25">
                                 <Grid.ColumnDefinitions>
@@ -83,17 +85,17 @@
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                                     <TextBlock FontSize="30" Grid.Row="0"
-                                                   Text="{Binding trophySummary.Level }" />
+                                                   Text="{Binding UserModel.User.trophySummary.Level}" />
                                     <TextBlock FontSize="30" Grid.Row="0"
-                                                   HorizontalAlignment="Right" Text="{Binding trophySummary.Progress }" />
+                                                   HorizontalAlignment="Right" Text="{Binding UserModel.User.trophySummary.Progress }" />
                                     <ProgressBar Height="5" 
-                                                     Value="{Binding trophySummary.Progress}" Grid.Row="1" />
+                                                     Value="{Binding UserModel.User.trophySummary.Progress}" Grid.Row="1" />
                                     <StackPanel Grid.Row="2" Orientation="Horizontal">
                                         <TextBlock FontSize="30"
                                                    Style="{StaticResource SubheaderTextBlockStyle}"
                                                    Text="Total" x:Uid="TrophyTotal" />
                                         <TextBlock  FontSize="30"
-                                                       Text="{Binding trophySummary.TotalTrophies }" Padding="15,0,0,0" />
+                                                       Text="{Binding UserModel.User.trophySummary.TotalTrophies }" Padding="15,0,0,0" />
                                     </StackPanel>
                                 </Grid>
                                 <Grid Grid.Column="1">
@@ -111,7 +113,7 @@
                                         <TextBlock 
                                             Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
-                                                       Text="{Binding trophySummary.EarnedTrophies.Platinum }"
+                                                       Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Platinum }"
                                                        VerticalAlignment="Center" HorizontalAlignment="Left"
                                                        Grid.Column="1" />
                                     </Grid>
@@ -125,7 +127,7 @@
                                         <TextBlock 
                                                                                         Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
-                                                       Text="{Binding trophySummary.EarnedTrophies.Gold }"
+                                                       Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Gold }"
                                                        Grid.Column="1" VerticalAlignment="Center"
                                                        HorizontalAlignment="Left" />
                                     </Grid>
@@ -146,7 +148,7 @@
                                         <TextBlock
                                                                                         Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
-                                                       Text="{Binding trophySummary.EarnedTrophies.Silver }"
+                                                       Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Silver }"
                                                        VerticalAlignment="Center" HorizontalAlignment="Left"
                                                        Grid.Column="1" />
                                     </Grid>
@@ -160,7 +162,7 @@
                                         <TextBlock
                                                                                         Style="{StaticResource SubheaderTextBlockStyle}"
                                             FontSize="20"
-                                                       Text="{Binding trophySummary.EarnedTrophies.Bronze }"
+                                                       Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Bronze }"
                                                        Grid.Column="1" VerticalAlignment="Center"
                                                        HorizontalAlignment="Left" />
                                     </Grid>
@@ -177,7 +179,7 @@
                                             <SolidColorBrush Color="#DBDEE7" Opacity="0.15" />
                                         </Grid.Background>
                                         <TextBlock x:Name="AboutMeTextBlock" VerticalAlignment="Center" Padding="5,5,5,10"
-                                           Style="{StaticResource BodyTextBlockStyle}" FontSize="20" TextWrapping="Wrap" Text="{Binding AboutMe}" />
+                                           Style="{StaticResource BodyTextBlockStyle}" FontSize="20" TextWrapping="Wrap" Text="{Binding UserModel.User.AboutMe}" />
                                     </Grid>
                                 </Border>
                             </StackPanel>
@@ -191,7 +193,7 @@
                                         <Grid.Background>
                                             <SolidColorBrush Color="#DBDEE7" Opacity="0.15" />
                                         </Grid.Background>
-                                        <TextBlock x:Name="MyLanguagesBlock" VerticalAlignment="Center" Padding="5,5,5,10" FontSize="20" Style="{StaticResource BodyTextBlockStyle}" Text=""
+                                        <TextBlock x:Name="MyLanguagesBlock" VerticalAlignment="Center" Padding="5,5,5,10" FontSize="20" Style="{StaticResource BodyTextBlockStyle}" Text="{Binding UserModel.Language}"
                                            TextWrapping="Wrap" />
                                     </Grid>
                                 </Border>
@@ -199,7 +201,7 @@
                         </StackPanel>
                     </Grid>
                 </Grid>
-                <Grid Margin="15" Width="400" x:Name="MessagesGrid" HorizontalAlignment="Stretch" Grid.Column="1">
+                <Grid Visibility="{Binding UserModel.IsNotCurrentUser, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="15" Width="400" x:Name="MessagesGrid" HorizontalAlignment="Stretch" Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="10"/>
                         <RowDefinition Height="70"/>
@@ -207,8 +209,8 @@
                         <RowDefinition Height="150"/>
                     </Grid.RowDefinitions>
                     <TextBlock Margin="0,5,0,0" Text="Messages" x:Uid="MessagesPivot" Grid.Row="1" FontSize="40" Style="{StaticResource HeaderTextBlockStyle}"/>
-                    <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" IsIndeterminate="True"/>
-                    <ListView x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" ItemTemplate="{StaticResource MessageUserDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding messages}" HorizontalAlignment="Stretch">
+                    <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" Visibility="Collapsed" IsIndeterminate="True"/>
+                    <ListView x:Name="MessagesListView" Grid.Row="2" SelectionMode="None" ItemTemplate="{StaticResource MessageUserDataTemplate}" IsSwipeEnabled="False" ItemsSource="{Binding MessageGroupCollection}" HorizontalAlignment="Stretch">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -230,20 +232,20 @@
                         </StackPanel>
                     </Grid>
                 </Grid>
-                <Grid Margin="15" HorizontalAlignment="Stretch" Grid.Column="2">
+                <Grid Width="400" Margin="15" HorizontalAlignment="Stretch" Grid.Column="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Margin="0,15,0,0" Text="Recent Activity" x:Uid="RecentActivity" Grid.Row="0" FontSize="40" Style="{StaticResource HeaderTextBlockStyle}"/>
-                    <ListView
+                    <ListView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"
                               x:Name="ActivityFeedListView"
-                              ItemsSource="{Binding RecentActivityList}"
-                              ItemTemplate="{StaticResource ActivityDataTemplate}" Margin="0,60,0,10" Grid.RowSpan="2"/>
+                              ItemsSource="{Binding RecentActivityScrollingCollection}"
+                              ItemTemplate="{StaticResource ActivityDataTemplate}" Margin="0,60,0,10"/>
                 </Grid>
-                <Grid Margin="15" HorizontalAlignment="Stretch" Grid.Column="3">
+                <Grid Width="460" Margin="15" HorizontalAlignment="Stretch" Grid.Column="3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70"/>
                         <RowDefinition Height="*"/>
@@ -268,19 +270,19 @@
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
-                                    <TextBlock FontSize="15" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0"
+                                    <TextBlock FontSize="15" Visibility="{Binding UserModel.IsNotCurrentUser, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding UserModel.User.OnlineId}" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0"
                                            x:Name="ComparedUserNameBlock" />
                                 </Grid>
                                 <Grid Margin="5,0,0,0" x:Name="FromUserGrid" Grid.Column="1">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
-                                    <TextBlock x:Name="FromUserNameBlock" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
+                                    <TextBlock x:Name="FromUserNameBlock" Text="{Binding UserModel.CurrentUserOnlineId}" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0"/>
                                 </Grid>
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="1">
-                            <ListView x:Name="TrophyListView" IsSwipeEnabled="False" IsItemClickEnabled="True" HorizontalAlignment="Stretch" SelectionMode="None" ItemClick="TrophyListView_OnItemClick" ItemsSource="{Binding TrophyList}">
+                            <ListView x:Name="TrophyListView" IsSwipeEnabled="False" IsItemClickEnabled="True" HorizontalAlignment="Stretch" SelectionMode="None" ItemClick="TrophyListView_OnItemClick" ItemsSource="{Binding TrophyScrollingCollection}">
                                 <ListView.ItemContainerStyle>
                                     <Style TargetType="ListViewItem">
                                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -361,9 +363,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Margin="0,5,0,0" Text="Friends" x:Uid="FriendsPivot" Grid.Row="1" FontSize="40" Style="{StaticResource HeaderTextBlockStyle}"/>
-                    <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar" Grid.Row="0" IsIndeterminate="True"
+                    <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar" Visibility="{Binding FriendScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="0" IsIndeterminate="True"
                                  x:FieldModifier="public" />
-                    <ListView x:Name="FriendsListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True" ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendList}">
+                    <ListView x:Name="FriendsListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True" ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False" HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />

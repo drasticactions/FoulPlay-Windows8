@@ -127,7 +127,7 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Border VerticalAlignment="Top" Grid.Column="0" Width="100" Height="100">
-                    <Image Source="{Binding user.AvatarUrl}" Stretch="UniformToFill" />
+                    <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
                 </Border>
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
@@ -135,7 +135,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Text="{Binding senderOnlineId}" />
+                    <TextBlock Grid.Column="0" Grid.Row="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Text="{Binding Message.senderOnlineId}" />
                     <Grid Grid.Row="1">
                         <Grid.Background>
                             <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />
@@ -144,15 +144,15 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" TextWrapping="Wrap" Foreground="White" Text="{Binding body}" />
+                        <TextBlock Grid.Column="0" TextWrapping="Wrap" Foreground="White" Text="{Binding Message.body}" />
                         <Grid Grid.Column="1">
                             <Image Width="50" HorizontalAlignment="Center" VerticalAlignment="Top"
                                                        Source="/Assets/appbar.image.png"
-                                                       Visibility="{Binding contentKeys, Converter={StaticResource ContentKeysImageConverter}}" />
+                                                       Visibility="{Binding Message.contentKeys, Converter={StaticResource ContentKeysImageConverter}}" />
                         </Grid>
                     </Grid>
                     <Grid Grid.Row="2">
-                        <TextBlock HorizontalAlignment="Right" FontSize="15" TextWrapping="NoWrap" Text="{Binding receivedDate, Converter={StaticResource DateConverter}}" />
+                        <TextBlock HorizontalAlignment="Right" FontSize="15" TextWrapping="NoWrap" Text="{Binding Message.receivedDate, Converter={StaticResource DateConverter}}" />
                     </Grid>
                 </Grid>
             </Grid>
@@ -162,5 +162,6 @@
         <tools:TrophyGradeConverter x:Key="TrophyGradeConverter" />
         <tools:TrophyRareTextConverter x:Key="TrophyRareTextConverter" />
         <tools:TrophyStatusConverter x:Key="TrophyStatusConverter" />
+        <tools:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
     </Application.Resources>
 </Application>
