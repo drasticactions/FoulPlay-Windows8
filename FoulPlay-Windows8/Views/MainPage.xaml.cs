@@ -1,12 +1,14 @@
 ﻿// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 using System;
 using System.Collections.Generic;
+using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
+using Foulplay_Windows8.Core.Tools;
 using FoulPlay_Windows8.Tools;
 using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
@@ -76,6 +78,18 @@ namespace FoulPlay_Windows8.Views
             _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
             _vm.SetRecentActivityFeed(_user.OnlineId);
             _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
+            CreateBackgroundTask();
+        }
+
+        private async void CreateBackgroundTask()
+        {
+            // We have login, so set up the background tasks.
+            BackgroundTaskUtils.UnregisterBackgroundTasks(BackgroundTaskUtils.BackgroundTaskName);
+            BackgroundTaskRegistration task = await
+                BackgroundTaskUtils.RegisterBackgroundTask(BackgroundTaskUtils.BackgroundTaskEntryPoint,
+                    BackgroundTaskUtils.BackgroundTaskName,
+                    new TimeTrigger(15, false),
+                    null);
         }
 
         private void CreateMenu()

@@ -6,14 +6,17 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.ApplicationModel.Background;
 using Windows.Globalization;
 using Windows.Storage;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
+using Foulplay_Windows8.Core.Tools;
 using FoulPlay_Windows8.Views;
 
 namespace FoulPlay_Windows8
@@ -82,6 +85,11 @@ namespace FoulPlay_Windows8
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
+
+            // Clear tiles if we have any.
+            TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
+            TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true);
 
             if (rootFrame == null)
             {

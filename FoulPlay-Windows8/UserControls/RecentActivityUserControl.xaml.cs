@@ -94,14 +94,14 @@ namespace FoulPlay_Windows8.UserControls
             switch (storyType)
             {
                 case "STORE_PROMO":
-                    MainImage.Source =
+                    StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
                     if (target != null)
                         ActivityTextBlock.Text = feed.StoryComment;
                     break;
                 case "SCREENSHOT_UPLOAD":
-                    MainImage.Source =
+                    StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
                     if (target != null)
@@ -177,14 +177,14 @@ namespace FoulPlay_Windows8.UserControls
             switch (storyType)
             {
                 case "STORE_PROMO":
-                    MainImage.Source =
+                    StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
                     if (target != null)
                         ActivityTextBlock.Text = feed.StoryComment;
                     break;
                 case "SCREENSHOT_UPLOAD":
-                    MainImage.Source =
+                    StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
                     if (target != null)

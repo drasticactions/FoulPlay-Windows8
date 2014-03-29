@@ -16,6 +16,7 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>FoulPlay-Windows8_TemporaryKey.pfx</PackageCertificateKeyFile>
     <ExpressionBlendVersion>12.0.50203.70</ExpressionBlendVersion>
+    <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -199,6 +200,7 @@
     <Content Include="Assets\appbar.image.png" />
     <Content Include="Assets\appbar.speakerphone.png" />
     <Content Include="Assets\Background.jpg" />
+    <Content Include="Assets\BadgeLogo.png" />
     <Content Include="Assets\No-Trophy-Icon.png" />
     <Content Include="Assets\phone_common_defaultThumbnail_etc.png" />
     <Content Include="Assets\phone_common_defaultThumbnail_trophy.png" />
@@ -231,11 +233,18 @@
     <Content Include="Assets\phone_whatsNew_icon_list_count_like.png" />
     <Content Include="Assets\PSPlus-Large.png" />
     <Content Include="Assets\PSPlus.png" />
+    <Content Include="Assets\SplashScreen.scale-180.png" />
+    <Content Include="Assets\Square150x150Logo.scale-180.png" />
+    <Content Include="Assets\Square30x30Logo.targetsize-256.png" />
+    <Content Include="Assets\Square310x310Logo.scale-180.png" />
+    <Content Include="Assets\Square70x70Logo.scale-180.png" />
+    <Content Include="Assets\StoreLogo.scale-180.png" />
     <Content Include="Assets\Trophy-icon-bronze.png" />
     <Content Include="Assets\Trophy-icon-Gold.png" />
     <Content Include="Assets\Trophy-icon-Hidden.png" />
     <Content Include="Assets\Trophy-icon-plat.png" />
     <Content Include="Assets\Trophy-icon-Silver.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-180.png" />
     <Content Include="DataModel\SampleData.json" />
   </ItemGroup>
   <ItemGroup>
@@ -298,6 +307,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FoulPlay-Windows8.BackgroundStatus\FoulPlay-Windows8.BackgroundStatus.csproj">
+      <Project>{8d9f5785-3339-4cd1-b009-2d08363d705d}</Project>
+      <Name>FoulPlay-Windows8.BackgroundStatus</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Foulplay-Windows8.Core\Foulplay-Windows8.Core.csproj">
       <Project>{f19d560f-b90e-4b03-acd3-119bae802ad4}</Project>
       <Name>Foulplay-Windows8.Core</Name>

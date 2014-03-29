@@ -2,8 +2,8 @@
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
   <Identity Name="1900d778-7f40-4313-aa62-1e33a3c8ab6a" Publisher="CN=Timothy" Version="1.0.0.0" />
   <Properties>
-    <DisplayName>FoulPlay-Windows8</DisplayName>
-    <PublisherDisplayName>Timothy</PublisherDisplayName>
+    <DisplayName>FoulPlay: The Unofficial PlayStation Network App</DisplayName>
+    <PublisherDisplayName>ティム・ミラー</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -15,14 +15,23 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="FoulPlay_Windows8.App">
-      <m2:VisualElements DisplayName="FoulPlay: The Unofficial PlayStation Network App" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="FoulPlay" ForegroundText="light" BackgroundColor="#464646">
-        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      <m2:VisualElements DisplayName="FoulPlay: The Unofficial PlayStation Network App" Square150x150Logo="Assets\Square150x150Logo.png" Square30x30Logo="Assets\Square30x30Logo.png" Description="FoulPlay" ForegroundText="light" BackgroundColor="#1E72C9" ToastCapable="true">
+        <m2:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="FoulPlay" Square70x70Logo="Assets\Square70x70Logo.png" Square310x310Logo="Assets\Square310x310Logo.png">
+        </m2:DefaultTile>
+        <m2:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
+        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#1E72C9" />
       </m2:VisualElements>
       <Extensions>
         <Extension Category="windows.protocol">
           <Protocol Name="com.playstation.playstationapp">
             <DisplayName>Foulplay</DisplayName>
           </Protocol>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="FoulPlay_Windows8.BackgroundStatus.BackgroundNotifyStatus">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+          </BackgroundTasks>
         </Extension>
       </Extensions>
     </Application>

@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F19D560F-B90E-4B03-ACD3-119BAE802AD4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{8D9F5785-3339-4CD1-B009-2D08363D705D}</ProjectGuid>
+    <OutputType>winmdobj</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Foulplay_Windows8.Core</RootNamespace>
-    <AssemblyName>Foulplay-Windows8.Core</AssemblyName>
+    <RootNamespace>FoulPlay_Windows8.BackgroundStatus</RootNamespace>
+    <AssemblyName>FoulPlay-Windows8.BackgroundStatus</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
@@ -101,40 +101,15 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Entities\FriendsEntity.cs" />
-    <Compile Include="Entities\LiveBroadcastEntity.cs" />
-    <Compile Include="Entities\MessageEntity.cs" />
-    <Compile Include="Entities\MessageGroupEntity.cs" />
-    <Compile Include="Entities\NotificationEntity.cs" />
-    <Compile Include="Entities\RecentActivityEntity.cs" />
-    <Compile Include="Entities\TrophyDetailEntity.cs" />
-    <Compile Include="Entities\TrophyEntity.cs" />
-    <Compile Include="Entities\TwitchEntity.cs" />
-    <Compile Include="Entities\UserAccountEntity.cs" />
-    <Compile Include="Entities\UserAuthenticationEntity.cs" />
-    <Compile Include="Entities\UserEntity.cs" />
-    <Compile Include="Entities\UstreamEntity.cs" />
-    <Compile Include="Managers\AuthenticationManager.cs" />
-    <Compile Include="Managers\FriendManager.cs" />
-    <Compile Include="Managers\LiveStreamManager.cs" />
-    <Compile Include="Managers\MessageManager.cs" />
-    <Compile Include="Managers\NotificationManager.cs" />
-    <Compile Include="Managers\RecentActivityManager.cs" />
-    <Compile Include="Managers\TrophyDetailManager.cs" />
-    <Compile Include="Managers\TrophyManager.cs" />
-    <Compile Include="Managers\UserManager.cs" />
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\Foulplay-Windows8.Core\Foulplay-Windows8.Core.csproj">
+      <Project>{F19D560F-B90E-4B03-ACD3-119BAE802AD4}</Project>
+      <Name>Foulplay-Windows8.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BackgroundNotifyStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tools\BackgroundTaskUtils.cs" />
-    <Compile Include="Tools\NotifyStatusTile.cs" />
-    <Compile Include="Tools\UrlConstants.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\netcore45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
