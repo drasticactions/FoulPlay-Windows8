@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
+using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
@@ -28,16 +29,7 @@ namespace FoulPlay_Windows8.Views
     {
 
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-
+        private TrophyPageViewModel _vm;
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
         /// process lifetime management
@@ -83,15 +75,7 @@ namespace FoulPlay_Windows8.Views
             string userName = trophyTitle.ComparedUser != null
                 ? trophyTitle.ComparedUser.OnlineId
                 : trophyTitle.FromUser.OnlineId;
-            var trophyDetailManager = new TrophyDetailManager();
-            TrophyDetailEntity trophys =
-                await
-                    trophyDetailManager.GetTrophyDetailList(trophyTitle.NpCommunicationId,
-                       userName, true,
-                        App.UserAccountEntity);
-            LoadingProgressRing.Visibility = Visibility.Collapsed;
-            TrophyListView.Visibility = Visibility.Visible;
-            TrophyListView.ItemsSource = trophys.Trophies;
+            _vm.SetTrophyList(userName, trophyTitle.NpCommunicationId);
         }
 
         /// <summary>
@@ -123,6 +107,7 @@ namespace FoulPlay_Windows8.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            _vm = (TrophyPageViewModel) DataContext;
             navigationHelper.OnNavigatedTo(e);
         }
 

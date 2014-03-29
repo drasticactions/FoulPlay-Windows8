@@ -1,15 +1,17 @@
 ﻿<Page
     x:Name="pageRoot"
     x:Class="FoulPlay_Windows8.Views.TrophyPage"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FoulPlay_Windows8.Views"
     xmlns:common="using:FoulPlay_Windows8.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModels:TrophyPageViewModel />
+    </Page.DataContext>
     <Page.Resources>
         
     </Page.Resources>
@@ -43,7 +45,7 @@
             <TextBlock x:Name="pageTitle" Text="Trophy List" x:Uid="TrophyHeader" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
-            <Popup Grid.Row="0" x:Name="TrophyDetailPopup" IsOpen="False" IsLightDismissEnabled="True">
+        <Popup Grid.Row="0" x:Name="TrophyDetailPopup" IsOpen="False" IsLightDismissEnabled="True">
             <Popup.ChildTransitions>
                 <TransitionCollection>
                     <PopupThemeTransition/>
@@ -115,8 +117,7 @@
                 </ScrollViewer>
             </Border>
         </Popup>
-        <ProgressRing x:Name="LoadingProgressRing" Grid.Row="1" Width="200" Height="200" IsActive="True"/>
-        <ListView Grid.Row="1" Visibility="Collapsed" IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False" ItemClick="TrophyListView_OnItemClick" x:Name="TrophyListView">
+        <ListView ItemsSource="{Binding Trophies}" Grid.Row="1" IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False" ItemClick="TrophyListView_OnItemClick" x:Name="TrophyListView">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch" />

@@ -161,6 +161,7 @@
     <Compile Include="ViewModels\LiveFromPlaystationPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\RecentActivityPageViewModel.cs" />
+    <Compile Include="ViewModels\TrophyPageViewModel.cs" />
     <Compile Include="Views\FriendPage.xaml.cs">
       <DependentUpon>FriendPage.xaml</DependentUpon>
     </Compile>
