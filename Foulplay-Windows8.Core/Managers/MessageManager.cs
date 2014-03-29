@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -76,7 +77,7 @@ namespace Foulplay_Windows8.Core.Managers
             }
         }
 
-        public async Task<bool> ClearMessages(MessageEntity messageEntity, UserAccountEntity userAccountEntity)
+        public async void ClearMessages(MessageEntity messageEntity, UserAccountEntity userAccountEntity)
         {
             try
             {
@@ -88,7 +89,7 @@ namespace Foulplay_Windows8.Core.Managers
                 }
                 var messageUids = new List<int>();
                 messageUids.AddRange(messageEntity.messages.Where(o => o.seenFlag == false).Select(message => message.messageUid));
-                if (messageUids.Count == 0) return true;
+                if (messageUids.Count == 0) return;
                 string url = string.Format("https://{0}-gmsg.np.community.playstation.net/groupMessaging/v1/messageGroups/{1}/messages?messageUid={2}", user.Region, messageEntity.messageGroup.messageGroupId, string.Join(",", messageUids));
                 var theAuthClient = new HttpClient();
                 var request = new HttpRequestMessage(HttpMethod.Put, url);
@@ -97,12 +98,11 @@ namespace Foulplay_Windows8.Core.Managers
                 request.Headers.Add("Referer", "http://psapp.dl.playstation.net/psapp/6228351b09c436f44f1c53955c0a51ca/index.html");
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccountEntity.GetAccessToken());
                 request.Content = new StringContent("{\"seenFlag\":true}", Encoding.UTF8, "application/json");
-                var response = await theAuthClient.SendAsync(request);
-                return response.IsSuccessStatusCode;
+                await theAuthClient.SendAsync(request);
             }
             catch (Exception)
             {
-                return false;
+                Debug.WriteLine("Failed to clear messages");
             }
         }
 

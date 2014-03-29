@@ -53,10 +53,12 @@ namespace FoulPlay_Windows8.ViewModels
 
         public async void SetMessages(string messageGroupId, UserAccountEntity userAccountEntity)
         {
+            MessageGroupCollection = new ObservableCollection<MessageGroupItem>();
             var messageManager = new MessageManager();
             _messageEntity = await messageManager.GetGroupConversation(messageGroupId, App.UserAccountEntity);
             if (_messageEntity == null)
                 return;
+            messageManager.ClearMessages(_messageEntity, App.UserAccountEntity);
             foreach (var newMessage in _messageEntity.messages.Select(message => new MessageGroupItem { Message = message }))
             {
                 GetAvatar(newMessage, userAccountEntity);
