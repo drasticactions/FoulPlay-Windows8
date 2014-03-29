@@ -1,15 +1,17 @@
 ﻿<Page
     x:Name="pageRoot"
     x:Class="FoulPlay_Windows8.Views.LiveFromPlaystationPage"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FoulPlay_Windows8.Views"
     xmlns:common="using:FoulPlay_Windows8.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModels:LiveFromPlaystationPageViewModel />
+    </Page.DataContext>
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
@@ -49,14 +51,13 @@
             <TextBlock x:Name="pageTitle" Text="Live From PlayStation" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
-        <ProgressRing x:Name="LoadingProgressRing" Grid.Row="1" Width="200" Height="200" IsActive="True"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <ScrollViewer Grid.Row="1" ZoomMode="Disabled">
-                <GridView ItemClick="LiveBroadcastGridView_OnItemClick" IsItemClickEnabled="True" SelectionMode="None" Grid.Row="1" IsSwipeEnabled="False" x:Name="LiveBroadcastGridView">
+                <GridView ItemClick="LiveBroadcastGridView_OnItemClick" ItemsSource="{Binding LiveBroadcastCollection}" IsItemClickEnabled="True" SelectionMode="None" Grid.Row="1" IsSwipeEnabled="False" x:Name="LiveBroadcastGridView">
                     <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapGrid Orientation="Horizontal"/>

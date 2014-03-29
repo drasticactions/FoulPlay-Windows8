@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Navigation;
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
+using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
@@ -30,16 +31,7 @@ namespace FoulPlay_Windows8.Views
     {
 
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-
+        private LiveFromPlaystationPageViewModel _vm;
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
         /// process lifetime management
@@ -53,6 +45,7 @@ namespace FoulPlay_Windows8.Views
         public LiveFromPlaystationPage()
         {
             this.InitializeComponent();
+            _vm = (LiveFromPlaystationPageViewModel)DataContext;
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
@@ -80,47 +73,8 @@ namespace FoulPlay_Windows8.Views
                 App.UserAccountEntity.SetUserEntity(user);
             }
             
-            LoadLiveFromPlaystationList();
+            _vm.BuildList();
 
-        }
-
-
-
-        private async void LoadLiveFromPlaystationList()
-        {
-
-            var liveStreamManager = new LiveStreamManager();
-
-            // TODO: Remove hardcoded filter list values. Currently this is used for testing.
-
-            var filterList = new Dictionary<string, string> { { "platform", "PS4" }, { "type", "live" }, { "interactive", "true" } };
-            var ustreamList = await liveStreamManager.GetUstreamFeed(0, 80, "compact", filterList, "views", string.Empty, App.UserAccountEntity);
-            var twitchList = await liveStreamManager.GetTwitchFeed(0, 80, "PS4", "true", string.Empty, App.UserAccountEntity);
-            List<LiveBroadcastEntity> liveBroadcastEntities = new List<LiveBroadcastEntity>();
-            if (twitchList != null)
-            {
-                
-            
-            foreach (var twitch in twitchList.streams)
-            {
-                var entity = new LiveBroadcastEntity();
-                entity.ParseFromTwitch(twitch);
-                liveBroadcastEntities.Add(entity);
-            }
-            }
-            if (ustreamList != null)
-            {
-                foreach (var ustream in ustreamList.items)
-                {
-                    var entity = new LiveBroadcastEntity();
-                    entity.ParseFromUstream(ustream);
-                    liveBroadcastEntities.Add(entity);
-                }                
-            }
-
-            var result = liveBroadcastEntities.OrderByDescending(node => node.Viewers);
-            LiveBroadcastGridView.ItemsSource = result;
-            LoadingProgressRing.IsActive = false;
         }
 
         /// <summary>

@@ -158,6 +158,7 @@
     <Compile Include="Tools\TrophyTypeConverter.cs" />
     <Compile Include="Tools\ValuePercentConverter.cs" />
     <Compile Include="ViewModels\FriendPageViewModel.cs" />
+    <Compile Include="ViewModels\LiveFromPlaystationPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\FriendPage.xaml.cs">
       <DependentUpon>FriendPage.xaml</DependentUpon>
