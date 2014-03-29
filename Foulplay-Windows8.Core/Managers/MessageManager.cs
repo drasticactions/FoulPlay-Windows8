@@ -171,7 +171,6 @@ namespace Foulplay_Windows8.Core.Managers
                 form.Add(stringContent);
                 request.Content = form;
                 HttpResponseMessage response = await theAuthClient.SendAsync(request);
-                await response.Content.ReadAsStringAsync();
                 return response.IsSuccessStatusCode;
 
             }

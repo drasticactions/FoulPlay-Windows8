@@ -24,6 +24,7 @@ using Windows.UI.Xaml.Navigation;
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
+using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
@@ -35,18 +36,10 @@ namespace FoulPlay_Windows8.Views
     {
 
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private UserAccountEntity.User _user;
+        private MessagePageViewModel _vm;
         private MessageGroupEntity.MessageGroup _messageGroup;
         public StorageFile File { get; private set; }
-
-        /// <summary>
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
 
         /// <summary>
         /// NavigationHelper is used on each page to aid in navigation and 
@@ -64,25 +57,6 @@ namespace FoulPlay_Windows8.Views
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
-        }
-
-        private async void RefreshGroupMessages()
-        {
-            MessageProgressBar.Visibility = Visibility.Visible;
-            var messagerManager = new MessageManager();
-            var messageEntity = await messagerManager.GetGroupConversation(_messageGroup.MessageGroupId, App.UserAccountEntity);
-            if (messageEntity == null)
-            {
-                MessageProgressBar.Visibility = Visibility.Collapsed;
-                MessageSend.IsEnabled = true;
-                ImageSend.IsEnabled = true;
-                return;
-            }
-            MessagesListView.DataContext = messageEntity;
-            await messagerManager.ClearMessages(messageEntity, App.UserAccountEntity);
-            MessageProgressBar.Visibility = Visibility.Collapsed;
-            MessageSend.IsEnabled = true;
-            ImageSend.IsEnabled = true;
         }
 
         /// <summary>
@@ -108,7 +82,7 @@ namespace FoulPlay_Windows8.Views
             }
             var jsonObjectString = (string)e.NavigationParameter;
             _messageGroup = JsonConvert.DeserializeObject<MessageGroupEntity.MessageGroup>(jsonObjectString);
-            RefreshGroupMessages();
+            _vm.SetMessages(_messageGroup.MessageGroupId, App.UserAccountEntity);
         }
 
         /// <summary>
@@ -140,6 +114,7 @@ namespace FoulPlay_Windows8.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            _vm = (MessagePageViewModel) DataContext;
             navigationHelper.OnNavigatedTo(e);
         }
 
@@ -212,7 +187,7 @@ namespace FoulPlay_Windows8.Views
             {
                 ImageSource.Source = null;
                 MessageTextBox.Text = string.Empty;
-                RefreshGroupMessages();
+                _vm.SetMessages(_messageGroup.MessageGroupId, App.UserAccountEntity);
                 return;
             }
             const string messageText = "An error has occured. The message has not been sent.";
@@ -251,7 +226,9 @@ namespace FoulPlay_Windows8.Views
 
         private async void MessagesListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            var message = e.ClickedItem as MessageEntity.Message;
+            var messageItem = e.ClickedItem as MessagePageViewModel.MessageGroupItem;
+            if (messageItem == null) return;
+            var message = messageItem.Message;
             if (message == null) return;
             UserMessageGrid.DataContext = message;
             if (message.contentKeys == null)
