@@ -158,6 +158,9 @@
     <Compile Include="Tools\TrophyStatusConverter.cs" />
     <Compile Include="Tools\TrophyTypeConverter.cs" />
     <Compile Include="Tools\ValuePercentConverter.cs" />
+    <Compile Include="UserControls\RecentActivityUserControl.xaml.cs">
+      <DependentUpon>RecentActivityUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\FriendPageViewModel.cs" />
     <Compile Include="ViewModels\LiveFromPlaystationPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
@@ -264,6 +267,10 @@
     <Page Include="ItemPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\RecentActivityUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FriendPage.xaml">
       <SubType>Designer</SubType>

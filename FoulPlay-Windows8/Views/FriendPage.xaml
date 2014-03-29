@@ -241,6 +241,8 @@
                     <ListView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ActivityFeedListView_OnItemClick"
                               x:Name="ActivityFeedListView"
                               ItemsSource="{Binding RecentActivityScrollingCollection}"
                               ItemTemplate="{StaticResource ActivityDataTemplate}" Margin="0,60,0,10"/>

@@ -24,6 +24,7 @@ using Windows.UI.Xaml.Navigation;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.Tools;
+using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
 
@@ -220,6 +221,16 @@ namespace FoulPlay_Windows8.Views
 
         public void Dispose()
         {
+        }
+
+        private void ActivityFeedGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as RecentActivityEntity.Feed;
+            if (item == null) return;
+            var control = new RecentActivityUserControl();
+            control.SetOffset();
+            control.SetContext(item);
+            control.OpenPopup();
         }
     }
 }

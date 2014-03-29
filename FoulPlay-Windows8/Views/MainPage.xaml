@@ -180,6 +180,8 @@
                     <GridView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ActivityFeedGridView_OnItemClick"
                               ItemsSource="{Binding RecentActivityScrollingCollection}"
                             x:Name="ActivityFeedGridView"
                             ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">

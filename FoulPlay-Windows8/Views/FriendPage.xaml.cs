@@ -27,6 +27,7 @@ using Windows.UI.Xaml.Navigation;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.Tools;
+using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
@@ -228,6 +229,16 @@ namespace FoulPlay_Windows8.Views
             }
             MessageSend.IsEnabled = true;
             ImageSend.IsEnabled = true;
+        }
+
+        private void ActivityFeedListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as RecentActivityEntity.Feed;
+            if (item == null) return;
+            var control = new RecentActivityUserControl();
+            control.SetOffset();
+            control.SetContext(item);
+            control.OpenPopup();
         }
     }
 }
