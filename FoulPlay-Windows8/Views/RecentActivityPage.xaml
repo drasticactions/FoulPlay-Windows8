@@ -62,6 +62,8 @@
             <GridView
                               IsSwipeEnabled="False"
                               SelectionMode="None"
+                IsItemClickEnabled="True"
+                ItemClick="ActivityFeedGridView_OnItemClick"
                               ItemsSource="{Binding Source={StaticResource RecentActivityCollectionViewSource}}"
                             x:Name="ActivityFeedGridView"
                             ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
