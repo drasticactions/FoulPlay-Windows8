@@ -14,6 +14,11 @@
         <viewModels:RecentActivityPageViewModel />
     </Page.DataContext>
     <Page.Resources>
+        <CollectionViewSource
+            x:Name="RecentActivityCollectionViewSource"
+            Source="{Binding RecentActivityScrollingCollection}"
+            d:Source="{Binding RecentActivityScrollingCollection, Source={d:DesignData /SampleData/RecentActivityPageViewModelSampleData.xaml}}"
+            />
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
         <tools:ActivityTemplateSelector x:Name="ActivityTemplateSelector" StoreActivityDataTemplate="{StaticResource StoreActivityDataTemplate}" ActivityDataTemplate="{StaticResource ActivityDataTemplate}" />
@@ -57,7 +62,7 @@
             <GridView
                               IsSwipeEnabled="False"
                               SelectionMode="None"
-                              ItemsSource="{Binding RecentActivityScrollingCollection}"
+                              ItemsSource="{Binding Source={StaticResource RecentActivityCollectionViewSource}}"
                             x:Name="ActivityFeedGridView"
                             ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
             </GridView>
