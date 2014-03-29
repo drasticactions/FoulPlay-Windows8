@@ -1,7 +1,6 @@
 ﻿<Page
     x:Name="pageRoot"
     x:Class="FoulPlay_Windows8.Views.RecentActivityPage"
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FoulPlay_Windows8.Views"
@@ -9,8 +8,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tools="using:FoulPlay_Windows8.Tools"
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
     mc:Ignorable="d">
-
+    <Page.DataContext>
+        <viewModels:RecentActivityPageViewModel />
+    </Page.DataContext>
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">My Application</x:String>
@@ -55,7 +57,7 @@
             <GridView
                               IsSwipeEnabled="False"
                               SelectionMode="None"
-                              ItemsSource="{Binding RecentActivityList}"
+                              ItemsSource="{Binding RecentActivityScrollingCollection}"
                             x:Name="ActivityFeedGridView"
                             ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
             </GridView>
