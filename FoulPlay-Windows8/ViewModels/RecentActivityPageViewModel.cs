@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FoulPlay_Windows8.Common;
+﻿using FoulPlay_Windows8.Common;
 using FoulPlay_Windows8.Tools;
 
 namespace FoulPlay_Windows8.ViewModels

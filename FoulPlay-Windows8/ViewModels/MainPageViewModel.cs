@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -15,29 +9,13 @@ namespace FoulPlay_Windows8.ViewModels
     public class MainPageViewModel : NotifierBase
     {
         private FriendScrollingCollection _friendScrollingCollection;
-        private RecentActivityScrollingCollection _recentActivityScrollingCollection;
+
+
+        private ObservableCollection<MessageGroupItem> _messageGroupCollection =
+            new ObservableCollection<MessageGroupItem>();
+
         private MessageGroupEntity _messageGroupEntity;
-
-        /// <summary>
-        /// TODO: Seperate to new class, use ISupportIncrementalLoading
-        /// </summary>
-        public class MessageGroupItem : NotifierBase
-        {
-            private string _avatarUrl;
-            public string AvatarUrl
-            {
-                get { return _avatarUrl; }
-                set
-                {
-                    SetProperty(ref _avatarUrl, value);
-                    OnPropertyChanged();
-                }
-            }
-            public MessageGroupEntity.MessageGroup MessageGroup { get; set; }
-        }
-
-
-        private ObservableCollection<MessageGroupItem> _messageGroupCollection = new ObservableCollection<MessageGroupItem>();
+        private RecentActivityScrollingCollection _recentActivityScrollingCollection;
 
         public ObservableCollection<MessageGroupItem> MessageGroupCollection
         {
@@ -87,7 +65,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         public void SetRecentActivityFeed(string userName)
         {
-           RecentActivityScrollingCollection = new RecentActivityScrollingCollection
+            RecentActivityScrollingCollection = new RecentActivityScrollingCollection
             {
                 IsNews = true,
                 StorePromo = true,
@@ -103,7 +81,7 @@ namespace FoulPlay_Windows8.ViewModels
             var messageManager = new MessageManager();
             _messageGroupEntity = await messageManager.GetMessageGroup(userName, userAccountEntity);
 
-            foreach (var message in _messageGroupEntity.MessageGroups)
+            foreach (MessageGroupEntity.MessageGroup message in _messageGroupEntity.MessageGroups)
             {
                 var newMessage = new MessageGroupItem {MessageGroup = message};
                 GetAvatar(newMessage, userAccountEntity);
@@ -113,9 +91,30 @@ namespace FoulPlay_Windows8.ViewModels
 
         private async void GetAvatar(MessageGroupItem message, UserAccountEntity userAccountEntity)
         {
-            var user =  await UserManager.GetUserAvatar(message.MessageGroup.LatestMessage.SenderOnlineId, userAccountEntity);
+            UserEntity user =
+                await UserManager.GetUserAvatar(message.MessageGroup.LatestMessage.SenderOnlineId, userAccountEntity);
             message.AvatarUrl = user.AvatarUrl;
             OnPropertyChanged("MessageGroupCollection");
+        }
+
+        /// <summary>
+        ///     TODO: Seperate to new class, use ISupportIncrementalLoading
+        /// </summary>
+        public class MessageGroupItem : NotifierBase
+        {
+            private string _avatarUrl;
+
+            public string AvatarUrl
+            {
+                get { return _avatarUrl; }
+                set
+                {
+                    SetProperty(ref _avatarUrl, value);
+                    OnPropertyChanged();
+                }
+            }
+
+            public MessageGroupEntity.MessageGroup MessageGroup { get; set; }
         }
     }
 }

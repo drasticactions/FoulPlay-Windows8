@@ -20,43 +20,47 @@
     -->
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Background.jpg"/>
+            <ImageBrush ImageSource="/Assets/Background.jpg" />
         </Grid.Background>
         <Grid.ChildrenTransitions>
             <TransitionCollection>
-                <EntranceThemeTransition/>
+                <EntranceThemeTransition />
             </TransitionCollection>
         </Grid.ChildrenTransitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="140"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- Back button and page title -->
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Top"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
-            <TextBlock x:Name="pageTitle" Text="Live From PlayStation" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
+            <Button x:Name="backButton" Margin="39,59,39,0"
+                    Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
+                    Style="{StaticResource NavigationBackButtonNormalStyle}"
+                    VerticalAlignment="Top"
+                    AutomationProperties.Name="Back"
+                    AutomationProperties.AutomationId="BackButton"
+                    AutomationProperties.ItemType="Navigation Button" />
+            <TextBlock x:Name="pageTitle" Text="Live From PlayStation" Style="{StaticResource HeaderTextBlockStyle}"
+                       Grid.Column="1"
+                       IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40" />
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="0" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <ScrollViewer Grid.Row="1" ZoomMode="Disabled">
-                <GridView ItemClick="LiveBroadcastGridView_OnItemClick" ItemsSource="{Binding LiveBroadcastCollection}" IsItemClickEnabled="True" SelectionMode="None" Grid.Row="1" IsSwipeEnabled="False" x:Name="LiveBroadcastGridView">
+                <GridView ItemClick="LiveBroadcastGridView_OnItemClick" ItemsSource="{Binding LiveBroadcastCollection}"
+                          IsItemClickEnabled="True" SelectionMode="None" Grid.Row="1" IsSwipeEnabled="False"
+                          x:Name="LiveBroadcastGridView">
                     <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapGrid Orientation="Horizontal"/>
+                            <WrapGrid Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </GridView.ItemsPanel>
                     <GridView.ItemTemplate>
@@ -67,28 +71,34 @@
                                         <SolidColorBrush Color="#DBDEE7" Opacity="0.15" />
                                     </Grid.Background>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="180"/>
-                                        <RowDefinition Height="*"/>
-                                        <RowDefinition Height="25"/>
+                                        <RowDefinition Height="180" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="25" />
                                     </Grid.RowDefinitions>
-                                    <Image Grid.Row="0" Stretch="UniformToFill" VerticalAlignment="Top" Source="{Binding PreviewThumbnail}"/>
+                                    <Image Grid.Row="0" Stretch="UniformToFill" VerticalAlignment="Top"
+                                           Source="{Binding PreviewThumbnail}" />
                                     <StackPanel Margin="1" Grid.Row="1">
-                                        <TextBlock FontSize="25" FontWeight="SemiLight" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Text="{Binding Title}"/>
-                                        <TextBlock FontSize="20" FontWeight="ExtraLight" TextWrapping="Wrap" Text="{Binding GameTitle}"/>
+                                        <TextBlock FontSize="25" FontWeight="SemiLight" TextWrapping="NoWrap"
+                                                   TextTrimming="WordEllipsis" Text="{Binding Title}" />
+                                        <TextBlock FontSize="20" FontWeight="ExtraLight" TextWrapping="Wrap"
+                                                   Text="{Binding GameTitle}" />
                                     </StackPanel>
                                     <Grid Grid.Row="2">
                                         <Grid.Background>
                                             <SolidColorBrush Color="#DBDEE7" Opacity="0.35" />
                                         </Grid.Background>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Margin="1,0,0,0" Source="/Assets/phone_trophy_icon_compareTrophies.png"/>
-                                            <TextBlock Margin="5,0,0,0" Text="{Binding Viewers}" FontWeight="Thin" FontSize="20"/>
+                                            <Image Margin="1,0,0,0"
+                                                   Source="/Assets/phone_trophy_icon_compareTrophies.png" />
+                                            <TextBlock Margin="5,0,0,0" Text="{Binding Viewers}" FontWeight="Thin"
+                                                       FontSize="20" />
                                         </StackPanel>
-                                        <TextBlock Grid.Column="1" Margin="0,0,0,1" FontWeight="Thin" HorizontalAlignment="Right" FontSize="20" Text="{Binding Service}"/>
+                                        <TextBlock Grid.Column="1" Margin="0,0,0,1" FontWeight="Thin"
+                                                   HorizontalAlignment="Right" FontSize="20" Text="{Binding Service}" />
                                     </Grid>
                                 </Grid>
                             </Border>

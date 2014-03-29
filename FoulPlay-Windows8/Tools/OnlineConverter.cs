@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
@@ -14,7 +10,7 @@ namespace FoulPlay_Windows8.Tools
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value == null) return null;
-            var colorValue = (string)value;
+            var colorValue = (string) value;
             if (colorValue.Equals("online"))
             {
                 return new SolidColorBrush(Colors.Blue);

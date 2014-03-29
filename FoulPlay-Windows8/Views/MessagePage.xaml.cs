@@ -1,27 +1,17 @@
-﻿using System.Threading.Tasks;
+﻿// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
+using System;
+using System.IO;
+using System.Threading.Tasks;
 using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
 using Windows.UI.Popups;
-using Windows.UI.Xaml.Media.Imaging;
-using FoulPlay_Windows8.Common;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-
-// The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234237
+using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
 using FoulPlay_Windows8.ViewModels;
@@ -30,69 +20,73 @@ using Newtonsoft.Json;
 namespace FoulPlay_Windows8.Views
 {
     /// <summary>
-    /// A basic page that provides characteristics common to most applications.
+    ///     A basic page that provides characteristics common to most applications.
     /// </summary>
     public sealed partial class MessagePage : Page
     {
-
-        private NavigationHelper navigationHelper;
+        private readonly NavigationHelper navigationHelper;
+        private MessageGroupEntity.MessageGroup _messageGroup;
         private UserAccountEntity.User _user;
         private MessagePageViewModel _vm;
-        private MessageGroupEntity.MessageGroup _messageGroup;
-        public StorageFile File { get; private set; }
-
-        /// <summary>
-        /// NavigationHelper is used on each page to aid in navigation and 
-        /// process lifetime management
-        /// </summary>
-        public NavigationHelper NavigationHelper
-        {
-            get { return this.navigationHelper; }
-        }
-
 
         public MessagePage()
         {
-            this.InitializeComponent();
-            this.navigationHelper = new NavigationHelper(this);
-            this.navigationHelper.LoadState += navigationHelper_LoadState;
-            this.navigationHelper.SaveState += navigationHelper_SaveState;
+            InitializeComponent();
+            navigationHelper = new NavigationHelper(this);
+            navigationHelper.LoadState += navigationHelper_LoadState;
+            navigationHelper.SaveState += navigationHelper_SaveState;
         }
 
+        public StorageFile File { get; private set; }
+
         /// <summary>
-        /// Populates the page with content passed during navigation. Any saved state is also
-        /// provided when recreating a page from a prior session.
+        ///     NavigationHelper is used on each page to aid in navigation and
+        ///     process lifetime management
+        /// </summary>
+        public NavigationHelper NavigationHelper
+        {
+            get { return navigationHelper; }
+        }
+
+
+        /// <summary>
+        ///     Populates the page with content passed during navigation. Any saved state is also
+        ///     provided when recreating a page from a prior session.
         /// </summary>
         /// <param name="sender">
-        /// The source of the event; typically <see cref="NavigationHelper"/>
+        ///     The source of the event; typically <see cref="NavigationHelper" />
         /// </param>
-        /// <param name="e">Event data that provides both the navigation parameter passed to
-        /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
-        /// a dictionary of state preserved by this page during an earlier
-        /// session. The state will be null the first time a page is visited.</param>
+        /// <param name="e">
+        ///     Event data that provides both the navigation parameter passed to
+        ///     <see cref="Frame.Navigate(Type, Object)" /> when this page was initially requested and
+        ///     a dictionary of state preserved by this page during an earlier
+        ///     session. The state will be null the first time a page is visited.
+        /// </param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
-                var savedStateJson = e.PageState["userAccountEntity"].ToString();
+                string savedStateJson = e.PageState["userAccountEntity"].ToString();
                 App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(savedStateJson);
                 savedStateJson = e.PageState["userEntity"].ToString();
                 _user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
                 App.UserAccountEntity.SetUserEntity(_user);
             }
-            var jsonObjectString = (string)e.NavigationParameter;
+            var jsonObjectString = (string) e.NavigationParameter;
             _messageGroup = JsonConvert.DeserializeObject<MessageGroupEntity.MessageGroup>(jsonObjectString);
             _vm.SetMessages(_messageGroup.MessageGroupId, App.UserAccountEntity);
         }
 
         /// <summary>
-        /// Preserves state associated with this page in case the application is suspended or the
-        /// page is discarded from the navigation cache.  Values must conform to the serialization
-        /// requirements of <see cref="SuspensionManager.SessionState"/>.
+        ///     Preserves state associated with this page in case the application is suspended or the
+        ///     page is discarded from the navigation cache.  Values must conform to the serialization
+        ///     requirements of <see cref="SuspensionManager.SessionState" />.
         /// </summary>
-        /// <param name="sender">The source of the event; typically <see cref="NavigationHelper"/></param>
-        /// <param name="e">Event data that provides an empty dictionary to be populated with
-        /// serializable state.</param>
+        /// <param name="sender">The source of the event; typically <see cref="NavigationHelper" /></param>
+        /// <param name="e">
+        ///     Event data that provides an empty dictionary to be populated with
+        ///     serializable state.
+        /// </param>
         private void navigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
             string jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity);
@@ -101,37 +95,13 @@ namespace FoulPlay_Windows8.Views
             e.PageState["userEntity"] = jsonObjectString;
         }
 
-        #region NavigationHelper registration
-
-        /// The methods provided in this section are simply used to allow
-        /// NavigationHelper to respond to the page's navigation methods.
-        /// 
-        /// Page specific logic should be placed in event handlers for the  
-        /// <see cref="GridCS.Common.NavigationHelper.LoadState"/>
-        /// and <see cref="GridCS.Common.NavigationHelper.SaveState"/>.
-        /// The navigation parameter is available in the LoadState method 
-        /// in addition to page state preserved during an earlier session.
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            _vm = (MessagePageViewModel) DataContext;
-            navigationHelper.OnNavigatedTo(e);
-        }
-
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            navigationHelper.OnNavigatedFrom(e);
-        }
-
-        #endregion
-
         private async Task<byte[]> ImageToBytes(IRandomAccessStream sourceStream)
         {
             byte[] imageArray;
 
             BitmapDecoder decoder = await BitmapDecoder.CreateAsync(sourceStream);
 
-            var transform = new BitmapTransform { ScaledWidth = decoder.PixelWidth, ScaledHeight = decoder.PixelHeight };
+            var transform = new BitmapTransform {ScaledWidth = decoder.PixelWidth, ScaledHeight = decoder.PixelHeight};
             PixelDataProvider pixelData = await decoder.GetPixelDataAsync(
                 BitmapPixelFormat.Rgba8,
                 BitmapAlphaMode.Straight,
@@ -143,7 +113,7 @@ namespace FoulPlay_Windows8.Views
             {
                 BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, destinationStream);
                 encoder.SetPixelData(BitmapPixelFormat.Rgba8, BitmapAlphaMode.Premultiplied, decoder.PixelWidth,
-                                        decoder.PixelHeight, 96, 96, pixelData.DetachPixelData());
+                    decoder.PixelHeight, 96, 96, pixelData.DetachPixelData());
                 await encoder.FlushAsync();
 
                 BitmapDecoder outputDecoder = await BitmapDecoder.CreateAsync(destinationStream);
@@ -166,14 +136,19 @@ namespace FoulPlay_Windows8.Views
                 {
                     using (IRandomAccessStream stream = await File.OpenAsync(FileAccessMode.ReadWrite))
                     {
-                        var byteArray = await ImageToBytes(stream);
-                        await messageManager.CreatePostWithMedia(_messageGroup.MessageGroupId, MessageTextBox.Text, "", byteArray,
-                           App.UserAccountEntity);
+                        byte[] byteArray = await ImageToBytes(stream);
+                        await
+                            messageManager.CreatePostWithMedia(_messageGroup.MessageGroupId, MessageTextBox.Text, "",
+                                byteArray,
+                                App.UserAccountEntity);
                     }
                 }
                 else
                 {
-                    result = await messageManager.CreatePost(_messageGroup.MessageGroupId, MessageTextBox.Text, App.UserAccountEntity);
+                    result =
+                        await
+                            messageManager.CreatePost(_messageGroup.MessageGroupId, MessageTextBox.Text,
+                                App.UserAccountEntity);
                 }
                 MessageProgressBar.Visibility = Visibility.Collapsed;
                 MessageSend.IsEnabled = true;
@@ -228,7 +203,7 @@ namespace FoulPlay_Windows8.Views
         {
             var messageItem = e.ClickedItem as MessagePageViewModel.MessageGroupItem;
             if (messageItem == null) return;
-            var message = messageItem.Message;
+            MessageEntity.Message message = messageItem.Message;
             if (message == null) return;
             UserMessageGrid.DataContext = message;
             if (message.contentKeys == null)
@@ -247,10 +222,10 @@ namespace FoulPlay_Windows8.Views
             try
             {
                 var messageManager = new MessageManager();
-                var imageBytes = await
-                       messageManager.GetMessageContent(_messageGroup.MessageGroupId, message,
-                           App.UserAccountEntity);
-                var image = await DecodeImage(imageBytes);
+                Stream imageBytes = await
+                    messageManager.GetMessageContent(_messageGroup.MessageGroupId, message,
+                        App.UserAccountEntity);
+                BitmapImage image = await DecodeImage(imageBytes);
                 MessageImage.Source = image;
             }
             catch (Exception)
@@ -270,5 +245,30 @@ namespace FoulPlay_Windows8.Views
             bitmapImage.SetSource(memStream.AsRandomAccessStream());
             return bitmapImage;
         }
+
+        #region NavigationHelper registration
+
+        /// The methods provided in this section are simply used to allow
+        /// NavigationHelper to respond to the page's navigation methods.
+        /// 
+        /// Page specific logic should be placed in event handlers for the
+        /// <see cref="GridCS.Common.NavigationHelper.LoadState" />
+        /// and
+        /// <see cref="GridCS.Common.NavigationHelper.SaveState" />
+        /// .
+        /// The navigation parameter is available in the LoadState method 
+        /// in addition to page state preserved during an earlier session.
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            _vm = (MessagePageViewModel) DataContext;
+            navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            navigationHelper.OnNavigatedFrom(e);
+        }
+
+        #endregion
     }
 }

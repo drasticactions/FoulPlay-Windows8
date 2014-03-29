@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Data;
 
@@ -13,8 +9,8 @@ namespace FoulPlay_Windows8.Tools
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value == null) return null;
-            var trophyValue = (int)value;
-            var resourceLoader = ResourceLoader.GetForCurrentView(); 
+            var trophyValue = (int) value;
+            ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
             switch (trophyValue)
             {
                 case 0:

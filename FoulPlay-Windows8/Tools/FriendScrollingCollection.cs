@@ -1,83 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
-using Windows.UI.Core;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using FoulPlay_Windows8.Annotations;
-using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
-using FoulPlay_Windows8.Views;
 
 namespace FoulPlay_Windows8.Tools
 {
     public class FriendScrollingCollection : ObservableCollection<FriendsEntity.Friend>, ISupportIncrementalLoading
     {
-        public new event PropertyChangedEventHandler PropertyChanged;
-        public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
-        {
-            return LoadDataAsync(count).AsAsyncOperation();
-        }
-        public FriendScrollingCollection()
-        {
-            HasMoreItems = true;
-            IsLoading = false;
-            UserAccountEntity = App.UserAccountEntity;
-        }
-        private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
-        {
-
-                    if (!IsLoading)
-                    {
-                       LoadFriends(this.Username);
-                    }
-            var ret = new LoadMoreItemsResult { Count = count };
-            return ret;
-        }
-
-        public bool HasMoreItems { get; protected set; }
-        public string Username { get; set; }
-
+        public bool BlockedPlayer;
+        public bool FriendStatus;
         public int Offset;
 
         public bool OnlineFilter;
 
         public bool PersonalDetailSharing;
 
-        public bool FriendStatus;
-
-        public bool Requesting;
-
-        public bool Requested;
-
         public bool RecentlyPlayed;
-
-        public bool BlockedPlayer;
+        public bool Requested;
+        public bool Requesting;
 
         public UserAccountEntity UserAccountEntity;
 
-        private bool _isLoading = false;
+        private bool _isLoading;
+
+        public FriendScrollingCollection()
+        {
+            HasMoreItems = true;
+            IsLoading = false;
+            UserAccountEntity = App.UserAccountEntity;
+        }
+
+        public string Username { get; set; }
 
         public bool IsLoading
         {
-            get
-            {
-                return _isLoading;
-            }
+            get { return _isLoading; }
 
             private set
             {
                 _isLoading = value;
                 OnPropertyChanged();
             }
+        }
+
+        public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
+        {
+            return LoadDataAsync(count).AsAsyncOperation();
+        }
+
+        public bool HasMoreItems { get; protected set; }
+        public new event PropertyChangedEventHandler PropertyChanged;
+
+        private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
+        {
+            if (!IsLoading)
+            {
+                LoadFriends(Username);
+            }
+            var ret = new LoadMoreItemsResult {Count = count};
+            return ret;
         }
 
 
@@ -92,7 +80,10 @@ namespace FoulPlay_Windows8.Tools
         {
             IsLoading = true;
             var friendManager = new FriendManager();
-            var friendEntity = await friendManager.GetFriendsList(username, Offset, BlockedPlayer, RecentlyPlayed, PersonalDetailSharing, FriendStatus, Requesting, Requested, OnlineFilter, UserAccountEntity);
+            FriendsEntity friendEntity =
+                await
+                    friendManager.GetFriendsList(username, Offset, BlockedPlayer, RecentlyPlayed, PersonalDetailSharing,
+                        FriendStatus, Requesting, Requested, OnlineFilter, UserAccountEntity);
             if (friendEntity == null)
             {
                 return;
@@ -102,7 +93,7 @@ namespace FoulPlay_Windows8.Tools
                 HasMoreItems = false;
                 return;
             }
-            foreach (var friend in friendEntity.FriendList)
+            foreach (FriendsEntity.Friend friend in friendEntity.FriendList)
             {
                 Add(friend);
             }

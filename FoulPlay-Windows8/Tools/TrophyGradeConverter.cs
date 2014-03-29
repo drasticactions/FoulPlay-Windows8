@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Data;
 
@@ -13,8 +9,8 @@ namespace FoulPlay_Windows8.Tools
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value == null) return null;
-            var trophyType = (string)value;
-            var resourceLoader = ResourceLoader.GetForCurrentView(); 
+            var trophyType = (string) value;
+            ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
             switch (trophyType)
             {
                 case "platinum":

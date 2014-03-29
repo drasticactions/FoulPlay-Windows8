@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Data;
@@ -14,23 +12,13 @@ using Foulplay_Windows8.Core.Managers;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class RecentActivityScrollingCollection : ObservableCollection<RecentActivityEntity.Feed>, ISupportIncrementalLoading
+    public class RecentActivityScrollingCollection : ObservableCollection<RecentActivityEntity.Feed>,
+        ISupportIncrementalLoading
     {
-        public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
-        {
-            return LoadDataAsync(count).AsAsyncOperation();
-        }
-
-        private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
-        {
-
-            if (!IsLoading)
-            {
-                LoadFeedList(this.Username);
-            }
-            var ret = new LoadMoreItemsResult { Count = count };
-            return ret;
-        }
+        public bool IsNews;
+        public bool StorePromo;
+        public UserAccountEntity UserAccountEntity;
+        private bool _isLoading;
 
         public RecentActivityScrollingCollection()
         {
@@ -38,24 +26,13 @@ namespace FoulPlay_Windows8.Tools
             IsLoading = false;
         }
 
-        public new event PropertyChangedEventHandler PropertyChanged;
-        public bool HasMoreItems { get; private set; }
-
-        private bool _isLoading;
         public string Username { get; set; }
-        public bool IsNews;
-        public bool StorePromo;
-        public UserAccountEntity UserAccountEntity;
 
         public int PageCount { get; set; }
 
         public bool IsLoading
         {
-            get
-            {
-                return _isLoading;
-
-            }
+            get { return _isLoading; }
 
             private set
             {
@@ -64,12 +41,30 @@ namespace FoulPlay_Windows8.Tools
             }
         }
 
+        public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
+        {
+            return LoadDataAsync(count).AsAsyncOperation();
+        }
+
+        public bool HasMoreItems { get; private set; }
+
+        private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
+        {
+            if (!IsLoading)
+            {
+                LoadFeedList(Username);
+            }
+            var ret = new LoadMoreItemsResult {Count = count};
+            return ret;
+        }
+
+        public new event PropertyChangedEventHandler PropertyChanged;
+
         public async void LoadFeedList(string username)
         {
-
             IsLoading = true;
             var recentActivityManager = new RecentActivityManager();
-            var feedEntity =
+            RecentActivityEntity feedEntity =
                 await recentActivityManager.GetActivityFeed(username, PageCount, StorePromo, IsNews, UserAccountEntity);
             if (feedEntity == null)
             {
@@ -80,7 +75,7 @@ namespace FoulPlay_Windows8.Tools
             {
                 return;
             }
-            foreach (var feed in feedEntity.feed)
+            foreach (RecentActivityEntity.Feed feed in feedEntity.feed)
             {
                 Add(feed);
             }

@@ -1,84 +1,138 @@
-﻿<ViewModels:TrophyPageViewModel xmlns:ViewModels="using:FoulPlay_Windows8.ViewModels" xmlns:Entities="using:Foulplay_Windows8.Core.Entities">
-	<ViewModels:TrophyPageViewModel.Trophies>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Duis aliquam" TrophyDetail="Curabitur phasellus class praesent curae" TrophyRare="18" TrophyId="93" TrophyHidden="True" TrophyType="Cras nam sed aenean maecenas" TrophyIconUrl="Dis integer vestibulum est accumsan" TrophyEarnedRate="Bibendum hac">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Vivamus adipiscing amet aliquam" Earned="True" OnlineId="Parturient vestibulum nunc quisque vestibulum"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Mauris adipiscing etiam leo" Earned="False" OnlineId="Dictumst donec eleifend facilisi"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Nullam convallis blandit" TrophyDetail="Fusce vestibulum dignissim" TrophyRare="97" TrophyId="86" TrophyHidden="False" TrophyType="Aliquet consequat mus parturient" TrophyIconUrl="Aptent elementum vestibulum faucibus" TrophyEarnedRate="Nec auctor congue">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Fringilla habitasse per morbi dictum" Earned="False" OnlineId="Dapibus facilisis habitant fermentum"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Conubia cubilia cursus non" Earned="True" OnlineId="Ante adipiscing commodo lorem"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Inceptos sed nulla euismod arcu" TrophyDetail="Proin feugiat" TrophyRare="55" TrophyId="15" TrophyHidden="True" TrophyType="Egestas parturient" TrophyIconUrl="Sem hendrerit augue vestibulum" TrophyEarnedRate="Diam sit vel">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Malesuada gravida elit" Earned="True" OnlineId="Lobortis himenaeos imperdiet adipiscing"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Interdum fames vestibulum eget" Earned="False" OnlineId="Lectus dolor nam"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Iaculis enim erat" TrophyDetail="Penatibus litora" TrophyRare="97" TrophyId="70" TrophyHidden="False" TrophyType="Parturient libero ligula" TrophyIconUrl="Vestibulum felis luctus vestibulum sed" TrophyEarnedRate="Magnis nascetur porttitor">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Posuere sociosqu" Earned="False" OnlineId="Dis natoque senectus est eros"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Laoreet adipiscing sagittis" Earned="True" OnlineId="Pharetra placerat lacinia pulvinar mattis"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Mauris nibh justo parturient lacus" TrophyDetail="Hac vestibulum lorem leo magna" TrophyRare="62" TrophyId="61" TrophyHidden="True" TrophyType="Ipsum tincidunt" TrophyIconUrl="Suscipit nisi massa vestibulum torquent" TrophyEarnedRate="Adipiscing mus nisl metus">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Nunc platea" Earned="True" OnlineId="Vehicula ornare venenatis"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Mollis montes ultricies nostra" Earned="False" OnlineId="Morbi tristique ultrices"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Netus parturient" TrophyDetail="Nulla potenti" TrophyRare="53" TrophyId="49" TrophyHidden="False" TrophyType="Volutpat odio nec maecenas neque" TrophyIconUrl="Praesent porta primis orci purus" TrophyEarnedRate="Rutrum vulputate accumsan vestibulum non">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Curabitur sociis taciti pretium phasellus" Earned="False" OnlineId="Bibendum dictumst adipiscing quam"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Vestibulum per" Earned="True" OnlineId="Pede sapien semper"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Urna risus" TrophyDetail="Eleifend cras consequat facilisi faucibus" TrophyRare="41" TrophyId="69" TrophyHidden="True" TrophyType="Parturient sed sem quis" TrophyIconUrl="Tellus velit duis" TrophyEarnedRate="Nunc vitae habitant">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Tempus convallis tortor ante" Earned="True" OnlineId="Vel nam rhoncus"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Sit class amet" Earned="False" OnlineId="Vestibulum tempor inceptos vestibulum"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Curae donec turpis viverra varius" TrophyDetail="Aliquam aenean" TrophyRare="65" TrophyId="69" TrophyHidden="False" TrophyType="Arcu dignissim sodales" TrophyIconUrl="Adipiscing integer interdum" TrophyEarnedRate="Etiam quisque fusce">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Lobortis fringilla sed eget habitasse" Earned="False" OnlineId="Vestibulum fermentum vestibulum"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Diam mauris parturient" Earned="True" OnlineId="Vivamus elementum facilisis"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Nascetur hendrerit adipiscing" TrophyDetail="Parturient himenaeos dis" TrophyRare="83" TrophyId="73" TrophyHidden="True" TrophyType="Elit nullam lorem aptent auctor" TrophyIconUrl="Congue vestibulum morbi est" TrophyEarnedRate="Cursus aliquam">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Aliquet blandit libero" Earned="True" OnlineId="Enim adipiscing placerat lectus"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Vestibulum nulla penatibus" Earned="False" OnlineId="Imperdiet dictum malesuada hac pharetra"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-		<Entities:TrophyDetailEntity+Trophy TrophyName="Erat commodo eros" TrophyDetail="Augue parturient vestibulum" TrophyRare="90" TrophyId="29" TrophyHidden="False" TrophyType="Proin porttitor" TrophyIconUrl="Ligula pulvinar tincidunt vestibulum leo" TrophyEarnedRate="Adipiscing mus conubia tristique">
-			<Entities:TrophyDetailEntity+Trophy.ComparedUser>
-				<Entities:TrophyDetailEntity+ComparedUser EarnedDate="Sociosqu per luctus fames felis" Earned="False" OnlineId="Dapibus egestas non senectus nibh"/>
-			</Entities:TrophyDetailEntity+Trophy.ComparedUser>
-			<Entities:TrophyDetailEntity+Trophy.FromUser>
-				<Entities:TrophyDetailEntity+FromUser EarnedDate="Dolor sagittis" Earned="True" OnlineId="Litora nec parturient cubilia"/>
-			</Entities:TrophyDetailEntity+Trophy.FromUser>
-		</Entities:TrophyDetailEntity+Trophy>
-	</ViewModels:TrophyPageViewModel.Trophies>
+﻿<ViewModels:TrophyPageViewModel xmlns:ViewModels="using:FoulPlay_Windows8.ViewModels"
+                                xmlns:Entities="using:Foulplay_Windows8.Core.Entities">
+    <ViewModels:TrophyPageViewModel.Trophies>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Duis aliquam"
+                                      TrophyDetail="Curabitur phasellus class praesent curae" TrophyRare="18"
+                                      TrophyId="93" TrophyHidden="True" TrophyType="Cras nam sed aenean maecenas"
+                                      TrophyIconUrl="Dis integer vestibulum est accumsan"
+                                      TrophyEarnedRate="Bibendum hac">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Vivamus adipiscing amet aliquam" Earned="True"
+                                              OnlineId="Parturient vestibulum nunc quisque vestibulum" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Mauris adipiscing etiam leo" Earned="False"
+                                              OnlineId="Dictumst donec eleifend facilisi" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Nullam convallis blandit"
+                                      TrophyDetail="Fusce vestibulum dignissim" TrophyRare="97" TrophyId="86"
+                                      TrophyHidden="False" TrophyType="Aliquet consequat mus parturient"
+                                      TrophyIconUrl="Aptent elementum vestibulum faucibus"
+                                      TrophyEarnedRate="Nec auctor congue">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Fringilla habitasse per morbi dictum"
+                                              Earned="False" OnlineId="Dapibus facilisis habitant fermentum" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Conubia cubilia cursus non" Earned="True"
+                                              OnlineId="Ante adipiscing commodo lorem" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Inceptos sed nulla euismod arcu" TrophyDetail="Proin feugiat"
+                                      TrophyRare="55" TrophyId="15" TrophyHidden="True" TrophyType="Egestas parturient"
+                                      TrophyIconUrl="Sem hendrerit augue vestibulum" TrophyEarnedRate="Diam sit vel">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Malesuada gravida elit" Earned="True"
+                                              OnlineId="Lobortis himenaeos imperdiet adipiscing" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Interdum fames vestibulum eget" Earned="False"
+                                              OnlineId="Lectus dolor nam" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Iaculis enim erat" TrophyDetail="Penatibus litora"
+                                      TrophyRare="97" TrophyId="70" TrophyHidden="False"
+                                      TrophyType="Parturient libero ligula"
+                                      TrophyIconUrl="Vestibulum felis luctus vestibulum sed"
+                                      TrophyEarnedRate="Magnis nascetur porttitor">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Posuere sociosqu" Earned="False"
+                                              OnlineId="Dis natoque senectus est eros" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Laoreet adipiscing sagittis" Earned="True"
+                                              OnlineId="Pharetra placerat lacinia pulvinar mattis" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Mauris nibh justo parturient lacus"
+                                      TrophyDetail="Hac vestibulum lorem leo magna" TrophyRare="62" TrophyId="61"
+                                      TrophyHidden="True" TrophyType="Ipsum tincidunt"
+                                      TrophyIconUrl="Suscipit nisi massa vestibulum torquent"
+                                      TrophyEarnedRate="Adipiscing mus nisl metus">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Nunc platea" Earned="True"
+                                              OnlineId="Vehicula ornare venenatis" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Mollis montes ultricies nostra" Earned="False"
+                                              OnlineId="Morbi tristique ultrices" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Netus parturient" TrophyDetail="Nulla potenti" TrophyRare="53"
+                                      TrophyId="49" TrophyHidden="False" TrophyType="Volutpat odio nec maecenas neque"
+                                      TrophyIconUrl="Praesent porta primis orci purus"
+                                      TrophyEarnedRate="Rutrum vulputate accumsan vestibulum non">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Curabitur sociis taciti pretium phasellus"
+                                              Earned="False" OnlineId="Bibendum dictumst adipiscing quam" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Vestibulum per" Earned="True"
+                                              OnlineId="Pede sapien semper" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Urna risus"
+                                      TrophyDetail="Eleifend cras consequat facilisi faucibus" TrophyRare="41"
+                                      TrophyId="69" TrophyHidden="True" TrophyType="Parturient sed sem quis"
+                                      TrophyIconUrl="Tellus velit duis" TrophyEarnedRate="Nunc vitae habitant">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Tempus convallis tortor ante" Earned="True"
+                                              OnlineId="Vel nam rhoncus" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Sit class amet" Earned="False"
+                                              OnlineId="Vestibulum tempor inceptos vestibulum" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Curae donec turpis viverra varius"
+                                      TrophyDetail="Aliquam aenean" TrophyRare="65" TrophyId="69" TrophyHidden="False"
+                                      TrophyType="Arcu dignissim sodales" TrophyIconUrl="Adipiscing integer interdum"
+                                      TrophyEarnedRate="Etiam quisque fusce">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Lobortis fringilla sed eget habitasse"
+                                              Earned="False" OnlineId="Vestibulum fermentum vestibulum" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Diam mauris parturient" Earned="True"
+                                              OnlineId="Vivamus elementum facilisis" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Nascetur hendrerit adipiscing"
+                                      TrophyDetail="Parturient himenaeos dis" TrophyRare="83" TrophyId="73"
+                                      TrophyHidden="True" TrophyType="Elit nullam lorem aptent auctor"
+                                      TrophyIconUrl="Congue vestibulum morbi est" TrophyEarnedRate="Cursus aliquam">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Aliquet blandit libero" Earned="True"
+                                              OnlineId="Enim adipiscing placerat lectus" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Vestibulum nulla penatibus" Earned="False"
+                                              OnlineId="Imperdiet dictum malesuada hac pharetra" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+        <Entities:TrophyDetailEntity+ Trophy TrophyName="Erat commodo eros" TrophyDetail="Augue parturient vestibulum"
+                                      TrophyRare="90" TrophyId="29" TrophyHidden="False" TrophyType="Proin porttitor"
+                                      TrophyIconUrl="Ligula pulvinar tincidunt vestibulum leo"
+                                      TrophyEarnedRate="Adipiscing mus conubia tristique">
+            <Entities:TrophyDetailEntity+ Trophy.ComparedUser>
+                <Entities:TrophyDetailEntity+ ComparedUser EarnedDate="Sociosqu per luctus fames felis" Earned="False"
+                                              OnlineId="Dapibus egestas non senectus nibh" />
+            </Entities:TrophyDetailEntity+Trophy.ComparedUser>
+            <Entities:TrophyDetailEntity+ Trophy.FromUser>
+                <Entities:TrophyDetailEntity+ FromUser EarnedDate="Dolor sagittis" Earned="True"
+                                              OnlineId="Litora nec parturient cubilia" />
+            </Entities:TrophyDetailEntity+Trophy.FromUser>
+        </Entities:TrophyDetailEntity+Trophy>
+    </ViewModels:TrophyPageViewModel.Trophies>
 </ViewModels:TrophyPageViewModel>

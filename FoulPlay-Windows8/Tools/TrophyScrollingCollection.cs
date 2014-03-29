@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.UI.Xaml.Data;
@@ -16,20 +14,9 @@ namespace FoulPlay_Windows8.Tools
 {
     public class TrophyScrollingCollection : ObservableCollection<TrophyEntity.TrophyTitle>, ISupportIncrementalLoading
     {
-        public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
-        {
-            return LoadDataAsync(count).AsAsyncOperation();
-        }
-
-        private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
-        {
-            if (!IsLoading)
-            {
-                await LoadTrophies(this.Username);
-            }
-            var ret = new LoadMoreItemsResult { Count = count };
-            return ret;
-        }
+        public int Offset;
+        public UserAccountEntity UserAccountEntity;
+        private bool _isLoading;
 
         public TrophyScrollingCollection()
         {
@@ -37,20 +24,12 @@ namespace FoulPlay_Windows8.Tools
             IsLoading = false;
         }
 
-        public bool HasMoreItems { get; private set; }
         public string Username { get; set; }
-        public int Offset;
         public int MaxCount { get; set; }
-        public new event PropertyChangedEventHandler PropertyChanged;
-        public UserAccountEntity UserAccountEntity;
-        private bool _isLoading;
+
         public bool IsLoading
         {
-            get
-            {
-                return _isLoading;
-
-            }
+            get { return _isLoading; }
 
             private set
             {
@@ -58,6 +37,25 @@ namespace FoulPlay_Windows8.Tools
                 NotifyPropertyChanged("IsLoading");
             }
         }
+
+        public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
+        {
+            return LoadDataAsync(count).AsAsyncOperation();
+        }
+
+        public bool HasMoreItems { get; private set; }
+
+        private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
+        {
+            if (!IsLoading)
+            {
+                await LoadTrophies(Username);
+            }
+            var ret = new LoadMoreItemsResult {Count = count};
+            return ret;
+        }
+
+        public new event PropertyChangedEventHandler PropertyChanged;
 
 
         private void NotifyPropertyChanged(String propertyName)
@@ -81,13 +79,13 @@ namespace FoulPlay_Windows8.Tools
             Offset = Offset + MaxCount;
             IsLoading = true;
             var trophyManager = new TrophyManager();
-            var trophyList = await trophyManager.GetTrophyList(username, Offset, UserAccountEntity);
+            TrophyEntity trophyList = await trophyManager.GetTrophyList(username, Offset, UserAccountEntity);
             if (trophyList == null)
             {
                 //HasMoreItems = false;
                 return false;
             }
-            foreach (var trophy in trophyList.TrophyTitles)
+            foreach (TrophyEntity.TrophyTitle trophy in trophyList.TrophyTitles)
             {
                 Add(trophy);
             }

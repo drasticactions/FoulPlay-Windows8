@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -12,32 +8,15 @@ namespace FoulPlay_Windows8.ViewModels
 {
     public class MessagePageViewModel : NotifierBase
     {
-        public MessagePageViewModel() 
+        private MessageEntity _messageEntity;
+
+        private ObservableCollection<MessageGroupItem> _messageGroupCollection =
+            new ObservableCollection<MessageGroupItem>();
+
+        public MessagePageViewModel()
         {
             _messageEntity = new MessageEntity();
             _messageGroupCollection = new ObservableCollection<MessageGroupItem>();
-        }
-        private MessageEntity _messageEntity;
-        private ObservableCollection<MessageGroupItem> _messageGroupCollection = new ObservableCollection<MessageGroupItem>();
-        /// <summary>
-        /// TODO: Seperate to new class, use ISupportIncrementalLoading
-        /// </summary>
-        public class MessageGroupItem : NotifierBase
-        {
-            private string _avatarUrl;
-            public string AvatarUrl
-            {
-                get { return _avatarUrl; }
-                set
-                {
-                    SetProperty(ref _avatarUrl, value);
-                    OnPropertyChanged();
-                }
-            }
-
-            public MessageEntity.Message Message { get; set; }
-
-            public MessageEntity.MessageGroup MessageGroup { get; set; }
         }
 
 
@@ -59,7 +38,9 @@ namespace FoulPlay_Windows8.ViewModels
             if (_messageEntity == null)
                 return;
             messageManager.ClearMessages(_messageEntity, App.UserAccountEntity);
-            foreach (var newMessage in _messageEntity.messages.Select(message => new MessageGroupItem { Message = message }))
+            foreach (
+                MessageGroupItem newMessage in
+                    _messageEntity.messages.Select(message => new MessageGroupItem {Message = message}))
             {
                 GetAvatar(newMessage, userAccountEntity);
                 MessageGroupCollection.Add(newMessage);
@@ -68,9 +49,31 @@ namespace FoulPlay_Windows8.ViewModels
 
         private async void GetAvatar(MessageGroupItem message, UserAccountEntity userAccountEntity)
         {
-            var user = await UserManager.GetUserAvatar(message.Message.senderOnlineId, userAccountEntity);
+            UserEntity user = await UserManager.GetUserAvatar(message.Message.senderOnlineId, userAccountEntity);
             message.AvatarUrl = user.AvatarUrl;
             OnPropertyChanged("MessageGroupCollection");
+        }
+
+        /// <summary>
+        ///     TODO: Seperate to new class, use ISupportIncrementalLoading
+        /// </summary>
+        public class MessageGroupItem : NotifierBase
+        {
+            private string _avatarUrl;
+
+            public string AvatarUrl
+            {
+                get { return _avatarUrl; }
+                set
+                {
+                    SetProperty(ref _avatarUrl, value);
+                    OnPropertyChanged();
+                }
+            }
+
+            public MessageEntity.Message Message { get; set; }
+
+            public MessageEntity.MessageGroup MessageGroup { get; set; }
         }
     }
 }

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
@@ -15,44 +12,15 @@ namespace FoulPlay_Windows8.ViewModels
 {
     public class FriendPageViewModel : NotifierBase
     {
-        private MessageEntity _messageEntity;
-        private ObservableCollection<MessageGroupItem> _messageGroupCollection = new ObservableCollection<MessageGroupItem>();
         private FriendScrollingCollection _friendScrollingCollection;
+        private MessageEntity _messageEntity;
+
+        private ObservableCollection<MessageGroupItem> _messageGroupCollection =
+            new ObservableCollection<MessageGroupItem>();
+
         private RecentActivityScrollingCollection _recentActivityScrollingCollection;
         private TrophyScrollingCollection _trophyScrollingCollection;
         private UserViewModel _userViewModel;
-
-        public class UserViewModel : NotifierBase
-        {
-            public UserEntity User { get; set; }
-
-            public string CurrentUserOnlineId { get; set; }
-
-            public string Language { get; set; }
-
-            public bool IsNotCurrentUser { get; set; }
-        }
-
-        /// <summary>
-        /// TODO: Seperate to new class, use ISupportIncrementalLoading
-        /// </summary>
-        public class MessageGroupItem : NotifierBase
-        {
-            private string _avatarUrl;
-            public string AvatarUrl
-            {
-                get { return _avatarUrl; }
-                set
-                {
-                    SetProperty(ref _avatarUrl, value);
-                    OnPropertyChanged();
-                }
-            }
-
-            public MessageEntity.Message Message { get; set; }
-
-            public MessageEntity.MessageGroup MessageGroup { get; set; }
-        }
 
         public UserViewModel UserModel
         {
@@ -108,10 +76,16 @@ namespace FoulPlay_Windows8.ViewModels
         public async void SetMessages(string userName, UserAccountEntity userAccountEntity)
         {
             var messageManager = new MessageManager();
-            _messageEntity = await messageManager.GetGroupConversation(string.Format("~{0},{1}", userName, App.UserAccountEntity.GetUserEntity().OnlineId), App.UserAccountEntity);
+            _messageEntity =
+                await
+                    messageManager.GetGroupConversation(
+                        string.Format("~{0},{1}", userName, App.UserAccountEntity.GetUserEntity().OnlineId),
+                        App.UserAccountEntity);
             if (_messageEntity == null)
                 return;
-            foreach (var newMessage in _messageEntity.messages.Select(message => new MessageGroupItem { Message = message }))
+            foreach (
+                MessageGroupItem newMessage in
+                    _messageEntity.messages.Select(message => new MessageGroupItem {Message = message}))
             {
                 GetAvatar(newMessage, userAccountEntity);
                 MessageGroupCollection.Add(newMessage);
@@ -120,7 +94,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         private async void GetAvatar(MessageGroupItem message, UserAccountEntity userAccountEntity)
         {
-            var user = await UserManager.GetUserAvatar(message.Message.senderOnlineId, userAccountEntity);
+            UserEntity user = await UserManager.GetUserAvatar(message.Message.senderOnlineId, userAccountEntity);
             message.AvatarUrl = user.AvatarUrl;
             OnPropertyChanged("MessageGroupCollection");
         }
@@ -155,7 +129,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         public void SetTrophyList(string userName)
         {
-            TrophyScrollingCollection = new TrophyScrollingCollection()
+            TrophyScrollingCollection = new TrophyScrollingCollection
             {
                 UserAccountEntity = App.UserAccountEntity,
                 Username = userName,
@@ -165,16 +139,22 @@ namespace FoulPlay_Windows8.ViewModels
 
         public async void SetUser(string userName)
         {
-            var isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(userName);
-            var user = await UserManager.GetUser(userName, App.UserAccountEntity);
-            var languageList = user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
+            bool isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(userName);
+            UserEntity user = await UserManager.GetUser(userName, App.UserAccountEntity);
+            List<string> languageList = user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
             string language = string.Join("," + Environment.NewLine, languageList);
-            UserModel = new UserViewModel { Language = language, User = user, IsNotCurrentUser = !isCurrentUser, CurrentUserOnlineId = App.UserAccountEntity.GetUserEntity().OnlineId };
+            UserModel = new UserViewModel
+            {
+                Language = language,
+                User = user,
+                IsNotCurrentUser = !isCurrentUser,
+                CurrentUserOnlineId = App.UserAccountEntity.GetUserEntity().OnlineId
+            };
         }
 
         private static string ParseLanguageVariable(string language)
         {
-            var resourceLoader = ResourceLoader.GetForCurrentView();
+            ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
             switch (language)
             {
                 case "ja":
@@ -222,6 +202,39 @@ namespace FoulPlay_Windows8.ViewModels
                 default:
                     return null;
             }
+        }
+
+        /// <summary>
+        ///     TODO: Seperate to new class, use ISupportIncrementalLoading
+        /// </summary>
+        public class MessageGroupItem : NotifierBase
+        {
+            private string _avatarUrl;
+
+            public string AvatarUrl
+            {
+                get { return _avatarUrl; }
+                set
+                {
+                    SetProperty(ref _avatarUrl, value);
+                    OnPropertyChanged();
+                }
+            }
+
+            public MessageEntity.Message Message { get; set; }
+
+            public MessageEntity.MessageGroup MessageGroup { get; set; }
+        }
+
+        public class UserViewModel : NotifierBase
+        {
+            public UserEntity User { get; set; }
+
+            public string CurrentUserOnlineId { get; set; }
+
+            public string Language { get; set; }
+
+            public bool IsNotCurrentUser { get; set; }
         }
     }
 }
