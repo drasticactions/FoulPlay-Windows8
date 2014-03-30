@@ -94,6 +94,7 @@ namespace FoulPlay_Windows8.UserControls
             switch (storyType)
             {
                 case "STORE_PROMO":
+                    if (feed.SmallImageUrl != null)
                     StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
@@ -101,6 +102,7 @@ namespace FoulPlay_Windows8.UserControls
                         ActivityTextBlock.Text = feed.StoryComment;
                     break;
                 case "SCREENSHOT_UPLOAD":
+                    if (feed.SmallImageUrl != null)
                     StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
@@ -123,6 +125,7 @@ namespace FoulPlay_Windows8.UserControls
                         ActivityTextBlock.Text = target.Meta;
                     return;
                 case "PLAYED_GAME":
+                    if (feed.SmallImageUrl != null)                    
                     MainImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("TITLE_NAME"));
@@ -146,6 +149,7 @@ namespace FoulPlay_Windows8.UserControls
                     }
                     return;
                 case "BROADCASTING":
+                    if (feed.SmallImageUrl != null)
                     MainImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("TITLE_NAME"));
@@ -160,6 +164,7 @@ namespace FoulPlay_Windows8.UserControls
                                 .Trim();
                     return;
                 case "PROFILE_PIC":
+                    if (feed.LargeImageUrl != null)
                     MainImage.Source =
                         new BitmapImage(new Uri(feed.LargeImageUrl));
                     ActivityHeaderTextBlock.Text = feed.Caption;
@@ -177,6 +182,7 @@ namespace FoulPlay_Windows8.UserControls
             switch (storyType)
             {
                 case "STORE_PROMO":
+                    if (feed.SmallImageUrl != null)
                     StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
@@ -184,6 +190,7 @@ namespace FoulPlay_Windows8.UserControls
                         ActivityTextBlock.Text = feed.StoryComment;
                     break;
                 case "SCREENSHOT_UPLOAD":
+                    if (feed.SmallImageUrl != null)
                     StoreImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = feed.Targets.FirstOrDefault(o => o.Type.Equals("LONG_DESCRIPTION"));
@@ -206,6 +213,7 @@ namespace FoulPlay_Windows8.UserControls
                         ActivityTextBlock.Text = target.Meta;
                     return;
                 case "PLAYED_GAME":
+                    if (feed.SmallImageUrl != null)
                     MainImage.Source =
                         new BitmapImage(new Uri(feed.SmallImageUrl));
                     target = condensedStory.Targets.FirstOrDefault(o => o.Type.Equals("TITLE_NAME"));
@@ -228,6 +236,7 @@ namespace FoulPlay_Windows8.UserControls
                     }
                     return;
                 case "BROADCASTING":
+                    if (feed.SmallImageUrl != null)
                     MainImage.Source =
                         new BitmapImage(new Uri(condensedStory.SmallImageUrl));
                     target = condensedStory.Targets.FirstOrDefault(o => o.Type.Equals("TITLE_NAME"));
