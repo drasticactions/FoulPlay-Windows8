@@ -83,7 +83,7 @@
                     <Image Grid.Row="0" x:Name="ImageSource" Height="100" Canvas.ZIndex="5" Opacity="0.15" Margin="0,0"
                            Stretch="UniformToFill" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
-                        <Button x:Name="MessageSend" Click="MessageSend_OnClick" Content="Send" />
+                        <Button x:Uid="SendButton" x:Name="MessageSend" Click="MessageSend_OnClick" Content="Send" />
                         <Button IsEnabled="False" Visibility="Collapsed" x:Name="ImageSend" Click="ImageSend_OnClick"
                                 Content="Image" />
                     </StackPanel>

@@ -412,7 +412,7 @@ You can earn trophies by playing games that support them.</value>
   <data name="SearchButton.Text" xml:space="preserve">
     <value>Search</value>
   </data>
-  <data name="SendButton.Text" xml:space="preserve">
+  <data name="SendButton.Content" xml:space="preserve">
     <value>Send</value>
   </data>
   <data name="SendMessage.Text" xml:space="preserve">

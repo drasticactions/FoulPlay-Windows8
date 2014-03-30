@@ -31,7 +31,7 @@
           <source>Trophies</source>
           <target state="translated">トロフィー</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\SendButton\Text" xml:space="preserve">
+        <trans-unit translate="yes" id="Resources\SendButton\Content" xml:space="preserve">
           <source>Send</source>
           <target state="translated">送信</target>
         </trans-unit>
