@@ -236,6 +236,7 @@
     <Content Include="Assets\SplashScreen.scale-180.png" />
     <Content Include="Assets\Square150x150Logo.scale-180.png" />
     <Content Include="Assets\Square30x30Logo.targetsize-256.png" />
+    <Content Include="Assets\Square310.png" />
     <Content Include="Assets\Square310x310Logo.scale-180.png" />
     <Content Include="Assets\Square70x70Logo.scale-180.png" />
     <Content Include="Assets\StoreLogo.scale-180.png" />
