@@ -192,8 +192,8 @@ You can earn trophies by playing games that support them.</source>
           <target state="translated">設定</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\LiveFromPlaystation\Text" xml:space="preserve">
-          <source>Live From Playstation</source>
-          <target state="new">Live From Playstation</target>
+          <source>Live From PlayStation</source>
+          <target state="new">Live From PlayStation</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\PlayersJoinedSession\Text" xml:space="preserve">
           <source>Players Joining the Session</source>

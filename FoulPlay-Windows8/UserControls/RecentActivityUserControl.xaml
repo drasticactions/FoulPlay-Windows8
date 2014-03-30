@@ -50,7 +50,7 @@
                             <ColumnDefinition Width="75" />
                         </Grid.ColumnDefinitions>
                         <Button IsEnabled="False" Click="BackButton_OnClick" x:Name="BackButton" Content="&lt;" />
-                        <Viewbox Grid.Column="1">
+                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
                             <TextBlock x:Name="ActivityPageCount" />
                         </Viewbox>
                         <Button Click="ForwardButton_OnClick" x:Name="ForwardButton" Grid.Column="2" Content="&gt;" />
