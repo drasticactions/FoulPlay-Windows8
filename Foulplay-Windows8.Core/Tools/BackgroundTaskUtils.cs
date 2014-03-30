@@ -18,19 +18,26 @@ namespace Foulplay_Windows8.Core.Tools
         public static async Task<BackgroundTaskRegistration> RegisterBackgroundTask(string taskEntryPoint, string name,
             IBackgroundTrigger trigger, IBackgroundCondition condition)
         {
-            var builder = new BackgroundTaskBuilder { Name = name, TaskEntryPoint = taskEntryPoint };
-
-            builder.SetTrigger(trigger);
-
-
-            if (condition != null)
+            try
             {
-                builder.AddCondition(condition);
-            }
+                var builder = new BackgroundTaskBuilder { Name = name, TaskEntryPoint = taskEntryPoint };
 
-            BackgroundAccessStatus status = await BackgroundExecutionManager.RequestAccessAsync();
-            BackgroundTaskRegistration task = builder.Register();
-            return task;
+                builder.SetTrigger(trigger);
+
+
+                if (condition != null)
+                {
+                    builder.AddCondition(condition);
+                }
+
+                BackgroundAccessStatus status = await BackgroundExecutionManager.RequestAccessAsync();
+                BackgroundTaskRegistration task = builder.Register();
+                return task;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public static void UnregisterBackgroundTasks(string name)

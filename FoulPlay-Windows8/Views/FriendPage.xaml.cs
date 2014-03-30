@@ -224,5 +224,10 @@ namespace FoulPlay_Windows8.Views
             //control.SetContext(item);
             control.OpenPopup();
         }
+
+        private void RefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _vm.SetMessages(_userName, App.UserAccountEntity);
+        }
     }
 }

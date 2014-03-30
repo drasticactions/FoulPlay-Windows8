@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Resources;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using FoulPlay_Windows8.Common;
@@ -125,7 +126,12 @@ namespace FoulPlay_Windows8.Views
 
         private async void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (FilterComboBox == null) return;
+            SetFriendList();
+        }
+
+        private void SetFriendList()
+        {
+                        if (FilterComboBox == null) return;
             switch (FilterComboBox.SelectedIndex)
             {
                 case 0:
@@ -237,6 +243,16 @@ namespace FoulPlay_Windows8.Views
             public string Location { get; private set; }
 
             public string Icon { get; private set; }
+        }
+
+        private void MessagesRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
+        }
+
+        private void FriendsRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            SetFriendList();
         }
     }
 }

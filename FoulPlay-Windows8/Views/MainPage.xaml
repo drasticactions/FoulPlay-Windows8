@@ -84,8 +84,11 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="0,15,0,0" Text="Friends" x:Uid="FriendsPivot" Grid.Row="1"
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Margin="0,15,0,0" Text="Friends" x:Uid="FriendsPivot" Grid.Row="1"
                                Style="{StaticResource HeaderTextBlockStyle}" />
+                        <AppBarButton x:Name="FriendsRefreshAppBarButton" Click="FriendsRefreshAppBarButton_OnClick" Icon="Refresh"/>
+                    </StackPanel>
                     <ComboBox HorizontalAlignment="Stretch" x:Name="FilterComboBox" SelectedIndex="0"
                               SelectionChanged="FilterComboBox_OnSelectionChanged" Grid.Row="2">
                         <ComboBoxItem x:Uid="FriendsFilterOnline" />
@@ -179,8 +182,12 @@
                         <RowDefinition Height="70" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBlock Margin="0,15,0,0" x:Uid="MessagesPivot" Text="Messages" Grid.Row="1"
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Margin="0,15,0,0" x:Uid="MessagesPivot" Text="Messages"
                                Style="{StaticResource HeaderTextBlockStyle}" />
+                        <AppBarButton x:Name="MessagesRefreshAppBarButton" Click="MessagesRefreshAppBarButton_OnClick" Icon="Refresh"/>
+                    </StackPanel>
+
                     <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Visibility="Collapsed" Grid.Row="0"
                                  IsIndeterminate="True" />
                     <TextBlock Style="{StaticResource HeaderTextBlockStyle}" FontSize="55" TextWrapping="Wrap" LineHeight="60" Grid.Row="2" Visibility="{Binding MessageGroupCollection.Count, Converter={StaticResource CountToVisibilityInverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoMessages" Text="There are no new messages."/>

@@ -9,7 +9,10 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Background;
 using Windows.Globalization;
 using Windows.Storage;
+using Windows.System;
+using Windows.UI.ApplicationSettings;
 using Windows.UI.Notifications;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -82,7 +85,7 @@ namespace FoulPlay_Windows8
 #endif
 
             var rootFrame = Window.Current.Content as Frame;
-
+            SettingsPane.GetForCurrentView().CommandsRequested += SettingCharmManager_CommandsRequested;
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
 
@@ -99,7 +102,7 @@ namespace FoulPlay_Windows8
                 SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
                 // Set the default language
                 rootFrame.Language = ApplicationLanguages.Languages[0];
-
+                //rootFrame.Language = "en-US";
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
@@ -138,6 +141,19 @@ namespace FoulPlay_Windows8
             }
             // Ensure the current window is active
             Window.Current.Activate();
+        }
+
+        private void SettingCharmManager_CommandsRequested(SettingsPane sender,
+    SettingsPaneCommandsRequestedEventArgs args)
+        {
+            args.Request.ApplicationCommands.Add(new SettingsCommand("privacypolicy", "Privacy Policy",
+                OpenPrivacyPolicy));
+        }
+
+        private async void OpenPrivacyPolicy(IUICommand command)
+        {
+            var uri = new Uri("https://sites.google.com/site/foulplaynopuraibashiporishi/");
+            await Launcher.LaunchUriAsync(uri);
         }
 
         /// <summary>

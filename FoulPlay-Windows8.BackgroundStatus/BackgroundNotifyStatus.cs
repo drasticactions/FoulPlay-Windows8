@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,12 +48,13 @@ namespace FoulPlay_Windows8.BackgroundStatus
                     {
                         NotifyStatusTile.CreateNotificationLiveTile(notification);
                         NotifyStatusTile.CreateToastNotification(notification);
+                        await NotificationManager.ClearNotification(notification, userAccountEntity);
                     }
                 }
             }
             catch (Exception)
             {
-
+                Debug.WriteLine("Failed to show toast/live tile notification");
             }
         }
 

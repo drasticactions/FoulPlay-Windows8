@@ -78,6 +78,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         public async void SetMessages(string userName, UserAccountEntity userAccountEntity)
         {
+            MessageGroupCollection = new ObservableCollection<MessageGroupItem>();
             var messageManager = new MessageManager();
             _messageGroupEntity = await messageManager.GetMessageGroup(userName, userAccountEntity);
 
