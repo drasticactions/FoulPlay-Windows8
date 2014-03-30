@@ -174,5 +174,7 @@
         <tools:TrophyRareTextConverter x:Key="TrophyRareTextConverter" />
         <tools:TrophyStatusConverter x:Key="TrophyStatusConverter" />
         <tools:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
+        <tools:FriendRequestVisibilityConverter x:Key="FriendRequestVisibilityConverter" />
+        <tools:AddAsFriendButtonVisibilityConverter x:Key="AddAsFriendButtonVisibilityConverter" />
     </Application.Resources>
 </Application>

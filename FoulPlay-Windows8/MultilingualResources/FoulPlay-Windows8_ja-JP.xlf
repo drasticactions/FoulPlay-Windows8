@@ -105,21 +105,21 @@
           <source>View Name Request</source>
           <target state="translated">名前リクエストを見る</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\CancelNameRequest\Text" xml:space="preserve">
-          <source>Cancel Name Request</source>
-          <target state="translated">名前リクエストをキャンセルする</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\CancelFriendRequest\Text" xml:space="preserve">
-          <source>Cancel Friend Request</source>
-          <target state="translated">フレンド依頼をキャンセルする</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\RemoveFromFriends\Text" xml:space="preserve">
           <source>Remove From Friends</source>
           <target state="translated">フレンドから削除する</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\CancelNameRequestError\Text" xml:space="preserve">
           <source>Cannot cancel the name request.</source>
-          <target state="new">Cannot cancel the name request.</target>
+          <target state="translated">名前リクエストを送信できませんでした。</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\CancelFriendRequest\Content" xml:space="preserve">
+          <source>Cancel Friend Request</source>
+          <target state="translated">フレンド依頼をキャンセルする</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\CancelNameRequest\Content" xml:space="preserve">
+          <source>Cancel Name Request</source>
+          <target state="translated">名前リクエストをキャンセルする</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\GenericError\Text" xml:space="preserve">
           <source>(o_0)An Error Has Occured(O_o)</source>
@@ -251,14 +251,6 @@ You can earn trophies by playing games that support them.</source>
           <source>Friend Requests (Sent)</source>
           <target state="new">フレンド依頼(送信済み)</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\DeleteNameRequest\Text" xml:space="preserve">
-          <source>Delete Name Request</source>
-          <target state="translated">名前リクエストを削除する</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\DeleteFriendRequest\Text" xml:space="preserve">
-          <source>Delete Friend Request</source>
-          <target state="translated">フレンド依頼を削除する</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\ViewFriendRequest\Text" xml:space="preserve">
           <source>View Friend Request</source>
           <target state="translated">フレンド依頼を見る</target>
@@ -275,9 +267,9 @@ You can earn trophies by playing games that support them.</source>
           <source>Do you want to add this player as a Friend?</source>
           <target state="translated">このプレーヤーをフレンドに追加しますか？</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\AddAsFriend\Text" xml:space="preserve">
-          <source>Add As Friend</source>
-          <target state="translated">フレンドに追加する</target>
+        <trans-unit translate="yes" id="Resources\FriendRequest\Content" xml:space="preserve">
+          <source>Send Friend Request</source>
+          <target state="translated">フレンド依頼を送信する</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\Search\Text" xml:space="preserve">
           <source>Search</source>
@@ -334,6 +326,14 @@ You can earn trophies by playing games that support them.</source>
         <trans-unit translate="yes" id="Resources\DislikeButton\Text" xml:space="preserve">
           <source>Dislike</source>
           <target state="translated">嫌いだよ！</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DeleteFriendRequest\Content" xml:space="preserve">
+          <source>Delete Friend Request</source>
+          <target state="translated">フレンド依頼を削除する</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DeleteNameRequest\Content" xml:space="preserve">
+          <source>Delete Name Request</source>
+          <target state="translated">名前リクエストを削除する</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\LangSwedish\Text" xml:space="preserve">
           <source>Swedish</source>
@@ -468,10 +468,6 @@ You can earn trophies by playing games that support them.</source>
           <source>About Me:</source>
           <target state="new">紹介:</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendRequest\Text" xml:space="preserve">
-          <source>Send Friend Request</source>
-          <target state="translated">フレンド依頼を送信する</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendsFilterOnline\Content" xml:space="preserve">
           <source>Online</source>
           <target state="translated">オンライン</target>
@@ -511,6 +507,10 @@ You can earn trophies by playing games that support them.</source>
         <trans-unit translate="yes" id="Resources\AppBarButtonText\Text" xml:space="preserve">
           <source>add</source>
           <target state="new">add</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\AddAsFriend\Content" xml:space="preserve">
+          <source>Add As Friend</source>
+          <target state="translated">フレンドに追加する</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\ApplicationTitle\Text" xml:space="preserve">
           <source>PS</source>

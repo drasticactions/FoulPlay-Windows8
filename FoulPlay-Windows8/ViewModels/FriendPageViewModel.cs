@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
+using Windows.UI.Xaml;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -72,6 +74,24 @@ namespace FoulPlay_Windows8.ViewModels
             }
         }
 
+        public Visibility SetFriendRequestVisibility()
+        {
+            if (UserModel.User == null) return Visibility.Collapsed;
+            if (string.IsNullOrEmpty(UserModel.User.Relation))
+                return Visibility.Collapsed;
+            if (UserModel.User.Relation.Equals("friend of friends") || UserModel.User.Relation.Equals("no relationship"))
+                return Visibility.Visible;
+            return Visibility.Collapsed;
+        }
+
+        public Visibility SetAddFriendVisibility()
+        {
+            if (UserModel.User == null) return Visibility.Collapsed;
+            if (string.IsNullOrEmpty(UserModel.User.Relation))
+                return Visibility.Collapsed;
+            return UserModel.User.Relation.Equals("requested friend") ? Visibility.Visible : Visibility.Collapsed;
+        }
+
 
         public async void SetMessages(string userName, UserAccountEntity userAccountEntity)
         {
@@ -137,7 +157,7 @@ namespace FoulPlay_Windows8.ViewModels
             };
         }
 
-        public async void SetUser(string userName)
+        public async Task SetUser(string userName)
         {
             bool isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(userName);
             UserEntity user = await UserManager.GetUser(userName, App.UserAccountEntity);

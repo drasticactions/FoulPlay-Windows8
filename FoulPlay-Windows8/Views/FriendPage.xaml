@@ -74,12 +74,22 @@
                 <Grid Margin="15" x:Name="UserInformationGrid" HorizontalAlignment="Stretch" Column="0">
                     <Grid Margin="15">
                         <StackPanel>
-                            <Border Margin="8,15,0,15" VerticalAlignment="Center" HorizontalAlignment="Left"
+                             <Grid>
+                                    <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="180"/>
+                                     <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                <Border Margin="8,15,0,15" VerticalAlignment="Center" HorizontalAlignment="Left"
                                     Grid.Column="0" Width="160" Height="160">
-                                <Image x:Name="UserImage"
+                                    <Image x:Name="UserImage"
                                        Source="{Binding UserModel.User , Converter={StaticResource PersonalIconConverter} }"
                                        Stretch="UniformToFill" />
-                            </Border>
+                                </Border>
+                                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1">
+                                    <Button x:Name="FriendRequestButton" Click="FriendRequestButton_OnClick" Visibility="Collapsed"  HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request"/>
+                                    <Button x:Name="AddAsFriendButton" Click="AddAsFriendButton_OnClick" Visibility="Collapsed"  HorizontalAlignment="Stretch" x:Uid="AddAsFriend" Content="Add As Friend"/>
+                                </StackPanel>
+                            </Grid>
                             <Grid x:Name="UserTrophyGrid" Margin="5,0,0,25">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />

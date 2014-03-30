@@ -413,13 +413,13 @@ You can earn trophies by playing games that support them.</target>
           <source>Accept</source>
           <target state="new">Accept</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\AddAsFriend\Text" xml:space="preserve">
-          <source>Add As Friend</source>
-          <target state="new">Add As Friend</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\AppBarButtonText\Text" xml:space="preserve">
           <source>add</source>
           <target state="new">add</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\AddAsFriend\Content" xml:space="preserve">
+          <source>Add As Friend</source>
+          <target state="new">Add As Friend</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\AppBarMenuItemText\Text" xml:space="preserve">
           <source>Menu Item</source>
@@ -433,17 +433,17 @@ You can earn trophies by playing games that support them.</target>
           <source>Batch Friend Invite</source>
           <target state="new">Batch Friend Invite</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\CancelFriendRequest\Text" xml:space="preserve">
-          <source>Cancel Friend Request</source>
-          <target state="new">Cancel Friend Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\CancelNameRequest\Text" xml:space="preserve">
-          <source>Cancel Name Request</source>
-          <target state="new">Cancel Name Request</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\CancelNameRequestError\Text" xml:space="preserve">
           <source>Cannot cancel the name request.</source>
           <target state="new">Cannot cancel the name request.</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\CancelFriendRequest\Content" xml:space="preserve">
+          <source>Cancel Friend Request</source>
+          <target state="new">Cancel Friend Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\CancelNameRequest\Content" xml:space="preserve">
+          <source>Cancel Name Request</source>
+          <target state="new">Cancel Name Request</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\Conversation\Text" xml:space="preserve">
           <source>Conversation</source>
@@ -453,29 +453,29 @@ You can earn trophies by playing games that support them.</target>
           <source>Delete</source>
           <target state="new">Delete</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\DeleteFriendRequest\Text" xml:space="preserve">
-          <source>Delete Friend Request</source>
-          <target state="new">Delete Friend Request</target>
-        </trans-unit>
-        <trans-unit translate="yes" id="Resources\DeleteNameRequest\Text" xml:space="preserve">
-          <source>Delete Name Request</source>
-          <target state="new">Delete Name Request</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\DislikeButton\Text" xml:space="preserve">
           <source>Dislike</source>
           <target state="new">Dislike</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DeleteFriendRequest\Content" xml:space="preserve">
+          <source>Delete Friend Request</source>
+          <target state="new">Delete Friend Request</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\DeleteNameRequest\Content" xml:space="preserve">
+          <source>Delete Name Request</source>
+          <target state="new">Delete Name Request</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\ElapsedTime\Text" xml:space="preserve">
           <source>Elapsed Time</source>
           <target state="new">Elapsed Time</target>
         </trans-unit>
-        <trans-unit translate="yes" id="Resources\FriendRequest\Text" xml:space="preserve">
-          <source>Send Friend Request</source>
-          <target state="new">Send Friend Request</target>
-        </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendRequestAlert\Text" xml:space="preserve">
           <source>Do you want to add this player as a Friend?</source>
           <target state="new">Do you want to add this player as a Friend?</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resources\FriendRequest\Content" xml:space="preserve">
+          <source>Send Friend Request</source>
+          <target state="new">Send Friend Request</target>
         </trans-unit>
         <trans-unit translate="yes" id="Resources\FriendRequestConfirm\Text" xml:space="preserve">
           <source>A Friend request will be sent to this player.</source>

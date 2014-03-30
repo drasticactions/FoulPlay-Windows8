@@ -134,11 +134,13 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Tools\ActivityTemplateSelector.cs" />
+    <Compile Include="Tools\AddAsFriendButtonVisibilityConverter.cs" />
     <Compile Include="Tools\BooleanToVisibilityConverter.cs" />
     <Compile Include="Tools\ContentKeysImageConverter.cs" />
     <Compile Include="Tools\ConversationUsersConverter.cs" />
     <Compile Include="Tools\CountToVisibilityConverter.cs" />
     <Compile Include="Tools\DateConverter.cs" />
+    <Compile Include="Tools\FriendRequestVisibilityConverter.cs" />
     <Compile Include="Tools\HasSeenConverter.cs" />
     <Compile Include="Tools\FriendScrollingCollection.cs" />
     <Compile Include="Tools\HasTrophiesConverter.cs" />
@@ -159,6 +161,12 @@
     <Compile Include="Tools\TrophyStatusConverter.cs" />
     <Compile Include="Tools\TrophyTypeConverter.cs" />
     <Compile Include="Tools\ValuePercentConverter.cs" />
+    <Compile Include="UserControls\AddAsFriendUserControl.xaml.cs">
+      <DependentUpon>AddAsFriendUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FriendRequestUserControl.xaml.cs">
+      <DependentUpon>FriendRequestUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\RecentActivityUserControl.xaml.cs">
       <DependentUpon>RecentActivityUserControl.xaml</DependentUpon>
     </Compile>
@@ -277,6 +285,14 @@
     <Page Include="ItemPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\AddAsFriendUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FriendRequestUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\RecentActivityUserControl.xaml">
       <SubType>Designer</SubType>

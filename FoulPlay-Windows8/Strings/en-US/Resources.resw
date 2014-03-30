@@ -126,7 +126,7 @@
   <data name="Accept.Text" xml:space="preserve">
     <value>Accept</value>
   </data>
-  <data name="AddAsFriend.Text" xml:space="preserve">
+  <data name="AddAsFriend.Content" xml:space="preserve">
     <value>Add As Friend</value>
   </data>
   <data name="AppBarButtonText.Text" xml:space="preserve">
@@ -141,10 +141,10 @@
   <data name="BatchFriendInvite.Text" xml:space="preserve">
     <value>Batch Friend Invite</value>
   </data>
-  <data name="CancelFriendRequest.Text" xml:space="preserve">
+  <data name="CancelFriendRequest.Content" xml:space="preserve">
     <value>Cancel Friend Request</value>
   </data>
-  <data name="CancelNameRequest.Text" xml:space="preserve">
+  <data name="CancelNameRequest.Content" xml:space="preserve">
     <value>Cancel Name Request</value>
   </data>
   <data name="CancelNameRequestError.Text" xml:space="preserve">
@@ -156,10 +156,10 @@
   <data name="Delete.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
-  <data name="DeleteFriendRequest.Text" xml:space="preserve">
+  <data name="DeleteFriendRequest.Content" xml:space="preserve">
     <value>Delete Friend Request</value>
   </data>
-  <data name="DeleteNameRequest.Text" xml:space="preserve">
+  <data name="DeleteNameRequest.Content" xml:space="preserve">
     <value>Delete Name Request</value>
   </data>
   <data name="DislikeButton.Text" xml:space="preserve">
@@ -168,7 +168,7 @@
   <data name="ElapsedTime.Text" xml:space="preserve">
     <value>Elapsed Time</value>
   </data>
-  <data name="FriendRequest.Text" xml:space="preserve">
+  <data name="FriendRequest.Content" xml:space="preserve">
     <value>Send Friend Request</value>
   </data>
   <data name="FriendRequestAlert.Text" xml:space="preserve">

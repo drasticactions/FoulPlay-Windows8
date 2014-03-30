@@ -11,6 +11,7 @@ using Windows.UI.Xaml.Navigation;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
+using FoulPlay_Windows8.Tools;
 using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
@@ -60,7 +61,7 @@ namespace FoulPlay_Windows8.Views
         ///     a dictionary of state preserved by this page during an earlier
         ///     session. The state will be null the first time a page is visited.
         /// </param>
-        private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
@@ -71,29 +72,13 @@ namespace FoulPlay_Windows8.Views
                 App.UserAccountEntity.SetUserEntity(user);
             }
             _userName = (string) e.NavigationParameter;
-            _vm.SetUser(_userName);
+            await _vm.SetUser(_userName);
             _vm.SetRecentActivityFeed(_userName);
             _vm.SetFriendsList(_userName, false, false, false, false, true, false, false);
             _vm.SetTrophyList(_userName);
             _vm.SetMessages(_userName, App.UserAccountEntity);
-            //_user = JsonConvert.DeserializeObject<UserEntity>(jsonObjectString);
-            //var isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(_user.OnlineId);
-            //if (isCurrentUser)
-            //{
-            //    MessagesGrid.Visibility = Visibility.Collapsed;
-            //}
-            //else
-            //{
-            //    RefreshGroupMessages();
-            //}
-
-            //var languageList = _user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
-            //MyLanguagesBlock.Text = string.Join("," + Environment.NewLine, languageList);
-            //UserInformationGrid.DataContext = _user;
-            //UserInformationHeaderGrid.DataContext = _user;
-            //LoadRecentActivityList();
-            //GetTrophyList();
-            //GetFriendsList(false, false, false, false, true, false, false);
+            //FriendRequestButton.Visibility = _vm.SetFriendRequestVisibility();
+            //AddAsFriendButton.Visibility = _vm.SetAddFriendVisibility();
         }
 
         /// <summary>
@@ -227,5 +212,17 @@ namespace FoulPlay_Windows8.Views
         }
 
         #endregion
+
+        private void FriendRequestButton_OnClick(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void AddAsFriendButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var control = new AddAsFriendUserControl();
+            control.SetOffset();
+            //control.SetContext(item);
+            control.OpenPopup();
+        }
     }
 }
