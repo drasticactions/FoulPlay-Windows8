@@ -139,6 +139,7 @@
     <Compile Include="Tools\ContentKeysImageConverter.cs" />
     <Compile Include="Tools\ConversationUsersConverter.cs" />
     <Compile Include="Tools\CountToVisibilityConverter.cs" />
+    <Compile Include="Tools\CountToVisibilityInverter.cs" />
     <Compile Include="Tools\DateConverter.cs" />
     <Compile Include="Tools\FriendRequestVisibilityConverter.cs" />
     <Compile Include="Tools\HasSeenConverter.cs" />

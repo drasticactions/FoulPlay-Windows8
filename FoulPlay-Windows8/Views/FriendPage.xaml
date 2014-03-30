@@ -280,8 +280,11 @@
                               x:Name="ActivityFeedListView"
                               ItemsSource="{Binding RecentActivityScrollingCollection}"
                               ItemTemplate="{StaticResource ActivityDataTemplate}" Margin="0,60,0,10" />
+                    <Viewbox Visibility="{Binding RecentActivityScrollingCollection.Count, Converter={StaticResource CountToVisibilityInverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+                        <TextBlock  Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoActivities" Text="There are no activities."/>
+                    </Viewbox>
                 </Grid>
-                <Grid Width="460" Margin="15" HorizontalAlignment="Stretch" Grid.Column="3">
+                <Grid Width="460" Margin="15"  HorizontalAlignment="Stretch" Grid.Column="3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="70" />
                         <RowDefinition Height="*" />
@@ -324,6 +327,7 @@
                                 </Grid>
                             </Grid>
                         </Grid>
+                        <TextBlock FontSize="45" TextWrapping="Wrap" Grid.Row="1" Visibility="{Binding TrophyScrollingCollection.Count, Converter={StaticResource CountToVisibilityInverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoTrophyInfo" Text="There are no trophies."/>
                         <Grid Grid.Row="1">
                             <ListView x:Name="TrophyListView" IsSwipeEnabled="False" IsItemClickEnabled="True"
                                       HorizontalAlignment="Stretch" SelectionMode="None"
@@ -422,6 +426,9 @@
                                  Visibility="{Binding FriendScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"
                                  Grid.Row="0" IsIndeterminate="True"
                                  x:FieldModifier="public" />
+                    <Viewbox Visibility="{Binding FriendScrollingCollection.Count, Converter={StaticResource CountToVisibilityInverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+                        <TextBlock   Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoPlayers" Text="No players found."/>
+                    </Viewbox>
                     <ListView x:Name="FriendsListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True"
                               ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False"
                               HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">

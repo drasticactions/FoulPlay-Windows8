@@ -70,6 +70,9 @@
                 ItemsSource="{Binding Source={StaticResource RecentActivityCollectionViewSource}}"
                 x:Name="ActivityFeedGridView"
                 ItemTemplateSelector="{StaticResource ActivityTemplateSelector}" />
+            <Viewbox Visibility="{Binding RecentActivityScrollingCollection.Count, Converter={StaticResource CountToVisibilityInverter}, Mode=TwoWay }" Margin="100">
+                <TextBlock x:Uid="NoActivities" Text="There are no activities."/>
+            </Viewbox>
         </Grid>
     </Grid>
 </Page>

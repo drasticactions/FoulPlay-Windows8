@@ -176,5 +176,6 @@
         <tools:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
         <tools:FriendRequestVisibilityConverter x:Key="FriendRequestVisibilityConverter" />
         <tools:AddAsFriendButtonVisibilityConverter x:Key="AddAsFriendButtonVisibilityConverter" />
+        <tools:CountToVisibilityInverter x:Key="CountToVisibilityInverter" />
     </Application.Resources>
 </Application>
