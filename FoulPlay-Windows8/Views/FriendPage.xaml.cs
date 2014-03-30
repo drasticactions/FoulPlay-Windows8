@@ -144,7 +144,7 @@ namespace FoulPlay_Windows8.Views
             {
                 ImageSource.Source = null;
                 MessageTextBox.Text = string.Empty;
-                //RefreshGroupMessages();
+                _vm.SetMessages(_userName, App.UserAccountEntity);
                 return;
             }
             const string messageText = "An error has occured. The message has not been sent.";

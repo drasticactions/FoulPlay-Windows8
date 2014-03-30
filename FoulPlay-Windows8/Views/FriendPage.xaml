@@ -241,7 +241,7 @@
                                  IsIndeterminate="True" />
                     <ListView x:Name="MessagesListView" Grid.Row="2" SelectionMode="None"
                               ItemTemplate="{StaticResource MessageUserDataTemplate}" IsSwipeEnabled="False"
-                              ItemsSource="{Binding MessageGroupCollection}" HorizontalAlignment="Stretch">
+                              ItemsSource="{Binding MessageGroupCollection, Mode=TwoWay}" HorizontalAlignment="Stretch">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
