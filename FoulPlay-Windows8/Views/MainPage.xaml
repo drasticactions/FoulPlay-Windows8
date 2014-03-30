@@ -189,7 +189,7 @@
                               ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False"
                               ItemsSource="{Binding MessageGroupCollection}" HorizontalAlignment="Stretch">
                         <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
+                            <Style TargetType="ListViewItem">  
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                             </Style>
                         </ListView.ItemContainerStyle>
