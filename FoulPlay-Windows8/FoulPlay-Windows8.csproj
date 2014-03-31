@@ -16,8 +16,10 @@
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>FoulPlay-Windows8_StoreKey.pfx</PackageCertificateKeyFile>
     <ExpressionBlendVersion>12.0.50203.70</ExpressionBlendVersion>
-    <AppxBundle>Always</AppxBundle>
+    <AppxBundle>Auto</AppxBundle>
     <PackageCertificateThumbprint>9302174589EE2B2037FBDB52EBCFE5284AD09891</PackageCertificateThumbprint>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -107,8 +109,10 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="FoulPlay-Windows8_StoreKey.pfx" />
-    <None Include="MultilingualResources\FoulPlay-Windows8_qps-ploc.xlf" />
     <None Include="packages.config" />
+    <PRIResource Include="Strings\ja-JP\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -245,19 +249,40 @@
     <Content Include="Assets\phone_whatsNew_icon_list_count_like.png" />
     <Content Include="Assets\PSPlus-Large.png" />
     <Content Include="Assets\PSPlus.png" />
+    <Content Include="Assets\SplashScreen.scale-140.png" />
     <Content Include="Assets\SplashScreen.scale-180.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-140.png" />
     <Content Include="Assets\Square150x150Logo.scale-180.png" />
+    <Content Include="Assets\Square150x150Logo.scale-80.png" />
+    <Content Include="Assets\Square30x30Logo.scale-100.png" />
+    <Content Include="Assets\Square30x30Logo.scale-140.png" />
+    <Content Include="Assets\Square30x30Logo.scale-180.png" />
+    <Content Include="Assets\Square30x30Logo.scale-80.png" />
+    <Content Include="Assets\Square30x30Logo.targetsize-16.png" />
     <Content Include="Assets\Square30x30Logo.targetsize-256.png" />
+    <Content Include="Assets\Square30x30Logo.targetsize-32.png" />
+    <Content Include="Assets\Square30x30Logo.targetsize-48.png" />
     <Content Include="Assets\Square310.png" />
+    <Content Include="Assets\Square310x310Logo.scale-100.png" />
+    <Content Include="Assets\Square310x310Logo.scale-140.png" />
     <Content Include="Assets\Square310x310Logo.scale-180.png" />
+    <Content Include="Assets\Square310x310Logo.scale-80.png" />
+    <Content Include="Assets\Square70x70Logo.scale-100.png" />
+    <Content Include="Assets\Square70x70Logo.scale-140.png" />
     <Content Include="Assets\Square70x70Logo.scale-180.png" />
+    <Content Include="Assets\Square70x70Logo.scale-80.png" />
+    <Content Include="Assets\StoreLogo.scale-140.png" />
     <Content Include="Assets\StoreLogo.scale-180.png" />
     <Content Include="Assets\Trophy-icon-bronze.png" />
     <Content Include="Assets\Trophy-icon-Gold.png" />
     <Content Include="Assets\Trophy-icon-Hidden.png" />
     <Content Include="Assets\Trophy-icon-plat.png" />
     <Content Include="Assets\Trophy-icon-Silver.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-140.png" />
     <Content Include="Assets\Wide310x150Logo.scale-180.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-80.png" />
     <Content Include="DataModel\SampleData.json" />
   </ItemGroup>
   <ItemGroup>
@@ -338,9 +363,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MultilingualResources\FoulPlay-Windows8_en.xlf" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="MultilingualResources\FoulPlay-Windows8_ja-JP.xlf" />
   </ItemGroup>
   <ItemGroup>
@@ -366,13 +388,7 @@
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
-  <PropertyGroup Label="MultilingualAppToolkit">
-    <ToolkitRevision>2</ToolkitRevision>
-    <MakePriLog>$(Temp)\$(MSBuildProjectName)_Multilingual.prilog.xml</MakePriLog>
-    <AppxGenerateProjectPriFileAdditionalMakepriExeParameters>/IndexLog "$(MakePriLog)"</AppxGenerateProjectPriFileAdditionalMakepriExeParameters>
-  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.WindowsStore.targets" Label="MultilingualAppToolkit" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
