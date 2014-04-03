@@ -12,57 +12,67 @@
     <Page.DataContext>
         <viewModels:MainPageViewModel />
     </Page.DataContext>
+    <Page.Background>
+        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+    </Page.Background>
     <Page.Resources>
-        <ResourceDictionary>
-            <tools:ActivityTemplateSelector x:Name="ActivityTemplateSelector"
+        <tools:ActivityTemplateSelector x:Name="ActivityTemplateSelector"
                                         StoreActivityDataTemplate="{StaticResource StoreActivityDataTemplate}"
                                         ActivityDataTemplate="{StaticResource ActivityDataTemplate}" />
-            <ResourceDictionary.ThemeDictionaries>
-                <ResourceDictionary x:Key="Default">
-                    <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="Assets/Background.jpg"/>
-                </ResourceDictionary>
-                <ResourceDictionary x:Key="HighContrast">
-                    <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="{x:Null}"/>
-                </ResourceDictionary>
-            </ResourceDictionary.ThemeDictionaries>
-        </ResourceDictionary>
+
     </Page.Resources>
     <Grid x:Name="LayoutRoot">
-        <Hub x:Name="Hub" x:Uid="Hub" Header="FoulPlay" Background="{ThemeResource HubBackgroundImageBrush}">
-            <HubSection x:Uid="HubSection1">
-            <DataTemplate>
-                    <GridView IsSwipeEnabled="False" ItemsSource="{Binding MenuItems}" ItemClick="MenuGridView_OnItemClick" IsItemClickEnabled="True"
-                              x:Name="MenuGridView" ItemTemplate="{StaticResource MenuTemplate}" Grid.Row="1"
+        <Pivot>
+            <PivotItem Header="Menu">
+                <GridView IsSwipeEnabled="False" ItemsSource="{Binding MenuItems}" ItemClick="MenuGridView_OnItemClick" IsItemClickEnabled="True"
+                              x:Name="MenuGridView" ItemTemplate="{StaticResource MenuTemplate}"
                               SelectionMode="None" />
-            </DataTemplate>
-        </HubSection>
-            <HubSection >
-                <DataTemplate>
-                    <GridView Margin="15"
-                              IsSwipeEnabled="False"
-                              SelectionMode="None"
-                              IsItemClickEnabled="True"
-                              ItemClick="ActivityFeedGridView_OnItemClick"
-                              ItemsSource="{Binding RecentActivityScrollingCollection}"
-                              x:Name="ActivityFeedGridView"
-                              ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
-                        <GridView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <VariableSizedWrapGrid Orientation="Horizontal" />
-                            </ItemsPanelTemplate>
-                        </GridView.ItemsPanel>
-                        <GridView.GroupStyle>
-                            <GroupStyle>
-                                <GroupStyle.Panel>
-                                    <ItemsPanelTemplate>
-                                        <VariableSizedWrapGrid Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </GroupStyle.Panel>
-                            </GroupStyle>
-                        </GridView.GroupStyle>
-                    </GridView>
-                </DataTemplate>
-            </HubSection>
-        </Hub>
+            </PivotItem>
+            <PivotItem Header="Friends">
+                <ListView x:Name="FriendsListView" SelectionMode="None" IsItemClickEnabled="True"
+                              ItemClick="FriendsListView_OnItemClick" ItemTemplate="{StaticResource FriendsTemplate}" IsSwipeEnabled="False"
+                              HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </PivotItem>
+            <PivotItem Header="Invites">
+<ListView x:Name="SessionInviteListView" SelectionMode="None" IsItemClickEnabled="True" 
+          IsSwipeEnabled="False" HorizontalAlignment="Stretch" 
+          ItemsSource="{Binding SessionInviteScrollingCollection}">
+    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25"/>
+                                    <ColumnDefinition Width="75" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Grid.Column="0" Width="15" Height="15"
+                                                   Fill="{Binding Expired, Converter={StaticResource ExpiredConverter}}" />
+                                <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
+                                    <Image Source="{Binding NpTitleDetail.NpTitleIconUrl, Converter={StaticResource InviteImageConverter}}" Stretch="UniformToFill" />
+                                </Border>
+                                <Grid Margin="15,23,0,0" VerticalAlignment="Center" Grid.Column="2">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding NpTitleDetail.NpTitleName}" />
+                                        <TextBlock Text="{Binding AvailablePlatforms, Converter={StaticResource AvailablePlatformConverter}}" />
+                                        <TextBlock Text="{Binding FromUser.OnlineId, Converter={StaticResource SenderNameConverter}}" />
+                                        <TextBlock HorizontalAlignment="Right" FontSize="15" Text="{Binding ReceivedDate, Converter={StaticResource DateConverter}}" />
+                                    </StackPanel>
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+</ListView>
+            </PivotItem>
+            <PivotItem Header="Messages">
+
+            </PivotItem>
+        </Pivot>
    </Grid>
 </Page>

@@ -17,16 +17,21 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\ActivityTemplateSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\AddAsFriendButtonVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\AvailablePlatformConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\BooleanToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\ContentKeysImageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\ConversationUsersConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\CountToVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\CountToVisibilityInverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\DateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ExpiredConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\FriendRequestVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\FriendScrollingCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\HasSeenConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\HasTrophiesConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\InviteImageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\SenderNameConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\SessionInviteScrollingCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\IsCurrentUserConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\OnlineConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\PersonalIconConverter.cs" />
@@ -53,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\appbar.film.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\appbar.hardware.headset.dark.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\appbar.image.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\appbar.speakerphone.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Background.jpg" />

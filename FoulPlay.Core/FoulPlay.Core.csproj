@@ -44,6 +44,8 @@
     <Compile Include="Entities\MessageGroupEntity.cs" />
     <Compile Include="Entities\NotificationEntity.cs" />
     <Compile Include="Entities\RecentActivityEntity.cs" />
+    <Compile Include="Entities\SessionInviteDetailEntity.cs" />
+    <Compile Include="Entities\SessionInviteEntity.cs" />
     <Compile Include="Entities\TrophyDetailEntity.cs" />
     <Compile Include="Entities\TrophyEntity.cs" />
     <Compile Include="Entities\TwitchEntity.cs" />
@@ -57,6 +59,7 @@
     <Compile Include="Managers\MessageManager.cs" />
     <Compile Include="Managers\NotificationManager.cs" />
     <Compile Include="Managers\RecentActivityManager.cs" />
+    <Compile Include="Managers\SessionInviteManager.cs" />
     <Compile Include="Managers\TrophyDetailManager.cs" />
     <Compile Include="Managers\TrophyManager.cs" />
     <Compile Include="Managers\UserManager.cs" />

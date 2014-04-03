@@ -10,6 +10,9 @@ namespace FoulPlay_Windows8.ViewModels
 {
     public class MainPageViewModel : NotifierBase
     {
+
+        private SessionInviteScrollingCollection _sessionInviteScrollingCollection;
+
         private FriendScrollingCollection _friendScrollingCollection;
 
         private ObservableCollection<MessageGroupItem> _messageGroupCollection =
@@ -26,6 +29,16 @@ namespace FoulPlay_Windows8.ViewModels
             set
             {
                 SetProperty(ref _menuItems, value);
+                OnPropertyChanged();
+            }
+        }
+
+        public SessionInviteScrollingCollection SessionInviteScrollingCollection
+        {
+            get { return _sessionInviteScrollingCollection; }
+            set
+            {
+                SetProperty(ref _sessionInviteScrollingCollection, value);
                 OnPropertyChanged();
             }
         }
@@ -58,6 +71,15 @@ namespace FoulPlay_Windows8.ViewModels
                 SetProperty(ref _recentActivityScrollingCollection, value);
                 OnPropertyChanged();
             }
+        }
+
+        public void SetInviteList()
+        {
+            SessionInviteScrollingCollection = new SessionInviteScrollingCollection()
+            {
+                Offset = 0,
+                UserAccountEntity = App.UserAccountEntity
+            };
         }
 
         public void SetFriendsList(string userName, bool onlineFilter, bool blockedPlayer, bool recentlyPlayed,

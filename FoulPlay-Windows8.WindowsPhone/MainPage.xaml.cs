@@ -35,7 +35,7 @@ namespace FoulPlay_Windows8
         {
             this.InitializeComponent();
             
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            this.NavigationCacheMode = NavigationCacheMode.Enabled;
 
             this._navigationHelper = new NavigationHelper(this);
             this._navigationHelper.LoadState += this.NavigationHelper_LoadState;
@@ -56,7 +56,8 @@ namespace FoulPlay_Windows8
             _user = App.UserAccountEntity.GetUserEntity();
             _vm.SetRecentActivityFeed(_user.OnlineId);
             _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
-            
+            _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
+            _vm.SetInviteList();
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
@@ -116,6 +117,11 @@ namespace FoulPlay_Windows8
         }
 
         private void MessagesRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
             throw new NotImplementedException();
         }
