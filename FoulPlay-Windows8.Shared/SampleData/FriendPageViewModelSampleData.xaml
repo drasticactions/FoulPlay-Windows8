@@ -1,0 +1,397 @@
+﻿<ViewModels:FriendPageViewModel xmlns:ViewModels="using:FoulPlay_Windows8.ViewModels"
+                                xmlns:Entities="using:Foulplay_Windows8.Core.Entities" xmlns:System="using:System">
+    <ViewModels:FriendPageViewModel.MessageGroupCollection>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Vestibulum euismod malesuada adipiscing">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Magna erat lobortis" dataUsedFlag="True" messageUid="33"
+                                         messageKind="46" receivedDate="Vestibulum nam" senderOnlineId="Elit penatibus"
+                                         seenFlag="False" sentMessageId="Feugiat parturient enim">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Vestibulum adipiscing gravida</System:String>
+                        <System:String>Inceptos parturient porttitor lorem</System:String>
+                        <System:String>Interdum sed tincidunt</System:String>
+                        <System:String>Vestibulum iaculis</System:String>
+                        <System:String>Ligula dis</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Leo mus laoreet pharetra"
+                                             AboutMe="Parturient nibh magnis posuere vestibulum" NpId="Est hac"
+                                             OnlineId="Massa lacinia tristique litora vestibulum"
+                                             PersonalDetailSharing="Vestibulum potenti"
+                                             PanelBgc="Eros placerat adipiscing pulvinar metus"
+                                             PanelUrl="Morbi sagittis natoque" Plus="False"
+                                             Relation="Nec mattis vulputate curabitur senectus"
+                                             Region="Nascetur ultricies venenatis luctus" RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Torquent parturient pretium"
+                                         messageGroupId="Sociosqu non suscipit adipiscing nisi"
+                                         totalUnseenMessages="71" totalMessages="23" totalDataUsedMessages="36">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Phasellus nisl"
+                                                 messageGroupType="28" totalMembers="64" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Ultrices per neque">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Vel mollis viverra montes" dataUsedFlag="True" messageUid="74"
+                                         messageKind="28" receivedDate="Convallis porta rhoncus vestibulum"
+                                         senderOnlineId="Netus nulla" seenFlag="False"
+                                         sentMessageId="Consequat sed vehicula">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Vestibulum nunc</System:String>
+                        <System:String>Sodales odio dignissim</System:String>
+                        <System:String>Elementum sem</System:String>
+                        <System:String>Orci purus mauris</System:String>
+                        <System:String>Pede adipiscing parturient sit vestibulum</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Fringilla integer vestibulum bibendum cras"
+                                             AboutMe="Vivamus vestibulum duis vestibulum risus"
+                                             NpId="Praesent accumsan urna" OnlineId="Quam facilisis fermentum aliquam"
+                                             PersonalDetailSharing="Amet hendrerit"
+                                             PanelBgc="Ornare platea adipiscing parturient" PanelUrl="Nam quisque"
+                                             Plus="False" Relation="Velit vitae habitasse sed nunc"
+                                             Region="Nostra quis volutpat maecenas" RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Est adipiscing"
+                                         messageGroupId="Primis ante dis dictumst" totalUnseenMessages="34"
+                                         totalMessages="46" totalDataUsedMessages="27">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Arcu diam" messageGroupType="48"
+                                                 totalMembers="87" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Class rutrum">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Lorem adipiscing habitant penatibus enim" dataUsedFlag="True"
+                                         messageUid="25" messageKind="60" receivedDate="Blandit commodo"
+                                         senderOnlineId="Hac aliquam aliquet" seenFlag="False"
+                                         sentMessageId="Leo curae himenaeos sapien">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Eleifend semper facilisi eget parturient</System:String>
+                        <System:String>Donec sociis vestibulum</System:String>
+                        <System:String>Etiam fusce vestibulum</System:String>
+                        <System:String>Conubia mus faucibus imperdiet cubilia</System:String>
+                        <System:String>Taciti elit malesuada</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Interdum non" AboutMe="Tristique nascetur varius parturient"
+                                             NpId="Nulla dapibus egestas tempus tortor"
+                                             OnlineId="Nec parturient inceptos tellus"
+                                             PersonalDetailSharing="Feugiat gravida" PanelBgc="Erat proin lobortis per"
+                                             PanelUrl="Vestibulum porttitor turpis tincidunt adipiscing" Plus="False"
+                                             Relation="Pharetra placerat eros euismod sed"
+                                             Region="Morbi vestibulum tempor" RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Lacinia augue vestibulum"
+                                         messageGroupId="Sem sit iaculis vel" totalUnseenMessages="59"
+                                         totalMessages="45" totalDataUsedMessages="26">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Pulvinar nam aenean"
+                                                 messageGroupType="36" totalMembers="23" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Dolor mauris vestibulum nullam sed">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Ultrices nisi lectus vehicula" dataUsedFlag="True"
+                                         messageUid="75" messageKind="89"
+                                         receivedDate="Parturient vulputate senectus curabitur est"
+                                         senderOnlineId="Aptent sagittis adipiscing ultricies" seenFlag="False"
+                                         sentMessageId="Dis venenatis nibh">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Phasellus sociosqu fames hac</System:String>
+                        <System:String>Felis consequat leo vestibulum mus</System:String>
+                        <System:String>Suscipit laoreet auctor natoque vestibulum</System:String>
+                        <System:String>Torquent convallis</System:String>
+                        <System:String>Congue posuere ipsum cursus dictum</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Libero parturient" AboutMe="Litora sodales magna massa"
+                                             NpId="Elementum lorem non adipiscing praesent"
+                                             OnlineId="Justo potenti volutpat dignissim nec"
+                                             PersonalDetailSharing="Fermentum magnis sit morbi neque"
+                                             PanelBgc="Pretium facilisis rhoncus vestibulum accumsan"
+                                             PanelUrl="Per ligula nisl sed sem" Plus="False"
+                                             Relation="Metus viverra nunc luctus" Region="Maecenas lacus"
+                                             RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Netus fringilla habitasse"
+                                         messageGroupId="Vel nam sed odio bibendum" totalUnseenMessages="82"
+                                         totalMessages="33" totalDataUsedMessages="67">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Dis est aliquam hendrerit"
+                                                 messageGroupType="43" totalMembers="72" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Dictumst vestibulum">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Rutrum sapien interdum" dataUsedFlag="True" messageUid="18"
+                                         messageKind="84" receivedDate="Leo ornare faucibus adipiscing"
+                                         senderOnlineId="Eleifend mattis mauris orci hac" seenFlag="False"
+                                         sentMessageId="Mollis facilisi montes integer nostra">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Quisque himenaeos parturient</System:String>
+                        <System:String>Imperdiet nulla</System:String>
+                        <System:String>Platea primis vestibulum</System:String>
+                        <System:String>Habitant malesuada</System:String>
+                        <System:String>Inceptos vestibulum pede porta</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Aliquet quis purus blandit parturient"
+                                             AboutMe="Cubilia dapibus non risus velit" NpId="Nascetur pharetra taciti"
+                                             OnlineId="Vivamus lobortis aliquam semper"
+                                             PersonalDetailSharing="Tellus sagittis" PanelBgc="Urna cras nec porttitor"
+                                             PanelUrl="Commodo duis conubia tincidunt placerat" Plus="False"
+                                             Relation="Per sed pulvinar" Region="Mus sociis quam adipiscing penatibus"
+                                             RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Tempus tortor"
+                                         messageGroupId="Nunc tempor" totalUnseenMessages="80" totalMessages="60"
+                                         totalDataUsedMessages="70">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Tristique vestibulum"
+                                                 messageGroupType="99" totalMembers="93" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Turpis ultricies senectus varius">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Convallis vel cursus vestibulum" dataUsedFlag="True"
+                                         messageUid="57" messageKind="30" receivedDate="Arcu nullam vestibulum sit"
+                                         senderOnlineId="Amet sociosqu aenean mauris" seenFlag="False"
+                                         sentMessageId="Ante sem">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Egestas adipiscing suscipit aptent parturient</System:String>
+                        <System:String>Torquent venenatis euismod vitae</System:String>
+                        <System:String>Ultrices auctor vulputate</System:String>
+                        <System:String>Curabitur vehicula class</System:String>
+                        <System:String>Congue phasellus consequat curae</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Fusce eget elit praesent" AboutMe="Hac lorem parturient"
+                                             NpId="Elementum maecenas facilisis"
+                                             OnlineId="Donec feugiat dignissim diam volutpat"
+                                             PersonalDetailSharing="Mus nec vestibulum enim non"
+                                             PanelBgc="Sed dictum dis est vestibulum" PanelUrl="Lectus adipiscing"
+                                             Plus="False" Relation="Accumsan leo bibendum morbi nulla"
+                                             Region="Nam etiam" RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Erat ligula sed vestibulum dictumst"
+                                         messageGroupId="Libero fermentum per gravida" totalUnseenMessages="36"
+                                         totalMessages="42" totalDataUsedMessages="95">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Sem litora iaculis eros"
+                                                 messageGroupType="57" totalMembers="71" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Fringilla eleifend luctus nibh">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Potenti parturient" dataUsedFlag="True" messageUid="45"
+                                         messageKind="72" receivedDate="Vestibulum magnis lacinia proin sit"
+                                         senderOnlineId="Habitasse nisi" seenFlag="False"
+                                         sentMessageId="Adipiscing parturient nisl nunc">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Laoreet natoque</System:String>
+                        <System:String>Hendrerit mattis vel nam</System:String>
+                        <System:String>Augue odio mauris posuere himenaeos</System:String>
+                        <System:String>Mollis dolor sed fames</System:String>
+                        <System:String>Felis montes orci vestibulum adipiscing</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Faucibus est hac" AboutMe="Vestibulum habitant"
+                                             NpId="Facilisi dis urna" OnlineId="Vestibulum pede imperdiet quam"
+                                             PersonalDetailSharing="Penatibus porttitor ornare nunc interdum"
+                                             PanelBgc="Justo cras duis" PanelUrl="Leo nostra mus pretium rhoncus"
+                                             Plus="False" Relation="Nec inceptos sodales malesuada" Region="Quis ipsum"
+                                             RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Lobortis integer quisque tincidunt"
+                                         messageGroupId="Lacus viverra aliquam" totalUnseenMessages="31"
+                                         totalMessages="61" totalDataUsedMessages="47">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail
+                                                 messageGroupName="Adipiscing non vivamus lorem magna"
+                                                 messageGroupType="40" totalMembers="13" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Amet massa metus nascetur ante">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Semper nam sagittis" dataUsedFlag="True" messageUid="69"
+                                         messageKind="93" receivedDate="Vestibulum arcu" senderOnlineId="Per platea"
+                                         seenFlag="False" sentMessageId="Pharetra parturient primis vestibulum">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Diam sed aliquam morbi rutrum</System:String>
+                        <System:String>Tristique aliquet sem sit ultricies</System:String>
+                        <System:String>Blandit venenatis</System:String>
+                        <System:String>Commodo placerat</System:String>
+                        <System:String>Sapien pulvinar vel</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Cubilia tempor" AboutMe="Nulla elit euismod"
+                                             NpId="Parturient tellus sociosqu curabitur conubia"
+                                             OnlineId="Sociis adipiscing" PersonalDetailSharing="Sed dis consequat"
+                                             PanelBgc="Tempus dapibus netus suscipit egestas"
+                                             PanelUrl="Torquent ultrices" Plus="False"
+                                             Relation="Phasellus vestibulum vehicula tortor"
+                                             Region="Taciti neque eget senectus vulputate" RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Porta convallis purus volutpat risus"
+                                         messageGroupId="Vestibulum adipiscing" totalUnseenMessages="49"
+                                         totalMessages="58" totalDataUsedMessages="30">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail
+                                                 messageGroupName="Enim dignissim est maecenas feugiat"
+                                                 messageGroupType="18" totalMembers="56" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Velit parturient vestibulum erat">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Nec dictumst vestibulum eleifend" dataUsedFlag="True"
+                                         messageUid="57" messageKind="84" receivedDate="Adipiscing curae leo mus"
+                                         senderOnlineId="Hac vitae vestibulum" seenFlag="False"
+                                         sentMessageId="Turpis class">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Praesent elementum varius eros</System:String>
+                        <System:String>Parturient aenean vestibulum donec</System:String>
+                        <System:String>Vestibulum adipiscing gravida etiam</System:String>
+                        <System:String>Accumsan nibh</System:String>
+                        <System:String>Facilisis parturient iaculis fermentum bibendum</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Posuere hendrerit himenaeos"
+                                             AboutMe="Malesuada aptent nunc sem auctor" NpId="Fusce faucibus"
+                                             OnlineId="Fringilla habitasse lacinia non nisi"
+                                             PersonalDetailSharing="Lobortis adipiscing lorem penatibus"
+                                             PanelBgc="Vestibulum imperdiet habitant"
+                                             PanelUrl="Inceptos nisl mauris sed nullam" Plus="False"
+                                             Relation="Interdum sit" Region="Facilisi laoreet per natoque"
+                                             RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup
+                                         messageGroupModifiedDate="Morbi pharetra placerat nulla porttitor"
+                                         messageGroupId="Odio nascetur congue cursus" totalUnseenMessages="68"
+                                         totalMessages="66" totalDataUsedMessages="90">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Vel nam" messageGroupType="91"
+                                                 totalMembers="88" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+        <ViewModels:FriendPageViewModel+ MessageGroupItem AvatarUrl="Parturient potenti vestibulum sed pulvinar">
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.Message>
+                <Entities:MessageEntity+ Message body="Mus urna felis" dataUsedFlag="True" messageUid="43"
+                                         messageKind="48" receivedDate="Lectus vestibulum orci"
+                                         senderOnlineId="Dis est proin" seenFlag="False"
+                                         sentMessageId="Dictum pretium sagittis">
+                    <Entities:MessageEntity+ Message.contentKeys>
+                        <System:String>Adipiscing pede quam tincidunt hac</System:String>
+                        <System:String>Parturient augue</System:String>
+                        <System:String>Libero senectus</System:String>
+                        <System:String>Sociosqu quis</System:String>
+                        <System:String>Rhoncus dolor fames leo sodales</System:String>
+                    </Entities:MessageEntity+Message.contentKeys>
+                    <Entities:MessageEntity+ Message.user>
+                        <Entities:UserEntity AvatarUrl="Ultrices vestibulum" AboutMe="Vivamus aliquam"
+                                             NpId="Ipsum non per torquent" OnlineId="Suscipit viverra"
+                                             PersonalDetailSharing="Aliquet vestibulum magna"
+                                             PanelBgc="Justo integer cras ligula lacus" PanelUrl="Lorem quisque"
+                                             Plus="False" Relation="Vehicula duis tristique" Region="Aliquam nec"
+                                             RequestMessageFlag="True" />
+                    </Entities:MessageEntity+Message.user>
+                </Entities:MessageEntity+Message>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.Message>
+            <ViewModels:FriendPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageEntity+ MessageGroup messageGroupModifiedDate="Volutpat maecenas massa parturient"
+                                         messageGroupId="Adipiscing sed" totalUnseenMessages="56" totalMessages="68"
+                                         totalDataUsedMessages="85">
+                    <Entities:MessageEntity+ MessageGroup.messageGroupDetail>
+                        <Entities:MessageEntity+ MessageGroupDetail messageGroupName="Litora luctus sem nunc"
+                                                 messageGroupType="93" totalMembers="53" />
+                    </Entities:MessageEntity+MessageGroup.messageGroupDetail>
+                </Entities:MessageEntity+MessageGroup>
+            </ViewModels:FriendPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:FriendPageViewModel+MessageGroupItem>
+    </ViewModels:FriendPageViewModel.MessageGroupCollection>
+    <ViewModels:FriendPageViewModel.UserModel>
+        <ViewModels:FriendPageViewModel+ UserViewModel CurrentUserOnlineId="Dapibus parturient vel habitant"
+                                         IsNotCurrentUser="True" Language="Libero justo vestibulum egestas lacus">
+            <ViewModels:FriendPageViewModel+ UserViewModel.User>
+                <Entities:UserEntity AvatarUrl="Dis aptent parturient" AboutMe="Donec praesent"
+                                     NpId="Integer nullam adipiscing" OnlineId="Aliquam vestibulum class aenean"
+                                     PersonalDetailSharing="Facilisi sed sem diam"
+                                     PanelBgc="Phasellus consequat convallis quisque maecenas"
+                                     PanelUrl="Curae dignissim" Plus="True"
+                                     Relation="Eleifend non adipiscing parturient per"
+                                     Region="Curabitur nam sed cras mauris" RequestMessageFlag="False">
+                    <Entities:UserEntity.LanguagesUsed>
+                        <System:String>Elementum vivamus</System:String>
+                        <System:String>Duis etiam est</System:String>
+                        <System:String>Auctor accumsan fusce nunc</System:String>
+                        <System:String>Hac lorem facilisis</System:String>
+                        <System:String>Aliquam amet bibendum fermentum morbi</System:String>
+                        <System:String>Vestibulum fringilla</System:String>
+                        <System:String>Leo vestibulum nulla</System:String>
+                        <System:String>Mus proin ante congue aliquet</System:String>
+                        <System:String>Nec cursus arcu augue habitasse</System:String>
+                        <System:String>Blandit commodo dictumst dolor hendrerit</System:String>
+                    </Entities:UserEntity.LanguagesUsed>
+                    <Entities:UserEntity.personalDetail>
+                        <Entities:UserEntity+ PersonalDetail FullName="Ipsum imperdiet cubilia lectus vestibulum"
+                                              FirstName="Fames conubia sit himenaeos"
+                                              LastName="Dictum felis vestibulum"
+                                              ProfilePictureUrl="Eget faucibus adipiscing" />
+                    </Entities:UserEntity.personalDetail>
+                    <Entities:UserEntity.presence>
+                        <Entities:UserEntity+ Presence />
+                    </Entities:UserEntity.presence>
+                    <Entities:UserEntity.trophySummary>
+                        <Entities:UserEntity+ TrophySummary Level="16" Progress="66" TotalTrophies="66" />
+                    </Entities:UserEntity.trophySummary>
+                </Entities:UserEntity>
+            </ViewModels:FriendPageViewModel+UserViewModel.User>
+        </ViewModels:FriendPageViewModel+UserViewModel>
+    </ViewModels:FriendPageViewModel.UserModel>
+</ViewModels:FriendPageViewModel>

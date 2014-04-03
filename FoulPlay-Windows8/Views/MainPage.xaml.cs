@@ -96,12 +96,12 @@ namespace FoulPlay_Windows8.Views
         private void CreateMenu()
         {
             ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
-            var menuItems = new List<MenuItem>();
-            menuItems.Add(new MenuItem("/Assets/phone_home_footerIcon_region.png",
+            var menuItems = new List<MainPageViewModel.MenuItem>();
+            menuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_home_footerIcon_region.png",
                 resourceLoader.GetString("RecentActivity/Text"), "recent"));
-            menuItems.Add(new MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"),
+            menuItems.Add(new MainPageViewModel.MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"),
                 "live"));
-            menuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
+            menuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
                 resourceLoader.GetString("ProfileHeader/Text"), "profile"));
             MenuGridView.ItemsSource = menuItems;
         }
@@ -163,7 +163,7 @@ namespace FoulPlay_Windows8.Views
 
         private async void MenuGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            var item = e.ClickedItem as MenuItem;
+            var item = e.ClickedItem as MainPageViewModel.MenuItem;
             if (item == null) return;
             switch (item.Location)
             {
@@ -228,22 +228,6 @@ namespace FoulPlay_Windows8.Views
         }
 
         #endregion
-
-        private class MenuItem
-        {
-            public MenuItem(string icon, string text, string location)
-            {
-                Text = text;
-                Icon = icon;
-                Location = location;
-            }
-
-            public string Text { get; private set; }
-
-            public string Location { get; private set; }
-
-            public string Icon { get; private set; }
-        }
 
         private void MessagesRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
         {

@@ -110,64 +110,18 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="FoulPlay-Windows8_StoreKey.pfx" />
     <None Include="packages.config" />
-    <PRIResource Include="Strings\ja-JP\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Common\AsyncDelegateCommand.cs" />
-    <Compile Include="Common\NotifierBase.cs" />
-    <Compile Include="HubPage.xaml.cs">
-      <DependentUpon>HubPage.xaml</DependentUpon>
+      <SubType>
+      </SubType>
     </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="SectionPage.xaml.cs">
-      <DependentUpon>SectionPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ItemPage.xaml.cs">
-      <DependentUpon>ItemPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DataModel\SampleDataSource.cs" />
-    <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="Common\NavigationHelper.cs" />
-    <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="Common\ObservableDictionary.cs" />
-    <Compile Include="Tools\ActivityTemplateSelector.cs" />
-    <Compile Include="Tools\AddAsFriendButtonVisibilityConverter.cs" />
-    <Compile Include="Tools\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Tools\ContentKeysImageConverter.cs" />
-    <Compile Include="Tools\ConversationUsersConverter.cs" />
-    <Compile Include="Tools\CountToVisibilityConverter.cs" />
-    <Compile Include="Tools\CountToVisibilityInverter.cs" />
-    <Compile Include="Tools\DateConverter.cs" />
-    <Compile Include="Tools\FriendRequestVisibilityConverter.cs" />
-    <Compile Include="Tools\HasSeenConverter.cs" />
-    <Compile Include="Tools\FriendScrollingCollection.cs" />
-    <Compile Include="Tools\HasTrophiesConverter.cs" />
-    <Compile Include="Tools\IsCurrentUserConverter.cs" />
-    <Compile Include="Tools\OnlineConverter.cs" />
-    <Compile Include="Tools\PersonalIconConverter.cs" />
-    <Compile Include="Tools\PersonalNameConverter.cs" />
-    <Compile Include="Tools\RecentActivityImageConverter.cs" />
-    <Compile Include="Tools\RecentActivityScrollingCollection.cs" />
-    <Compile Include="Tools\TrophyDateConverter.cs" />
-    <Compile Include="Tools\TrophyEarnedVisibilityConverter.cs" />
-    <Compile Include="Tools\TrophyGradeConverter.cs" />
-    <Compile Include="Tools\TrophyHiddenConverter.cs" />
-    <Compile Include="Tools\TrophyHiddenIconConverter.cs" />
-    <Compile Include="Tools\TrophyRareConverter.cs" />
-    <Compile Include="Tools\TrophyRareTextConverter.cs" />
-    <Compile Include="Tools\TrophyScrollingCollection.cs" />
-    <Compile Include="Tools\TrophyStatusConverter.cs" />
-    <Compile Include="Tools\TrophyTypeConverter.cs" />
-    <Compile Include="Tools\ValuePercentConverter.cs" />
     <Compile Include="UserControls\AddAsFriendUserControl.xaml.cs">
       <DependentUpon>AddAsFriendUserControl.xaml</DependentUpon>
     </Compile>
@@ -177,12 +131,6 @@
     <Compile Include="UserControls\RecentActivityUserControl.xaml.cs">
       <DependentUpon>RecentActivityUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\FriendPageViewModel.cs" />
-    <Compile Include="ViewModels\LiveFromPlaystationPageViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\MessagePageViewModel.cs" />
-    <Compile Include="ViewModels\RecentActivityPageViewModel.cs" />
-    <Compile Include="ViewModels\TrophyPageViewModel.cs" />
     <Compile Include="Views\FriendPage.xaml.cs">
       <DependentUpon>FriendPage.xaml</DependentUpon>
     </Compile>
@@ -207,113 +155,12 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="Package.StoreAssociation.xml" />
-    <None Include="Common\ReadMe.txt" />
     <None Include="FoulPlay-Windows8_TemporaryKey.pfx" />
-    <PRIResource Include="Strings\en-US\Resources.resw">
-      <SubType>Designer</SubType>
-    </PRIResource>
-    <Content Include="Assets\appbar.film.png" />
-    <Content Include="Assets\appbar.image.png" />
-    <Content Include="Assets\appbar.speakerphone.png" />
-    <Content Include="Assets\Background.jpg" />
-    <Content Include="Assets\BadgeLogo.png" />
-    <Content Include="Assets\No-Trophy-Icon.png" />
-    <Content Include="Assets\phone_common_defaultThumbnail_etc.png" />
-    <Content Include="Assets\phone_common_defaultThumbnail_trophy.png" />
-    <Content Include="Assets\phone_common_defaultThumbnail_video.png" />
-    <Content Include="Assets\phone_common_defaultThumbnail_whatsNew_broadcast.png" />
-    <Content Include="Assets\phone_common_defaultThumbnail_whatsNew_game.png" />
-    <Content Include="Assets\phone_common_defaultThumbnail_whatsNew_trophy.png" />
-    <Content Include="Assets\phone_common_defaultThumbnail_whatsNew_video.png" />
-    <Content Include="Assets\phone_home_footerIcon_region.png" />
-    <Content Include="Assets\phone_home_icon_gameAlert.png" />
-    <Content Include="Assets\phone_home_icon_invitation.png" />
-    <Content Include="Assets\phone_home_icon_messages.png" />
-    <Content Include="Assets\phone_home_icon_notifications.png" />
-    <Content Include="Assets\phone_home_panelTitleIcon_connectToPS4.png" />
-    <Content Include="Assets\phone_trophy_icon_compareTrophies.png" />
-    <Content Include="Assets\phone_trophy_lock.png" />
-    <Content Include="Assets\phone_trophy_medium_bronze.png" />
-    <Content Include="Assets\phone_trophy_medium_gold.png" />
-    <Content Include="Assets\phone_trophy_medium_hidden.png" />
-    <Content Include="Assets\phone_trophy_medium_platinum.png" />
-    <Content Include="Assets\phone_trophy_medium_silver.png" />
-    <Content Include="Assets\phone_trophy_noTrophies.png" />
-    <Content Include="Assets\phone_trophy_rareness_common.png" />
-    <Content Include="Assets\phone_trophy_rareness_rare.png" />
-    <Content Include="Assets\phone_trophy_rareness_ultraRare.png" />
-    <Content Include="Assets\phone_trophy_rareness_uncommon.png" />
-    <Content Include="Assets\phone_trophy_small_platinum.png" />
-    <Content Include="Assets\phone_whatsNew_icon_detail_button_like.png" />
-    <Content Include="Assets\phone_whatsNew_icon_detail_button_liked.png" />
-    <Content Include="Assets\phone_whatsNew_icon_list_count_like.png" />
-    <Content Include="Assets\PSPlus-Large.png" />
-    <Content Include="Assets\PSPlus.png" />
-    <Content Include="Assets\SplashScreen.scale-140.png" />
-    <Content Include="Assets\SplashScreen.scale-180.png" />
-    <Content Include="Assets\Square150x150Logo.scale-100.png" />
-    <Content Include="Assets\Square150x150Logo.scale-140.png" />
-    <Content Include="Assets\Square150x150Logo.scale-180.png" />
-    <Content Include="Assets\Square150x150Logo.scale-80.png" />
-    <Content Include="Assets\Square30x30Logo.scale-100.png" />
-    <Content Include="Assets\Square30x30Logo.scale-140.png" />
-    <Content Include="Assets\Square30x30Logo.scale-180.png" />
-    <Content Include="Assets\Square30x30Logo.scale-80.png" />
-    <Content Include="Assets\Square30x30Logo.targetsize-16.png" />
-    <Content Include="Assets\Square30x30Logo.targetsize-256.png" />
-    <Content Include="Assets\Square30x30Logo.targetsize-32.png" />
-    <Content Include="Assets\Square30x30Logo.targetsize-48.png" />
-    <Content Include="Assets\Square310.png" />
-    <Content Include="Assets\Square310x310Logo.scale-100.png" />
-    <Content Include="Assets\Square310x310Logo.scale-140.png" />
-    <Content Include="Assets\Square310x310Logo.scale-180.png" />
-    <Content Include="Assets\Square310x310Logo.scale-80.png" />
-    <Content Include="Assets\Square70x70Logo.scale-100.png" />
-    <Content Include="Assets\Square70x70Logo.scale-140.png" />
-    <Content Include="Assets\Square70x70Logo.scale-180.png" />
-    <Content Include="Assets\Square70x70Logo.scale-80.png" />
-    <Content Include="Assets\StoreLogo.scale-140.png" />
-    <Content Include="Assets\StoreLogo.scale-180.png" />
-    <Content Include="Assets\Trophy-icon-bronze.png" />
-    <Content Include="Assets\Trophy-icon-Gold.png" />
-    <Content Include="Assets\Trophy-icon-Hidden.png" />
-    <Content Include="Assets\Trophy-icon-plat.png" />
-    <Content Include="Assets\Trophy-icon-Silver.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-140.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-180.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-80.png" />
-    <Content Include="DataModel\SampleData.json" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Logo.scale-100.png" />
-    <Content Include="Assets\SmallLogo.scale-100.png" />
-    <Content Include="Assets\SplashScreen.scale-100.png" />
-    <Content Include="Assets\StoreLogo.scale-100.png" />
-    <Content Include="Assets\LightGray.png" />
-    <Content Include="Assets\MediumGray.png" />
-    <Content Include="Assets\DarkGray.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="HubPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SectionPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ItemPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\AddAsFriendUserControl.xaml">
       <SubType>Designer</SubType>
@@ -357,13 +204,10 @@
       <Project>{8d9f5785-3339-4cd1-b009-2d08363d705d}</Project>
       <Name>FoulPlay-Windows8.BackgroundStatus</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Foulplay-Windows8.Core\Foulplay-Windows8.Core.csproj">
-      <Project>{f19d560f-b90e-4b03-acd3-119bae802ad4}</Project>
-      <Name>Foulplay-Windows8.Core</Name>
+    <ProjectReference Include="..\FoulPlay.Core\FoulPlay.Core.csproj">
+      <Project>{6330d5a9-c0d6-49ca-819c-352472920b56}</Project>
+      <Name>FoulPlay.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="MultilingualResources\FoulPlay-Windows8_ja-JP.xlf" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -378,13 +222,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <DesignData Include="SampleData\FriendPageViewModelSampleData.xaml" />
-    <DesignData Include="SampleData\LiveFromPlaystationPageViewModelSampleData.xaml" />
-    <DesignData Include="SampleData\MainPageViewModelSampleData.xaml" />
-    <DesignData Include="SampleData\MessagePageViewModelSampleData.xaml" />
-    <DesignData Include="SampleData\RecentActivityPageViewModelSampleData.xaml" />
-    <DesignData Include="SampleData\TrophyPageViewModelSampleData.xaml" />
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
   </ItemGroup>
+  <Import Project="..\FoulPlay-Windows8.Shared\FoulPlay-Windows8.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

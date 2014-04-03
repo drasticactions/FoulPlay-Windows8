@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>24052fd5-33d5-47b9-92c3-d2d6c9d8782b</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>FoulPlay_Windows8</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\AsyncDelegateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\NotifierBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ActivityTemplateSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\AddAsFriendButtonVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ContentKeysImageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ConversationUsersConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\CountToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\CountToVisibilityInverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\DateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\FriendRequestVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\FriendScrollingCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\HasSeenConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\HasTrophiesConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\IsCurrentUserConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\OnlineConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\PersonalIconConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\PersonalNameConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\RecentActivityImageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\RecentActivityScrollingCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyDateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyEarnedVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyGradeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyHiddenConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyHiddenIconConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyRareConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyRareTextConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyScrollingCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyStatusConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyTypeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ValuePercentConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\FriendPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\LiveFromPlaystationPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MessagePageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecentActivityPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TrophyPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\appbar.film.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\appbar.image.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\appbar.speakerphone.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Background.jpg" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\BadgeLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DarkGray.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\MainLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\MediumGray.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\No-Trophy-Icon.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_common_defaultThumbnail_etc.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_common_defaultThumbnail_trophy.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_common_defaultThumbnail_video.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_common_defaultThumbnail_whatsNew_broadcast.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_common_defaultThumbnail_whatsNew_game.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_common_defaultThumbnail_whatsNew_trophy.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_common_defaultThumbnail_whatsNew_video.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_home_footerIcon_region.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_home_icon_gameAlert.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_home_icon_invitation.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_home_icon_messages.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_home_icon_notifications.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_home_panelTitleIcon_connectToPS4.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_icon_compareTrophies.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_lock.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_medium_bronze.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_medium_gold.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_medium_hidden.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_medium_platinum.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_medium_silver.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_noTrophies.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_rareness_common.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_rareness_rare.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_rareness_ultraRare.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_rareness_uncommon.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_trophy_small_platinum.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_whatsNew_icon_detail_button_like.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_whatsNew_icon_detail_button_liked.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\phone_whatsNew_icon_list_count_like.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\PSPlus-Large.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\PSPlus.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square150x150Logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square150x150Logo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square150x150Logo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.targetsize-16.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.targetsize-256.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.targetsize-32.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square30x30Logo.targetsize-48.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square310.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square310x310Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square310x310Logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square310x310Logo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square310x310Logo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square70x70Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square70x70Logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square70x70Logo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Square70x70Logo.scale-80.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Trophy-icon-bronze.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Trophy-icon-Gold.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Trophy-icon-Hidden.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Trophy-icon-plat.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Trophy-icon-Silver.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Wide310x150Logo.scale-140.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Wide310x150Logo.scale-180.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Wide310x150Logo.scale-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Common\ReadMe.txt" />
+    <None Include="$(MSBuildThisFileDirectory)MultilingualResources\FoulPlay-Windows8_ja-JP.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <DesignData Include="$(MSBuildThisFileDirectory)SampleData\FriendPageViewModelSampleData.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="$(MSBuildThisFileDirectory)SampleData\LiveFromPlaystationPageViewModelSampleData.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="$(MSBuildThisFileDirectory)SampleData\MainPageViewModelSampleData.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="$(MSBuildThisFileDirectory)SampleData\MessagePageViewModelSampleData.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="$(MSBuildThisFileDirectory)SampleData\RecentActivityPageViewModelSampleData.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="$(MSBuildThisFileDirectory)SampleData\TrophyPageViewModelSampleData.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\en-US\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="$(MSBuildThisFileDirectory)Strings\ja-JP\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
+</Project>

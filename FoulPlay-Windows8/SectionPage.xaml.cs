@@ -2,7 +2,6 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using FoulPlay_Windows8.Common;
-using FoulPlay_Windows8.Data;
 
 // The Section Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234229
 

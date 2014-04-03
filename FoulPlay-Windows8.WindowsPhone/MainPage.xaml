@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="FoulPlay_Windows8.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FoulPlay_Windows8"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
+    xmlns:tools="using:FoulPlay_Windows8.Tools"
+    mc:Ignorable="d"
+   >
+    <Page.DataContext>
+        <viewModels:MainPageViewModel />
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <tools:ActivityTemplateSelector x:Name="ActivityTemplateSelector"
+                                        StoreActivityDataTemplate="{StaticResource StoreActivityDataTemplate}"
+                                        ActivityDataTemplate="{StaticResource ActivityDataTemplate}" />
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Default">
+                    <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="Assets/Background.jpg"/>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <ImageBrush x:Key="HubBackgroundImageBrush" ImageSource="{x:Null}"/>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid x:Name="LayoutRoot">
+        <Hub x:Name="Hub" x:Uid="Hub" Header="FoulPlay" Background="{ThemeResource HubBackgroundImageBrush}">
+            <HubSection x:Uid="HubSection1">
+            <DataTemplate>
+                    <GridView IsSwipeEnabled="False" ItemsSource="{Binding MenuItems}" ItemClick="MenuGridView_OnItemClick" IsItemClickEnabled="True"
+                              x:Name="MenuGridView" ItemTemplate="{StaticResource MenuTemplate}" Grid.Row="1"
+                              SelectionMode="None" />
+            </DataTemplate>
+        </HubSection>
+            <HubSection >
+                <DataTemplate>
+                    <GridView Margin="15"
+                              IsSwipeEnabled="False"
+                              SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ActivityFeedGridView_OnItemClick"
+                              ItemsSource="{Binding RecentActivityScrollingCollection}"
+                              x:Name="ActivityFeedGridView"
+                              ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VariableSizedWrapGrid Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <VariableSizedWrapGrid Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </GridView.GroupStyle>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+   </Grid>
+</Page>

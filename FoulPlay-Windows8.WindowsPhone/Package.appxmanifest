@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
+  <Identity Name="0ba50fcc-868e-4ea9-be9c-02d5c2d10555" Publisher="CN=Timothy" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="0ba50fcc-868e-4ea9-be9c-02d5c2d10555" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>FoulPlay-Windows8.WindowsPhone</DisplayName>
+    <PublisherDisplayName>Timothy</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.1</OSMinVersion>
+    <OSMaxVersionTested>6.3.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="FoulPlay_Windows8.WindowsPhone.App">
+      <m3:VisualElements DisplayName="FoulPlay-Windows8.WindowsPhone" Square150x150Logo="Assets\Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="FoulPlay-Windows8.WindowsPhone" ForegroundText="light" BackgroundColor="#1E72C9">
+        <m3:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png" ShortName="FoulPlay" DefaultSize="wide310x150Logo">
+          <m3:ShowNameOnTiles>
+            <m3:ShowOn Tile="square150x150Logo" />
+          </m3:ShowNameOnTiles>
+        </m3:DefaultTile>
+        <m3:ApplicationView MinWidth="width320" />
+        <!--Used in XAML Designer. DO NOT REMOVE-->
+      </m3:VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="com.playstation.playstationapp">
+            <DisplayName>FoulPlay</DisplayName>
+          </Protocol>
+        </Extension>
+        <Extension Category="windows.backgroundTasks" EntryPoint="FoulPlay_Windows8.BackgroundStatus.BackgroundNotifyStatus">
+          <BackgroundTasks>
+            <Task Type="systemEvent" />
+            <Task Type="timer" />
+          </BackgroundTasks>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+  </Capabilities>
+</Package>

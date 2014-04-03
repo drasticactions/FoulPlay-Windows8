@@ -1,0 +1,35 @@
+﻿<UserControl
+    x:Class="FoulPlay_Windows8.UserControls.FriendRequestUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FoulPlay_Windows8.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="365"
+    d:DesignWidth="400">
+    <Popup Grid.Row="0" Width="400" Height="365" x:Name="ParentPopup" IsOpen="False" IsLightDismissEnabled="True">
+        <Popup.ChildTransitions>
+            <TransitionCollection>
+                <PopupThemeTransition />
+            </TransitionCollection>
+        </Popup.ChildTransitions>
+        <Border Width="400" Height="365" BorderBrush="White" BorderThickness="1">
+            <Grid>
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.90" />
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="225"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Style="{StaticResource SubheaderTextBlockStyle}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Testing"/>
+                <TextBlock Grid.Row="1" Margin="15"></TextBlock>
+                <StackPanel Margin="15" Grid.Row="2">
+                    <Button x:Name="FriendRequestButton" HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Popup>
+</UserControl>

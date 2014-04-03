@@ -77,7 +77,6 @@ namespace FoulPlay_Windows8
 
         private async void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Uri test = WebAuthenticationBroker.GetCurrentApplicationCallbackUri();
             var startUri =
                 new Uri(
                     "https://reg.api.km.playstation.net/regcam/mobile/sign-in.html?redirectURL=com.playstation.PlayStationApp://redirect&client_id=4db3729d-4591-457a-807a-1cf01e60c3ac&scope=sceapp");

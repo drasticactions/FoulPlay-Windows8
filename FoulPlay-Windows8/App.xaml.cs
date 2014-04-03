@@ -1,12 +1,14 @@
-﻿// The Hub App template is documented at http://go.microsoft.com/fwlink/?LinkId=321221
+﻿using System.Diagnostics;
+using Foulplay_Windows8.Core.Entities;
+using Foulplay_Windows8.Core.Managers;
+using FoulPlay_Windows8.Common;
+using FoulPlay_Windows8.Views;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.ApplicationModel.Background;
 using Windows.Globalization;
 using Windows.Storage;
 using Windows.System;
@@ -16,11 +18,6 @@ using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
-using FoulPlay_Windows8.Common;
-using Foulplay_Windows8.Core.Entities;
-using Foulplay_Windows8.Core.Managers;
-using Foulplay_Windows8.Core.Tools;
-using FoulPlay_Windows8.Views;
 
 namespace FoulPlay_Windows8
 {
