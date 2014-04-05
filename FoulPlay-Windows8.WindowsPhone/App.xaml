@@ -37,6 +37,29 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+        <DataTemplate x:Key="InviteDataTemplate">
+            <Grid Margin="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="75" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Grid.Column="0" Width="15" Height="15"
+                                                   Fill="{Binding Expired, Converter={StaticResource ExpiredConverter}}" />
+                <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
+                    <Image Source="{Binding NpTitleDetail.NpTitleIconUrl, Converter={StaticResource InviteImageConverter}}" Stretch="UniformToFill" />
+                </Border>
+                <Grid Margin="15,23,0,0" VerticalAlignment="Center" Grid.Column="2">
+                    <StackPanel>
+                        <TextBlock Text="{Binding NpTitleDetail.NpTitleName}" />
+                        <TextBlock Text="{Binding AvailablePlatforms, Converter={StaticResource AvailablePlatformConverter}}" />
+                        <TextBlock Text="{Binding FromUser.OnlineId, Converter={StaticResource SenderNameConverter}}" />
+                        <TextBlock HorizontalAlignment="Right" FontSize="15" Text="{Binding ReceivedDate, Converter={StaticResource DateConverter}}" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </DataTemplate>
         <DataTemplate x:Key="StoreActivityDataTemplate">
             <Border HorizontalAlignment="Left" BorderBrush="White" Width="300" Height="200" BorderThickness="1">
                 <Grid>

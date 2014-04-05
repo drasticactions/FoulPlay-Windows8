@@ -416,7 +416,7 @@
   <data name="SendButton.Content" xml:space="preserve">
     <value>送信</value>
   </data>
-  <data name="SendMessage.Text" xml:space="preserve">
+  <data name="SendMessage.Content" xml:space="preserve">
     <value>メッセージを送信する</value>
   </data>
   <data name="Settings.Text" xml:space="preserve">

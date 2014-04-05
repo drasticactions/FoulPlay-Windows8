@@ -84,7 +84,8 @@ namespace FoulPlay_Windows8.Tools
             }
             if (inviteEntity.Invitations.Any())
             {
-                HasMoreItems = true;
+                // TODO: Only load once. HACK.
+                HasMoreItems = false;
                 Offset += 32;
             }
             else

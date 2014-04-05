@@ -6,6 +6,7 @@ using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using FoulPlay.Core.Entities;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -79,6 +80,7 @@ namespace FoulPlay_Windows8.Views
             _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
             _vm.SetRecentActivityFeed(_user.OnlineId);
             _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
+            _vm.SetInviteList();
             CreateBackgroundTask();
         }
 
@@ -237,6 +239,21 @@ namespace FoulPlay_Windows8.Views
         private void FriendsRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
         {
             SetFriendList();
+        }
+
+        private void InvitesListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var item = e.ClickedItem as SessionInviteEntity.Invitation;
+            if (item == null) return;
+            var control = new SessionInviteUserControl();
+            control.SetOffset();
+            control.SetContext(item);
+            control.OpenPopup();
+        }
+
+        private void GameInviteRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _vm.SetInviteList();
         }
     }
 }

@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\HasSeenConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\HasTrophiesConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\InviteImageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\MaxPlayersConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\SenderNameConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\SessionInviteScrollingCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\IsCurrentUserConverter.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MessagePageViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecentActivityPageViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SessionInvitePopupViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\TrophyPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
