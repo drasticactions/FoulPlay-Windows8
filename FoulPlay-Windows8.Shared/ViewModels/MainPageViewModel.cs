@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.ApplicationModel.Resources;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
@@ -22,7 +23,28 @@ namespace FoulPlay_Windows8.ViewModels
         private RecentActivityScrollingCollection _recentActivityScrollingCollection;
 
         private ObservableCollection<MenuItem> _menuItems = new ObservableCollection<MenuItem>();
+        private bool _messageGroupEmpty;
+        private bool _messageGroupLoading;
 
+        public bool MessageGroupEmpty
+        {
+            get { return _messageGroupEmpty; }
+            set
+            {
+                SetProperty(ref _messageGroupEmpty, value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool MessageGroupLoading
+        {
+            get { return _messageGroupLoading; }
+            set
+            {
+                SetProperty(ref _messageGroupLoading, value);
+                OnPropertyChanged();
+            }
+        }
         public ObservableCollection<MenuItem> MenuItems
         {
             get { return _menuItems; }
@@ -113,16 +135,21 @@ namespace FoulPlay_Windows8.ViewModels
 
         public async void SetMessages(string userName, UserAccountEntity userAccountEntity)
         {
+            MessageGroupLoading = true;
             MessageGroupCollection = new ObservableCollection<MessageGroupItem>();
             var messageManager = new MessageManager();
             _messageGroupEntity = await messageManager.GetMessageGroup(userName, userAccountEntity);
 
-            foreach (MessageGroupEntity.MessageGroup message in _messageGroupEntity.MessageGroups)
+            foreach (var newMessage in _messageGroupEntity.MessageGroups.Select(message => new MessageGroupItem {MessageGroup = message}))
             {
-                var newMessage = new MessageGroupItem {MessageGroup = message};
                 GetAvatar(newMessage, userAccountEntity);
                 MessageGroupCollection.Add(newMessage);
             }
+            if (MessageGroupCollection.Count <= 0)
+            {
+                MessageGroupEmpty = true;
+            }
+            MessageGroupLoading = false;
         }
 
         private async void GetAvatar(MessageGroupItem message, UserAccountEntity userAccountEntity)

@@ -15,7 +15,7 @@ using Foulplay_Windows8.Core.Entities;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class SessionInviteScrollingCollection : ObservableCollection<SessionInviteEntity.Invitation>, ISupportIncrementalLoading
+    public class SessionInviteScrollingCollection : ObservableCollection<SessionInviteEntity.Invitation>, ISupportIncrementalLoading, INotifyPropertyChanged
     {
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
@@ -49,6 +49,7 @@ namespace FoulPlay_Windows8.Tools
         }
 
         public bool HasMoreItems { get; private set; }
+        private bool _isEmpty;
         public UserAccountEntity UserAccountEntity;
         public int Offset;
         private bool _isLoading;
@@ -63,6 +64,17 @@ namespace FoulPlay_Windows8.Tools
             }
         }
 
+        public bool IsEmpty
+        {
+            get { return _isEmpty; }
+
+            private set
+            {
+                _isEmpty = value;
+                OnPropertyChanged();
+            }
+        }
+
         public async void LoadInvites()
         {
             IsLoading = true;
@@ -71,11 +83,13 @@ namespace FoulPlay_Windows8.Tools
             if (inviteEntity == null)
             {
                 HasMoreItems = false;
+                IsLoading = false;
                 return;
             }
             if (inviteEntity.Invitations == null)
             {
                 HasMoreItems = false;
+                IsLoading = false;
                 return;
             }
             foreach (var invite in inviteEntity.Invitations)
@@ -90,6 +104,7 @@ namespace FoulPlay_Windows8.Tools
             }
             else
             {
+                IsEmpty = true;
                 HasMoreItems = false;
             }
             IsLoading = false;

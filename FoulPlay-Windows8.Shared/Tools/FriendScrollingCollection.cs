@@ -12,7 +12,7 @@ using Foulplay_Windows8.Core.Managers;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class FriendScrollingCollection : ObservableCollection<FriendsEntity.Friend>, ISupportIncrementalLoading
+    public class FriendScrollingCollection : ObservableCollection<FriendsEntity.Friend>, ISupportIncrementalLoading, INotifyPropertyChanged
     {
         public bool BlockedPlayer;
         public bool FriendStatus;
@@ -25,7 +25,7 @@ namespace FoulPlay_Windows8.Tools
         public bool RecentlyPlayed;
         public bool Requested;
         public bool Requesting;
-
+        private bool _isEmpty;
         public UserAccountEntity UserAccountEntity;
 
         private bool _isLoading;
@@ -46,6 +46,17 @@ namespace FoulPlay_Windows8.Tools
             private set
             {
                 _isLoading = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsEmpty
+        {
+            get { return _isEmpty; }
+
+            private set
+            {
+                _isEmpty = value;
                 OnPropertyChanged();
             }
         }
@@ -105,6 +116,10 @@ namespace FoulPlay_Windows8.Tools
             else
             {
                 HasMoreItems = false;
+                if (Count <= 0)
+                {
+                    IsEmpty = true;
+                }
             }
             IsLoading = false;
         }

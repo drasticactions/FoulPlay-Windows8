@@ -12,7 +12,7 @@ using Foulplay_Windows8.Core.Managers;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class TrophyScrollingCollection : ObservableCollection<TrophyEntity.TrophyTitle>, ISupportIncrementalLoading
+    public class TrophyScrollingCollection : ObservableCollection<TrophyEntity.TrophyTitle>, ISupportIncrementalLoading, INotifyPropertyChanged
     {
         public int Offset;
         public UserAccountEntity UserAccountEntity;

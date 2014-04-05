@@ -13,13 +13,13 @@ using Foulplay_Windows8.Core.Managers;
 namespace FoulPlay_Windows8.Tools
 {
     public class RecentActivityScrollingCollection : ObservableCollection<RecentActivityEntity.Feed>,
-        ISupportIncrementalLoading
+        ISupportIncrementalLoading, INotifyPropertyChanged
     {
         public bool IsNews;
         public bool StorePromo;
         public UserAccountEntity UserAccountEntity;
         private bool _isLoading;
-
+        private bool _isEmpty;
         public RecentActivityScrollingCollection()
         {
             HasMoreItems = true;
@@ -38,6 +38,17 @@ namespace FoulPlay_Windows8.Tools
             {
                 _isLoading = value;
                 NotifyPropertyChanged("IsLoading");
+            }
+        }
+
+        public bool IsEmpty
+        {
+            get { return _isEmpty; }
+
+            private set
+            {
+                _isEmpty = value;
+                OnPropertyChanged();
             }
         }
 
@@ -86,6 +97,10 @@ namespace FoulPlay_Windows8.Tools
             }
             else
             {
+                if (Count <= 0)
+                {
+                    IsEmpty = true;
+                }
                 HasMoreItems = false;
             }
             IsLoading = false;
