@@ -48,7 +48,7 @@ namespace FoulPlay_Windows8.Tools
             private set
             {
                 _isEmpty = value;
-                OnPropertyChanged();
+                NotifyPropertyChanged("IsEmpty");
             }
         }
 

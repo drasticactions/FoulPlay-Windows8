@@ -105,8 +105,8 @@
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
-
             </ScrollViewer>
+            <ProgressRing Grid.Row="1" Width="300" Height="300" IsActive="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"/>
         </Grid>
     </Grid>
 </Page>

@@ -72,11 +72,11 @@ namespace FoulPlay_Windows8.Views
                 App.UserAccountEntity.SetUserEntity(user);
             }
             _userName = (string) e.NavigationParameter;
-            await _vm.SetUser(_userName);
             _vm.SetRecentActivityFeed(_userName);
             _vm.SetFriendsList(_userName, false, false, false, false, true, false, false);
             _vm.SetTrophyList(_userName);
             _vm.SetMessages(_userName, App.UserAccountEntity);
+            await _vm.SetUser(_userName);
             //FriendRequestButton.Visibility = _vm.SetFriendRequestVisibility();
             //AddAsFriendButton.Visibility = _vm.SetAddFriendVisibility();
         }

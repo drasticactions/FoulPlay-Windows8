@@ -17,7 +17,7 @@ namespace FoulPlay_Windows8.Tools
         public int Offset;
         public UserAccountEntity UserAccountEntity;
         private bool _isLoading;
-
+        private bool _isEmpty;
         public TrophyScrollingCollection()
         {
             HasMoreItems = true;
@@ -35,6 +35,16 @@ namespace FoulPlay_Windows8.Tools
             {
                 _isLoading = value;
                 NotifyPropertyChanged("IsLoading");
+            }
+        }
+
+        public bool IsEmpty
+        {
+            get { return _isEmpty; }
+            set
+            {
+                _isEmpty = value;
+                OnPropertyChanged();
             }
         }
 
@@ -83,6 +93,7 @@ namespace FoulPlay_Windows8.Tools
             if (trophyList == null)
             {
                 //HasMoreItems = false;
+                IsEmpty = true;
                 return false;
             }
             foreach (TrophyEntity.TrophyTitle trophy in trophyList.TrophyTitles)
@@ -96,6 +107,10 @@ namespace FoulPlay_Windows8.Tools
             }
             else
             {
+                if (Count <= 0)
+                {
+                    IsEmpty = true;
+                }
                 HasMoreItems = false;
             }
             IsLoading = false;

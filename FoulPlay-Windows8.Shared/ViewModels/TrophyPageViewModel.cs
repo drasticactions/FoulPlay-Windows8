@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -10,7 +11,8 @@ namespace FoulPlay_Windows8.ViewModels
         private readonly TrophyDetailManager _trophyDetailManager = new TrophyDetailManager();
         private ObservableCollection<TrophyDetailEntity.Trophy> _trophies;
         private TrophyDetailEntity _trophyDetailEntity;
-
+        private bool _isLoading;
+        private bool _isEmpty;
         public TrophyPageViewModel()
         {
             _trophyDetailEntity = new TrophyDetailEntity();
@@ -27,19 +29,54 @@ namespace FoulPlay_Windows8.ViewModels
             }
         }
 
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                SetProperty(ref _isLoading, value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsEmpty
+        {
+            get { return _isEmpty; }
+            set
+            {
+                SetProperty(ref _isEmpty, value);
+                OnPropertyChanged();
+            }
+        }
+
         public async void SetTrophyList(string userName, string npCommunicationId)
         {
+            IsLoading = true;
             TrophyDetailEntity trophys =
                 await
                     _trophyDetailManager.GetTrophyDetailList(npCommunicationId,
                         userName, true,
                         App.UserAccountEntity);
-            if (trophys == null) return;
-            if (trophys.Trophies == null) return;
+            if (trophys == null)
+            {
+                IsLoading = false;
+                return;
+            }
+            if (trophys.Trophies == null)
+            {
+                IsLoading = false;
+                return;
+            }
             foreach (TrophyDetailEntity.Trophy trophy in trophys.Trophies)
             {
                 Trophies.Add(trophy);
             }
+            if (!trophys.Trophies.Any())
+            {
+                IsEmpty = true;
+            }
+            IsLoading = false;
+
         }
     }
 }

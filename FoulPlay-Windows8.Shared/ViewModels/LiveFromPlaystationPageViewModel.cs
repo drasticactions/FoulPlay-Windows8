@@ -10,6 +10,8 @@ namespace FoulPlay_Windows8.ViewModels
     {
         private readonly LiveStreamManager _liveStreamManager = new LiveStreamManager();
         private ObservableCollection<LiveBroadcastEntity> _liveBroadcastCollection;
+        private bool _isLoading;
+        private bool _isEmpty;
 
         public LiveFromPlaystationPageViewModel()
         {
@@ -26,6 +28,27 @@ namespace FoulPlay_Windows8.ViewModels
             }
         }
 
+
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                SetProperty(ref _isLoading, value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsEmpty
+        {
+            get { return _isEmpty; }
+            set
+            {
+                SetProperty(ref _isEmpty, value);
+                OnPropertyChanged();
+            }
+        }
+
         public void BuildList()
         {
             SetUstreamElements();
@@ -34,6 +57,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         private async void SetUstreamElements()
         {
+            IsLoading = true;
             var filterList = new Dictionary<string, string>
             {
                 {"platform", "PS4"},
@@ -52,10 +76,13 @@ namespace FoulPlay_Windows8.ViewModels
                 entity.ParseFromUstream(ustream);
                 LiveBroadcastCollection.Add(entity);
             }
+            IsLoading = false;
+
         }
 
         private async void SetTwitchElements()
         {
+            IsLoading = true;
             TwitchEntity twitchList =
                 await _liveStreamManager.GetTwitchFeed(0, 80, "PS4", "true", string.Empty, App.UserAccountEntity);
             if (twitchList == null) return;
@@ -66,6 +93,8 @@ namespace FoulPlay_Windows8.ViewModels
                 entity.ParseFromTwitch(twitch);
                 LiveBroadcastCollection.Add(entity);
             }
+            IsLoading = false;
+
         }
     }
 }
