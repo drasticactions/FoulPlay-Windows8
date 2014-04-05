@@ -101,15 +101,14 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\Foulplay-Windows8.Core\Foulplay-Windows8.Core.csproj">
-      <Project>{F19D560F-B90E-4B03-ACD3-119BAE802AD4}</Project>
-      <Name>Foulplay-Windows8.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="BackgroundNotifyStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoulPlay.Core\FoulPlay.Core.csproj">
+      <Project>{6330d5a9-c0d6-49ca-819c-352472920b56}</Project>
+      <Name>FoulPlay.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
