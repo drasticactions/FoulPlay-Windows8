@@ -508,4 +508,10 @@
   <data name="FriendPivot.Header" xml:space="preserve">
     <value>フレンド</value>
   </data>
+  <data name="Invitations.Header" xml:space="preserve">
+    <value>招待</value>
+  </data>
+  <data name="Menu.Header" xml:space="preserve">
+    <value>メニュー</value>
+  </data>
 </root>

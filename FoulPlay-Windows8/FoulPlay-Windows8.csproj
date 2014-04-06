@@ -234,6 +234,12 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-180.png" />
+    <Content Include="Assets\SplashScreen1.scale-100.png" />
+    <Content Include="Assets\SplashScreen1.scale-140.png" />
+    <Content Include="Assets\SplashScreen1.scale-180.png" />
+  </ItemGroup>
   <Import Project="..\FoulPlay-Windows8.Shared\FoulPlay-Windows8.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

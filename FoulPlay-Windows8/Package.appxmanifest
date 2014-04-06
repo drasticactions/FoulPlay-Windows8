@@ -19,7 +19,7 @@
         <m2:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" ShortName="FoulPlay" Square70x70Logo="Assets\Square70x70Logo.png" Square310x310Logo="Assets\Square310x310Logo.png">
         </m2:DefaultTile>
         <m2:LockScreen Notification="badgeAndTileText" BadgeLogo="Assets\BadgeLogo.png" />
-        <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#1E72C9" />
+        <m2:SplashScreen Image="Assets\SplashScreen1.png" BackgroundColor="#1E72C9" />
       </m2:VisualElements>
       <Extensions>
         <Extension Category="windows.protocol">

@@ -180,24 +180,30 @@ namespace FoulPlay_Windows8.ViewModels
             public MessageGroupEntity.MessageGroup MessageGroup { get; set; }
         }
 
-        // TODO: Change for Windows Phone 8.1
         public void CreateMenu()
         {
             ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
-            MenuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_home_footerIcon_region.png",
+            MenuItems.Add(new MenuItem("/Assets/phone_home_footerIcon_region.png",
                 resourceLoader.GetString("RecentActivity/Text"), "recent"));
-            MenuItems.Add(new MainPageViewModel.MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"),
+            MenuItems.Add(new MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"),
                 "live"));
-            MenuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
+            MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
                 resourceLoader.GetString("ProfileHeader/Text"), "profile"));
-            MenuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
-    resourceLoader.GetString("ProfileHeader/Text"), "profile"));
-            MenuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
-    resourceLoader.GetString("ProfileHeader/Text"), "profile"));
-            MenuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
-    resourceLoader.GetString("ProfileHeader/Text"), "profile"));
-            MenuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
-    resourceLoader.GetString("ProfileHeader/Text"), "profile"));
+        }
+
+        public void CreateMenuPhone()
+        {
+            ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
+            MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
+resourceLoader.GetString("FriendsPivot/Text"), "friends"));
+            MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
+resourceLoader.GetString("TrophyHeader/Text"), "trophies"));
+            MenuItems.Add(new MenuItem("/Assets/phone_home_footerIcon_region.png",
+                resourceLoader.GetString("RecentActivity/Text"), "recent"));
+            MenuItems.Add(new MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"),
+                "live"));
+            MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
+                resourceLoader.GetString("ProfileHeader/Text"), "profile"));
         }
 
         public class MenuItem

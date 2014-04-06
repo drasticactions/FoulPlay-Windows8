@@ -52,7 +52,7 @@ namespace FoulPlay_Windows8
                 var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(jsonObjectString);
                 App.UserAccountEntity.SetUserEntity(user);
             }
-            _vm.CreateMenu();
+            _vm.CreateMenuPhone();
             _user = App.UserAccountEntity.GetUserEntity();
             _vm.SetRecentActivityFeed(_user.OnlineId);
             _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
@@ -122,6 +122,26 @@ namespace FoulPlay_Windows8
         }
 
         private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GameInviteRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void InvitesListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+        private void FriendsRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }

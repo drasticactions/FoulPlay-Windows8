@@ -22,57 +22,42 @@
 
     </Page.Resources>
     <Grid x:Name="LayoutRoot">
-        <Pivot>
-            <PivotItem Header="Menu">
-                <GridView IsSwipeEnabled="False" ItemsSource="{Binding MenuItems}" ItemClick="MenuGridView_OnItemClick" IsItemClickEnabled="True"
+        <Hub x:Name="Hub" x:Uid="Hub" Header="foulplay">
+            <HubSection x:Uid="HubSection1" Header="Menu">
+                <DataTemplate>
+                    <GridView IsSwipeEnabled="False" ItemsSource="{Binding MenuItems}" ItemClick="MenuGridView_OnItemClick" IsItemClickEnabled="True"
                               x:Name="MenuGridView" ItemTemplate="{StaticResource MenuTemplate}"
                               SelectionMode="None" />
-            </PivotItem>
-            <PivotItem Header="Friends">
-                <ListView x:Name="FriendsListView" SelectionMode="None" IsItemClickEnabled="True"
-                              ItemClick="FriendsListView_OnItemClick" ItemTemplate="{StaticResource FriendsTemplate}" IsSwipeEnabled="False"
-                              HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                </ListView>
-            </PivotItem>
-            <PivotItem Header="Invites">
-<ListView x:Name="SessionInviteListView" SelectionMode="None" IsItemClickEnabled="True" 
-          IsSwipeEnabled="False" HorizontalAlignment="Stretch" 
-          ItemsSource="{Binding SessionInviteScrollingCollection}">
-    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Margin="6">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="25"/>
-                                    <ColumnDefinition Width="75" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left"
-                                                   Grid.Column="0" Width="15" Height="15"
-                                                   Fill="{Binding Expired, Converter={StaticResource ExpiredConverter}}" />
-                                <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
-                                    <Image Source="{Binding NpTitleDetail.NpTitleIconUrl, Converter={StaticResource InviteImageConverter}}" Stretch="UniformToFill" />
-                                </Border>
-                                <Grid Margin="15,23,0,0" VerticalAlignment="Center" Grid.Column="2">
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding NpTitleDetail.NpTitleName}" />
-                                        <TextBlock Text="{Binding AvailablePlatforms, Converter={StaticResource AvailablePlatformConverter}}" />
-                                        <TextBlock Text="{Binding FromUser.OnlineId, Converter={StaticResource SenderNameConverter}}" />
-                                        <TextBlock HorizontalAlignment="Right" FontSize="15" Text="{Binding ReceivedDate, Converter={StaticResource DateConverter}}" />
-                                    </StackPanel>
-                                </Grid>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-</ListView>
-            </PivotItem>
-            <PivotItem Header="Messages">
+                </DataTemplate>
+            </HubSection>
 
-            </PivotItem>
-        </Pivot>
-   </Grid>
+            <HubSection x:Uid="HubSection2" Header="What's New" Width="Auto">
+                <DataTemplate>
+                    <GridView Grid.Row="1"
+                              IsSwipeEnabled="False"
+                              SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ActivityFeedGridView_OnItemClick"
+                              ItemsSource="{Binding RecentActivityScrollingCollection}"
+                              x:Name="ActivityFeedGridView"
+                              ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VariableSizedWrapGrid Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                        <GridView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.Panel>
+                                    <ItemsPanelTemplate>
+                                        <VariableSizedWrapGrid Orientation="Vertical" />
+                                    </ItemsPanelTemplate>
+                                </GroupStyle.Panel>
+                            </GroupStyle>
+                        </GridView.GroupStyle>
+                    </GridView>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+    </Grid>
 </Page>

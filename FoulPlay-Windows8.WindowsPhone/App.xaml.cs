@@ -43,6 +43,16 @@ namespace FoulPlay_Windows8
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
+            Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
+        {
+            var rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame == null) return;
+            if (!rootFrame.CanGoBack) return;
+            rootFrame.GoBack(); e.Handled = true;
         }
 
         protected override async void OnActivated(IActivatedEventArgs args)

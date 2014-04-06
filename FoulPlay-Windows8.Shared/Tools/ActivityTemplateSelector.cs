@@ -20,12 +20,12 @@ namespace FoulPlay_Windows8.Tools
             switch (feedItem.StoryType)
             {
                 case "STORE_PROMO":
-                    VariableSizedWrapGrid.SetRowSpan(uiElement, 2);
-                    VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
+                    //VariableSizedWrapGrid.SetRowSpan(uiElement, 2);
+                    //VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
                     return StoreActivityDataTemplate;
                 default:
-                    VariableSizedWrapGrid.SetRowSpan(uiElement, 1);
-                    VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
+                    //VariableSizedWrapGrid.SetRowSpan(uiElement, 1);
+                    //VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
                     return ActivityDataTemplate;
             }
         }
