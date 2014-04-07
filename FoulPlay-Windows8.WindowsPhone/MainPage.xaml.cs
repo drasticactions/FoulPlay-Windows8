@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
+using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
@@ -106,9 +107,46 @@ namespace FoulPlay_Windows8
 
         #endregion
 
+        private void SetFriendList()
+        {
+            if (FilterComboBox == null) return;
+            switch (FilterComboBox.SelectedIndex)
+            {
+                case 0:
+                    // Friends - Online
+                    _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
+                    break;
+                case 1:
+                    // All
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, false, true, false, false);
+                    break;
+                case 2:
+                    // Friend Request Received
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, false, true, false, true);
+                    break;
+                case 3:
+                    // Friend Requests Sent
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, false, true, true, false);
+                    break;
+                case 4:
+                    // Name Requests Received
+                    _vm.SetFriendsList(_user.OnlineId, true, false, false, true, true, false, false);
+                    break;
+                case 5:
+                    // Name Requests Sent
+                    _vm.SetFriendsList(_user.OnlineId, false, false, false, true, true, true, false);
+                    break;
+            }
+        }
+        
         private void ActivityFeedGridView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            throw new NotImplementedException();
+            var item = e.ClickedItem as RecentActivityEntity.Feed;
+            if (item == null) return;
+            var control = new RecentActivityUserControl();
+            control.SetOffset();
+            control.SetContext(item);
+            control.OpenPopup();
         }
 
         private void MessagesListView_OnItemClick(object sender, ItemClickEventArgs e)
@@ -126,11 +164,6 @@ namespace FoulPlay_Windows8
             throw new NotImplementedException();
         }
 
-        private void GameInviteRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void InvitesListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
             throw new NotImplementedException();
@@ -138,12 +171,23 @@ namespace FoulPlay_Windows8
 
         private void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //throw new NotImplementedException();
+            SetFriendList();
         }
 
-        private void FriendsRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        private void RefreshButton_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            switch (MainPivot.SelectedIndex)
+            {
+                case 1:
+                    SetFriendList();
+                    break;
+                case 2:
+                    _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
+                    break;
+                case 3:
+                    _vm.SetInviteList();
+                    break;
+            }
         }
     }
 }

@@ -61,7 +61,7 @@
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="StoreActivityDataTemplate">
-            <Border Margin="5" HorizontalAlignment="Left" BorderBrush="White" Width="300" Height="200" BorderThickness="1">
+            <Border Margin="5" HorizontalAlignment="Left" BorderBrush="White" Width="300" Height="250" BorderThickness="1">
                 <Grid>
                     <Grid.Background>
                         <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />

@@ -16,16 +16,19 @@ namespace FoulPlay_Windows8.Tools
             var feedItem = item as RecentActivityEntity.Feed;
             if (feedItem == null) return null;
             var uiElement = container as UIElement;
-
             switch (feedItem.StoryType)
             {
                 case "STORE_PROMO":
-                    //VariableSizedWrapGrid.SetRowSpan(uiElement, 2);
-                    //VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
+                    #if !WINDOWS_PHONE_APP
+                    VariableSizedWrapGrid.SetRowSpan(uiElement, 2);
+                    VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
+                    #endif
                     return StoreActivityDataTemplate;
                 default:
-                    //VariableSizedWrapGrid.SetRowSpan(uiElement, 1);
-                    //VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
+                    #if !WINDOWS_PHONE_APP
+                    VariableSizedWrapGrid.SetRowSpan(uiElement, 1);
+                    VariableSizedWrapGrid.SetColumnSpan(uiElement, 1);
+                    #endif
                     return ActivityDataTemplate;
             }
         }

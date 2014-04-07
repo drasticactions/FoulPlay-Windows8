@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="FoulPlay_Windows8.Views.SearchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FoulPlay_Windows8.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+    </Page.Background>
+
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TitlePanel -->
+        <StackPanel Grid.Row="0" Margin="24,17,0,28">
+            <TextBlock Text="Search" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackPanel Margin="15" Grid.Row="0">
+                    <TextBox x:Name="SearchBox" />
+                    <Button
+                        HorizontalAlignment="Stretch"
+                        Content="Search"
+                        Click="SearchButton_Click" x:Name="SearchButton" />
+                    <ProgressBar Visibility="Collapsed" x:Name="ProgressBar" IsIndeterminate="True" />
+                </StackPanel>
+                <Grid Grid.Row="1">
+                    <TextBlock x:Name="NoResultsFoundBlock" FontSize="50" TextWrapping="Wrap"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"
+                               Text="No Results Found" />
+                </Grid>
+                <Grid Grid.Row="1" x:Name="UserSearchResultGrid" Margin="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border VerticalAlignment="Top" Grid.Column="0" Width="100" Height="100">
+                        <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
+                    </Border>
+                    <Grid VerticalAlignment="Top" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding OnlineId}" FontSize="25" TextWrapping="NoWrap"
+                                       TextTrimming="WordEllipsis" />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

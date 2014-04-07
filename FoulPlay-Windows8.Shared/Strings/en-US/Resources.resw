@@ -507,9 +507,6 @@ You can earn trophies by playing games that support them.</value>
   <data name="FriendPivot.Header" xml:space="preserve">
     <value>Friend</value>
   </data>
-  <data name="Invitations.Header" xml:space="preserve">
-    <value>Invitations</value>
-  </data>
   <data name="Menu.Header" xml:space="preserve">
     <value>Menu</value>
   </data>

@@ -22,18 +22,94 @@
 
     </Page.Resources>
     <Grid x:Name="LayoutRoot">
-        <Hub x:Name="Hub" x:Uid="Hub" Header="foulplay">
-            <HubSection x:Uid="HubSection1" Header="Menu">
-                <DataTemplate>
-                    <GridView IsSwipeEnabled="False" ItemsSource="{Binding MenuItems}" ItemClick="MenuGridView_OnItemClick" IsItemClickEnabled="True"
+        <Pivot x:Name="MainPivot">
+            <PivotItem Header="Menu">
+                <GridView IsSwipeEnabled="False" ItemsSource="{Binding MenuItems}" ItemClick="MenuGridView_OnItemClick" IsItemClickEnabled="True"
                               x:Name="MenuGridView" ItemTemplate="{StaticResource MenuTemplate}"
                               SelectionMode="None" />
-                </DataTemplate>
-            </HubSection>
+            </PivotItem>
 
-            <HubSection x:Uid="HubSection2" Header="What's New" Width="Auto">
-                <DataTemplate>
-                    <GridView Grid.Row="1"
+            <PivotItem Header="Friends">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ProgressBar IsIndeterminate="True" Visibility="{Binding FriendScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="0"/>
+                    <ComboBox HorizontalAlignment="Stretch" x:Name="FilterComboBox" SelectedIndex="0"
+                              SelectionChanged="FilterComboBox_OnSelectionChanged" Grid.Row="1">
+                        <ComboBoxItem x:Uid="FriendsFilterOnline" />
+                        <ComboBoxItem x:Uid="FriendsFilterAll" />
+                        <ComboBoxItem x:Uid="FriendRequestReceived" />
+                        <ComboBoxItem x:Uid="FriendRequestSent" />
+                        <ComboBoxItem x:Uid="FriendsFilterNameRequestReceived" />
+                        <ComboBoxItem x:Uid="FriendsFilterNameRequestSent" />
+                    </ComboBox>
+                    <Viewbox Visibility="{Binding FriendScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay }" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+                        <TextBlock   Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoPlayers" Text="No players found."/>
+                    </Viewbox>
+                    <ListView x:Name="FriendsListView" Grid.Row="2" ItemTemplate="{StaticResource FriendsTemplate}" SelectionMode="None" IsItemClickEnabled="True"
+                              ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False"
+                              HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Messages">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ProgressBar Grid.Row="0" IsIndeterminate="True" Visibility="{Binding MessageGroupLoading, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" FontSize="55" TextWrapping="Wrap" LineHeight="60" Grid.Row="1" Visibility="{Binding MessageGroupEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoMessages" Text="There are no new messages."/>
+                    <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="1"
+                              SelectionMode="None" IsItemClickEnabled="True"
+                              ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False"
+                              ItemsSource="{Binding MessageGroupCollection}" HorizontalAlignment="Stretch">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="Invites">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ProgressBar IsIndeterminate="True" Grid.Row="0" Visibility="{Binding SessionInviteScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" FontSize="55" TextWrapping="Wrap" LineHeight="60" Grid.Row="1" Visibility="{Binding SessionInviteScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoInvites" Text="There are no new Invites"/>
+                    <ListView ItemClick="InvitesListView_OnItemClick" x:Name="InvitesListView" Grid.Row="1"
+                              SelectionMode="None" IsItemClickEnabled="True"
+                              IsSwipeEnabled="False"
+                              ItemTemplate="{StaticResource InviteDataTemplate}"
+                              ItemsSource="{Binding SessionInviteScrollingCollection}" HorizontalAlignment="Stretch">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </Grid>
+            </PivotItem>
+            <PivotItem Header="What's New" Width="Auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ProgressBar IsIndeterminate="True" Visibility="{Binding RecentActivityScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="0"/>
+                    <ListView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"
                               IsItemClickEnabled="True"
@@ -41,23 +117,15 @@
                               ItemsSource="{Binding RecentActivityScrollingCollection}"
                               x:Name="ActivityFeedGridView"
                               ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
-                        <GridView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <VariableSizedWrapGrid Orientation="Vertical" />
-                            </ItemsPanelTemplate>
-                        </GridView.ItemsPanel>
-                        <GridView.GroupStyle>
-                            <GroupStyle>
-                                <GroupStyle.Panel>
-                                    <ItemsPanelTemplate>
-                                        <VariableSizedWrapGrid Orientation="Vertical" />
-                                    </ItemsPanelTemplate>
-                                </GroupStyle.Panel>
-                            </GroupStyle>
-                        </GridView.GroupStyle>
-                    </GridView>
-                </DataTemplate>
-            </HubSection>
-        </Hub>
+                    </ListView>
+                </Grid>
+            </PivotItem>
+        </Pivot>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Background="#99333333">
+            <AppBarButton Label="Refresh" x:Name="RefreshButton" Click="RefreshButton_OnClick" Icon="Refresh"/>
+            <AppBarButton Label="Search" Icon="Find" />
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

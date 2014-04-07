@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
+  <CommandSet xml:lang="en-us" Name="englishCommands">
+    <CommandPrefix>Awful</CommandPrefix>
+    <Example>Send a private message to Lowtax</Example>
+
+    <Command Name="sendPmCommand">
+      <Example>Send a private message to Lowtax</Example>
+      <ListenFor>Send a private message to {dictatedSearchTerms}</ListenFor>
+      <ListenFor>Send a PM to {dictatedSearchTerms}</ListenFor>
+      <ListenFor>Send a private message</ListenFor>
+      <ListenFor>Send private message</ListenFor>
+      <ListenFor>Send a PM</ListenFor>
+      <ListenFor>Send PM</ListenFor>
+      <Feedback>Hope you got platinum...</Feedback>
+    </Command>
+  </CommandSet>
+</VoiceCommands> 

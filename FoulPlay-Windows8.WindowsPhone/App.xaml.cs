@@ -9,6 +9,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.SpeechRecognition;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -44,6 +46,20 @@ namespace FoulPlay_Windows8
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
             Windows.Phone.UI.Input.HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+        }
+
+        private async void RegisterVoiceCommands()
+        {
+            try
+            {
+                Uri uriVoiceCommands = new Uri("ms-appx:///vcd.xml", UriKind.Absolute);
+                StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(uriVoiceCommands);
+                await VoiceCommandManager.InstallCommandSetsFromStorageFileAsync(file);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         void HardwareButtons_BackPressed(object sender, Windows.Phone.UI.Input.BackPressedEventArgs e)
