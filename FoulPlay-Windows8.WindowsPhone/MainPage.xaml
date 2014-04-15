@@ -123,7 +123,7 @@
         </Pivot>
     </Grid>
     <Page.BottomAppBar>
-        <CommandBar Background="#99333333">
+        <CommandBar Opacity="0.8">
             <AppBarButton Label="Refresh" x:Name="RefreshButton" Click="RefreshButton_OnClick" Icon="Refresh"/>
             <AppBarButton Label="Search" Icon="Find" />
         </CommandBar>

@@ -107,5 +107,10 @@ namespace FoulPlay_Windows8.Views
         }
 
         #endregion
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -193,6 +193,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         public void CreateMenuPhone()
         {
+            if (MenuItems.Any()) return;
             ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
             MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
 resourceLoader.GetString("FriendsPivot/Text"), "friends"));
