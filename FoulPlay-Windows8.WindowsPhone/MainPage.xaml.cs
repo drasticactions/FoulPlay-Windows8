@@ -161,7 +161,9 @@ namespace FoulPlay_Windows8
 
         private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            throw new NotImplementedException();
+            var item = e.ClickedItem as FriendsEntity.Friend;
+            if (item == null) return;
+            Frame.Navigate(typeof(FriendPage), item.OnlineId);
         }
 
         private void InvitesListView_OnItemClick(object sender, ItemClickEventArgs e)

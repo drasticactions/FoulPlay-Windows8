@@ -17,6 +17,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
+using Foulplay_Windows8.Core.Entities;
+using FoulPlay_Windows8.ViewModels;
+using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
 {
@@ -26,8 +29,8 @@ namespace FoulPlay_Windows8.Views
     public sealed partial class FriendPage : Page
     {
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
-
+        private string _userName;
+        private FriendPageViewModel _vm;
         public FriendPage()
         {
             this.InitializeComponent();
@@ -46,15 +49,6 @@ namespace FoulPlay_Windows8.Views
         }
 
         /// <summary>
-        /// Gets the view model for this <see cref="Page"/>.
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-
-        /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
         /// provided when recreating a page from a prior session.
         /// </summary>
@@ -65,8 +59,22 @@ namespace FoulPlay_Windows8.Views
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session.  The state will be null the first time a page is visited.</param>
-        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            {
+                string savedStateJson = e.PageState["userAccountEntity"].ToString();
+                App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(savedStateJson);
+                savedStateJson = e.PageState["userEntity"].ToString();
+                var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
+                App.UserAccountEntity.SetUserEntity(user);
+            }
+            _userName = (string)e.NavigationParameter;
+            _vm.SetRecentActivityFeed(_userName);
+            _vm.SetFriendsList(_userName, false, false, false, false, true, false, false);
+            _vm.SetTrophyList(_userName);
+            _vm.SetMessages(_userName, App.UserAccountEntity);
+            await _vm.SetUser(_userName);
         }
 
         /// <summary>
@@ -79,6 +87,10 @@ namespace FoulPlay_Windows8.Views
         /// serializable state.</param>
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
+            string jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity);
+            e.PageState["userAccountEntity"] = jsonObjectString;
+            jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity.GetUserEntity());
+            e.PageState["userEntity"] = jsonObjectString;
         }
 
         #region NavigationHelper registration
@@ -98,6 +110,7 @@ namespace FoulPlay_Windows8.Views
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            _vm = (FriendPageViewModel)DataContext;
             this.navigationHelper.OnNavigatedTo(e);
         }
 
@@ -107,5 +120,45 @@ namespace FoulPlay_Windows8.Views
         }
 
         #endregion
+
+        private void FriendRequestButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AddAsFriendButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void MessageSend_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ImageSend_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void RefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ActivityFeedListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TrophyListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

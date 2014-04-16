@@ -5,9 +5,14 @@
     xmlns:local="using:FoulPlay_Windows8.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModels:FriendPageViewModel />
+    </Page.DataContext>
+    <Page.Background>
+        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+    </Page.Background>
     <Grid x:Name="LayoutRoot">
 
         <Grid.ChildrenTransitions>
@@ -23,13 +28,435 @@
 
         <!-- TitlePanel -->
         <StackPanel Grid.Row="0" Margin="24,17,0,28">
-            <TextBlock Text="My Application" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
-            <TextBlock Text="page title" Margin="0,12,0,0" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <TextBlock  Text="{Binding UserModel.User, Converter={StaticResource PersonalNameConverter} }" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot">
+            <ProgressBar IsIndeterminate="True" VerticalAlignment="Top" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" />
+<Pivot>
+    <PivotItem Header="Info">
+                    <Grid x:Name="UserInformationGrid" HorizontalAlignment="Stretch" Column="0">
+                        <ScrollViewer>
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="180"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border Margin="8,15,0,15" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                    Grid.Column="0" Width="120" Height="120">
+                                        <Image x:Name="UserImage"
+                                       Source="{Binding UserModel.User , Converter={StaticResource PersonalIconConverter} }"
+                                       Stretch="UniformToFill" />
+                                    </Border>
+                                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1">
+                                        <Button x:Name="FriendRequestButton" Click="FriendRequestButton_OnClick" Visibility="Collapsed"  HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request"/>
+                                        <Button x:Name="AddAsFriendButton" Click="AddAsFriendButton_OnClick" Visibility="Collapsed"  HorizontalAlignment="Stretch" x:Uid="AddAsFriend" Content="Add As Friend"/>
+                                    </StackPanel>
+                                </Grid>
+                                <Grid x:Name="UserTrophyGrid" Margin="5,0,0,25">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="85" />
+                                        <ColumnDefinition Width="85" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="25" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock FontSize="30" Grid.Row="0"
+                                               Text="{Binding UserModel.User.trophySummary.Level}" />
+                                        <TextBlock FontSize="30" Grid.Row="0"
+                                               HorizontalAlignment="Right"
+                                               Text="{Binding UserModel.User.trophySummary.Progress }" />
+                                        <ProgressBar Height="5"
+                                                 Value="{Binding UserModel.User.trophySummary.Progress}" Grid.Row="1" />
+                                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                                            <TextBlock FontSize="30"
+                                                   Style="{StaticResource SubheaderTextBlockStyle}"
+                                                   Text="Total" x:Uid="TrophyTotal" />
+                                            <TextBlock FontSize="30"
+                                                   Text="{Binding UserModel.User.trophySummary.TotalTrophies }"
+                                                   Padding="15,0,0,0" />
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Width="25" Height="25"
+                                               Source="/Assets/phone_trophy_medium_platinum.png" />
+                                            <TextBlock
+                                            Style="{StaticResource SubheaderTextBlockStyle}"
+                                            FontSize="20"
+                                            Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Platinum }"
+                                            VerticalAlignment="Center" HorizontalAlignment="Left"
+                                            Grid.Column="1" />
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Width="25" Height="25"
+                                               Source="/Assets/phone_trophy_medium_gold.png" />
+                                            <TextBlock
+                                            Style="{StaticResource SubheaderTextBlockStyle}"
+                                            FontSize="20"
+                                            Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Gold }"
+                                            Grid.Column="1" VerticalAlignment="Center"
+                                            HorizontalAlignment="Left" />
+                                        </Grid>
 
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Width="25" Height="25"
+                                               Source="/Assets/phone_trophy_medium_silver.png" />
+                                            <TextBlock
+                                            Style="{StaticResource SubheaderTextBlockStyle}"
+                                            FontSize="20"
+                                            Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Silver }"
+                                            VerticalAlignment="Center" HorizontalAlignment="Left"
+                                            Grid.Column="1" />
+                                        </Grid>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Image Width="25" Height="25"
+                                               Source="/Assets/phone_trophy_medium_bronze.png" />
+                                            <TextBlock
+                                            Style="{StaticResource SubheaderTextBlockStyle}"
+                                            FontSize="20"
+                                            Text="{Binding UserModel.User.trophySummary.EarnedTrophies.Bronze }"
+                                            Grid.Column="1" VerticalAlignment="Center"
+                                            HorizontalAlignment="Left" />
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                                <StackPanel Margin="5,0,0,0" x:Name="AboutMeStackPanel">
+                                    <TextBlock
+                                    Style="{StaticResource SubheaderTextBlockStyle}"
+                                    Text="About Me" x:Uid="AboutMe"
+                                    FontSize="30" />
+                                    <Border Margin="15" BorderBrush="White" BorderThickness="1">
+                                        <Grid>
+                                            <Grid.Background>
+                                                <SolidColorBrush Color="#DBDEE7" Opacity="0.15" />
+                                            </Grid.Background>
+                                            <TextBlock x:Name="AboutMeTextBlock" VerticalAlignment="Center"
+                                                   Padding="5,5,5,10"
+                                                   Style="{StaticResource BodyTextBlockStyle}" FontSize="20"
+                                                   TextWrapping="Wrap" Text="{Binding UserModel.User.AboutMe}" />
+                                        </Grid>
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel Margin="5,0,0,0">
+                                    <TextBlock
+                                    Style="{StaticResource SubheaderTextBlockStyle}"
+                                    Text="Languages" x:Uid="MyLanguages"
+                                    FontSize="30" />
+                                    <Border Margin="15" BorderBrush="White" BorderThickness="1">
+                                        <Grid>
+                                            <Grid.Background>
+                                                <SolidColorBrush Color="#DBDEE7" Opacity="0.15" />
+                                            </Grid.Background>
+                                            <TextBlock x:Name="MyLanguagesBlock" VerticalAlignment="Center"
+                                                   Padding="5,5,5,10" FontSize="20"
+                                                   Style="{StaticResource BodyTextBlockStyle}"
+                                                   Text="{Binding UserModel.Language}"
+                                                   TextWrapping="Wrap" />
+                                        </Grid>
+                                    </Border>
+                                </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </PivotItem>
+    <PivotItem Header="Messages">
+                    <Grid
+                    Visibility="{Binding UserModel.IsNotCurrentUser, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Stretch" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="150" />
+                        </Grid.RowDefinitions>
+                        <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" Visibility="Collapsed"
+                                 IsIndeterminate="True" />
+                        <ListView x:Name="MessagesListView" Grid.Row="1" SelectionMode="None"
+                              ItemTemplate="{StaticResource MessageUserDataTemplate}" IsSwipeEnabled="False"
+                              ItemsSource="{Binding MessageGroupCollection, Mode=TwoWay}" HorizontalAlignment="Stretch">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                        <Grid Grid.Row="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBox Margin="0" Canvas.ZIndex="1" VerticalAlignment="Stretch" x:Name="MessageTextBox" IsSpellCheckEnabled="True"
+                                     IsTextPredictionEnabled="True" AcceptsReturn="True" Grid.Row="0" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
+                                <Button x:Uid="SendButton" x:Name="MessageSend" Click="MessageSend_OnClick" Content="Send" />
+                                <Button Visibility="Collapsed" x:Name="ImageSend" Click="ImageSend_OnClick" Content="Image" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </PivotItem>
+    <PivotItem Header="Recent">
+                    <Grid HorizontalAlignment="Stretch" Grid.Column="2">
+                        <ListView Grid.Row="0"
+                              IsSwipeEnabled="False"
+                              SelectionMode="None"
+                              IsItemClickEnabled="True"
+                              ItemClick="ActivityFeedListView_OnItemClick"
+                              x:Name="ActivityFeedListView"
+                              ItemsSource="{Binding RecentActivityScrollingCollection}"
+                              ItemTemplate="{StaticResource ActivityDataTemplate}" />
+                        <Viewbox Visibility="{Binding RecentActivityScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay }" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+                            <TextBlock  Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoActivities" Text="There are no activities."/>
+                        </Viewbox>
+                    </Grid>
+                </PivotItem>
+                <PivotItem Header="Trophies">
+                    <Grid HorizontalAlignment="Stretch" Grid.Column="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="52" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid x:Name="TrophyHeaderGrid" Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="140" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid x:Name="ComparedUserGrid" Grid.Column="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock FontSize="15"
+                                               Visibility="{Binding UserModel.IsNotCurrentUser, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                               Text="{Binding UserModel.User.OnlineId}" HorizontalAlignment="Center"
+                                               TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0"
+                                               x:Name="ComparedUserNameBlock" />
+                                    </Grid>
+                                    <Grid Margin="5,0,0,0" x:Name="FromUserGrid" Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock x:Name="FromUserNameBlock"
+                                               Text="{Binding UserModel.CurrentUserOnlineId}" FontSize="15"
+                                               TextWrapping="Wrap" HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" Grid.Row="0" />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <TextBlock FontSize="45" LineHeight="45"  TextWrapping="Wrap" Grid.Row="1" Visibility="{Binding TrophyScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoTrophyInfo" Text="There are no trophies."/>
+                            <Grid Grid.Row="1">
+                                <ListView x:Name="TrophyListView" IsSwipeEnabled="False" IsItemClickEnabled="True"
+                                      HorizontalAlignment="Stretch" SelectionMode="None"
+                                      ItemClick="TrophyListView_OnItemClick"
+                                      ItemsSource="{Binding TrophyScrollingCollection}">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border HorizontalAlignment="Stretch" BorderBrush="White" BorderThickness="1">
+                                                <Grid>
+                                                    <Grid.Background>
+                                                        <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />
+                                                    </Grid.Background>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="160" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Border HorizontalAlignment="Left" VerticalAlignment="Top"
+                                                        Grid.Column="0" Width="150" Height="83">
+                                                        <Image Source="{Binding TrophyTitleIconUrl}"
+                                                           Stretch="UniformToFill" />
+                                                    </Border>
+                                                    <Grid Grid.Column="1">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                            <RowDefinition Height="*" />
+                                                        </Grid.RowDefinitions>
+                                                        <Grid Grid.Row="0">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <StackPanel>
+                                                                <TextBlock Foreground="#3F454F" FontWeight="Bold"
+                                                                       TextWrapping="Wrap" TextTrimming="WordEllipsis"
+                                                                       Text="{Binding TrophyTitleName}" />
+                                                                <TextBlock Foreground="#3F454F" TextWrapping="Wrap"
+                                                                       Text="{Binding TrophyTitlePlatfrom}" />
+                                                            </StackPanel>
+                                                        </Grid>
+                                                        <Grid Grid.Row="1">
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="*" />
+                                                                <ColumnDefinition Width="*" />
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid
+                                                            Visibility="{Binding ComparedUser, Converter={StaticResource HasTrophiesConverter}}"
+                                                            Grid.Column="0">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="15" />
+                                                                </Grid.RowDefinitions>
+                                                                <ProgressBar HorizontalAlignment="Stretch" Margin="0,0,5,0"
+                                                                         Grid.Row="1"
+                                                                         Value="{Binding ComparedUser.Progress}" />
+                                                                <TextBlock Foreground="#3F454F" Padding="10,0,0,0"
+                                                                       Grid.Row="0" HorizontalAlignment="Left"
+                                                                       Text="{Binding ComparedUser.Progress, Converter={StaticResource ValuePercentConverter}}" />
+                                                            </Grid>
+                                                            <Grid
+                                                            Visibility="{Binding FromUser, Converter={StaticResource HasTrophiesConverter}}"
+                                                            Grid.Column="1">
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="Auto" />
+                                                                    <RowDefinition Height="15" />
+                                                                </Grid.RowDefinitions>
+                                                                <ProgressBar Margin="0,0,5,0" HorizontalAlignment="Stretch"
+                                                                         Grid.Row="1"
+                                                                         Value="{Binding FromUser.Progress}" />
+                                                                <TextBlock Foreground="#3F454F" Padding="10,0,0,0"
+                                                                       Grid.Row="0" HorizontalAlignment="Left"
+                                                                       Text="{Binding FromUser.Progress, Converter={StaticResource ValuePercentConverter}}" />
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </PivotItem>
+    <PivotItem Header="Friends">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ProgressBar Margin="0,5,0,0" x:Name="FriendsProgressBar"
+                                 Visibility="{Binding FriendScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                 Grid.Row="0" IsIndeterminate="True"
+                                 x:FieldModifier="public" />
+                        <Viewbox Visibility="{Binding FriendScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay }" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="2">
+                            <TextBlock   Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoPlayers" Text="No players found."/>
+                        </Viewbox>
+                        <ListView x:Name="FriendsListView" Grid.Row="2" SelectionMode="None" IsItemClickEnabled="True"
+                              ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False"
+                              HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="White" BorderThickness="1">
+                                        <Grid>
+                                            <Grid.Background>
+                                                <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />
+                                            </Grid.Background>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="25" />
+                                                <ColumnDefinition Width="75" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Rectangle Margin="5" VerticalAlignment="Center" HorizontalAlignment="Left"
+                                                   Grid.Column="0" Width="15" Height="15"
+                                                   Fill="{Binding Presence.PrimaryInfo.OnlineStatus, Converter={StaticResource OnlineConverter}}" />
+                                            <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
+                                                <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
+                                            </Border>
+                                            <Grid VerticalAlignment="Center" Grid.Column="2">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <Grid Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="35" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock Foreground="#3F454F" Grid.Column="0"
+                                                           Text="{Binding OnlineId}" Width="300"
+                                                           FontSize="25" TextWrapping="NoWrap"
+                                                           TextTrimming="WordEllipsis" />
+                                                    <Image
+                                                    Visibility="{Binding Plus, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                    Grid.Column="1" HorizontalAlignment="Right" Margin="5" Width="25"
+                                                    Height="25" Source="/Assets/PSPlus.png" />
+                                                </Grid>
+                                                <Grid Grid.Row="1">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <StackPanel Grid.Column="0" Width="300">
+                                                        <TextBlock Foreground="#3F454F"
+                                                               Text="{Binding Presence.PrimaryInfo.GameTitleInfo.TitleName}"
+                                                               FontSize="15" TextWrapping="Wrap" />
+                                                        <TextBlock Text="{Binding  Presence.PrimaryInfo.GameStatus}"
+                                                               FontSize="15" Foreground="#3F454F" TextWrapping="Wrap" />
+                                                    </StackPanel>
+                                                    <StackPanel Grid.Column="1" Margin="5" HorizontalAlignment="Right"
+                                                            Orientation="Vertical">
+                                                        <Image Width="25" Height="25"
+                                                           Source="/Assets/phone_trophy_medium_silver.png" />
+                                                        <TextBlock FontSize="15" Foreground="#3F454F"
+                                                               HorizontalAlignment="Center"
+                                                               Text="{Binding TrophySummary.Level}" />
+                                                    </StackPanel>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </PivotItem>
+</Pivot>
         </Grid>
     </Grid>
 </Page>

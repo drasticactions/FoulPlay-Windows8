@@ -23,7 +23,17 @@ namespace FoulPlay_Windows8.ViewModels
         private RecentActivityScrollingCollection _recentActivityScrollingCollection;
         private TrophyScrollingCollection _trophyScrollingCollection;
         private UserViewModel _userViewModel;
+        private bool _isLoading;
 
+        public bool IsLoading
+        {
+            get { return _isLoading; }
+            set
+            {
+                SetProperty(ref _isLoading, value);
+                OnPropertyChanged();
+            }
+        }
         public UserViewModel UserModel
         {
             get { return _userViewModel; }
