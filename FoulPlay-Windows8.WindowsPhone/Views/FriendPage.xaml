@@ -294,7 +294,7 @@
                                     </ListView.ItemContainerStyle>
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
-                                            <Border HorizontalAlignment="Stretch" BorderBrush="White" BorderThickness="1">
+                                            <Border Margin="5" HorizontalAlignment="Stretch" BorderBrush="White" BorderThickness="1">
                                                 <Grid>
                                                     <Grid.Background>
                                                         <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />
@@ -392,7 +392,7 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="White" BorderThickness="1">
+                                    <Border Margin="5" BorderBrush="White" BorderThickness="1">
                                         <Grid>
                                             <Grid.Background>
                                                 <SolidColorBrush Color="#DBDEE7" Opacity="0.65" />

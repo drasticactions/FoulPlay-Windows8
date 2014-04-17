@@ -51,6 +51,8 @@ namespace FoulPlay_Windows8.Views
         /// </param>
         private async void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            _vm = (TrophyPageViewModel)DataContext;
+
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
                 string savedStateJson = e.PageState["userAccountEntity"].ToString();
@@ -110,7 +112,6 @@ namespace FoulPlay_Windows8.Views
         /// in addition to page state preserved during an earlier session.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            _vm = (TrophyPageViewModel) DataContext;
             navigationHelper.OnNavigatedTo(e);
         }
 

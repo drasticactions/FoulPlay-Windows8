@@ -61,6 +61,7 @@ namespace FoulPlay_Windows8.Views
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            _vm = (FriendPageViewModel)DataContext;
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
                 string savedStateJson = e.PageState["userAccountEntity"].ToString();
@@ -110,7 +111,6 @@ namespace FoulPlay_Windows8.Views
         /// handlers that cannot cancel the navigation request.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            _vm = (FriendPageViewModel)DataContext;
             this.navigationHelper.OnNavigatedTo(e);
         }
 

@@ -64,6 +64,8 @@ namespace FoulPlay_Windows8.Views
         /// </param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            _vm = (MessagePageViewModel)DataContext;
+
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
                 string savedStateJson = e.PageState["userAccountEntity"].ToString();
@@ -260,7 +262,6 @@ namespace FoulPlay_Windows8.Views
         /// in addition to page state preserved during an earlier session.
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            _vm = (MessagePageViewModel) DataContext;
             navigationHelper.OnNavigatedTo(e);
         }
 
