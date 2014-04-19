@@ -40,8 +40,8 @@ namespace FoulPlay_Windows8.UserControls
 
         public void SetOffset()
         {
-            ParentPopup.HorizontalOffset = (Window.Current.Bounds.Width - 400) / 2;
-            ParentPopup.VerticalOffset = (Window.Current.Bounds.Height - 500) / 2;
+            ParentPopup.HorizontalOffset = (Window.Current.Bounds.Width - 300) / 2;
+            ParentPopup.VerticalOffset = (Window.Current.Bounds.Height - 350) / 2;
         }
 
         public void SetContext(SessionInviteEntity.Invitation invite)

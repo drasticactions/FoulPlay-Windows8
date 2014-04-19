@@ -32,7 +32,7 @@
             <DisplayName>FoulPlay</DisplayName>
           </Protocol>
         </Extension>
-        <Extension Category="windows.backgroundTasks" EntryPoint="FoulPlay_Windows8.BackgroundStatus.BackgroundNotifyStatus">
+        <Extension Category="windows.backgroundTasks" EntryPoint="Foulplay.BackgroundStatus_Portable.BackgroundNotifyStatus">
           <BackgroundTasks>
             <Task Type="systemEvent" />
             <Task Type="timer" />

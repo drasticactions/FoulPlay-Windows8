@@ -14,7 +14,7 @@ namespace FoulPlay_Windows8.Tools
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             var friend = value as UserEntity;
-            if (friend == null) return null;
+            if (friend == null) return Visibility.Collapsed;;
             if (string.IsNullOrEmpty(friend.Relation))
                 return Visibility.Collapsed;
             if (friend.Relation.Equals("requested friend"))

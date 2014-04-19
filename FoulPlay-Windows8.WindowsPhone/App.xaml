@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:FoulPlay_Windows8"
     xmlns:tools="using:FoulPlay_Windows8.Tools">
+    <Application.RequestedTheme>Dark</Application.RequestedTheme>
     <Application.Resources>
         <tools:RecentActivityImageConverter x:Key="RecentActivityImageConverter" />
         <tools:HasSeenConverter x:Key="HasSeenConverter" />
@@ -393,5 +394,17 @@
         <tools:PersonalIconConverter x:Key="PersonalIconConverter" />
         <tools:HasTrophiesConverter x:Key="HasTrophiesConverter" />
         <tools:ValuePercentConverter x:Key="ValuePercentConverter" />
+        <tools:TrophyHiddenConverter x:Key="TrophyHiddenConverter" />
+        <tools:TrophyTypeConverter x:Key="TrophyTypeConverter" />
+        <tools:TrophyGradeConverter x:Key="TrophyGradeConverter" />
+        <tools:TrophyRareTextConverter x:Key="TrophyRareConverter" />
+        <tools:TrophyStatusConverter x:Key="TrophyStatusConverter" />
+        <tools:TrophyDateConverter x:Key="TrophyDateConverter" />
+        <tools:TrophyEarnedVisibilityConverter x:Key="TrophyEarnedVisibilityConverter" />
+        <tools:TrophyRareTextConverter x:Key="TrophyRareTextConverter" />
+        <tools:TrophyHiddenIconConverter x:Key="TrophyHiddenIconConverter" />
+        <tools:FriendRequestVisibilityConverter x:Key="FriendRequestVisibilityConverter" />
+        <tools:AddAsFriendButtonVisibilityConverter x:Key="AddAsFriendButtonVisibilityConverter" />
+        <tools:MaxPlayersConverter x:Key="MaxPlayersConverter" />
     </Application.Resources>
 </Application>

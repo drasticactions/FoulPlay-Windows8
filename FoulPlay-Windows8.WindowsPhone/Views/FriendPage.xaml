@@ -30,18 +30,32 @@
         <StackPanel Grid.Row="0" Margin="24,17,0,28">
             <TextBlock  Text="{Binding UserModel.User, Converter={StaticResource PersonalNameConverter} }" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
         </StackPanel>
-
+        <Popup Width="300" Height="300" Grid.Row="1" x:Name="UserMessagePopup" IsOpen="False" IsLightDismissEnabled="True">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PopupThemeTransition />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Border Width="300" Height="300" x:Name="BorderPopup" BorderBrush="White" BorderThickness="1">
+                <Border.Background>
+                    <SolidColorBrush Color="#DBDEE7" Opacity="1" />
+                </Border.Background>
+                <ScrollViewer ZoomMode="Enabled" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Image Stretch="Uniform"  x:Name="UserMessageImage"/>
+                </ScrollViewer>
+            </Border>
+        </Popup>
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot">
             <ProgressBar IsIndeterminate="True" VerticalAlignment="Top" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" />
-<Pivot>
-    <PivotItem Header="Info">
+<Pivot x:Name="MainPivot">
+                <PivotItem x:Uid="AboutMePivot" Header="Info">
                     <Grid x:Name="UserInformationGrid" HorizontalAlignment="Stretch" Column="0">
                         <ScrollViewer>
                             <StackPanel>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="180"/>
+                                        <ColumnDefinition Width="160"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <Border Margin="8,15,0,15" VerticalAlignment="Center" HorizontalAlignment="Left"
@@ -50,9 +64,32 @@
                                        Source="{Binding UserModel.User , Converter={StaticResource PersonalIconConverter} }"
                                        Stretch="UniformToFill" />
                                     </Border>
-                                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1">
-                                        <Button x:Name="FriendRequestButton" Click="FriendRequestButton_OnClick" Visibility="Collapsed"  HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request"/>
-                                        <Button x:Name="AddAsFriendButton" Click="AddAsFriendButton_OnClick" Visibility="Collapsed"  HorizontalAlignment="Stretch" x:Uid="AddAsFriend" Content="Add As Friend"/>
+                                    <StackPanel x:Name="FriendButtonStackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1">
+                                        <Button x:Name="FriendRequestButton" Click="FriendRequestButton_OnClick" Visibility="{Binding UserModel.User, Converter={StaticResource FriendRequestVisibilityConverter} , Mode=TwoWay}"  HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request">
+                                        <Button.Flyout>
+                                            <Flyout x:Name="FriendRequestFlyout">
+                                                    <StackPanel Margin="10">
+                                                        <TextBlock x:Uid="FriendRequestConfirm" Text="A Friend request will be sent to this player."></TextBlock>
+                                                        <TextBox x:Name="FriendRequesTextBox" AcceptsReturn="True" IsSpellCheckEnabled="True" Height="100"/>
+                                                        <Button Click="SendFriendRequest_OnClick" HorizontalAlignment="Stretch" Content="Send Friend Request" x:Uid="FriendRequest" />
+                                                    </StackPanel>
+                                                </Flyout>
+                                        </Button.Flyout>    
+                                        </Button>
+                                        <Button x:Name="AddAsFriendButton" Visibility="{Binding UserModel.User, Converter={StaticResource AddAsFriendButtonVisibilityConverter}, Mode=TwoWay}"  HorizontalAlignment="Stretch" x:Uid="AddAsFriend" Content="Add As Friend">
+                                            <Button.Flyout>
+                                                <PickerFlyout x:Name="ButtonPickerFlyout">
+                                                    <StackPanel Margin="10">
+                                                        <Border Margin="10" BorderBrush="White">
+                                                            <TextBlock  Style="{StaticResource SubheaderTextBlockStyle}" Text="Can't see this. really can't see this." TextWrapping="Wrap" FontSize="30" x:Name="FriendMessage"/>
+                                                        </Border>
+                                                        <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" x:Uid="FriendRequestAlert" Text="Do you want to add this player as a Friend?"/>
+                                                        <Button Click="AddAsFriendButton_OnClick" HorizontalAlignment="Stretch" x:Uid="AddAsFriend" Content="Add as Friend"></Button>
+                                                        <Button Click="DeleteFriendRequest_OnClick" HorizontalAlignment="Stretch" x:Uid="DeleteFriendRequest" Content="Delete Friend Request"></Button>
+                                                    </StackPanel>
+                                                </PickerFlyout>
+                                            </Button.Flyout>
+                                        </Button>
                                     </StackPanel>
                                 </Grid>
                                 <Grid x:Name="UserTrophyGrid" Margin="5,0,0,25">
@@ -192,7 +229,7 @@
                         </ScrollViewer>
                     </Grid>
                 </PivotItem>
-    <PivotItem Header="Messages">
+                <PivotItem x:Uid="MessagePivot" Header="Messages">
                     <Grid
                     Visibility="{Binding UserModel.IsNotCurrentUser, Converter={StaticResource BooleanToVisibilityConverter}}" HorizontalAlignment="Stretch" Grid.Column="1">
                         <Grid.RowDefinitions>
@@ -202,8 +239,8 @@
                         </Grid.RowDefinitions>
                         <ProgressBar Margin="0,5,0,0" x:Name="MessageProgressBar" Grid.Row="0" Visibility="Collapsed"
                                  IsIndeterminate="True" />
-                        <ListView x:Name="MessagesListView" Grid.Row="1" SelectionMode="None"
-                              ItemTemplate="{StaticResource MessageUserDataTemplate}" IsSwipeEnabled="False"
+                        <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="1" SelectionMode="None"
+                              ItemTemplate="{StaticResource MessageUserDataTemplate}" IsSwipeEnabled="False" IsItemClickEnabled="True"
                               ItemsSource="{Binding MessageGroupCollection, Mode=TwoWay}" HorizontalAlignment="Stretch">
                             <ListView.ItemContainerStyle>
                                 <Style TargetType="ListViewItem">
@@ -225,7 +262,7 @@
                         </Grid>
                     </Grid>
                 </PivotItem>
-    <PivotItem Header="Recent">
+                <PivotItem x:Uid="RecentActivities" Header="Recent">
                     <Grid HorizontalAlignment="Stretch" Grid.Column="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="10" />
@@ -247,7 +284,7 @@
                         </Viewbox>
                     </Grid>
                 </PivotItem>
-                <PivotItem Header="Trophies">
+                <PivotItem x:Uid="TrophyPivot" Header="Trophies">
                     <Grid HorizontalAlignment="Stretch" Grid.Column="3">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
@@ -275,10 +312,10 @@
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
-                                        <TextBlock FontSize="15"
+                                        <TextBlock FontSize="14"
                                                Visibility="{Binding UserModel.IsNotCurrentUser, Converter={StaticResource BooleanToVisibilityConverter}}"
                                                Text="{Binding UserModel.User.OnlineId}" HorizontalAlignment="Center"
-                                               TextWrapping="Wrap" VerticalAlignment="Center" Grid.Row="0"
+                                               TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" Grid.Row="0"
                                                x:Name="ComparedUserNameBlock" />
                                     </Grid>
                                     <Grid Margin="5,0,0,0" x:Name="FromUserGrid" Grid.Column="1">
@@ -286,8 +323,8 @@
                                             <RowDefinition Height="*" />
                                         </Grid.RowDefinitions>
                                         <TextBlock x:Name="FromUserNameBlock"
-                                               Text="{Binding UserModel.CurrentUserOnlineId}" FontSize="15"
-                                               TextWrapping="Wrap" HorizontalAlignment="Center"
+                                               Text="{Binding UserModel.CurrentUserOnlineId}" FontSize="14"
+                                               TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" HorizontalAlignment="Center"
                                                VerticalAlignment="Center" Grid.Row="0" />
                                     </Grid>
                                 </Grid>
@@ -380,7 +417,7 @@
                         </Grid>
                     </Grid>
                 </PivotItem>
-    <PivotItem Header="Friends">
+    <PivotItem x:Uid="FriendPivot" Header="Friends Test">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="10" />
@@ -470,4 +507,9 @@
 </Pivot>
         </Grid>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar Opacity="0.8">
+            <AppBarButton x:Uid="RefreshBar" Label="Refresh" x:Name="RefreshButton" Click="RefreshButton_OnClick" Icon="Refresh"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

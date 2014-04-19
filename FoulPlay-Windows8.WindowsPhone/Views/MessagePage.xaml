@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="FoulPlay_Windows8.Views.MessagePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FoulPlay_Windows8.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModels:MessagePageViewModel />
+    </Page.DataContext>
+    <Page.Background>
+        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+    </Page.Background>
+    <Grid x:Name="LayoutRoot">
+
+        <Grid.ChildrenTransitions>
+            <TransitionCollection>
+                <EntranceThemeTransition/>
+            </TransitionCollection>
+        </Grid.ChildrenTransitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- TitlePanel -->
+        <StackPanel Grid.Row="0" Margin="24,17,0,28">
+            <TextBlock Text="Messages" x:Uid="MessagesPivot" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
+        </StackPanel>
+        <Popup Width="300" Height="300" Grid.Row="1" x:Name="UserMessagePopup" IsOpen="False" IsLightDismissEnabled="True">
+            <Popup.ChildTransitions>
+                <TransitionCollection>
+                    <PopupThemeTransition />
+                </TransitionCollection>
+            </Popup.ChildTransitions>
+            <Border Width="300" Height="300" x:Name="BorderPopup" BorderBrush="White" BorderThickness="1">
+                <Border.Background>
+                    <SolidColorBrush Color="#DBDEE7" Opacity="1" />
+                </Border.Background>
+                <ScrollViewer ZoomMode="Enabled" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Image Stretch="Uniform"  x:Name="UserImage"/>
+                </ScrollViewer>
+            </Border>
+        </Popup>
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot">
+            <Grid Margin="15" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="150" />
+                </Grid.RowDefinitions>
+                <ProgressBar x:Name="MessageProgressBar" Grid.Row="0" Visibility="Collapsed" IsIndeterminate="True" />
+                <ListView IsItemClickEnabled="True" ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView"
+                          Grid.Row="1" SelectionMode="None" ItemTemplate="{StaticResource MessageUserDataTemplate}"
+                          IsSwipeEnabled="False" ItemsSource="{Binding MessageGroupCollection}"
+                          HorizontalAlignment="Stretch">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <TextBox Margin="0" Canvas.ZIndex="1" VerticalAlignment="Stretch" x:Name="MessageTextBox" IsSpellCheckEnabled="True"
+                                     IsTextPredictionEnabled="True" AcceptsReturn="True" Grid.Row="0" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
+                        <Button x:Uid="SendButton" x:Name="MessageSend" Click="MessageSend_OnClick" Content="Send" />
+                        <Button IsEnabled="False" Visibility="Collapsed" x:Name="ImageSend" Click="ImageSend_OnClick"
+                                Content="Image" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -13,8 +16,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using FoulPlay.Core.Entities;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
+using Foulplay_Windows8.Core.Tools;
 using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
 
@@ -30,6 +35,7 @@ namespace FoulPlay_Windows8
     public sealed partial class MainPage : Page
     {
         private MainPageViewModel _vm;
+        private LiveFromPlaystationPageViewModel _liveVm;
         private static UserAccountEntity.User _user;
         private readonly NavigationHelper _navigationHelper;
         public MainPage()
@@ -45,6 +51,8 @@ namespace FoulPlay_Windows8
 
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            _vm = (MainPageViewModel)DataContext;
+            _liveVm = (LiveFromPlaystationPageViewModel)LiveFromPlaystationGrid.DataContext;
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
                 string jsonObjectString = e.PageState["userAccountEntity"].ToString();
@@ -59,11 +67,16 @@ namespace FoulPlay_Windows8
             _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
             _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
             _vm.SetInviteList();
+            _liveVm.BuildList();
+            CreateBackgroundTask();
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
-            // TODO: Save the unique state of the page here.
+            string jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity);
+            e.PageState["userAccountEntity"] = jsonObjectString;
+            jsonObjectString = JsonConvert.SerializeObject(App.UserAccountEntity.GetUserEntity());
+            e.PageState["userEntity"] = jsonObjectString;
         }
 
         /// <summary>
@@ -80,14 +93,17 @@ namespace FoulPlay_Windows8
             if (item == null) return;
             switch (item.Location)
             {
+                case "friends":
+                    MainPivot.SelectedIndex = 1;
+                    break;
                 case "profile":
-                    //Frame.Navigate(typeof(FriendPage), _user.OnlineId);
+                    Frame.Navigate(typeof(FriendPage), _user.OnlineId);
                     break;
                 case "live":
                     Frame.Navigate(typeof(LiveFromPlayStationPage));
                     break;
                 case "recent":
-                    //Frame.Navigate(typeof(RecentActivityPage));
+                    MainPivot.SelectedIndex = 4;
                     break;
             }
         }
@@ -96,7 +112,6 @@ namespace FoulPlay_Windows8
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            _vm = (MainPageViewModel)DataContext;
             this._navigationHelper.OnNavigatedTo(e);
         }
 
@@ -151,12 +166,10 @@ namespace FoulPlay_Windows8
 
         private void MessagesListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void MessagesRefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
+            var item = e.ClickedItem as MainPageViewModel.MessageGroupItem;
+            if (item == null) return;
+            string jsonObjectString = JsonConvert.SerializeObject(item.MessageGroup);
+            Frame.Navigate(typeof(MessagePage), jsonObjectString);
         }
 
         private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
@@ -168,7 +181,12 @@ namespace FoulPlay_Windows8
 
         private void InvitesListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            throw new NotImplementedException();
+            var item = e.ClickedItem as SessionInviteEntity.Invitation;
+            if (item == null) return;
+            var control = new SessionInviteUserControl();
+            control.SetOffset();
+            control.SetContext(item);
+            control.OpenPopup();
         }
 
         private void FilterComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -180,16 +198,54 @@ namespace FoulPlay_Windows8
         {
             switch (MainPivot.SelectedIndex)
             {
-                case 1:
+                case 0:
                     SetFriendList();
                     break;
-                case 2:
+                case 1:
                     _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
                     break;
-                case 3:
+                case 2:
                     _vm.SetInviteList();
                     break;
             }
+        }
+
+        private void LiveBroadcastGridView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var liveEntity = e.ClickedItem as LiveBroadcastEntity;
+            if (liveEntity == null) return;
+            var startUri = new Uri(liveEntity.Url);
+            Launcher.LaunchUriAsync(startUri);
+        }
+
+        private void SearchButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SearchPage));
+        }
+
+        ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
+
+        private void LogoutButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            _localSettings.Values["accessToken"] = string.Empty;
+            _localSettings.Values["refreshToken"] = string.Empty;
+            Frame.Navigate(typeof(LoginPage));
+        }
+
+        private void ProfileButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(FriendPage), _user.OnlineId);
+        }
+
+        private async void CreateBackgroundTask()
+        {
+            // We have login, so set up the background tasks.
+            BackgroundTaskUtils.UnregisterBackgroundTasks(BackgroundTaskUtils.BackgroundTaskName);
+            BackgroundTaskRegistration task = await
+                BackgroundTaskUtils.RegisterBackgroundTask(BackgroundTaskUtils.BackgroundTaskEntryPoint,
+                    BackgroundTaskUtils.BackgroundTaskName,
+                    new TimeTrigger(15, false),
+                    null);
         }
     }
 }

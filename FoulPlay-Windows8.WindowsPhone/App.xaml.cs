@@ -11,6 +11,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Media.SpeechRecognition;
 using Windows.Storage;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -115,6 +116,11 @@ namespace FoulPlay_Windows8
 #endif
 
             Frame rootFrame = Window.Current.Content as Frame;
+
+            // Clear tiles if we have any.
+            TileUpdateManager.CreateTileUpdaterForApplication().Clear();
+            BadgeUpdateManager.CreateBadgeUpdaterForApplication().Clear();
+            TileUpdateManager.CreateTileUpdaterForApplication().EnableNotificationQueue(true);
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active

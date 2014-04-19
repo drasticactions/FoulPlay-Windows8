@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Popups;
 using Windows.UI.Xaml.Media.Imaging;
 using FoulPlay_Windows8.Common;
@@ -22,7 +24,6 @@ using Windows.UI.Xaml.Navigation;
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
-using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
 
@@ -31,12 +32,14 @@ namespace FoulPlay_Windows8.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class FriendPage : Page
+    public sealed partial class MessagePage : Page
     {
         private NavigationHelper navigationHelper;
-        private string _userName;
-        private FriendPageViewModel _vm;
-        public FriendPage()
+        private MessageGroupEntity.MessageGroup _messageGroup;
+        private UserAccountEntity.User _user;
+        private MessagePageViewModel _vm;
+
+        public MessagePage()
         {
             this.InitializeComponent();
 
@@ -64,41 +67,21 @@ namespace FoulPlay_Windows8.Views
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested and
         /// a dictionary of state preserved by this page during an earlier
         /// session.  The state will be null the first time a page is visited.</param>
-        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            FriendButtonStackPanel.Visibility = Visibility.Collapsed;
-            _vm = (FriendPageViewModel)DataContext;
+            _vm = (MessagePageViewModel)DataContext;
+
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
                 string savedStateJson = e.PageState["userAccountEntity"].ToString();
                 App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(savedStateJson);
                 savedStateJson = e.PageState["userEntity"].ToString();
-                var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
-                App.UserAccountEntity.SetUserEntity(user);
+                _user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
+                App.UserAccountEntity.SetUserEntity(_user);
             }
-            _userName = (string)e.NavigationParameter;
-            _vm.SetRecentActivityFeed(_userName);
-            _vm.SetFriendsList(_userName, false, false, false, false, true, false, false);
-            _vm.SetTrophyList(_userName);
-            _vm.SetMessages(_userName, App.UserAccountEntity);
-            await _vm.SetUser(_userName);
-            SetFriendButtons();
-        }
-
-        private async void SetFriendButtons()
-        {
-            var friend = _vm.UserModel.User;
-            if (friend == null) return;
-            if (friend.Relation.Equals("requested friend"))
-            {
-                var friendManager = new FriendManager();
-                FriendMessage.Text = await friendManager.GetRequestMessage(_userName, App.UserAccountEntity);
-                FriendButtonStackPanel.Visibility = Visibility.Visible;
-            }
-            if (friend.Relation.Equals("friend of friends") || friend.Relation.Equals("no relationship"))
-            {
-                FriendButtonStackPanel.Visibility = Visibility.Visible;
-            }
+            var jsonObjectString = (string)e.NavigationParameter;
+            _messageGroup = JsonConvert.DeserializeObject<MessageGroupEntity.MessageGroup>(jsonObjectString);
+            _vm.SetMessages(_messageGroup.MessageGroupId, App.UserAccountEntity);
         }
 
         /// <summary>
@@ -144,29 +127,24 @@ namespace FoulPlay_Windows8.Views
 
         #endregion
 
-        private void FriendRequestButton_OnClick(object sender, RoutedEventArgs e)
+        private void ImageSend_OnClick(object sender, RoutedEventArgs e)
         {
-            if (_vm.UserModel == null) return;
-            var friend = _vm.UserModel.User;
-            if (friend == null) return;
-            if (friend.Relation.Equals("friend of friends") || friend.Relation.Equals("no relationship"))
-            {
-                
-            }
+            throw new NotImplementedException();
         }
 
         private async void MessageSend_OnClick(object sender, RoutedEventArgs e)
         {
             MessageProgressBar.Visibility = Visibility.Visible;
-            string messageId = string.Format("~{0},{1}", _userName, App.UserAccountEntity.GetUserEntity().OnlineId);
             var messageManager = new MessageManager();
             MessageSend.IsEnabled = false;
             ImageSend.IsEnabled = false;
             bool result;
             try
             {
-                result =
-                        await messageManager.CreatePost(messageId, MessageTextBox.Text, App.UserAccountEntity);
+                    result =
+                        await
+                            messageManager.CreatePost(_messageGroup.MessageGroupId, MessageTextBox.Text,
+                                App.UserAccountEntity);
                 MessageProgressBar.Visibility = Visibility.Collapsed;
                 MessageSend.IsEnabled = true;
                 ImageSend.IsEnabled = true;
@@ -178,7 +156,7 @@ namespace FoulPlay_Windows8.Views
             if (result)
             {
                 MessageTextBox.Text = string.Empty;
-                _vm.SetMessages(_userName, App.UserAccountEntity);
+                _vm.SetMessages(_messageGroup.MessageGroupId, App.UserAccountEntity);
                 return;
             }
             const string messageText = "An error has occured. The message has not been sent.";
@@ -189,62 +167,16 @@ namespace FoulPlay_Windows8.Views
             ImageSend.IsEnabled = true;
         }
 
-        private void ImageSend_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void RefreshAppBarButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ActivityFeedListView_OnItemClick(object sender, ItemClickEventArgs e)
-        {
-            var item = e.ClickedItem as RecentActivityEntity.Feed;
-            if (item == null) return;
-            var control = new RecentActivityUserControl();
-            control.SetOffset();
-            control.SetContext(item);
-            control.OpenPopup();
-        }
-
-        private void TrophyListView_OnItemClick(object sender, ItemClickEventArgs e)
-        {
-            var item = e.ClickedItem as TrophyEntity.TrophyTitle;
-            if (item == null) return;
-            string jsonObjectString = JsonConvert.SerializeObject(item);
-            Frame.Navigate(typeof(TrophyPage), jsonObjectString);
-        }
-
-        private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)
-        {
-            var item = e.ClickedItem as FriendsEntity.Friend;
-            if (item == null) return;
-            Frame.Navigate(typeof(FriendPage), item.OnlineId);
-        }
-
-        private async Task<BitmapImage> DecodeImage(Stream stream)
-        {
-            var memStream = new MemoryStream();
-            await stream.CopyToAsync(memStream);
-            memStream.Position = 0;
-            var bitmapImage = new BitmapImage();
-            bitmapImage.SetSource(memStream.AsRandomAccessStream());
-            return bitmapImage;
-        }
-
         private async void MessagesListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            string messageId = string.Format("~{0},{1}", _userName, App.UserAccountEntity.GetUserEntity().OnlineId);
             MessageProgressBar.Visibility = Visibility.Visible;
             if (UserMessagePopup.IsOpen)
             {
                 MessageProgressBar.Visibility = Visibility.Collapsed;
                 return;
             }
-            UserMessageImage.Source = null;
-            var messageItem = e.ClickedItem as FriendPageViewModel.MessageGroupItem;
+            UserImage.Source = null;
+            var messageItem = e.ClickedItem as MessagePageViewModel.MessageGroupItem;
             if (messageItem == null)
             {
                 MessageProgressBar.Visibility = Visibility.Collapsed;
@@ -265,15 +197,15 @@ namespace FoulPlay_Windows8.Views
             {
                 var messageManager = new MessageManager();
                 Stream imageBytes = await
-                    messageManager.GetMessageContent(messageId, message,
+                    messageManager.GetMessageContent(_messageGroup.MessageGroupId, message,
                         App.UserAccountEntity);
                 BitmapImage image = await DecodeImage(imageBytes);
-                UserMessageImage.Source = image;
+                UserImage.Source = image;
             }
             catch (Exception)
             {
                 MessageProgressBar.Visibility = Visibility.Collapsed;
-                UserMessageImage.Source = null;
+                UserImage.Source = null;
                 return;
             }
             MessageProgressBar.Visibility = Visibility.Collapsed;
@@ -282,72 +214,14 @@ namespace FoulPlay_Windows8.Views
             UserMessagePopup.IsOpen = true;
         }
 
-        private async void SendFriendRequest_OnClick(object sender, RoutedEventArgs e)
+        private async Task<BitmapImage> DecodeImage(Stream stream)
         {
-            FriendRequestFlyout.Hide();
-            var friendManager = new FriendManager();
-            var result = await
-                friendManager.SendFriendRequest(_userName, FriendRequesTextBox.Text, App.UserAccountEntity);
-            if (!result)
-            {
-                const string messageText = "An error has occured. The friend request has not been sent.";
-                var msgDlg = new MessageDialog(messageText);
-                await msgDlg.ShowAsync();
-                return;
-            }
-            await _vm.SetUser(_userName);
-            SetFriendButtons();
-        }
-
-        private async void DeleteFriendRequest_OnClick(object sender, RoutedEventArgs e)
-        {
-            ButtonPickerFlyout.Hide();
-            var friendManager = new FriendManager();
-            var result = await friendManager.DenyAddFriend(true, _userName, App.UserAccountEntity);
-            if (!result)
-            {
-                const string messageText = "An error has occured. The friend request could not be removed.";
-                var msgDlg = new MessageDialog(messageText);
-                await msgDlg.ShowAsync();
-                return;
-            }
-            await _vm.SetUser(_userName);
-            SetFriendButtons();
-        }
-
-        private async void AddAsFriendButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            ButtonPickerFlyout.Hide();
-            var friendManager = new FriendManager();
-            var result = await friendManager.DenyAddFriend(false, _userName, App.UserAccountEntity);
-            if (!result)
-            {
-                const string messageText = "An error has occured. Friend could not be added.";
-                var msgDlg = new MessageDialog(messageText);
-                await msgDlg.ShowAsync();
-                return;
-            }
-            await _vm.SetUser(_userName);
-            SetFriendButtons();
-        }
-
-        private void RefreshButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            switch (MainPivot.SelectedIndex)
-            {
-                case 1:
-                    _vm.SetMessages(_userName, App.UserAccountEntity);
-                    break;
-                case 2:
-                    _vm.SetRecentActivityFeed(_userName);
-                    break;
-                case 3:
-                    _vm.SetTrophyList(_userName);
-                    break;
-                case 4:
-                    _vm.SetFriendsList(_userName, false, false, false, false, true, false, false);
-                    break;
-            }
+            var memStream = new MemoryStream();
+            await stream.CopyToAsync(memStream);
+            memStream.Position = 0;
+            var bitmapImage = new BitmapImage();
+            bitmapImage.SetSource(memStream.AsRandomAccessStream());
+            return bitmapImage;
         }
     }
 }

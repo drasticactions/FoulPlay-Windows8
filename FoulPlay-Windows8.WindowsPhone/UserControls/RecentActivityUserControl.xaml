@@ -8,13 +8,13 @@
     mc:Ignorable="d"
     d:DesignHeight="550"
     d:DesignWidth="500">
-    <Popup Grid.Row="0" Width="400" Height="450" x:Name="ParentPopup" IsOpen="False" IsLightDismissEnabled="True">
+    <Popup Grid.Row="0" Width="300" Height="350" x:Name="ParentPopup" IsOpen="False" IsLightDismissEnabled="True">
         <Popup.ChildTransitions>
             <TransitionCollection>
                 <PopupThemeTransition />
             </TransitionCollection>
         </Popup.ChildTransitions>
-        <Border Width="400" Height="450" BorderBrush="White" BorderThickness="1">
+        <Border Width="300" Height="350" BorderBrush="White" BorderThickness="1">
             <Grid>
                 <Grid.Background>
                     <SolidColorBrush Color="Black" Opacity="0.90" />
@@ -24,7 +24,7 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Border VerticalAlignment="Center" Grid.Column="0" Width="400" Height="200">
+                <Border VerticalAlignment="Center" Grid.Column="0" Width="300" Height="200">
                     <Image x:Name="StoreImage" Stretch="UniformToFill" />
                 </Border>
                 <Border VerticalAlignment="Center" Grid.Column="0" Width="200" Height="200">
@@ -32,7 +32,7 @@
                 </Border>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="0" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
@@ -43,17 +43,13 @@
                         <TextBlock Grid.Column="1" x:Name="LikeCountTextBlock" Text="{Binding LikeCount}"
                                    HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
                     </Grid>
-                    <Grid Grid.Column="1" Visibility="Collapsed" x:Name="ActivityPageGrid">
+                    <Grid Grid.Column="1" HorizontalAlignment="Center" Visibility="Collapsed" x:Name="ActivityPageGrid">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Button IsEnabled="False" Click="BackButton_OnClick" x:Name="BackButton" Content="&lt;" />
-                        <Viewbox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
-                            <TextBlock x:Name="ActivityPageCount" />
-                        </Viewbox>
-                        <Button Click="ForwardButton_OnClick" x:Name="ForwardButton" Grid.Column="2" Content="&gt;" />
+                        <Button Click="ForwardButton_OnClick" x:Name="ForwardButton" Grid.Column="1" Content="&gt;" />
                     </Grid>
                 </Grid>
                 <Grid Margin="15" Grid.Row="2">

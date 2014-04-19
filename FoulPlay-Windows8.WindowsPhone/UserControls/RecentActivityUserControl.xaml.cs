@@ -33,8 +33,8 @@ namespace FoulPlay_Windows8.UserControls
             ForwardButton.IsEnabled = true;
             SetDataContentCondensedStories(_feed,
                 _feed.CondensedStories[StoryCount]);
-            ActivityPageCount.Text = string.Format("{0}/{1}", StoryCount + 1,
-                _feed.CondensedStories.Count);
+            //ActivityPageCount.Text = string.Format("{0}/{1}", StoryCount + 1,
+              //  _feed.CondensedStories.Count);
         }
 
         private void ForwardButton_OnClick(object sender, RoutedEventArgs e)
@@ -48,8 +48,8 @@ namespace FoulPlay_Windows8.UserControls
             SetDataContentCondensedStories(_feed,
                 _feed.CondensedStories[StoryCount]);
             ParentPopup.DataContext = _feed.CondensedStories[StoryCount];
-            ActivityPageCount.Text = string.Format("{0}/{1}", StoryCount + 1,
-                _feed.CondensedStories.Count);
+            //ActivityPageCount.Text = string.Format("{0}/{1}", StoryCount + 1,
+                //_feed.CondensedStories.Count);
         }
 
         public void OpenPopup()
@@ -64,8 +64,8 @@ namespace FoulPlay_Windows8.UserControls
 
         public void SetOffset()
         {
-            ParentPopup.HorizontalOffset = (Window.Current.Bounds.Width - 400)/2;
-            ParentPopup.VerticalOffset = (Window.Current.Bounds.Height - 500)/2;
+            ParentPopup.HorizontalOffset = (Window.Current.Bounds.Width - 300)/2;
+            ParentPopup.VerticalOffset = (Window.Current.Bounds.Height - 350)/2;
         }
 
         public void SetContext(RecentActivityEntity.Feed feed)
@@ -76,7 +76,7 @@ namespace FoulPlay_Windows8.UserControls
             ParentPopup.DataContext = feed;
             if (feed.CondensedStories != null)
             {
-                ActivityPageCount.Text = string.Format("1/{0}", feed.CondensedStories.Count);
+                //ActivityPageCount.Text = string.Format("1/{0}", feed.CondensedStories.Count);
                 SetDataContentCondensedStories(feed,
                     feed.CondensedStories[StoryCount]);
                 ActivityPageGrid.Visibility = Visibility.Visible;

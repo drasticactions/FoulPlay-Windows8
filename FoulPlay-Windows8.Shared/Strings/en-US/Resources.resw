@@ -120,6 +120,9 @@
   <data name="AboutMe.Text" xml:space="preserve">
     <value>About Me:</value>
   </data>
+  <data name="AboutMePivot.Header" xml:space="preserve">
+    <value>Info</value>
+  </data>
   <data name="AboutMeCategory.Text" xml:space="preserve">
     <value>Introduction</value>
   </data>
@@ -232,6 +235,9 @@
   <data name="Invitations.Text" xml:space="preserve">
     <value>Invitations</value>
   </data>
+  <data name="InvitationsPivot.Header" xml:space="preserve">
+    <value>Invitations</value>
+  </data>
   <data name="Invitation_singular.Text" xml:space="preserve">
     <value>Invitation</value>
   </data>
@@ -316,7 +322,13 @@
   <data name="Logout.Text" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="LogoutBar.Label" xml:space="preserve">
+    <value>Logout</value>
+  </data>
   <data name="MessagesPivot.Text" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="MessagePivot.Header" xml:space="preserve">
     <value>Messages</value>
   </data>
   <data name="MyLanguages.Text" xml:space="preserve">
@@ -383,13 +395,22 @@ You can earn trophies by playing games that support them.</value>
   <data name="ProfileHeader.Text" xml:space="preserve">
     <value>Profile</value>
   </data>
+  <data name="Profile.Label" xml:space="preserve">
+    <value>Profile</value>
+  </data>
   <data name="RealNameRequest.Text" xml:space="preserve">
     <value>Send Name Request</value>
   </data>
   <data name="RecentActivity.Text" xml:space="preserve">
     <value>Recent Activity</value>
   </data>
+  <data name="RecentActivities.Header" xml:space="preserve">
+    <value>Recent Activity</value>
+  </data>
   <data name="Refresh.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="RefreshBar.Label" xml:space="preserve">
     <value>Refresh</value>
   </data>
   <data name="RemoveFromFriends.Text" xml:space="preserve">
@@ -409,7 +430,13 @@ You can earn trophies by playing games that support them.</value>
   <data name="Search.Text" xml:space="preserve">
     <value>Search</value>
   </data>
+  <data name="SearchButtonBar.Content" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="SearchButton.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchBar.Label" xml:space="preserve">
     <value>Search</value>
   </data>
   <data name="SendButton.Content" xml:space="preserve">
@@ -454,6 +481,9 @@ You can earn trophies by playing games that support them.</value>
     <value>Grade</value>
   </data>
   <data name="TrophyHeader.Text" xml:space="preserve">
+    <value>Trophies</value>
+  </data>
+  <data name="TrophyPivot.Header" xml:space="preserve">
     <value>Trophies</value>
   </data>
   <data name="TrophyHidden.Text" xml:space="preserve">

@@ -25,7 +25,7 @@
 
         <!-- TitlePanel -->
         <StackPanel Grid.Row="0" Margin="24,17,0,28">
-            <TextBlock Text="Search" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
+            <TextBlock x:Uid="Search" Text="Search" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
@@ -38,13 +38,14 @@
                 <StackPanel Margin="15" Grid.Row="0">
                     <TextBox x:Name="SearchBox" />
                     <Button
+                        x:Uid="SearchButtonBar"
                         HorizontalAlignment="Stretch"
                         Content="Search"
                         Click="SearchButton_Click" x:Name="SearchButton" />
                     <ProgressBar Visibility="Collapsed" x:Name="ProgressBar" IsIndeterminate="True" />
                 </StackPanel>
                 <Grid Grid.Row="1">
-                    <TextBlock x:Name="NoResultsFoundBlock" FontSize="50" TextWrapping="Wrap"
+                    <TextBlock x:Uid="NoFriends" x:Name="NoResultsFoundBlock" FontSize="50" TextWrapping="Wrap"
                                HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"
                                Text="No Results Found" />
                 </Grid>
@@ -54,7 +55,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Border VerticalAlignment="Top" Grid.Column="0" Width="100" Height="100">
-                        <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
+                        <Image Tapped="UserImage_OnTapped" Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
                     </Border>
                     <Grid VerticalAlignment="Top" Grid.Column="1">
                         <Grid.RowDefinitions>
@@ -66,7 +67,7 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding OnlineId}" FontSize="25" TextWrapping="NoWrap"
+                            <TextBlock Grid.Column="0" Tapped="UserImage_OnTapped" Text="{Binding OnlineId}" FontSize="25" TextWrapping="NoWrap"
                                        TextTrimming="WordEllipsis" />
                         </Grid>
                     </Grid>

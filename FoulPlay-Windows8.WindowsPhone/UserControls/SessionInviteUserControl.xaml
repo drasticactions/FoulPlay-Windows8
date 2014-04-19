@@ -12,13 +12,13 @@
     <UserControl.DataContext>
         <viewModels:SessionInvitePopupViewModel />
     </UserControl.DataContext>
-    <Popup x:Name="ParentPopup" Width="400" Height="550" IsOpen="False" IsLightDismissEnabled="True">
+    <Popup x:Name="ParentPopup" Width="300" Height="350" IsOpen="False" IsLightDismissEnabled="True">
         <Popup.ChildTransitions>
             <TransitionCollection>
                 <PopupThemeTransition />
             </TransitionCollection>
         </Popup.ChildTransitions>
-        <Border Width="400" Height="550" x:Name="BorderPopup" BorderBrush="White" BorderThickness="1">
+        <Border Width="300" Height="350" x:Name="BorderPopup" BorderBrush="White" BorderThickness="1">
             <Border.Background>
                 <SolidColorBrush Color="Black" Opacity="0.90" />
             </Border.Background>

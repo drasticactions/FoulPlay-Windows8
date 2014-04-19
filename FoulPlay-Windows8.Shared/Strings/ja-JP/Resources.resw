@@ -120,6 +120,9 @@
   <data name="AboutMe.Text" xml:space="preserve">
     <value>紹介:</value>
   </data>
+  <data name="AboutMePivot.Header" xml:space="preserve">
+    <value>紹介</value>
+  </data>
   <data name="AboutMeCategory.Text" xml:space="preserve">
     <value>紹介</value>
   </data>
@@ -232,6 +235,9 @@
   <data name="Invitations.Text" xml:space="preserve">
     <value>招待</value>
   </data>
+  <data name="InvitationsPivot.Header" xml:space="preserve">
+    <value>招待</value>
+  </data>
   <data name="Invitation_singular.Text" xml:space="preserve">
     <value>招待</value>
   </data>
@@ -316,7 +322,13 @@
   <data name="Logout.Text" xml:space="preserve">
     <value>ログアウト</value>
   </data>
+  <data name="LogoutBar.Label" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
   <data name="MessagesPivot.Text" xml:space="preserve">
+    <value>メッセージ</value>
+  </data>
+  <data name="MessagePivot.Header" xml:space="preserve">
     <value>メッセージ</value>
   </data>
   <data name="MyLanguages.Text" xml:space="preserve">
@@ -384,13 +396,22 @@
   <data name="ProfileHeader.Text" xml:space="preserve">
     <value>プロフィール</value>
   </data>
+  <data name="Profile.Label" xml:space="preserve">
+    <value>プロフィール</value>
+  </data>
   <data name="RealNameRequest.Text" xml:space="preserve">
     <value>名前リクエストを送信する</value>
   </data>
   <data name="RecentActivity.Text" xml:space="preserve">
     <value>最近のアクティビティー</value>
   </data>
+  <data name="RecentActivities.Header" xml:space="preserve">
+    <value>最近のアクティビティー</value>
+  </data>
   <data name="Refresh.Text" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="RefreshBar.Label" xml:space="preserve">
     <value>更新</value>
   </data>
   <data name="RemoveFromFriends.Text" xml:space="preserve">
@@ -410,7 +431,13 @@
   <data name="Search.Text" xml:space="preserve">
     <value>検索</value>
   </data>
+    <data name="SearchButtonBar.Content" xml:space="preserve">
+    <value>検索</value>
+  </data>
   <data name="SearchButton.Text" xml:space="preserve">
+    <value>検索</value>
+  </data>
+  <data name="SearchBar.Label" xml:space="preserve">
     <value>検索</value>
   </data>
   <data name="SendButton.Content" xml:space="preserve">
@@ -455,6 +482,9 @@
     <value>グレード</value>
   </data>
   <data name="TrophyHeader.Text" xml:space="preserve">
+    <value>トロフィー</value>
+  </data>
+  <data name="TrophyPivot.Header" xml:space="preserve">
     <value>トロフィー</value>
   </data>
   <data name="TrophyHidden.Text" xml:space="preserve">

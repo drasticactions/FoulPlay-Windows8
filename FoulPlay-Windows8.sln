@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoulPlay-Windows8.WindowsPh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoulPlay.Core", "FoulPlay.Core\FoulPlay.Core.csproj", "{6330D5A9-C0D6-49CA-819C-352472920B56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Foulplay.BackgroundStatus-Portable", "Foulplay.BackgroundStatus-Portable\Foulplay.BackgroundStatus-Portable.csproj", "{C8767963-5883-4AC0-9FE8-BCE54A2DD595}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		FoulPlay-Windows8.Shared\FoulPlay-Windows8.Shared.projitems*{24052fd5-33d5-47b9-92c3-d2d6c9d8782b}*SharedItemsImports = 13
@@ -102,6 +104,16 @@ Global
 		{6330D5A9-C0D6-49CA-819C-352472920B56}.Release|ARM.ActiveCfg = Release|Any CPU
 		{6330D5A9-C0D6-49CA-819C-352472920B56}.Release|x64.ActiveCfg = Release|Any CPU
 		{6330D5A9-C0D6-49CA-819C-352472920B56}.Release|x86.ActiveCfg = Release|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Release|ARM.ActiveCfg = Release|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Release|x64.ActiveCfg = Release|Any CPU
+		{C8767963-5883-4AC0-9FE8-BCE54A2DD595}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -82,6 +82,10 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <ProjectReference Include="..\Foulplay.BackgroundStatus-Portable\Foulplay.BackgroundStatus-Portable.csproj">
+      <Project>{c8767963-5883-4ac0-9fe8-bce54a2dd595}</Project>
+      <Name>Foulplay.BackgroundStatus-Portable</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FoulPlay.Core\FoulPlay.Core.csproj">
       <Project>{6330d5a9-c0d6-49ca-819c-352472920b56}</Project>
       <Name>FoulPlay.Core</Name>
@@ -118,8 +122,14 @@
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MessagePage.xaml.cs">
+      <DependentUpon>MessagePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SearchPage.xaml.cs">
       <DependentUpon>SearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TrophyPage.xaml.cs">
+      <DependentUpon>TrophyPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +185,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MessagePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SearchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TrophyPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

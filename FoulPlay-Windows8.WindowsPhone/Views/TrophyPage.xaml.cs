@@ -1,5 +1,4 @@
-﻿using Windows.UI.Popups;
-using FoulPlay_Windows8.Common;
+﻿using FoulPlay_Windows8.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
 using Foulplay_Windows8.Core.Entities;
-using Foulplay_Windows8.Core.Managers;
+using FoulPlay_Windows8.ViewModels;
 using Newtonsoft.Json;
 
 namespace FoulPlay_Windows8.Views
@@ -27,12 +26,12 @@ namespace FoulPlay_Windows8.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SearchPage : Page
+    public sealed partial class TrophyPage : Page
     {
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private UserEntity _user;
-        public SearchPage()
+        private TrophyPageViewModel _vm;
+
+        public TrophyPage()
         {
             this.InitializeComponent();
 
@@ -50,15 +49,6 @@ namespace FoulPlay_Windows8.Views
         }
 
         /// <summary>
-        /// Gets the view model for this <see cref="Page"/>.
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-
-        /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
         /// provided when recreating a page from a prior session.
         /// </summary>
@@ -71,6 +61,8 @@ namespace FoulPlay_Windows8.Views
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            _vm = (TrophyPageViewModel)DataContext;
+
             if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
             {
                 string savedStateJson = e.PageState["userAccountEntity"].ToString();
@@ -79,6 +71,13 @@ namespace FoulPlay_Windows8.Views
                 var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(savedStateJson);
                 App.UserAccountEntity.SetUserEntity(user);
             }
+
+            var jsonObjectString = (string)e.NavigationParameter;
+            var trophyTitle = JsonConvert.DeserializeObject<TrophyEntity.TrophyTitle>(jsonObjectString);
+            string userName = trophyTitle.ComparedUser != null
+                ? trophyTitle.ComparedUser.OnlineId
+                : trophyTitle.FromUser.OnlineId;
+            _vm.SetTrophyList(userName, trophyTitle.NpCommunicationId);
         }
 
         /// <summary>
@@ -124,28 +123,14 @@ namespace FoulPlay_Windows8.Views
 
         #endregion
 
-        private async void SearchButton_Click(object sender, RoutedEventArgs e)
+        private void TrophyListView_OnItemClick(object sender, ItemClickEventArgs e)
         {
-            if (string.IsNullOrEmpty(SearchBox.Text)) return;
-            ProgressBar.Visibility = Visibility.Visible;
-            _user = await UserManager.GetUser(SearchBox.Text, App.UserAccountEntity);
-            if (_user == null)
-            {
-                const string messageText = "An error has occured.";
-                var msgDlg = new MessageDialog(messageText);
-                await msgDlg.ShowAsync();
-                return;
-            }
-            NoResultsFoundBlock.Visibility = _user != null && string.IsNullOrEmpty(_user.OnlineId)
-                ? Visibility.Visible
-                : Visibility.Collapsed;
-            UserSearchResultGrid.DataContext = _user;
-            ProgressBar.Visibility = Visibility.Collapsed;
-        }
-
-        private void UserImage_OnTapped(object sender, TappedRoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(FriendPage), _user.OnlineId);
+            var item = (TrophyDetailEntity.Trophy)e.ClickedItem;
+            if (TrophyDetailPopup.IsOpen) return;
+            TrophyDetailPopup.DataContext = item;
+            TrophyDetailPopup.HorizontalOffset = (Window.Current.Bounds.Width - 400) / 2;
+            TrophyDetailPopup.VerticalOffset = (Window.Current.Bounds.Height - 600) / 2;
+            TrophyDetailPopup.IsOpen = true;
         }
     }
 }

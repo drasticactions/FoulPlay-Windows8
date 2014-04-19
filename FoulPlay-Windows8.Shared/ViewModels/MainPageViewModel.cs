@@ -197,8 +197,6 @@ namespace FoulPlay_Windows8.ViewModels
             ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
             MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
 resourceLoader.GetString("FriendsPivot/Text"), "friends"));
-            MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
-resourceLoader.GetString("TrophyHeader/Text"), "trophies"));
             MenuItems.Add(new MenuItem("/Assets/phone_home_footerIcon_region.png",
                 resourceLoader.GetString("RecentActivity/Text"), "recent"));
             MenuItems.Add(new MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"),
