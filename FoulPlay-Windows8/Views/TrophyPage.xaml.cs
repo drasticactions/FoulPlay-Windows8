@@ -53,7 +53,7 @@ namespace FoulPlay_Windows8.Views
         {
             _vm = (TrophyPageViewModel)DataContext;
 
-            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity") && App.UserAccountEntity == null)
             {
                 string savedStateJson = e.PageState["userAccountEntity"].ToString();
                 App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(savedStateJson);

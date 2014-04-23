@@ -53,7 +53,7 @@ namespace FoulPlay_Windows8
         {
             _vm = (MainPageViewModel)DataContext;
             _liveVm = (LiveFromPlaystationPageViewModel)LiveFromPlaystationGrid.DataContext;
-            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity") && App.UserAccountEntity == null)
             {
                 string jsonObjectString = e.PageState["userAccountEntity"].ToString();
                 App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(jsonObjectString);

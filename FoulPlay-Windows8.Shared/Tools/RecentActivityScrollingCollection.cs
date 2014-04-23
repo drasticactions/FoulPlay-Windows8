@@ -80,10 +80,12 @@ namespace FoulPlay_Windows8.Tools
             if (feedEntity == null)
             {
                 HasMoreItems = false;
+                IsLoading = false;
                 return;
             }
             if (feedEntity.feed == null)
             {
+                IsLoading = false;
                 return;
             }
             foreach (RecentActivityEntity.Feed feed in feedEntity.feed)

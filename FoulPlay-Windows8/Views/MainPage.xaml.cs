@@ -69,7 +69,7 @@ namespace FoulPlay_Windows8.Views
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             _vm = (MainPageViewModel)DataContext;
-            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity") && App.UserAccountEntity == null)
             {
                 string jsonObjectString = e.PageState["userAccountEntity"].ToString();
                 App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(jsonObjectString);

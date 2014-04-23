@@ -30,7 +30,6 @@ namespace FoulPlay_Windows8.Views
     public sealed partial class SearchPage : Page
     {
         private NavigationHelper navigationHelper;
-        private ObservableDictionary defaultViewModel = new ObservableDictionary();
         private UserEntity _user;
         public SearchPage()
         {
@@ -50,15 +49,6 @@ namespace FoulPlay_Windows8.Views
         }
 
         /// <summary>
-        /// Gets the view model for this <see cref="Page"/>.
-        /// This can be changed to a strongly typed view model.
-        /// </summary>
-        public ObservableDictionary DefaultViewModel
-        {
-            get { return this.defaultViewModel; }
-        }
-
-        /// <summary>
         /// Populates the page with content passed during navigation.  Any saved state is also
         /// provided when recreating a page from a prior session.
         /// </summary>
@@ -71,7 +61,7 @@ namespace FoulPlay_Windows8.Views
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            if (e.PageState != null && e.PageState.ContainsKey("userEntity"))
+            if (e.PageState != null && e.PageState.ContainsKey("userEntity") && App.UserAccountEntity == null)
             {
                 string savedStateJson = e.PageState["userAccountEntity"].ToString();
                 App.UserAccountEntity = JsonConvert.DeserializeObject<UserAccountEntity>(savedStateJson);
@@ -145,6 +135,7 @@ namespace FoulPlay_Windows8.Views
 
         private void UserImage_OnTapped(object sender, TappedRoutedEventArgs e)
         {
+            if(_user != null)
             Frame.Navigate(typeof(FriendPage), _user.OnlineId);
         }
     }
