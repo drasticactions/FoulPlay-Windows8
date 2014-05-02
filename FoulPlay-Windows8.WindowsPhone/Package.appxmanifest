@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="52978DrasticActions.FoulPlayTheUnofficialPlayStati" Publisher="CN=49056560-3A92-41D0-8509-DF4FE44F646C" Version="1.5.0.0" />
+  <Identity Name="52978DrasticActions.FoulPlayTheUnofficialPlayStati" Publisher="CN=49056560-3A92-41D0-8509-DF4FE44F646C" Version="1.5.1.1" />
   <mp:PhoneIdentity PhoneProductId="7d18cc05-eaa1-4860-a48c-de1c9422ee1e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>FoulPlay: The Unofficial PlayStation Network App</DisplayName>

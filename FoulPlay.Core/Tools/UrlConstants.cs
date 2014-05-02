@@ -13,6 +13,8 @@ namespace Foulplay_Windows8.Core.Tools
         public const string UstreamBaseUrl = "https://ps4api.ustream.tv/media.json?";
 
         public const string TwitchBaseUrl = "https://api.twitch.tv/api/orbis/streams?";
+
+        public const string NicoNicoBaseUrl = "http://edn.live.nicovideo.jp/api/v1.0/programs?";
     }
 
     public class UstreamUrlConstants

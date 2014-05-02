@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FoulPlay.Core.Entities;
 
 namespace Foulplay_Windows8.Core.Entities
 {
@@ -10,7 +11,7 @@ namespace Foulplay_Windows8.Core.Entities
     {
         public string Title { get; set; }
 
-        public bool FromTwitch { get; set; }
+        public string From { get; set; }
 
         public string Description { get; set; }
 
@@ -40,12 +41,32 @@ namespace Foulplay_Windows8.Core.Entities
 
         public string Url { get; set; }
 
+        public void ParseFromNicoNico(NicoNicoEntity.Program program)
+        {
+            try
+            {
+                Title = program.title;
+                Service = "ニコニコ";
+                Description = program.description;
+                UserName = program.user.name;
+                GameTitle = program.sce.title_name;
+                Platform = "PS4";
+                Viewers = program.view_num;
+                PreviewThumbnail = program.thumbnail_url;
+                Url = "http://live.nicovideo.jp/watch/" + program.id;
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
         public void ParseFromTwitch(TwitchEntity.Stream twitchStream)
         {
             try
             {
                 Title = twitchStream.status;
-                FromTwitch = true;
+                Service = "Twitch";
                 Description = twitchStream.name;
                 UserName = twitchStream.sce_user_online_id;
                 GameTitle = twitchStream.sce_title_name;

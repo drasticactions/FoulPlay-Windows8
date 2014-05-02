@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using FoulPlay.Core.Entities;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -53,6 +54,7 @@ namespace FoulPlay_Windows8.ViewModels
         {
             SetUstreamElements();
             SetTwitchElements();
+            SetNicoDougaElements();
         }
 
         private async void SetUstreamElements()
@@ -95,6 +97,23 @@ namespace FoulPlay_Windows8.ViewModels
             }
             IsLoading = false;
 
+        }
+
+        private async void SetNicoDougaElements()
+        {
+            IsLoading = true;
+
+            NicoNicoEntity nicoNicoEntity = await _liveStreamManager.GetNicoFeed("onair", "PS4", 0, 80, "view", App.UserAccountEntity);
+            if (nicoNicoEntity == null) return;
+            if (nicoNicoEntity.programs == null) return;
+            foreach (NicoNicoEntity.Program program in nicoNicoEntity.programs)
+            {
+                var entity = new LiveBroadcastEntity();
+                entity.ParseFromNicoNico(program);
+                LiveBroadcastCollection.Add(entity);
+            }
+
+            IsLoading = false;
         }
     }
 }

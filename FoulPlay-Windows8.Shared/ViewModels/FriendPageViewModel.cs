@@ -126,6 +126,7 @@ namespace FoulPlay_Windows8.ViewModels
         private async void GetAvatar(MessageGroupItem message, UserAccountEntity userAccountEntity)
         {
             UserEntity user = await UserManager.GetUserAvatar(message.Message.senderOnlineId, userAccountEntity);
+            if (user == null) return;
             message.AvatarUrl = user.AvatarUrl;
             OnPropertyChanged("MessageGroupCollection");
         }
@@ -172,6 +173,7 @@ namespace FoulPlay_Windows8.ViewModels
         {
             bool isCurrentUser = App.UserAccountEntity.GetUserEntity().OnlineId.Equals(userName);
             UserEntity user = await UserManager.GetUser(userName, App.UserAccountEntity);
+            if (user == null) return;
             List<string> languageList = user.LanguagesUsed.Select(ParseLanguageVariable).ToList();
             string language = string.Join("," + Environment.NewLine, languageList);
             UserModel = new UserViewModel

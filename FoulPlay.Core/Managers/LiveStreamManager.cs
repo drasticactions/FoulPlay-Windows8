@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using FoulPlay.Core.Entities;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Tools;
 using Newtonsoft.Json;
@@ -13,6 +14,50 @@ namespace Foulplay_Windows8.Core.Managers
 {
     public class LiveStreamManager
     {
+        public async Task<NicoNicoEntity> GetNicoFeed(string status, string platform, int offset, int limit, string sort, UserAccountEntity userAccountEntity)
+        {
+            try
+            {
+                var authenticationManager = new AuthenticationManager();
+                if (userAccountEntity.GetAccessToken().Equals("refresh"))
+                {
+                    await authenticationManager.RefreshAccessToken(userAccountEntity);
+                }
+                var url = UrlConstants.NicoNicoBaseUrl;
+                // Sony's app hardcodes this value to 0. 
+                // This app could, in theory, allow for more polling of data, so these options are left open to new values and limits.
+                url += string.Format("offset={0}&", offset);
+                url += string.Format("limit={0}&", limit);
+                url += string.Format("status={0}&", status);
+                url += string.Format("sce_platform={0}&", platform);
+                url += string.Format("sort={0}", sort);
+                // TODO: Fix this cheap hack to get around caching issue. For some reason, no-cache is not working...
+                url += "&r=" + Guid.NewGuid();
+                var request = new HttpRequestMessage(HttpMethod.Get, url);
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccountEntity.GetAccessToken());
+                request.Headers.CacheControl = new CacheControlHeaderValue { NoCache = true };
+                string language = userAccountEntity.GetUserEntity().Language;
+                var theAuthClient = new HttpClient();
+                theAuthClient.DefaultRequestHeaders.Add("Accept-Language", language);
+                HttpResponseMessage response = await theAuthClient.SendAsync(request);
+                string responseContent = await response.Content.ReadAsStringAsync();
+                if (string.IsNullOrEmpty(responseContent))
+                {
+                    return null;
+                }
+
+                // Instead of parsing the object manually, let JSON.net do it for us.
+                var niconicoEntity = JsonConvert.DeserializeObject<NicoNicoEntity>(responseContent);
+                return niconicoEntity;
+            }
+            catch (Exception)
+            {
+                // If something breaks, take the error.
+                // We can just reload and try again.
+                return null;
+            }
+        }
+
         public async Task<TwitchEntity> GetTwitchFeed(int offset, int limit, string platform,
            string titlePreset, string query, UserAccountEntity userAccountEntity)
         {

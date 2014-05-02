@@ -50,6 +50,7 @@ namespace FoulPlay_Windows8.ViewModels
         private async void GetAvatar(MessageGroupItem message, UserAccountEntity userAccountEntity)
         {
             UserEntity user = await UserManager.GetUserAvatar(message.Message.senderOnlineId, userAccountEntity);
+            if (user == null) return;
             message.AvatarUrl = user.AvatarUrl;
             OnPropertyChanged("MessageGroupCollection");
         }

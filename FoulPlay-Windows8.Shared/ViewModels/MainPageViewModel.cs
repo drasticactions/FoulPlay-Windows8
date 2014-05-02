@@ -156,6 +156,7 @@ namespace FoulPlay_Windows8.ViewModels
         {
             UserEntity user =
                 await UserManager.GetUserAvatar(message.MessageGroup.LatestMessage.SenderOnlineId, userAccountEntity);
+            if (user == null) return;
             message.AvatarUrl = user.AvatarUrl;
             OnPropertyChanged("MessageGroupCollection");
         }

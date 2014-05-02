@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.0.6_Bundle\FoulPlay-Windows8_1.5.0.6_AnyCPU.appx
-SymbolPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\AppPackages\FoulPlay-Windows8_1.5.0.6_Test\FoulPlay-Windows8_1.5.0.6_AnyCPU.appxsym
-ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.0.6_Bundle\FoulPlay-Windows8_1.5.0.6_language-ja.appx
-ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.0.6_Bundle\FoulPlay-Windows8_1.5.0.6_scale-140.appx
-ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.0.6_Bundle\FoulPlay-Windows8_1.5.0.6_scale-180.appx
+MainPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.1.7_Bundle\FoulPlay-Windows8_1.5.1.7_AnyCPU.appx
+SymbolPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\AppPackages\FoulPlay-Windows8_1.5.1.7_Test\FoulPlay-Windows8_1.5.1.7_AnyCPU.appxsym
+ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.1.7_Bundle\FoulPlay-Windows8_1.5.1.7_language-ja.appx
+ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.1.7_Bundle\FoulPlay-Windows8_1.5.1.7_scale-140.appx
+ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8\bin\Release\FoulPlay-Windows8_1.5.1.7_Bundle\FoulPlay-Windows8_1.5.1.7_scale-180.appx

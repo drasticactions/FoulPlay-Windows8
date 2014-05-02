@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="52978DrasticActions.FoulPlayTheUnofficialPlayStati" Publisher="CN=49056560-3A92-41D0-8509-DF4FE44F646C" Version="1.5.0.6" />
+  <Identity Name="52978DrasticActions.FoulPlayTheUnofficialPlayStati" Publisher="CN=49056560-3A92-41D0-8509-DF4FE44F646C" Version="1.5.1.7" />
   <Properties>
     <DisplayName>FoulPlay: The Unofficial PlayStation Network App</DisplayName>
     <PublisherDisplayName>ティム・ミラー</PublisherDisplayName>
