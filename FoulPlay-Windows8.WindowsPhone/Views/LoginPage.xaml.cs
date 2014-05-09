@@ -111,9 +111,7 @@ namespace FoulPlay_Windows8.Views
 
         private void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var startUri =
-     new Uri(
-         "https://reg.api.km.playstation.net/regcam/mobile/sign-in.html?redirectURL=com.playstation.PlayStationApp://redirect&client_id=4db3729d-4591-457a-807a-1cf01e60c3ac&scope=sceapp");
+            var startUri = new Uri("https://auth.api.sonyentertainmentnetwork.com/login.jsp?service_entity=psn");
             Launcher.LaunchUriAsync(startUri);
         }
     }

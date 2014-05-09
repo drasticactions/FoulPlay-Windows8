@@ -77,36 +77,10 @@ namespace FoulPlay_Windows8
 
         private async void LoginButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var startUri =
-                new Uri(
-                    "https://reg.api.km.playstation.net/regcam/mobile/sign-in.html?redirectURL=com.playstation.PlayStationApp://redirect&client_id=4db3729d-4591-457a-807a-1cf01e60c3ac&scope=sceapp");
+            //var startUri = new Uri("https://reg.api.km.playstation.net/regcam/mobile/sign-in.html?redirectURL=com.playstation.PlayStationApp://redirect&client_id=4db3729d-4591-457a-807a-1cf01e60c3ac&scope=sceapp");
+            var startUri = new Uri("https://auth.api.sonyentertainmentnetwork.com/login.jsp?service_entity=psn");
             Launcher.LaunchUriAsync(startUri);
-            //var endUri = new Uri("ms-app://s-1-15-2-1314427872-2122674928-3201522428-3143936919-1608593684-1688128798-2315520022/");
-            //WebAuthenticationResult webAuthenticationResult =
-            //   await WebAuthenticationBroker.AuthenticateAsync(
-            //       WebAuthenticationOptions.None,
-            //       startUri,
-            //       endUri);
-            //if (webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.Success)
-            //{
-            //    //Authenticated succesfully
-            //    var uri = new Uri(webAuthenticationResult.ResponseData);
-            //    var decoder = new WwwFormUrlDecoder(uri.Query);
-            //    string getResponse = decoder.GetFirstValueByName("authCode");
-            //    //SaveClientToken(getResponse);
-            //}
-            //else if
-            //    (webAuthenticationResult.ResponseStatus == WebAuthenticationStatus.ErrorHttp)
-            //{
-            //    //Handle HTTP error
-            //    //return false;
-            //}
-            //else
-            //{
-            //    //Authentication failed
-            //    //return false;
-            //}
-            ////return true;
+            
         }
 
         #region NavigationHelper registration
