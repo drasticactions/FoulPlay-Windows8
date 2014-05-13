@@ -7,8 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
     xmlns:tools="using:FoulPlay_Windows8.Tools"
+    xmlns:controls="using:FoulPlay_Windows8.Controls"
     mc:Ignorable="d"
    >
+    <Page.Transitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Page.Transitions>
     <Page.DataContext>
         <viewModels:MainPageViewModel />
     </Page.DataContext>
@@ -120,7 +126,7 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="25" />
                                         </Grid.RowDefinitions>
-                                        <Image Grid.Row="0" Stretch="UniformToFill" VerticalAlignment="Top"
+                                        <controls:ImageLoader Grid.Row="0" VerticalAlignment="Top"
                                            Source="{Binding PreviewThumbnail}" />
                                         <StackPanel Margin="1" Grid.Row="1">
                                             <TextBlock FontSize="25" FontWeight="SemiLight" TextWrapping="NoWrap"

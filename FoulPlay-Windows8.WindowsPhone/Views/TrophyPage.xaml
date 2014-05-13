@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
+    xmlns:controls="using:FoulPlay_Windows8.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:TrophyPageViewModel />
@@ -45,7 +46,7 @@
                     <StackPanel Height="400" Width="300">
                         <StackPanel Orientation="Horizontal">
                             <Border VerticalAlignment="Top" Width="75" Height="75">
-                                <Image Source="{Binding TrophyIconUrl}" Stretch="UniformToFill" />
+                                <controls:ImageLoader Source="{Binding TrophyIconUrl}" />
                             </Border>
                             <TextBlock FontSize="30"
                                        Width="225"

@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
+    xmlns:controls="using:FoulPlay_Windows8.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:FriendPageViewModel />
@@ -60,9 +61,9 @@
                                     </Grid.ColumnDefinitions>
                                     <Border Margin="8,15,0,15" VerticalAlignment="Center" HorizontalAlignment="Left"
                                     Grid.Column="0" Width="120" Height="120">
-                                        <Image x:Name="UserImage"
+                                        <controls:ImageLoader x:Name="UserImage"
                                        Source="{Binding UserModel.User , Converter={StaticResource PersonalIconConverter} }"
-                                       Stretch="UniformToFill" />
+                                        />
                                     </Border>
                                     <StackPanel x:Name="FriendButtonStackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1">
                                         <Button x:Name="FriendRequestButton" Click="FriendRequestButton_OnClick" Visibility="{Binding UserModel.User, Converter={StaticResource FriendRequestVisibilityConverter} , Mode=TwoWay}"  HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request">
@@ -454,7 +455,7 @@
                                                    Grid.Column="0" Width="15" Height="15"
                                                    Fill="{Binding Presence.PrimaryInfo.OnlineStatus, Converter={StaticResource OnlineConverter}}" />
                                             <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
-                                                <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
+                                                <controls:ImageLoader Source="{Binding AvatarUrl}" />
                                             </Border>
                                             <Grid VerticalAlignment="Center" Grid.Column="2">
                                                 <Grid.RowDefinitions>
