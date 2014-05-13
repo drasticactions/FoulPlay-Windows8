@@ -15,6 +15,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Common\ObservableDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ImageLoader.xaml.cs">
+      <DependentUpon>ImageLoader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Tools\ActivityTemplateSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\AddAsFriendButtonVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\AvailablePlatformConverter.cs" />
@@ -171,5 +174,14 @@
     <PRIResource Include="$(MSBuildThisFileDirectory)Strings\ja-JP\Resources.resw">
       <SubType>Designer</SubType>
     </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Controls\ImageLoader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

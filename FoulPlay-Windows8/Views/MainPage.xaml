@@ -9,6 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tools="using:FoulPlay_Windows8.Tools"
     xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
+    xmlns:controls="using:FoulPlay_Windows8.Controls"
     mc:Ignorable="d">
     <Page.DataContext>
         <viewModels:MainPageViewModel />
@@ -129,7 +130,7 @@
                                                    Grid.Column="0" Width="15" Height="15"
                                                    Fill="{Binding Presence.PrimaryInfo.OnlineStatus, Converter={StaticResource OnlineConverter}}" />
                                         <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
-                                            <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
+                                            <controls:ImageLoader Source="{Binding AvatarUrl}"  />
                                         </Border>
                                         <Grid VerticalAlignment="Center" Grid.Column="2">
                                             <Grid.RowDefinitions>
