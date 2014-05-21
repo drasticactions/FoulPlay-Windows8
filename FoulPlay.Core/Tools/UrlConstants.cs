@@ -15,6 +15,9 @@ namespace Foulplay_Windows8.Core.Tools
         public const string TwitchBaseUrl = "https://api.twitch.tv/api/orbis/streams?";
 
         public const string NicoNicoBaseUrl = "http://edn.live.nicovideo.jp/api/v1.0/programs?";
+
+        public const string FriendMeUrl =
+            "https://friendme.sonyentertainmentnetwork.com/friendme/api/v1/c2s/users/me/friendrequest";
     }
 
     public class UstreamUrlConstants

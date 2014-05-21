@@ -540,4 +540,7 @@ You can earn trophies by playing games that support them.</value>
   <data name="Menu.Header" xml:space="preserve">
     <value>Menu</value>
   </data>
+  <data name="Instructions.Text" xml:space="preserve">
+    <value>In order to login successfully, you must first set Internet Explorer as your default browser. After you login, you can reset it if you wish.</value>
+  </data>
 </root>

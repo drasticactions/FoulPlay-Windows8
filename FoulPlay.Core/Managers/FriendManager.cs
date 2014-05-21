@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Foulplay_Windows8.Core.Entities;
+using Foulplay_Windows8.Core.Tools;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -154,6 +155,32 @@ namespace Foulplay_Windows8.Core.Managers
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public async Task<string> GetFriendLink(UserAccountEntity userAccountEntity)
+        {
+            try
+            {
+                var user = userAccountEntity.GetUserEntity();
+                var authenticationManager = new AuthenticationManager();
+                if (userAccountEntity.GetAccessToken().Equals("refresh"))
+                {
+                    await authenticationManager.RefreshAccessToken(userAccountEntity);
+                }
+                var theAuthClient = new HttpClient();
+                var param = new Dictionary<String, String> {{"type", "ONE"}};
+                var jsonObject = JsonConvert.SerializeObject(param);
+                var stringContent = new StringContent(jsonObject, Encoding.UTF8, "application/json");
+                var request = new HttpRequestMessage(HttpMethod.Post, UrlConstants.FriendMeUrl) { Content = stringContent };
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccountEntity.GetAccessToken());
+                var response = await theAuthClient.SendAsync(request);
+                string responseContent = await response.Content.ReadAsStringAsync();
+                return responseContent;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
             }
         }
     }

@@ -279,7 +279,13 @@
                               ItemClick="ActivityFeedListView_OnItemClick"
                               x:Name="ActivityFeedListView"
                               ItemsSource="{Binding RecentActivityScrollingCollection}"
-                              ItemTemplate="{StaticResource ActivityDataTemplate}" />
+                              ItemTemplate="{StaticResource ActivityDataTemplate}">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
                         <Viewbox Visibility="{Binding RecentActivityScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay }" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
                             <TextBlock  Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoActivities" Text="There are no activities."/>
                         </Viewbox>
@@ -354,8 +360,7 @@
                                                     </Grid.ColumnDefinitions>
                                                     <Border HorizontalAlignment="Left" VerticalAlignment="Top"
                                                         Grid.Column="0" Width="150" Height="83">
-                                                        <Image Source="{Binding TrophyTitleIconUrl}"
-                                                           Stretch="UniformToFill" />
+                                                        <controls:ImageLoader Source="{Binding TrophyTitleIconUrl}" />
                                                     </Border>
                                                     <Grid Grid.Column="1">
                                                         <Grid.RowDefinitions>

@@ -431,7 +431,7 @@
   <data name="Search.Text" xml:space="preserve">
     <value>検索</value>
   </data>
-    <data name="SearchButtonBar.Content" xml:space="preserve">
+  <data name="SearchButtonBar.Content" xml:space="preserve">
     <value>検索</value>
   </data>
   <data name="SearchButton.Text" xml:space="preserve">
@@ -540,5 +540,8 @@
   </data>
   <data name="Menu.Header" xml:space="preserve">
     <value>メニュー</value>
+  </data>
+  <data name="Instructions.Text" xml:space="preserve">
+    <value>PSNにログインするためにはInternetExplorerを既定のブラウザに設定しなければならないです。</value>
   </data>
 </root>

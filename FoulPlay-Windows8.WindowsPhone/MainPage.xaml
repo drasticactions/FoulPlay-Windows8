@@ -114,6 +114,11 @@
                     <ProgressBar Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter} }" IsIndeterminate="True" Grid.Row="0"/>
                     <ListView Grid.Row="1" ItemClick="LiveBroadcastGridView_OnItemClick" ItemsSource="{Binding LiveBroadcastCollection}"
                           IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border Height="300" Margin="15" BorderBrush="White" BorderThickness="1">
@@ -173,6 +178,11 @@
                               ItemsSource="{Binding RecentActivityScrollingCollection}"
                               x:Name="ActivityFeedGridView"
                               ItemTemplateSelector="{StaticResource ActivityTemplateSelector}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
                     </ListView>
                 </Grid>
             </PivotItem>
