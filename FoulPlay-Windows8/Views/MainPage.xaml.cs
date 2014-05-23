@@ -106,6 +106,8 @@ namespace FoulPlay_Windows8.Views
                 "live"));
             menuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
                 resourceLoader.GetString("ProfileHeader/Text"), "profile"));
+            menuItems.Add(new MainPageViewModel.MenuItem("/Assets/phone_common_defaultThumbnail_etc.png",
+                resourceLoader.GetString("AddFriendViaEmail2/Text"), "email"));
             MenuGridView.ItemsSource = menuItems;
         }
 
@@ -179,7 +181,29 @@ namespace FoulPlay_Windows8.Views
                 case "recent":
                     Frame.Navigate(typeof (RecentActivityPage));
                     break;
+                case "email":
+                    SendFriendEmail();
+                    break;
             }
+        }
+
+        private async void SendFriendEmail()
+        {
+            GeneralProgressBar.Visibility = Visibility.Visible;
+            FriendManager friendManager = new FriendManager();
+            FriendTokenEntity tokenEntity = await friendManager.GetFriendLink(App.UserAccountEntity);
+            if (tokenEntity == null)
+            {
+                GeneralProgressBar.Visibility = Visibility.Collapsed;
+                return;
+            }
+            ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
+            string subject = resourceLoader.GetString("AddFriendSubject/Text");
+            string body = string.Concat(subject, Environment.NewLine, tokenEntity.Token);
+            string mailtoUrl = string.Format("mailto:?subject={0}&body={1}", subject, body);
+            var mailto = new Uri(mailtoUrl);
+            await Windows.System.Launcher.LaunchUriAsync(mailto);
+            GeneralProgressBar.Visibility = Visibility.Collapsed;
         }
 
         private void FriendsListView_OnItemClick(object sender, ItemClickEventArgs e)

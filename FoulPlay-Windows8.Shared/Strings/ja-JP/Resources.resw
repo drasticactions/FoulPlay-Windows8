@@ -544,4 +544,19 @@
   <data name="Instructions.Text" xml:space="preserve">
     <value>PSNにログインするためにはInternetExplorerを既定のブラウザに設定しなければならないです。</value>
   </data>
+  <data name="AddFriendSubject.Text" xml:space="preserve">
+    <value>PSNでフレンドになりませんか？</value>
+  </data>
+  <data name="AddFriendViaEmail.Label" xml:space="preserve">
+    <value>Eメールでフレンド依頼を送る</value>
+  </data>
+  <data name="AddFriendViaEmail2.Text" xml:space="preserve">
+    <value>Eメールでフレンド依頼を送る</value>
+  </data>
+  <data name="AddFriendViaSMS.Label" xml:space="preserve">
+    <value>SMSでフレンド依頼を送る</value>
+  </data>
+  <data name="AddFriendViaSMS2.Text" xml:space="preserve">
+    <value>SMSでフレンド依頼を送る</value>
+  </data>
 </root>

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using FoulPlay.Core.Entities;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Tools;
 using Newtonsoft.Json;
@@ -158,7 +159,7 @@ namespace Foulplay_Windows8.Core.Managers
             }
         }
 
-        public async Task<string> GetFriendLink(UserAccountEntity userAccountEntity)
+        public async Task<FriendTokenEntity> GetFriendLink(UserAccountEntity userAccountEntity)
         {
             try
             {
@@ -176,11 +177,11 @@ namespace Foulplay_Windows8.Core.Managers
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", userAccountEntity.GetAccessToken());
                 var response = await theAuthClient.SendAsync(request);
                 string responseContent = await response.Content.ReadAsStringAsync();
-                return responseContent;
+                return JsonConvert.DeserializeObject<FriendTokenEntity>(responseContent); ;
             }
             catch (Exception)
             {
-                return string.Empty;
+                return null;
             }
         }
     }

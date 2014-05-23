@@ -543,4 +543,19 @@ You can earn trophies by playing games that support them.</value>
   <data name="Instructions.Text" xml:space="preserve">
     <value>In order to login successfully, you must first set Internet Explorer as your default browser. After you login, you can reset it if you wish.</value>
   </data>
+  <data name="AddFriendSubject.Text" xml:space="preserve">
+    <value>Do you want to be friends on the PSN?</value>
+  </data>
+  <data name="AddFriendViaEmail.Label" xml:space="preserve">
+    <value>Add Friend Via Email</value>
+  </data>
+  <data name="AddFriendViaEmail2.Text" xml:space="preserve">
+    <value>Add Friend Via Email</value>
+  </data>
+  <data name="AddFriendViaSMS.Label" xml:space="preserve">
+    <value>Add Friend Via SMS</value>
+  </data>
+  <data name="AddFriendViaSMS2.Text" xml:space="preserve">
+    <value>Add Friend Via SMS</value>
+  </data>
 </root>

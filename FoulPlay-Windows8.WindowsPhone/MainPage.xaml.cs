@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Background;
+using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -19,6 +20,7 @@ using Windows.UI.Xaml.Navigation;
 using FoulPlay.Core.Entities;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
+using Foulplay_Windows8.Core.Managers;
 using Foulplay_Windows8.Core.Tools;
 using FoulPlay_Windows8.UserControls;
 using FoulPlay_Windows8.ViewModels;
@@ -246,6 +248,44 @@ namespace FoulPlay_Windows8
                     BackgroundTaskUtils.BackgroundTaskName,
                     new TimeTrigger(15, false),
                     null);
+        }
+
+        private async void AddFriendViaEmail_OnClick(object sender, RoutedEventArgs e)
+        {
+            GeneralProgressBar.Visibility = Visibility.Visible;
+            FriendManager friendManager = new FriendManager();
+            FriendTokenEntity tokenEntity = await friendManager.GetFriendLink(App.UserAccountEntity);
+            if (tokenEntity == null)
+            {
+                GeneralProgressBar.Visibility = Visibility.Collapsed;
+                return;
+            }
+            ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
+            string subject = resourceLoader.GetString("AddFriendSubject/Text");
+            EmailMessage mail = new EmailMessage
+            {
+                Subject = subject,
+                Body = string.Concat(subject, Environment.NewLine, tokenEntity.Token)
+            };
+            await EmailManager.ShowComposeNewEmailAsync(mail);
+            GeneralProgressBar.Visibility = Visibility.Collapsed;
+        }
+
+        private async void AddFriendViaSMS_OnClick(object sender, RoutedEventArgs e)
+        {
+            GeneralProgressBar.Visibility = Visibility.Visible;
+            FriendManager friendManager = new FriendManager();
+            FriendTokenEntity tokenEntity = await friendManager.GetFriendLink(App.UserAccountEntity);
+            if (tokenEntity == null)
+            {
+                GeneralProgressBar.Visibility = Visibility.Collapsed;
+                return;
+            }
+            ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
+            string subject = resourceLoader.GetString("AddFriendSubject/Text");
+            var chatMessage = new Windows.ApplicationModel.Chat.ChatMessage { Body = string.Concat(subject, Environment.NewLine, tokenEntity.Token) };
+            await Windows.ApplicationModel.Chat.ChatMessageManager.ShowComposeSmsMessageAsync(chatMessage);
+            GeneralProgressBar.Visibility = Visibility.Collapsed;
         }
     }
 }

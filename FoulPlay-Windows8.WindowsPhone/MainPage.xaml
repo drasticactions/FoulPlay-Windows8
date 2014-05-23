@@ -28,6 +28,7 @@
 
     </Page.Resources>
     <Grid x:Name="LayoutRoot">
+        <ProgressBar x:Name="GeneralProgressBar" VerticalAlignment="Top" IsIndeterminate="True" Visibility="Collapsed"/>
         <Pivot x:Name="MainPivot">
             <PivotItem x:Uid="FriendPivot" Header="Friends">
                 <Grid>
@@ -195,6 +196,8 @@
             <AppBarButton x:Uid="SearchBar" Label="Search" Click="SearchButton_OnClick" Icon="Find" />
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="Profile" Click="ProfileButton_OnClick" Label="Profile"/>
+                <AppBarButton x:Uid="AddFriendViaEmail" Click="AddFriendViaEmail_OnClick"  Label="Add Friend Via Email"/>
+                <AppBarButton x:Uid="AddFriendViaSMS" Click="AddFriendViaSMS_OnClick"  Label="Add Friend Via SMS"/>
                 <AppBarButton x:Uid="LogoutBar" Click="LogoutButton_OnClick" Label="Logout"/>
             </CommandBar.SecondaryCommands>
         </CommandBar>

@@ -80,10 +80,10 @@
                         <SolidColorBrush Color="#DBDEE7" Opacity="0.15" />
                     </Grid.Background>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <controls:ImageLoader Width="30" Height="30" VerticalAlignment="Bottom" Source="{Binding Icon}" />
+                    <controls:ImageLoader Margin="15" Width="30" Height="30" VerticalAlignment="Bottom" Source="{Binding Icon}" />
                     <TextBlock Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15"
                                TextWrapping="Wrap" Text="{Binding Text}" />
                 </Grid>

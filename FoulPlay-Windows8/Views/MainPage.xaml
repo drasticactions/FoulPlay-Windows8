@@ -41,9 +41,9 @@
             <RowDefinition Height="140" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+        <ProgressBar Grid.Row="1" x:Name="GeneralProgressBar" VerticalAlignment="Top" IsIndeterminate="True" Visibility="Collapsed"/>
         <!-- Back button and page title -->
-        <Grid>
+        <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120" />
                 <ColumnDefinition Width="*" />
