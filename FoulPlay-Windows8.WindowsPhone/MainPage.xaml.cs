@@ -70,7 +70,7 @@ namespace FoulPlay_Windows8
             _vm.SetFriendsList(_user.OnlineId, true, false, false, false, true, false, false);
             _vm.SetInviteList();
             _liveVm.BuildList();
-            CreateBackgroundTask();
+            //CreateBackgroundTask();
         }
 
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)

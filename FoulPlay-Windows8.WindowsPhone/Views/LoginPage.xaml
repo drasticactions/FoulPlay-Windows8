@@ -27,7 +27,7 @@
         <StackPanel Grid.Row="0" Margin="24,17,0,28">
             <TextBlock Text="FoulPlay" Style="{ThemeResource HeaderTextBlockStyle}"/>
         </StackPanel>
-
+        <ProgressBar IsIndeterminate="True" VerticalAlignment="Top" Visibility="Collapsed" x:Name="LoadingProgressBar" Grid.Row="1"></ProgressBar>
         <!--TODO: Content should be placed within the following grid-->
         <Grid Grid.Row="1" x:Name="ContentRoot">
             <Image Margin="15" Source="/Assets/MainLogo.png" />
