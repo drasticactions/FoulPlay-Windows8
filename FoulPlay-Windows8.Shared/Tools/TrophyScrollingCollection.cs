@@ -12,12 +12,14 @@ using Foulplay_Windows8.Core.Managers;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class TrophyScrollingCollection : ObservableCollection<TrophyEntity.TrophyTitle>, ISupportIncrementalLoading, INotifyPropertyChanged
+    public class TrophyScrollingCollection : ObservableCollection<TrophyEntity.TrophyTitle>, ISupportIncrementalLoading,
+        INotifyPropertyChanged
     {
         public int Offset;
         public UserAccountEntity UserAccountEntity;
-        private bool _isLoading;
         private bool _isEmpty;
+        private bool _isLoading;
+
         public TrophyScrollingCollection()
         {
             HasMoreItems = true;
@@ -48,6 +50,8 @@ namespace FoulPlay_Windows8.Tools
             }
         }
 
+        public new event PropertyChangedEventHandler PropertyChanged;
+
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
             return LoadDataAsync(count).AsAsyncOperation();
@@ -64,8 +68,6 @@ namespace FoulPlay_Windows8.Tools
             var ret = new LoadMoreItemsResult {Count = count};
             return ret;
         }
-
-        public new event PropertyChangedEventHandler PropertyChanged;
 
 
         private void NotifyPropertyChanged(String propertyName)

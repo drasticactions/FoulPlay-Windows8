@@ -15,20 +15,11 @@ using Foulplay_Windows8.Core.Entities;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class SessionInviteScrollingCollection : ObservableCollection<SessionInviteEntity.Invitation>, ISupportIncrementalLoading, INotifyPropertyChanged
+    public class SessionInviteScrollingCollection : ObservableCollection<SessionInviteEntity.Invitation>, ISupportIncrementalLoading
     {
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
             return LoadDataAsync(count).AsAsyncOperation();
-        }
-
-        public new event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
         private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
@@ -45,7 +36,6 @@ namespace FoulPlay_Windows8.Tools
         {
             HasMoreItems = true;
             IsLoading = false;
-            UserAccountEntity = App.UserAccountEntity;
         }
 
         public bool HasMoreItems { get; private set; }
@@ -60,7 +50,7 @@ namespace FoulPlay_Windows8.Tools
             private set
             {
                 _isLoading = value;
-                OnPropertyChanged();
+                OnPropertyChanged(new PropertyChangedEventArgs("IsLoading"));
             }
         }
 
@@ -71,7 +61,7 @@ namespace FoulPlay_Windows8.Tools
             private set
             {
                 _isEmpty = value;
-                OnPropertyChanged();
+                OnPropertyChanged(new PropertyChangedEventArgs("IsEmpty"));
             }
         }
 

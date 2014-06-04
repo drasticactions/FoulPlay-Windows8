@@ -11,26 +11,28 @@
         <viewModels:MessagePageViewModel />
     </Page.DataContext>
     <Page.Background>
-        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+        <ImageBrush ImageSource="/Assets/Background.jpg" />
     </Page.Background>
     <Grid x:Name="LayoutRoot">
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
-                <EntranceThemeTransition/>
+                <EntranceThemeTransition />
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- TitlePanel -->
         <StackPanel Grid.Row="0" Margin="24,17,0,28">
-            <TextBlock Text="Messages" x:Uid="MessagesPivot" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
+            <TextBlock Text="Messages" x:Uid="MessagesPivot" Style="{ThemeResource TitleTextBlockStyle}"
+                       Typography.Capitals="SmallCaps" />
         </StackPanel>
-        <Popup Width="300" Height="300" Grid.Row="1" x:Name="UserMessagePopup" IsOpen="False" IsLightDismissEnabled="True">
+        <Popup Width="300" Height="300" Grid.Row="1" x:Name="UserMessagePopup" IsOpen="False"
+               IsLightDismissEnabled="True">
             <Popup.ChildTransitions>
                 <TransitionCollection>
                     <PopupThemeTransition />
@@ -40,8 +42,9 @@
                 <Border.Background>
                     <SolidColorBrush Color="#DBDEE7" Opacity="1" />
                 </Border.Background>
-                <ScrollViewer ZoomMode="Enabled" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                    <Image Stretch="Uniform"  x:Name="UserImage"/>
+                <ScrollViewer ZoomMode="Enabled" VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Auto">
+                    <Image Stretch="Uniform" x:Name="UserImage" />
                 </ScrollViewer>
             </Border>
         </Popup>
@@ -69,8 +72,9 @@
                         <RowDefinition Height="100" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBox Margin="0" Canvas.ZIndex="1" VerticalAlignment="Stretch" x:Name="MessageTextBox" IsSpellCheckEnabled="True"
-                                     IsTextPredictionEnabled="True" AcceptsReturn="True" Grid.Row="0" />
+                    <TextBox Margin="0" Canvas.ZIndex="1" VerticalAlignment="Stretch" x:Name="MessageTextBox"
+                             IsSpellCheckEnabled="True"
+                             IsTextPredictionEnabled="True" AcceptsReturn="True" Grid.Row="0" />
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Grid.Row="1">
                         <Button x:Uid="SendButton" x:Name="MessageSend" Click="MessageSend_OnClick" Content="Send" />
                         <Button IsEnabled="False" Visibility="Collapsed" x:Name="ImageSend" Click="ImageSend_OnClick"

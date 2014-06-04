@@ -8,25 +8,26 @@
     xmlns:controls="using:FoulPlay_Windows8.Controls"
     mc:Ignorable="d">
     <Page.Background>
-        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+        <ImageBrush ImageSource="/Assets/Background.jpg" />
     </Page.Background>
 
     <Grid x:Name="LayoutRoot">
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
-                <EntranceThemeTransition/>
+                <EntranceThemeTransition />
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- TitlePanel -->
         <StackPanel Grid.Row="0" Margin="24,17,0,28">
-            <TextBlock x:Uid="Search" Text="Search" Style="{ThemeResource TitleTextBlockStyle}" Typography.Capitals="SmallCaps"/>
+            <TextBlock x:Uid="Search" Text="Search" Style="{ThemeResource TitleTextBlockStyle}"
+                       Typography.Capitals="SmallCaps" />
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
@@ -68,7 +69,8 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Tapped="UserImage_OnTapped" Text="{Binding OnlineId}" FontSize="25" TextWrapping="NoWrap"
+                            <TextBlock Grid.Column="0" Tapped="UserImage_OnTapped" Text="{Binding OnlineId}"
+                                       FontSize="25" TextWrapping="NoWrap"
                                        TextTrimming="WordEllipsis" />
                         </Grid>
                     </Grid>

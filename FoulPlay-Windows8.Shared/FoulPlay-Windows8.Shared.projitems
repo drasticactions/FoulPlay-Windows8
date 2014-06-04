@@ -29,19 +29,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\DateConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\ExpiredConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\FriendRequestVisibilityConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\FriendScrollingCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\HasSeenConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\HasTrophiesConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\InviteImageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\MaxPlayersConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\SenderNameConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\SessionInviteScrollingCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\IsCurrentUserConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\OnlineConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\PersonalIconConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\PersonalNameConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RecentActivityImageConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\RecentActivityScrollingCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyDateConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyEarnedVisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyGradeConverter.cs" />
@@ -49,7 +46,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyHiddenIconConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyRareConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyRareTextConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyScrollingCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyStatusConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\TrophyTypeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\ValuePercentConverter.cs" />

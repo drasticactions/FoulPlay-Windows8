@@ -20,17 +20,21 @@
                     <SolidColorBrush Color="Black" Opacity="0.90" />
                 </Grid.Background>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition Height="200"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Style="{StaticResource SubheaderTextBlockStyle}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Testing"/>
+                <TextBlock Grid.Row="0" Style="{StaticResource SubheaderTextBlockStyle}" FontSize="30"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Text="Testing" />
                 <ScrollViewer Margin="15" ZoomMode="Disabled" Grid.Row="1">
-                    <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" FontSize="25" Text="Testing 2 is a big test!"/>
+                    <TextBlock Style="{StaticResource SubheaderTextBlockStyle}" FontSize="25"
+                               Text="Testing 2 is a big test!" />
                 </ScrollViewer>
                 <StackPanel Margin="15" Grid.Row="2">
-                    <Button x:Name="FriendRequestButton" HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request"/>
-                    <Button x:Name="AddAsFriendButton" HorizontalAlignment="Stretch" x:Uid="AddAsFriend" Content="Add As Friend"/>
+                    <Button x:Name="FriendRequestButton" HorizontalAlignment="Stretch" x:Uid="FriendRequest"
+                            Content="Send Friend Request" />
+                    <Button x:Name="AddAsFriendButton" HorizontalAlignment="Stretch" x:Uid="AddAsFriend"
+                            Content="Add As Friend" />
                 </StackPanel>
             </Grid>
         </Border>

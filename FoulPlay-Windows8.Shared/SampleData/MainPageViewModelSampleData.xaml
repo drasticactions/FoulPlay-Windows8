@@ -1,136 +1,200 @@
-﻿<ViewModels:MainPageViewModel xmlns:ViewModels="using:FoulPlay_Windows8.ViewModels" xmlns:Entities="using:Foulplay_Windows8.Core.Entities">
-	<ViewModels:MainPageViewModel.MessageGroupCollection>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Posuere nisi nisl magna">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Sagittis libero potenti nunc vestibulum" TotalUnseenMessages="46" TotalMessages="47">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Sociosqu orci" MessageUid="31" MessageKind="23" ReceivedDate="Pretium porttitor senectus sit vel" SenderOnlineId="Penatibus sem odio litora" SeenFlag="True"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="99" MessageGroupName="Malesuada massa ligula" TotalMembers="30"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Rhoncus sodales metus pede">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Nam suscipit morbi" TotalUnseenMessages="79" TotalMessages="13">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Luctus nulla" MessageUid="66" MessageKind="19" ReceivedDate="Vestibulum torquent" SenderOnlineId="Quis urna cras parturient netus" SeenFlag="False"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="15" MessageGroupName="Neque quam adipiscing viverra" TotalMembers="43"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Tincidunt tristique">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Aliquam sed" TotalUnseenMessages="88" TotalMessages="57">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Amet vestibulum adipiscing volutpat" MessageUid="90" MessageKind="40" ReceivedDate="Vehicula dis" SenderOnlineId="Integer porta nunc" SeenFlag="True"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="37" MessageGroupName="Ultrices duis" TotalMembers="25"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Ultricies purus ante magnis mattis">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Maecenas quisque" TotalUnseenMessages="96" TotalMessages="90">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Mollis aliquam velit" MessageUid="48" MessageKind="83" ReceivedDate="Praesent mauris venenatis" SenderOnlineId="Risus parturient vestibulum arcu" SeenFlag="False"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="67" MessageGroupName="Est vivamus" TotalMembers="84"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Montes vulputate">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Vestibulum diam" TotalUnseenMessages="90" TotalMessages="93">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Enim blandit" MessageUid="58" MessageKind="15" ReceivedDate="Phasellus vitae class" SenderOnlineId="Elit aliquet" SeenFlag="True"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="89" MessageGroupName="Nostra curabitur eget adipiscing" TotalMembers="84"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Hac leo accumsan">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Erat parturient bibendum curae dictumst" TotalUnseenMessages="67" TotalMessages="48">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Vestibulum nibh elementum faucibus donec" MessageUid="44" MessageKind="91" ReceivedDate="Facilisi conubia cubilia dapibus vestibulum" SenderOnlineId="Eros ornare commodo eleifend dignissim" SeenFlag="False"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="15" MessageGroupName="Mus consequat convallis" TotalMembers="23"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Habitant etiam">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Platea inceptos adipiscing interdum" TotalUnseenMessages="41" TotalMessages="89">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Fusce nascetur pharetra fermentum" MessageUid="82" MessageKind="20" ReceivedDate="Nec facilisis" SenderOnlineId="Nisl feugiat gravida nunc" SeenFlag="True"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="92" MessageGroupName="Lobortis egestas euismod primis nisi" TotalMembers="57"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Lorem rutrum">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Placerat non pulvinar sagittis senectus" TotalUnseenMessages="46" TotalMessages="20">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Orci sapien hendrerit" MessageUid="79" MessageKind="53" ReceivedDate="Morbi nulla vestibulum" SenderOnlineId="Habitasse iaculis suscipit per parturient" SeenFlag="False"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="24" MessageGroupName="Sociosqu odio fringilla" TotalMembers="42"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Sed proin">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Torquent lacinia vestibulum" TotalUnseenMessages="34" TotalMessages="59">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Augue parturient ultrices" MessageUid="45" MessageKind="86" ReceivedDate="Pede sit laoreet" SenderOnlineId="Himenaeos sem imperdiet" SeenFlag="True"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="32" MessageGroupName="Adipiscing semper" TotalMembers="26"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-		<ViewModels:MainPageViewModel+MessageGroupItem AvatarUrl="Vehicula quam vestibulum vel">
-			<ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-				<Entities:MessageGroupEntity+MessageGroup MessageGroupId="Malesuada sociis natoque dolor posuere" TotalUnseenMessages="81" TotalMessages="63">
-					<Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-						<Entities:MessageGroupEntity+LatestMessage Body="Urna nam sodales porttitor volutpat" MessageUid="57" MessageKind="47" ReceivedDate="Rhoncus quis adipiscing felis" SenderOnlineId="Pretium taciti" SeenFlag="False"/>
-					</Entities:MessageGroupEntity+MessageGroup.LatestMessage>
-					<Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-						<Entities:MessageGroupEntity+MessageGroupDetail MessageGroupType="68" MessageGroupName="Vestibulum potenti fames penatibus" TotalMembers="18"/>
-					</Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
-				</Entities:MessageGroupEntity+MessageGroup>
-			</ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
-		</ViewModels:MainPageViewModel+MessageGroupItem>
-	</ViewModels:MainPageViewModel.MessageGroupCollection>
-	<ViewModels:MainPageViewModel.MenuItems>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Vestibulum adipiscing donec" Location="Curae nam sed" Text="Maecenas curabitur praesent class"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Vestibulum fusce amet" Location="Nunc accumsan parturient" Text="Etiam cras aenean phasellus duis"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Est lorem mauris quisque" Location="Adipiscing consequat aliquam bibendum integer" Text="Dis vestibulum"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Aliquam augue nullam ante" Location="Proin eleifend parturient vestibulum facilisi" Text="Morbi dictumst vivamus nulla"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Vestibulum faucibus auctor commodo adipiscing" Location="Aliquet arcu aptent dolor blandit" Text="Hac convallis"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Elementum fames vestibulum facilisis" Location="Dignissim dapibus parturient interdum vestibulum" Text="Habitant conubia inceptos congue cubilia"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Habitasse nec felis nascetur parturient" Location="Fermentum feugiat fringilla lobortis" Text="Leo mus adipiscing egestas euismod"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Eget lacinia elit" Location="Vestibulum ipsum pharetra non" Text="Hendrerit gravida iaculis diam"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Erat laoreet lacus natoque per" Location="Enim vestibulum justo" Text="Placerat pulvinar cursus dictum"/>
-		<ViewModels:MainPageViewModel+MenuItem Icon="Vestibulum lectus eros nibh" Location="Lorem parturient imperdiet" Text="Sed adipiscing himenaeos"/>
-	</ViewModels:MainPageViewModel.MenuItems>
+﻿<ViewModels:MainPageViewModel xmlns:ViewModels="using:FoulPlay_Windows8.ViewModels"
+                              xmlns:Entities="using:Foulplay_Windows8.Core.Entities">
+    <ViewModels:MainPageViewModel.MessageGroupCollection>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Posuere nisi nisl magna">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Sagittis libero potenti nunc vestibulum"
+                                              TotalUnseenMessages="46" TotalMessages="47">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Sociosqu orci" MessageUid="31"
+                                                      MessageKind="23"
+                                                      ReceivedDate="Pretium porttitor senectus sit vel"
+                                                      SenderOnlineId="Penatibus sem odio litora" SeenFlag="True" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="99"
+                                                      MessageGroupName="Malesuada massa ligula" TotalMembers="30" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Rhoncus sodales metus pede">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Nam suscipit morbi" TotalUnseenMessages="79"
+                                              TotalMessages="13">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Luctus nulla" MessageUid="66"
+                                                      MessageKind="19" ReceivedDate="Vestibulum torquent"
+                                                      SenderOnlineId="Quis urna cras parturient netus" SeenFlag="False" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="15"
+                                                      MessageGroupName="Neque quam adipiscing viverra"
+                                                      TotalMembers="43" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Tincidunt tristique">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Aliquam sed" TotalUnseenMessages="88"
+                                              TotalMessages="57">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Amet vestibulum adipiscing volutpat"
+                                                      MessageUid="90" MessageKind="40" ReceivedDate="Vehicula dis"
+                                                      SenderOnlineId="Integer porta nunc" SeenFlag="True" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="37"
+                                                      MessageGroupName="Ultrices duis" TotalMembers="25" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Ultricies purus ante magnis mattis">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Maecenas quisque" TotalUnseenMessages="96"
+                                              TotalMessages="90">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Mollis aliquam velit" MessageUid="48"
+                                                      MessageKind="83" ReceivedDate="Praesent mauris venenatis"
+                                                      SenderOnlineId="Risus parturient vestibulum arcu"
+                                                      SeenFlag="False" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="67"
+                                                      MessageGroupName="Est vivamus" TotalMembers="84" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Montes vulputate">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Vestibulum diam" TotalUnseenMessages="90"
+                                              TotalMessages="93">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Enim blandit" MessageUid="58"
+                                                      MessageKind="15" ReceivedDate="Phasellus vitae class"
+                                                      SenderOnlineId="Elit aliquet" SeenFlag="True" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="89"
+                                                      MessageGroupName="Nostra curabitur eget adipiscing"
+                                                      TotalMembers="84" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Hac leo accumsan">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Erat parturient bibendum curae dictumst"
+                                              TotalUnseenMessages="67" TotalMessages="48">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Vestibulum nibh elementum faucibus donec"
+                                                      MessageUid="44" MessageKind="91"
+                                                      ReceivedDate="Facilisi conubia cubilia dapibus vestibulum"
+                                                      SenderOnlineId="Eros ornare commodo eleifend dignissim"
+                                                      SeenFlag="False" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="15"
+                                                      MessageGroupName="Mus consequat convallis" TotalMembers="23" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Habitant etiam">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Platea inceptos adipiscing interdum"
+                                              TotalUnseenMessages="41" TotalMessages="89">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Fusce nascetur pharetra fermentum"
+                                                      MessageUid="82" MessageKind="20" ReceivedDate="Nec facilisis"
+                                                      SenderOnlineId="Nisl feugiat gravida nunc" SeenFlag="True" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="92"
+                                                      MessageGroupName="Lobortis egestas euismod primis nisi"
+                                                      TotalMembers="57" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Lorem rutrum">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Placerat non pulvinar sagittis senectus"
+                                              TotalUnseenMessages="46" TotalMessages="20">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Orci sapien hendrerit" MessageUid="79"
+                                                      MessageKind="53" ReceivedDate="Morbi nulla vestibulum"
+                                                      SenderOnlineId="Habitasse iaculis suscipit per parturient"
+                                                      SeenFlag="False" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="24"
+                                                      MessageGroupName="Sociosqu odio fringilla" TotalMembers="42" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Sed proin">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Torquent lacinia vestibulum"
+                                              TotalUnseenMessages="34" TotalMessages="59">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Augue parturient ultrices" MessageUid="45"
+                                                      MessageKind="86" ReceivedDate="Pede sit laoreet"
+                                                      SenderOnlineId="Himenaeos sem imperdiet" SeenFlag="True" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="32"
+                                                      MessageGroupName="Adipiscing semper" TotalMembers="26" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+        <ViewModels:MainPageViewModel+ MessageGroupItem AvatarUrl="Vehicula quam vestibulum vel">
+            <ViewModels:MainPageViewModel+ MessageGroupItem.MessageGroup>
+                <Entities:MessageGroupEntity+ MessageGroup MessageGroupId="Malesuada sociis natoque dolor posuere"
+                                              TotalUnseenMessages="81" TotalMessages="63">
+                    <Entities:MessageGroupEntity+ MessageGroup.LatestMessage>
+                        <Entities:MessageGroupEntity+ LatestMessage Body="Urna nam sodales porttitor volutpat"
+                                                      MessageUid="57" MessageKind="47"
+                                                      ReceivedDate="Rhoncus quis adipiscing felis"
+                                                      SenderOnlineId="Pretium taciti" SeenFlag="False" />
+                    </Entities:MessageGroupEntity+MessageGroup.LatestMessage>
+                    <Entities:MessageGroupEntity+ MessageGroup.MessageGroupDetail>
+                        <Entities:MessageGroupEntity+ MessageGroupDetail MessageGroupType="68"
+                                                      MessageGroupName="Vestibulum potenti fames penatibus"
+                                                      TotalMembers="18" />
+                    </Entities:MessageGroupEntity+MessageGroup.MessageGroupDetail>
+                </Entities:MessageGroupEntity+MessageGroup>
+            </ViewModels:MainPageViewModel+MessageGroupItem.MessageGroup>
+        </ViewModels:MainPageViewModel+MessageGroupItem>
+    </ViewModels:MainPageViewModel.MessageGroupCollection>
+    <ViewModels:MainPageViewModel.MenuItems>
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Vestibulum adipiscing donec" Location="Curae nam sed"
+                                       Text="Maecenas curabitur praesent class" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Vestibulum fusce amet" Location="Nunc accumsan parturient"
+                                       Text="Etiam cras aenean phasellus duis" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Est lorem mauris quisque"
+                                       Location="Adipiscing consequat aliquam bibendum integer" Text="Dis vestibulum" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Aliquam augue nullam ante"
+                                       Location="Proin eleifend parturient vestibulum facilisi"
+                                       Text="Morbi dictumst vivamus nulla" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Vestibulum faucibus auctor commodo adipiscing"
+                                       Location="Aliquet arcu aptent dolor blandit" Text="Hac convallis" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Elementum fames vestibulum facilisis"
+                                       Location="Dignissim dapibus parturient interdum vestibulum"
+                                       Text="Habitant conubia inceptos congue cubilia" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Habitasse nec felis nascetur parturient"
+                                       Location="Fermentum feugiat fringilla lobortis"
+                                       Text="Leo mus adipiscing egestas euismod" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Eget lacinia elit" Location="Vestibulum ipsum pharetra non"
+                                       Text="Hendrerit gravida iaculis diam" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Erat laoreet lacus natoque per" Location="Enim vestibulum justo"
+                                       Text="Placerat pulvinar cursus dictum" />
+        <ViewModels:MainPageViewModel+ MenuItem Icon="Vestibulum lectus eros nibh"
+                                       Location="Lorem parturient imperdiet" Text="Sed adipiscing himenaeos" />
+    </ViewModels:MainPageViewModel.MenuItems>
 </ViewModels:MainPageViewModel>

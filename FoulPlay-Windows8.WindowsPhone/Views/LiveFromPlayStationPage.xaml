@@ -9,27 +9,27 @@
     xmlns:controls="using:FoulPlay_Windows8.Controls"
     mc:Ignorable="d">
     <Page.Background>
-        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+        <ImageBrush ImageSource="/Assets/Background.jpg" />
     </Page.Background>
     <Page.DataContext>
         <viewModels:LiveFromPlaystationPageViewModel />
     </Page.DataContext>
-    
+
     <Grid x:Name="LayoutRoot">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- TitlePanel -->
         <StackPanel Grid.Row="0" Margin="24,17,0,28">
-            <TextBlock FontSize="35" Text="Live From PlayStation" Style="{ThemeResource ListViewItemTextBlockStyle}"/>
+            <TextBlock FontSize="35" Text="Live From PlayStation" Style="{ThemeResource ListViewItemTextBlockStyle}" />
         </StackPanel>
 
         <Grid Grid.Row="1" x:Name="ContentRoot">
             <ListView ItemClick="LiveBroadcastGridView_OnItemClick" ItemsSource="{Binding LiveBroadcastCollection}"
-                          IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False">
+                      IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Border Height="300" Margin="15" BorderBrush="White" BorderThickness="1">
@@ -42,13 +42,13 @@
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="25" />
                                 </Grid.RowDefinitions>
-                                <controls:ImageLoader Grid.Row="0"  VerticalAlignment="Top"
-                                           Source="{Binding PreviewThumbnail}" />
+                                <controls:ImageLoader Grid.Row="0" VerticalAlignment="Top"
+                                                      Source="{Binding PreviewThumbnail}" />
                                 <StackPanel Margin="1" Grid.Row="1">
                                     <TextBlock FontSize="25" FontWeight="SemiLight" TextWrapping="NoWrap"
-                                                   TextTrimming="WordEllipsis" Text="{Binding Title}" />
+                                               TextTrimming="WordEllipsis" Text="{Binding Title}" />
                                     <TextBlock FontSize="20" FontWeight="ExtraLight" TextWrapping="Wrap"
-                                                   Text="{Binding GameTitle}" />
+                                               Text="{Binding GameTitle}" />
                                 </StackPanel>
                                 <Grid Grid.Row="2">
                                     <Grid.Background>
@@ -60,12 +60,12 @@
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal">
                                         <Image Margin="1,0,0,0"
-                                                   Source="/Assets/phone_trophy_icon_compareTrophies.png" />
+                                               Source="/Assets/phone_trophy_icon_compareTrophies.png" />
                                         <TextBlock Margin="5,0,0,0" Text="{Binding Viewers}" FontWeight="Thin"
-                                                       FontSize="20" />
+                                                   FontSize="20" />
                                     </StackPanel>
                                     <TextBlock Grid.Column="1" Margin="0,0,0,1" FontWeight="Thin"
-                                                   HorizontalAlignment="Right" FontSize="20" Text="{Binding Service}" />
+                                               HorizontalAlignment="Right" FontSize="20" Text="{Binding Service}" />
                                 </Grid>
                             </Grid>
                         </Border>

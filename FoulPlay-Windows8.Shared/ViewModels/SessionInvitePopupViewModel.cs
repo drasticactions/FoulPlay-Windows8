@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 using FoulPlay.Core.Entities;
 using FoulPlay.Core.Managers;
 using FoulPlay_Windows8.Common;
@@ -13,11 +10,13 @@ namespace FoulPlay_Windows8.ViewModels
 {
     public class SessionInvitePopupViewModel : NotifierBase
     {
-        private UserEntity _user;
-
+        private SessionInviteEntity.Invitation _sessionInvitation;
         private SessionInviteDetailEntity _sessionInviteDetailEntity;
 
-        private SessionInviteEntity.Invitation _sessionInvitation;
+        private ObservableCollection<SessionInviteMember> _sessionInviteMemberCollection =
+            new ObservableCollection<SessionInviteMember>();
+
+        private UserEntity _user;
 
         public SessionInviteEntity.Invitation SessionInvitation
         {
@@ -39,11 +38,6 @@ namespace FoulPlay_Windows8.ViewModels
             }
         }
 
-        public void SetInvite(SessionInviteEntity.Invitation invite)
-        {
-            SessionInvitation = invite;
-        }
-
         public UserEntity User
         {
             get { return _user; }
@@ -54,9 +48,6 @@ namespace FoulPlay_Windows8.ViewModels
             }
         }
 
-        private ObservableCollection<SessionInviteMember> _sessionInviteMemberCollection =
-            new ObservableCollection<SessionInviteMember>();
-
         public ObservableCollection<SessionInviteMember> SessionInviteMembers
         {
             get { return _sessionInviteMemberCollection; }
@@ -65,6 +56,40 @@ namespace FoulPlay_Windows8.ViewModels
                 SetProperty(ref _sessionInviteMemberCollection, value);
                 OnPropertyChanged();
             }
+        }
+
+        public void SetInvite(SessionInviteEntity.Invitation invite)
+        {
+            SessionInvitation = invite;
+        }
+
+        public async void GetUser(string userName)
+        {
+            User = await UserManager.GetUser(userName, App.UserAccountEntity);
+        }
+
+        public async void GetSessionInvite(string inviteId)
+        {
+            var sessionInviteManager = new SessionInviteManager();
+            SessionInviteDetailEntity = await sessionInviteManager.GetInviteInformation(inviteId, App.UserAccountEntity);
+            if (SessionInviteDetailEntity == null) return;
+            if (SessionInviteDetailEntity.session == null) return;
+            if (SessionInviteDetailEntity.session.Members == null) return;
+            foreach (
+                SessionInviteMember newMessage in
+                    SessionInviteDetailEntity.session.Members.Select(member => new SessionInviteMember {Member = member})
+                )
+            {
+                GetAvatar(newMessage, App.UserAccountEntity);
+                SessionInviteMembers.Add(newMessage);
+            }
+        }
+
+        private async void GetAvatar(SessionInviteMember member, UserAccountEntity userAccountEntity)
+        {
+            UserEntity user = await UserManager.GetUserAvatar(member.Member.OnlineId, userAccountEntity);
+            member.AvatarUrl = user.AvatarUrl;
+            OnPropertyChanged("SessionInviteMembers");
         }
 
         public class SessionInviteMember : NotifierBase
@@ -82,34 +107,6 @@ namespace FoulPlay_Windows8.ViewModels
             }
 
             public SessionInviteDetailEntity.Member Member { get; set; }
-        }
-
-        public async void GetUser(string userName)
-        {
-            User = await UserManager.GetUser(userName, App.UserAccountEntity);
-        }
-
-        public async void GetSessionInvite(string inviteId)
-        {
-            var sessionInviteManager = new SessionInviteManager();
-            SessionInviteDetailEntity = await sessionInviteManager.GetInviteInformation(inviteId, App.UserAccountEntity);
-            if (SessionInviteDetailEntity == null) return;
-            if (SessionInviteDetailEntity.session == null) return;
-            if (SessionInviteDetailEntity.session.Members == null) return;
-            foreach (
-                SessionInviteMember newMessage in
-                    SessionInviteDetailEntity.session.Members.Select(member => new SessionInviteMember { Member = member }))
-            {
-                GetAvatar(newMessage, App.UserAccountEntity);
-                SessionInviteMembers.Add(newMessage);
-            }
-        }
-
-        private async void GetAvatar(SessionInviteMember member, UserAccountEntity userAccountEntity)
-        {
-            UserEntity user = await UserManager.GetUserAvatar(member.Member.OnlineId, userAccountEntity);
-            member.AvatarUrl = user.AvatarUrl;
-            OnPropertyChanged("SessionInviteMembers");
         }
     }
 }

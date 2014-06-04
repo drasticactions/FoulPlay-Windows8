@@ -21,52 +21,52 @@
                     </VisualTransition>
                     <VisualTransition From="Loading">
                         <Storyboard>
-                            <FadeOutThemeAnimation TargetName="loadingDisplay"/>
+                            <FadeOutThemeAnimation TargetName="loadingDisplay" />
                         </Storyboard>
                     </VisualTransition>
                     <VisualTransition From="Displaying">
                         <Storyboard>
-                            <FadeOutThemeAnimation TargetName="imgDisplay"/>
+                            <FadeOutThemeAnimation TargetName="imgDisplay" />
                         </Storyboard>
                     </VisualTransition>
                 </VisualStateGroup.Transitions>
                 <VisualState x:Name="Loading">
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetName="loadingDisplay"  
-                             Storyboard.TargetProperty="Opacity"  
-                             To="1.0" />
+                        <DoubleAnimation Storyboard.TargetName="loadingDisplay"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="1.0" />
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="Displaying">
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetName="imgDisplay"  
-                             Storyboard.TargetProperty="Opacity"  
-                             To="1.0" />
+                        <DoubleAnimation Storyboard.TargetName="imgDisplay"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="1.0" />
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="Failed">
                     <Storyboard>
-                        <DoubleAnimation Storyboard.TargetName="failedDisplay"  
-                             Storyboard.TargetProperty="Opacity"  
-                             To="1.0" />
+                        <DoubleAnimation Storyboard.TargetName="failedDisplay"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="1.0" />
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <Image x:Name="imgDisplay"  
-           Source="{Binding ElementName=parent,Path=Source}"  
-           ImageFailed="OnImageFailed"  
-           ImageOpened="OnImageOpened"  
-           Opacity="0"/>
-        <ContentControl x:Name="loadingDisplay"  
-                    Content="{Binding ElementName=parent,Path=LoadingContent}"  
-                    VerticalContentAlignment="Stretch"  
-                    HorizontalContentAlignment="Stretch"  
-                    Opacity="0"/>
-        <ContentControl x:Name="failedDisplay"  
-                    Content="{Binding ElementName=parent,Path=FailedContent}"  
-                    VerticalContentAlignment="Stretch"  
-                    HorizontalContentAlignment="Stretch"   
-                    Opacity="0"/>
+        <Image x:Name="imgDisplay"
+               Source="{Binding ElementName=parent,Path=Source}"
+               ImageFailed="OnImageFailed"
+               ImageOpened="OnImageOpened"
+               Opacity="0" />
+        <ContentControl x:Name="loadingDisplay"
+                        Content="{Binding ElementName=parent,Path=LoadingContent}"
+                        VerticalContentAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        Opacity="0" />
+        <ContentControl x:Name="failedDisplay"
+                        Content="{Binding ElementName=parent,Path=FailedContent}"
+                        VerticalContentAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        Opacity="0" />
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.1">
   <CommandSet xml:lang="en-us" Name="englishCommands">
     <CommandPrefix>Awful</CommandPrefix>
@@ -15,4 +16,4 @@
       <Feedback>Hope you got platinum...</Feedback>
     </Command>
   </CommandSet>
-</VoiceCommands> 
+</VoiceCommands>

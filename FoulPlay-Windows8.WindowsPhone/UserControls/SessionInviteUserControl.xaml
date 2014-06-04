@@ -22,49 +22,54 @@
             <Border.Background>
                 <SolidColorBrush Color="Black" Opacity="0.90" />
             </Border.Background>
-            <Grid x:Name="ContentPanel"  Margin="12,0,12,0">
+            <Grid x:Name="ContentPanel" Margin="12,0,12,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="75" />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Grid x:Name="UserInformationGrid" Margin="6">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Border VerticalAlignment="Top" Grid.Column="0" Width="70" Height="70">
                             <Image Source="{Binding User.AvatarUrl}" Stretch="UniformToFill" />
                         </Border>
                         <StackPanel VerticalAlignment="Center" Grid.Column="1">
-                            <TextBlock Text="{Binding User.OnlineId}" FontSize="30"/>
-                            <TextBlock Padding="0,0,0,15" x:Name="UserMessageBlock" FontSize="25" Text="test" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding User.OnlineId}" FontSize="30" />
+                            <TextBlock Padding="0,0,0,15" x:Name="UserMessageBlock" FontSize="25" Text="test"
+                                       TextWrapping="Wrap" />
                         </StackPanel>
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="150"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid x:Name="SessionStateGrid" Grid.Row="0" Margin="6">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="25" />
                             <ColumnDefinition Width="75" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Rectangle VerticalAlignment="Center" HorizontalAlignment="Left"
-                                                   Grid.Column="0" Width="15" Height="15"
-                                                   Fill="{Binding Expired, Converter={StaticResource ExpiredConverter}}" />
+                                   Grid.Column="0" Width="15" Height="15"
+                                   Fill="{Binding Expired, Converter={StaticResource ExpiredConverter}}" />
                         <Border VerticalAlignment="Center" Grid.Column="1" Width="70" Height="70">
-                            <Image Source="{Binding  SessionInvitation.NpTitleDetail.NpTitleIconUrl, Converter={StaticResource InviteImageConverter}}" Stretch="UniformToFill" />
+                            <Image
+                                Source="{Binding  SessionInvitation.NpTitleDetail.NpTitleIconUrl, Converter={StaticResource InviteImageConverter}}"
+                                Stretch="UniformToFill" />
                         </Border>
                         <Grid Margin="15,23,0,0" VerticalAlignment="Center" Grid.Column="2">
                             <StackPanel>
-                                <TextBlock  FontSize="25" Text="{Binding SessionInvitation.NpTitleDetail.NpTitleName}" />
-                                <TextBlock  FontSize="20" Text="{Binding SessionInvitation.AvailablePlatforms, Converter={StaticResource AvailablePlatformConverter}}" />
-                                <TextBlock HorizontalAlignment="Right" FontSize="15" Text="{Binding SessionInvitation.ReceivedDate, Converter={StaticResource DateConverter}}" />
+                                <TextBlock FontSize="25" Text="{Binding SessionInvitation.NpTitleDetail.NpTitleName}" />
+                                <TextBlock FontSize="20"
+                                           Text="{Binding SessionInvitation.AvailablePlatforms, Converter={StaticResource AvailablePlatformConverter}}" />
+                                <TextBlock HorizontalAlignment="Right" FontSize="15"
+                                           Text="{Binding SessionInvitation.ReceivedDate, Converter={StaticResource DateConverter}}" />
                             </StackPanel>
                         </Grid>
                     </Grid>
@@ -72,27 +77,32 @@
                         <StackPanel>
                             <StackPanel>
                                 <TextBlock
-                                        x:Uid="Status"
+                                    x:Uid="Status"
                                     Text="Status"
                                     FontSize="35" />
                                 <TextBlock Padding="0,0,0,0"
-                                           FontSize="25" Text="{Binding SessionInviteDetailEntity.session.SessionStatus}" TextWrapping="Wrap" />
+                                           FontSize="25"
+                                           Text="{Binding SessionInviteDetailEntity.session.SessionStatus}"
+                                           TextWrapping="Wrap" />
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock
-                                        x:Uid="NumberOfPlayers"
+                                    x:Uid="NumberOfPlayers"
                                     Text="NumberOfPlayers"
                                     FontSize="35" />
                                 <TextBlock Padding="0,0,0,0"
-                                           FontSize="25" Text="{Binding SessionInviteDetailEntity.session, Converter={StaticResource MaxPlayersConverter} }" TextWrapping="Wrap" />
+                                           FontSize="25"
+                                           Text="{Binding SessionInviteDetailEntity.session, Converter={StaticResource MaxPlayersConverter} }"
+                                           TextWrapping="Wrap" />
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock
-                                TextWrapping="Wrap"
-                                        x:Uid="PlayersJoinedSession"
+                                    TextWrapping="Wrap"
+                                    x:Uid="PlayersJoinedSession"
                                     Text="Players Joined"
                                     FontSize="35" />
-                                <ListView x:Name="PlayersListSelector" ItemsSource="{Binding SessionInviteMembers, Mode=TwoWay}" Height="170">
+                                <ListView x:Name="PlayersListSelector"
+                                          ItemsSource="{Binding SessionInviteMembers, Mode=TwoWay}" Height="170">
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <Grid Margin="6">
@@ -100,7 +110,8 @@
                                                     <ColumnDefinition Width="75" />
                                                     <ColumnDefinition Width="*" />
                                                 </Grid.ColumnDefinitions>
-                                                <Border VerticalAlignment="Center" Grid.Column="0" Width="70" Height="70">
+                                                <Border VerticalAlignment="Center" Grid.Column="0" Width="70"
+                                                        Height="70">
                                                     <Image Source="{Binding AvatarUrl}" Stretch="UniformToFill" />
                                                 </Border>
                                                 <Grid Margin="0,23,0,0" VerticalAlignment="Center" Grid.Column="1">
@@ -116,9 +127,14 @@
                             </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
-                    <TextBlock Visibility="{Binding SessionInvitation.Expired, Converter={StaticResource BooleanToVisibilityConverter} }" x:Name="InviteExpiredTextBlock" Grid.Row="1" x:Uid="JoinInvitationExpired" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="30" Text="Expired"/>
+                    <TextBlock
+                        Visibility="{Binding SessionInvitation.Expired, Converter={StaticResource BooleanToVisibilityConverter} }"
+                        x:Name="InviteExpiredTextBlock" Grid.Row="1" x:Uid="JoinInvitationExpired"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="30"
+                        Text="Expired" />
                 </Grid>
-                <Button x:Name="SendMessageToUserButton" Foreground="White" HorizontalAlignment="Stretch" Click="SendMessageToUserButton_OnClick" Grid.Row="2" x:Uid="SendMessage" Content="Send Message"/>
+                <Button x:Name="SendMessageToUserButton" Foreground="White" HorizontalAlignment="Stretch"
+                        Click="SendMessageToUserButton_OnClick" Grid.Row="2" x:Uid="SendMessage" Content="Send Message" />
             </Grid>
         </Border>
     </Popup>

@@ -84,17 +84,6 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\Foulplay.BackgroundStatus-Portable\Foulplay.BackgroundStatus-Portable.csproj">
-      <Project>{c8767963-5883-4ac0-9fe8-bce54a2dd595}</Project>
-      <Name>Foulplay.BackgroundStatus-Portable</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FoulPlay.Core\FoulPlay.Core.csproj">
-      <Project>{6330d5a9-c0d6-49ca-819c-352472920b56}</Project>
-      <Name>FoulPlay.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -144,6 +133,9 @@
     <Content Include="Assets\BadgeLogo.scale-100.png" />
     <Content Include="Assets\BadgeLogo.scale-140.png" />
     <Content Include="Assets\BadgeLogo.scale-240.png" />
+    <Content Include="Assets\BadgeLogo1.scale-100.png" />
+    <Content Include="Assets\BadgeLogo1.scale-140.png" />
+    <Content Include="Assets\BadgeLogo1.scale-240.png" />
     <Content Include="Assets\Logo.scale-140.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\SmallLogo.scale-240.png" />
@@ -229,6 +221,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SampleData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FoulPlay.Core\FoulPlay.Core.csproj">
+      <Project>{6330d5a9-c0d6-49ca-819c-352472920b56}</Project>
+      <Name>FoulPlay.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

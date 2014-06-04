@@ -65,9 +65,14 @@
     <Compile Include="Managers\TrophyDetailManager.cs" />
     <Compile Include="Managers\TrophyManager.cs" />
     <Compile Include="Managers\UserManager.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\BackgroundTaskUtils.cs" />
+    <Compile Include="Tools\FriendScrollingCollection.cs" />
     <Compile Include="Tools\NotifyStatusTile.cs" />
+    <Compile Include="Tools\RecentActivityScrollingCollection.cs" />
+    <Compile Include="Tools\SessionInviteScrollingCollection.cs" />
+    <Compile Include="Tools\TrophyScrollingCollection.cs" />
     <Compile Include="Tools\UrlConstants.cs" />
   </ItemGroup>
   <ItemGroup>

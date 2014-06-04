@@ -9,10 +9,11 @@ namespace FoulPlay_Windows8.ViewModels
     public class TrophyPageViewModel : NotifierBase
     {
         private readonly TrophyDetailManager _trophyDetailManager = new TrophyDetailManager();
+        private bool _isEmpty;
+        private bool _isLoading;
         private ObservableCollection<TrophyDetailEntity.Trophy> _trophies;
         private TrophyDetailEntity _trophyDetailEntity;
-        private bool _isLoading;
-        private bool _isEmpty;
+
         public TrophyPageViewModel()
         {
             _trophyDetailEntity = new TrophyDetailEntity();
@@ -76,7 +77,6 @@ namespace FoulPlay_Windows8.ViewModels
                 IsEmpty = true;
             }
             IsLoading = false;
-
         }
     }
 }

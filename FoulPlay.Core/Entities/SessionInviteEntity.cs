@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using FoulPlay.Core.Annotations;
 
 namespace FoulPlay.Core.Entities
 {
-    public class SessionInviteEntity
+    public class SessionInviteEntity : INotifyPropertyChanged
     {
         public class FromUser
         {
@@ -21,7 +24,7 @@ namespace FoulPlay.Core.Entities
             public string NpTitleIconUrl { get; set; }
         }
 
-        public class Invitation
+        public class Invitation : INotifyPropertyChanged
         {
             public string InvitationId { get; set; }
 
@@ -36,6 +39,14 @@ namespace FoulPlay.Core.Entities
             public List<string> AvailablePlatforms { get; set; }
             public string Subject { get; set; }
             public NpTitleDetail NpTitleDetail { get; set; }
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            [NotifyPropertyChangedInvocator]
+            protected virtual void OnPropertyChanged1([CallerMemberName] string propertyName = null)
+            {
+                PropertyChangedEventHandler handler = PropertyChanged;
+                if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         public class Member
@@ -62,5 +73,13 @@ namespace FoulPlay.Core.Entities
         public int Size { get; set; }
         public int TotalResults { get; set; }
         public List<Invitation> Invitations { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

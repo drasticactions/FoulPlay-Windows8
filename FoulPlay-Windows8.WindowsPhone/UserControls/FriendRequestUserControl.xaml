@@ -20,14 +20,16 @@
                     <SolidColorBrush Color="Black" Opacity="0.90" />
                 </Grid.Background>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="225"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="225" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Style="{StaticResource SubheaderTextBlockStyle}" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Testing"/>
-                <TextBlock Grid.Row="1" Margin="15"></TextBlock>
+                <TextBlock Grid.Row="0" Style="{StaticResource SubheaderTextBlockStyle}" FontSize="30"
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Text="Testing" />
+                <TextBlock Grid.Row="1" Margin="15" />
                 <StackPanel Margin="15" Grid.Row="2">
-                    <Button x:Name="FriendRequestButton" HorizontalAlignment="Stretch" x:Uid="FriendRequest" Content="Send Friend Request"/>
+                    <Button x:Name="FriendRequestButton" HorizontalAlignment="Stretch" x:Uid="FriendRequest"
+                            Content="Send Friend Request" />
                 </StackPanel>
             </Grid>
         </Border>

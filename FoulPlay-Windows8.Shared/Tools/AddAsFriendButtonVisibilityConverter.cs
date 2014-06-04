@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Foulplay_Windows8.Core.Entities;
@@ -14,7 +10,8 @@ namespace FoulPlay_Windows8.Tools
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             var friend = value as UserEntity;
-            if (friend == null) return Visibility.Collapsed;;
+            if (friend == null) return Visibility.Collapsed;
+            ;
             if (string.IsNullOrEmpty(friend.Relation))
                 return Visibility.Collapsed;
             if (friend.Relation.Equals("requested friend"))

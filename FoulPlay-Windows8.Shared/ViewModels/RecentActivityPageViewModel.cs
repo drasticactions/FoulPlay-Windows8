@@ -1,4 +1,5 @@
-﻿using FoulPlay_Windows8.Common;
+﻿using FoulPlay.Core.Tools;
+using FoulPlay_Windows8.Common;
 using FoulPlay_Windows8.Tools;
 
 namespace FoulPlay_Windows8.ViewModels

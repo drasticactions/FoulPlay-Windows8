@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
+using FoulPlay.Core.Tools;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -15,6 +16,7 @@ namespace FoulPlay_Windows8.ViewModels
     public class FriendPageViewModel : NotifierBase
     {
         private FriendScrollingCollection _friendScrollingCollection;
+        private bool _isLoading;
         private MessageEntity _messageEntity;
 
         private ObservableCollection<MessageGroupItem> _messageGroupCollection =
@@ -23,7 +25,6 @@ namespace FoulPlay_Windows8.ViewModels
         private RecentActivityScrollingCollection _recentActivityScrollingCollection;
         private TrophyScrollingCollection _trophyScrollingCollection;
         private UserViewModel _userViewModel;
-        private bool _isLoading;
 
         public bool IsLoading
         {
@@ -34,6 +35,7 @@ namespace FoulPlay_Windows8.ViewModels
                 OnPropertyChanged();
             }
         }
+
         public UserViewModel UserModel
         {
             get { return _userViewModel; }

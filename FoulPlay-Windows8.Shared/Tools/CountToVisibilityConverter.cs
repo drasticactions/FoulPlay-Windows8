@@ -10,7 +10,7 @@ namespace FoulPlay_Windows8.Tools
         {
             if (value == null)
                 return Visibility.Collapsed;
-            return (int)value <= 0 ? Visibility.Collapsed : Visibility.Visible;
+            return (int) value <= 0 ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

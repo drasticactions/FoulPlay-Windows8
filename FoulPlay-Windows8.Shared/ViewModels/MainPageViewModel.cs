@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
 using Windows.ApplicationModel.Resources;
+using FoulPlay.Core.Tools;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;
@@ -11,20 +11,18 @@ namespace FoulPlay_Windows8.ViewModels
 {
     public class MainPageViewModel : NotifierBase
     {
-
-        private SessionInviteScrollingCollection _sessionInviteScrollingCollection;
-
         private FriendScrollingCollection _friendScrollingCollection;
+
+        private ObservableCollection<MenuItem> _menuItems = new ObservableCollection<MenuItem>();
 
         private ObservableCollection<MessageGroupItem> _messageGroupCollection =
             new ObservableCollection<MessageGroupItem>();
 
-        private MessageGroupEntity _messageGroupEntity;
-        private RecentActivityScrollingCollection _recentActivityScrollingCollection;
-
-        private ObservableCollection<MenuItem> _menuItems = new ObservableCollection<MenuItem>();
         private bool _messageGroupEmpty;
+        private MessageGroupEntity _messageGroupEntity;
         private bool _messageGroupLoading;
+        private RecentActivityScrollingCollection _recentActivityScrollingCollection;
+        private SessionInviteScrollingCollection _sessionInviteScrollingCollection;
 
         public bool MessageGroupEmpty
         {
@@ -45,6 +43,7 @@ namespace FoulPlay_Windows8.ViewModels
                 OnPropertyChanged();
             }
         }
+
         public ObservableCollection<MenuItem> MenuItems
         {
             get { return _menuItems; }
@@ -97,7 +96,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         public void SetInviteList()
         {
-            SessionInviteScrollingCollection = new SessionInviteScrollingCollection()
+            SessionInviteScrollingCollection = new SessionInviteScrollingCollection
             {
                 Offset = 0,
                 UserAccountEntity = App.UserAccountEntity
@@ -120,7 +119,7 @@ namespace FoulPlay_Windows8.ViewModels
             };
         }
 
-        public void SetRecentActivityFeed(string userName)
+        public async void SetRecentActivityFeed(string userName)
         {
             RecentActivityScrollingCollection = new RecentActivityScrollingCollection
             {
@@ -130,7 +129,6 @@ namespace FoulPlay_Windows8.ViewModels
                 Username = userName,
                 PageCount = 0
             };
-            RecentActivityScrollingCollection.LoadFeedList(userName);
         }
 
         public async void SetMessages(string userName, UserAccountEntity userAccountEntity)
@@ -140,7 +138,9 @@ namespace FoulPlay_Windows8.ViewModels
             var messageManager = new MessageManager();
             _messageGroupEntity = await messageManager.GetMessageGroup(userName, userAccountEntity);
 
-            foreach (var newMessage in _messageGroupEntity.MessageGroups.Select(message => new MessageGroupItem {MessageGroup = message}))
+            foreach (
+                MessageGroupItem newMessage in
+                    _messageGroupEntity.MessageGroups.Select(message => new MessageGroupItem {MessageGroup = message}))
             {
                 GetAvatar(newMessage, userAccountEntity);
                 MessageGroupCollection.Add(newMessage);
@@ -161,26 +161,6 @@ namespace FoulPlay_Windows8.ViewModels
             OnPropertyChanged("MessageGroupCollection");
         }
 
-        /// <summary>
-        ///     TODO: Seperate to new class, use ISupportIncrementalLoading
-        /// </summary>
-        public class MessageGroupItem : NotifierBase
-        {
-            private string _avatarUrl;
-
-            public string AvatarUrl
-            {
-                get { return _avatarUrl; }
-                set
-                {
-                    SetProperty(ref _avatarUrl, value);
-                    OnPropertyChanged();
-                }
-            }
-
-            public MessageGroupEntity.MessageGroup MessageGroup { get; set; }
-        }
-
         public void CreateMenu()
         {
             ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
@@ -197,7 +177,7 @@ namespace FoulPlay_Windows8.ViewModels
             if (MenuItems.Any()) return;
             ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
             MenuItems.Add(new MenuItem("/Assets/phone_trophy_icon_compareTrophies.png",
-resourceLoader.GetString("FriendsPivot/Text"), "friends"));
+                resourceLoader.GetString("FriendsPivot/Text"), "friends"));
             MenuItems.Add(new MenuItem("/Assets/phone_home_footerIcon_region.png",
                 resourceLoader.GetString("RecentActivity/Text"), "recent"));
             MenuItems.Add(new MenuItem("/Assets/appbar.film.png", resourceLoader.GetString("LiveFromPlaystation/Text"),
@@ -220,6 +200,26 @@ resourceLoader.GetString("FriendsPivot/Text"), "friends"));
             public string Location { get; private set; }
 
             public string Icon { get; private set; }
+        }
+
+        /// <summary>
+        ///     TODO: Seperate to new class, use ISupportIncrementalLoading
+        /// </summary>
+        public class MessageGroupItem : NotifierBase
+        {
+            private string _avatarUrl;
+
+            public string AvatarUrl
+            {
+                get { return _avatarUrl; }
+                set
+                {
+                    SetProperty(ref _avatarUrl, value);
+                    OnPropertyChanged();
+                }
+            }
+
+            public MessageGroupEntity.MessageGroup MessageGroup { get; set; }
         }
     }
 }

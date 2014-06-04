@@ -9,15 +9,9 @@ namespace FoulPlay_Windows8.ViewModels
 {
     public class LiveFromPlaystationPageViewModel : NotifierBase
     {
-        private readonly LiveStreamManager _liveStreamManager = new LiveStreamManager();
-        private ObservableCollection<LiveBroadcastEntity> _liveBroadcastCollection;
-        private bool _isLoading;
         private bool _isEmpty;
-
-        public LiveFromPlaystationPageViewModel()
-        {
-            LiveBroadcastCollection = new ObservableCollection<LiveBroadcastEntity>();
-        }
+        private bool _isLoading;
+        private ObservableCollection<LiveBroadcastEntity> _liveBroadcastCollection;
 
         public ObservableCollection<LiveBroadcastEntity> LiveBroadcastCollection
         {
@@ -52,6 +46,7 @@ namespace FoulPlay_Windows8.ViewModels
 
         public void BuildList()
         {
+            _liveBroadcastCollection = new ObservableCollection<LiveBroadcastEntity>();
             SetUstreamElements();
             SetTwitchElements();
             SetNicoDougaElements();
@@ -66,9 +61,10 @@ namespace FoulPlay_Windows8.ViewModels
                 {"type", "live"},
                 {"interactive", "true"}
             };
+            var liveStreamManager = new LiveStreamManager();
             UstreamEntity ustreamList =
                 await
-                    _liveStreamManager.GetUstreamFeed(0, 80, "compact", filterList, "views", string.Empty,
+                    liveStreamManager.GetUstreamFeed(0, 80, "compact", filterList, "views", string.Empty,
                         App.UserAccountEntity);
             if (ustreamList == null) return;
             if (ustreamList.items == null) return;
@@ -79,14 +75,14 @@ namespace FoulPlay_Windows8.ViewModels
                 LiveBroadcastCollection.Add(entity);
             }
             IsLoading = false;
-
         }
 
         private async void SetTwitchElements()
         {
             IsLoading = true;
+            var liveStreamManager = new LiveStreamManager();
             TwitchEntity twitchList =
-                await _liveStreamManager.GetTwitchFeed(0, 80, "PS4", "true", string.Empty, App.UserAccountEntity);
+                await liveStreamManager.GetTwitchFeed(0, 80, "PS4", "true", string.Empty, App.UserAccountEntity);
             if (twitchList == null) return;
             if (twitchList.streams == null) return;
             foreach (TwitchEntity.Stream twitch in twitchList.streams)
@@ -96,14 +92,14 @@ namespace FoulPlay_Windows8.ViewModels
                 LiveBroadcastCollection.Add(entity);
             }
             IsLoading = false;
-
         }
 
         private async void SetNicoDougaElements()
         {
             IsLoading = true;
-
-            NicoNicoEntity nicoNicoEntity = await _liveStreamManager.GetNicoFeed("onair", "PS4", 0, 80, "view", App.UserAccountEntity);
+            var liveStreamManager = new LiveStreamManager();
+            NicoNicoEntity nicoNicoEntity =
+                await liveStreamManager.GetNicoFeed("onair", "PS4", 0, 80, "view", App.UserAccountEntity);
             if (nicoNicoEntity == null) return;
             if (nicoNicoEntity.programs == null) return;
             foreach (NicoNicoEntity.Program program in nicoNicoEntity.programs)

@@ -8,18 +8,17 @@
     xmlns:viewModels="using:FoulPlay_Windows8.ViewModels"
     xmlns:tools="using:FoulPlay_Windows8.Tools"
     xmlns:controls="using:FoulPlay_Windows8.Controls"
-    mc:Ignorable="d"
-   >
+    mc:Ignorable="d">
     <Page.Transitions>
         <TransitionCollection>
-            <EntranceThemeTransition/>
+            <EntranceThemeTransition />
         </TransitionCollection>
     </Page.Transitions>
     <Page.DataContext>
         <viewModels:MainPageViewModel />
     </Page.DataContext>
     <Page.Background>
-        <ImageBrush ImageSource="/Assets/Background.jpg"/>
+        <ImageBrush ImageSource="/Assets/Background.jpg" />
     </Page.Background>
     <Page.Resources>
         <tools:ActivityTemplateSelector x:Name="ActivityTemplateSelector"
@@ -28,7 +27,7 @@
 
     </Page.Resources>
     <Grid x:Name="LayoutRoot">
-        <ProgressBar x:Name="GeneralProgressBar" VerticalAlignment="Top" IsIndeterminate="True" Visibility="Collapsed"/>
+        <ProgressBar x:Name="GeneralProgressBar" VerticalAlignment="Top" IsIndeterminate="True" Visibility="Collapsed" />
         <Pivot x:Name="MainPivot">
             <PivotItem x:Uid="FriendPivot" Header="Friends">
                 <Grid>
@@ -37,7 +36,9 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ProgressBar IsIndeterminate="True" Visibility="{Binding FriendScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="0"/>
+                    <ProgressBar IsIndeterminate="True"
+                                 Visibility="{Binding FriendScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                 Grid.Row="0" />
                     <ComboBox HorizontalAlignment="Stretch" x:Name="FilterComboBox" SelectedIndex="0"
                               SelectionChanged="FilterComboBox_OnSelectionChanged" Grid.Row="1">
                         <ComboBoxItem x:Uid="FriendsFilterOnline" />
@@ -47,10 +48,14 @@
                         <ComboBoxItem x:Uid="FriendsFilterNameRequestReceived" />
                         <ComboBoxItem x:Uid="FriendsFilterNameRequestSent" />
                     </ComboBox>
-                    <Viewbox Visibility="{Binding FriendScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay }" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
-                        <TextBlock   Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoPlayers" Text="No players found."/>
+                    <Viewbox
+                        Visibility="{Binding FriendScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay }"
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+                        <TextBlock Style="{StaticResource HeaderTextBlockStyle}" x:Uid="NoPlayers"
+                                   Text="No players found." />
                     </Viewbox>
-                    <ListView x:Name="FriendsListView" Grid.Row="2" ItemTemplate="{StaticResource FriendsTemplate}" SelectionMode="None" IsItemClickEnabled="True"
+                    <ListView x:Name="FriendsListView" Grid.Row="2" ItemTemplate="{StaticResource FriendsTemplate}"
+                              SelectionMode="None" IsItemClickEnabled="True"
                               ItemClick="FriendsListView_OnItemClick" IsSwipeEnabled="False"
                               HorizontalAlignment="Stretch" ItemsSource="{Binding FriendScrollingCollection}">
                         <ListView.ItemContainerStyle>
@@ -67,8 +72,13 @@
                         <RowDefinition Height="15" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ProgressBar Grid.Row="0" IsIndeterminate="True" Visibility="{Binding MessageGroupLoading, Converter={StaticResource BooleanToVisibilityConverter}}" />
-                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" FontSize="55" TextWrapping="Wrap" LineHeight="60" Grid.Row="1" Visibility="{Binding MessageGroupEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoMessages" Text="There are no new messages."/>
+                    <ProgressBar Grid.Row="0" IsIndeterminate="True"
+                                 Visibility="{Binding MessageGroupLoading, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" FontSize="55" TextWrapping="Wrap"
+                               LineHeight="60" Grid.Row="1"
+                               Visibility="{Binding MessageGroupEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoMessages"
+                               Text="There are no new messages." />
                     <ListView ItemClick="MessagesListView_OnItemClick" x:Name="MessagesListView" Grid.Row="1"
                               SelectionMode="None" IsItemClickEnabled="True"
                               ItemTemplate="{StaticResource MessageDataTemplate}" IsSwipeEnabled="False"
@@ -87,8 +97,13 @@
                         <RowDefinition Height="15" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ProgressBar IsIndeterminate="True" Grid.Row="0" Visibility="{Binding SessionInviteScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" FontSize="55" TextWrapping="Wrap" LineHeight="60" Grid.Row="1" Visibility="{Binding SessionInviteScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}, Mode=TwoWay }" HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoInvites" Text="There are no new Invites"/>
+                    <ProgressBar IsIndeterminate="True" Grid.Row="0"
+                                 Visibility="{Binding SessionInviteScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBlock Style="{StaticResource HeaderTextBlockStyle}" FontSize="55" TextWrapping="Wrap"
+                               LineHeight="60" Grid.Row="1"
+                               Visibility="{Binding SessionInviteScrollingCollection.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" x:Uid="NoInvites"
+                               Text="There are no new Invites" />
                     <ListView ItemClick="InvitesListView_OnItemClick" x:Name="InvitesListView" Grid.Row="1"
                               SelectionMode="None" IsItemClickEnabled="True"
                               IsSwipeEnabled="False"
@@ -109,12 +124,15 @@
                         <viewModels:LiveFromPlaystationPageViewModel />
                     </Grid.DataContext>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ProgressBar Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter} }" IsIndeterminate="True" Grid.Row="0"/>
-                    <ListView Grid.Row="1" ItemClick="LiveBroadcastGridView_OnItemClick" ItemsSource="{Binding LiveBroadcastCollection}"
-                          IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False">
+                    <ProgressBar
+                        Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter} }"
+                        IsIndeterminate="True" Grid.Row="0" />
+                    <ListView Grid.Row="1" ItemClick="LiveBroadcastGridView_OnItemClick"
+                              ItemsSource="{Binding LiveBroadcastCollection}"
+                              IsItemClickEnabled="True" SelectionMode="None" IsSwipeEnabled="False">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -133,12 +151,12 @@
                                             <RowDefinition Height="25" />
                                         </Grid.RowDefinitions>
                                         <controls:ImageLoader Grid.Row="0" VerticalAlignment="Top"
-                                           Source="{Binding PreviewThumbnail}" />
+                                                              Source="{Binding PreviewThumbnail}" />
                                         <StackPanel Margin="1" Grid.Row="1">
                                             <TextBlock FontSize="25" FontWeight="SemiLight" TextWrapping="NoWrap"
-                                                   TextTrimming="WordEllipsis" Text="{Binding Title}" />
+                                                       TextTrimming="WordEllipsis" Text="{Binding Title}" />
                                             <TextBlock FontSize="20" FontWeight="ExtraLight" TextWrapping="Wrap"
-                                                   Text="{Binding GameTitle}" />
+                                                       Text="{Binding GameTitle}" />
                                         </StackPanel>
                                         <Grid Grid.Row="2">
                                             <Grid.Background>
@@ -150,12 +168,13 @@
                                             </Grid.ColumnDefinitions>
                                             <StackPanel Orientation="Horizontal">
                                                 <Image Margin="1,0,0,0"
-                                                   Source="/Assets/phone_trophy_icon_compareTrophies.png" />
+                                                       Source="/Assets/phone_trophy_icon_compareTrophies.png" />
                                                 <TextBlock Margin="5,0,0,0" Text="{Binding Viewers}" FontWeight="Thin"
-                                                       FontSize="20" />
+                                                           FontSize="20" />
                                             </StackPanel>
                                             <TextBlock Grid.Column="1" Margin="0,0,0,1" FontWeight="Thin"
-                                                   HorizontalAlignment="Right" FontSize="20" Text="{Binding Service}" />
+                                                       HorizontalAlignment="Right" FontSize="20"
+                                                       Text="{Binding Service}" />
                                         </Grid>
                                     </Grid>
                                 </Border>
@@ -167,10 +186,12 @@
             <PivotItem Header="What's New" Width="Auto">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="15"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="15" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <ProgressBar IsIndeterminate="True" Visibility="{Binding RecentActivityScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="0"/>
+                    <ProgressBar IsIndeterminate="True"
+                                 Visibility="{Binding RecentActivityScrollingCollection.IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                 Grid.Row="0" />
                     <ListView Grid.Row="1"
                               IsSwipeEnabled="False"
                               SelectionMode="None"
@@ -187,18 +208,19 @@
                     </ListView>
                 </Grid>
             </PivotItem>
-            
+
         </Pivot>
     </Grid>
     <Page.BottomAppBar>
         <CommandBar Opacity="0.8">
-            <AppBarButton x:Uid="RefreshBar" Label="Refresh" x:Name="RefreshButton" Click="RefreshButton_OnClick" Icon="Refresh"/>
+            <AppBarButton x:Uid="RefreshBar" Label="Refresh" x:Name="RefreshButton" Click="RefreshButton_OnClick"
+                          Icon="Refresh" />
             <AppBarButton x:Uid="SearchBar" Label="Search" Click="SearchButton_OnClick" Icon="Find" />
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="Profile" Click="ProfileButton_OnClick" Label="Profile"/>
-                <AppBarButton x:Uid="AddFriendViaEmail" Click="AddFriendViaEmail_OnClick"  Label="Add Friend Via Email"/>
-                <AppBarButton x:Uid="AddFriendViaSMS" Click="AddFriendViaSMS_OnClick"  Label="Add Friend Via SMS"/>
-                <AppBarButton x:Uid="LogoutBar" Click="LogoutButton_OnClick" Label="Logout"/>
+                <AppBarButton x:Uid="Profile" Click="ProfileButton_OnClick" Label="Profile" />
+                <AppBarButton x:Uid="AddFriendViaEmail" Click="AddFriendViaEmail_OnClick" Label="Add Friend Via Email" />
+                <AppBarButton x:Uid="AddFriendViaSMS" Click="AddFriendViaSMS_OnClick" Label="Add Friend Via SMS" />
+                <AppBarButton x:Uid="LogoutBar" Click="LogoutButton_OnClick" Label="Logout" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

@@ -18,8 +18,9 @@ namespace FoulPlay_Windows8.Tools
         public bool IsNews;
         public bool StorePromo;
         public UserAccountEntity UserAccountEntity;
-        private bool _isLoading;
         private bool _isEmpty;
+        private bool _isLoading;
+
         public RecentActivityScrollingCollection()
         {
             HasMoreItems = true;
@@ -52,6 +53,8 @@ namespace FoulPlay_Windows8.Tools
             }
         }
 
+        public new event PropertyChangedEventHandler PropertyChanged;
+
         public IAsyncOperation<LoadMoreItemsResult> LoadMoreItemsAsync(uint count)
         {
             return LoadDataAsync(count).AsAsyncOperation();
@@ -69,8 +72,6 @@ namespace FoulPlay_Windows8.Tools
             return ret;
         }
 
-        public new event PropertyChangedEventHandler PropertyChanged;
-
         public async void LoadFeedList(string username)
         {
             IsLoading = true;
@@ -85,6 +86,7 @@ namespace FoulPlay_Windows8.Tools
             }
             if (feedEntity.feed == null)
             {
+                HasMoreItems = false;
                 IsLoading = false;
                 return;
             }

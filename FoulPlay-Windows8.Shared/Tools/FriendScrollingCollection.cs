@@ -12,7 +12,7 @@ using Foulplay_Windows8.Core.Managers;
 
 namespace FoulPlay_Windows8.Tools
 {
-    public class FriendScrollingCollection : ObservableCollection<FriendsEntity.Friend>, ISupportIncrementalLoading, INotifyPropertyChanged
+    public class FriendScrollingCollection : ObservableCollection<FriendsEntity.Friend>, ISupportIncrementalLoading
     {
         public bool BlockedPlayer;
         public bool FriendStatus;
@@ -34,7 +34,6 @@ namespace FoulPlay_Windows8.Tools
         {
             HasMoreItems = true;
             IsLoading = false;
-            UserAccountEntity = App.UserAccountEntity;
         }
 
         public string Username { get; set; }
@@ -46,7 +45,7 @@ namespace FoulPlay_Windows8.Tools
             private set
             {
                 _isLoading = value;
-                OnPropertyChanged();
+                OnPropertyChanged(new PropertyChangedEventArgs("IsLoading"));
             }
         }
 
@@ -57,7 +56,7 @@ namespace FoulPlay_Windows8.Tools
             private set
             {
                 _isEmpty = value;
-                OnPropertyChanged();
+                OnPropertyChanged(new PropertyChangedEventArgs("IsEmpty"));
             }
         }
 
@@ -67,42 +66,31 @@ namespace FoulPlay_Windows8.Tools
         }
 
         public bool HasMoreItems { get; protected set; }
-        public new event PropertyChangedEventHandler PropertyChanged;
-
         private async Task<LoadMoreItemsResult> LoadDataAsync(uint count)
-        {
-            if (!IsLoading)
-            {
-                LoadFriends(Username);
-            }
-            var ret = new LoadMoreItemsResult {Count = count};
-            return ret;
-        }
-
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public async void LoadFriends(string username)
         {
             IsLoading = true;
             var friendManager = new FriendManager();
             FriendsEntity friendEntity =
                 await
-                    friendManager.GetFriendsList(username, Offset, BlockedPlayer, RecentlyPlayed, PersonalDetailSharing,
+                    friendManager.GetFriendsList(Username, Offset, BlockedPlayer, RecentlyPlayed, PersonalDetailSharing,
                         FriendStatus, Requesting, Requested, OnlineFilter, UserAccountEntity);
             if (friendEntity == null)
             {
-                return;
+                HasMoreItems = false;
+                if (Count <= 0)
+                {
+                    IsEmpty = true;
+                }
+                return new LoadMoreItemsResult { Count = count };
             }
             if (friendEntity.FriendList == null)
             {
                 HasMoreItems = false;
-                return;
+                if (Count <= 0)
+                {
+                    IsEmpty = true;
+                }
+                return new LoadMoreItemsResult { Count = count };
             }
             foreach (FriendsEntity.Friend friend in friendEntity.FriendList)
             {
@@ -122,6 +110,8 @@ namespace FoulPlay_Windows8.Tools
                 }
             }
             IsLoading = false;
+            return new LoadMoreItemsResult { Count = count };
         }
+
     }
 }
