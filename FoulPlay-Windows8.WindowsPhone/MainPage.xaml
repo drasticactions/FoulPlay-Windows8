@@ -9,11 +9,6 @@
     xmlns:tools="using:FoulPlay_Windows8.Tools"
     xmlns:controls="using:FoulPlay_Windows8.Controls"
     mc:Ignorable="d">
-    <Page.Transitions>
-        <TransitionCollection>
-            <EntranceThemeTransition />
-        </TransitionCollection>
-    </Page.Transitions>
     <Page.DataContext>
         <viewModels:MainPageViewModel />
     </Page.DataContext>

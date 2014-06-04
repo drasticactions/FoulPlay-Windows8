@@ -1,6 +1,6 @@
-MainPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.5.9.5_Bundle\FoulPlay-Windows8.WindowsPhone_1.5.9.5_AnyCPU.appx
-SymbolPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\AppPackages\FoulPlay-Windows8.WindowsPhone_1.5.9.5_Test\FoulPlay-Windows8.WindowsPhone_1.5.9.5_AnyCPU.appxsym
-ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.5.9.5_Bundle\FoulPlay-Windows8.WindowsPhone_1.5.9.5_language-ja.appx
-ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.5.9.5_Bundle\FoulPlay-Windows8.WindowsPhone_1.5.9.5_scale-100.appx
-ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.5.9.5_Bundle\FoulPlay-Windows8.WindowsPhone_1.5.9.5_scale-140.appx
-ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.5.9.5_Bundle\FoulPlay-Windows8.WindowsPhone_1.5.9.5_scale-180.appx
+MainPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.6.0.6_Bundle\FoulPlay-Windows8.WindowsPhone_1.6.0.6_AnyCPU.appx
+SymbolPackage=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\AppPackages\FoulPlay-Windows8.WindowsPhone_1.6.0.6_Test\FoulPlay-Windows8.WindowsPhone_1.6.0.6_AnyCPU.appxsym
+ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.6.0.6_Bundle\FoulPlay-Windows8.WindowsPhone_1.6.0.6_language-ja.appx
+ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.6.0.6_Bundle\FoulPlay-Windows8.WindowsPhone_1.6.0.6_scale-100.appx
+ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.6.0.6_Bundle\FoulPlay-Windows8.WindowsPhone_1.6.0.6_scale-140.appx
+ResourcePack=C:\Users\Timothy\Documents\GitHub\FoulPlay-Windows8\FoulPlay-Windows8.WindowsPhone\bin\Release\FoulPlay-Windows8.WindowsPhone_1.6.0.6_Bundle\FoulPlay-Windows8.WindowsPhone_1.6.0.6_scale-180.appx

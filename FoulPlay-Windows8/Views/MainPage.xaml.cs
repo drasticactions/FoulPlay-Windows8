@@ -7,6 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using FoulPlay.Core.Entities;
+using FoulPlay.Core.Tools;
 using FoulPlay_Windows8.Common;
 using Foulplay_Windows8.Core.Entities;
 using Foulplay_Windows8.Core.Managers;

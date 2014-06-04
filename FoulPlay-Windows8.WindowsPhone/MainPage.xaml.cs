@@ -28,7 +28,6 @@ namespace FoulPlay_Windows8
     {
         private UserAccountEntity.User _user;
         private readonly ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
-        private readonly NavigationHelper _navigationHelper;
         private LiveFromPlaystationPageViewModel _liveVm;
         private MainPageViewModel _vm;
 
@@ -37,38 +36,35 @@ namespace FoulPlay_Windows8
             InitializeComponent();
 
             //this.NavigationCacheMode = NavigationCacheMode.Enabled;
-
-            _navigationHelper = new NavigationHelper(this);
-            _navigationHelper.LoadState += NavigationHelper_LoadState;
-            _navigationHelper.SaveState += NavigationHelper_SaveState;
+            InitializeComponent();
+            _vm = (MainPageViewModel)DataContext;
+            _liveVm = (LiveFromPlaystationPageViewModel)LiveFromPlaystationGrid.DataContext;
+            NavigationHelper = new NavigationHelper(this);
+            NavigationHelper.LoadState += navigationHelper_LoadState;
+            NavigationHelper.SaveState += NavigationHelper_SaveState;
         }
 
         /// <summary>
         ///     Gets the <see cref="NavigationHelper" /> associated with this <see cref="Page" />.
         /// </summary>
-        public NavigationHelper NavigationHelper
-        {
-            get { return _navigationHelper; }
-        }
+        public NavigationHelper NavigationHelper { get; private set; }
 
         #region NavigationHelper registration
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            _navigationHelper.OnNavigatedTo(e);
+            NavigationHelper.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            _navigationHelper.OnNavigatedFrom(e);
+            NavigationHelper.OnNavigatedFrom(e);
         }
 
         #endregion
 
-        private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            _vm = (MainPageViewModel) DataContext;
-            _liveVm = (LiveFromPlaystationPageViewModel) LiveFromPlaystationGrid.DataContext;
             if (e.PageState != null && e.PageState.ContainsKey("userEntity") && App.UserAccountEntity == null)
             {
                 string jsonObjectString = e.PageState["userAccountEntity"].ToString();
@@ -77,7 +73,7 @@ namespace FoulPlay_Windows8
                 var user = JsonConvert.DeserializeObject<UserAccountEntity.User>(jsonObjectString);
                 App.UserAccountEntity.SetUserEntity(user);
             }
-            //_vm.CreateMenuPhone();
+            _vm.CreateMenuPhone();
             _user = App.UserAccountEntity.GetUserEntity();
             _vm.SetRecentActivityFeed(_user.OnlineId);
             _vm.SetMessages(_user.OnlineId, App.UserAccountEntity);
